@@ -353,7 +353,7 @@ function SMSPreview() {
           <MessageSquare className="w-4 h-4 text-white" />
         </div>
         <div>
-          <div className="text-xs font-semibold text-gray-900">Salon Lepote</div>
+          <div className="text-xs font-semibold text-gray-900">Zobna ambulanta</div>
           <div className="text-[10px] text-gray-500">SMS sporočilo</div>
         </div>
       </div>
@@ -366,7 +366,7 @@ function SMSPreview() {
             Nasvet: Izogibajte se temni hrani in pijači (kava, rdeče vino) naslednjih 48 ur za najboljše rezultate.
           </span>
           <span className="block mt-2 font-semibold text-purple-700">
-            – Salon Lepote
+            – Vaša zobna ambulanta
           </span>
         </p>
       </div>

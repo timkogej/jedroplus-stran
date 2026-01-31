@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { GradientIcon } from "@/components/ui/gradient-icon";
+import { useInquiry } from "@/lib/inquiry-context";
 
 interface Package {
   name: string;
@@ -77,15 +78,11 @@ const packages: Package[] = [
   },
 ];
 
-interface PackagesSectionProps {
-  onSelectPackage: (packageName: string) => void;
-}
+export default function PackagesSection() {
+  const { setPreselectedTopic } = useInquiry();
 
-export default function PackagesSection({
-  onSelectPackage,
-}: PackagesSectionProps) {
-  const handlePackageSelect = (packageName: string) => {
-    onSelectPackage(packageName);
+  const handlePackageSelect = () => {
+    setPreselectedTopic("enterprise");
     const element = document.querySelector("#povprasevanje");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -172,7 +169,7 @@ export default function PackagesSection({
               {/* CTA Button */}
               {pkg.name === "Enterprise" ? (
                 <button
-                  onClick={() => handlePackageSelect(pkg.name)}
+                  onClick={() => handlePackageSelect()}
                   className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 ${
                     pkg.popular
                       ? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:scale-105"

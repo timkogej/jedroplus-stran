@@ -11,7 +11,6 @@ interface FreeDemoSectionProps {
   bullets?: string[];
   modalTitle?: string;
   modalDescription?: string;
-  inquiryTag?: string;
 }
 
 export default function FreeDemoSection({
@@ -21,7 +20,6 @@ export default function FreeDemoSection({
   bullets,
   modalTitle,
   modalDescription,
-  inquiryTag,
 }: FreeDemoSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -82,7 +80,6 @@ export default function FreeDemoSection({
         onOpenChange={setIsOpen}
         title={modalTitle}
         description={modalDescription}
-        inquiryTag={inquiryTag}
       />
     </section>
   );

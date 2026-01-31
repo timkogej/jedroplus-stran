@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 import CalendarPreview from "./CalendarPreview";
+import { useInquiry } from "@/lib/inquiry-context";
 
 const benefits = [
   "Manj no-show in odpovedi – personalizirani opomniki pred terminom",
@@ -13,11 +14,18 @@ const benefits = [
 ];
 
 export default function HeroSection() {
+  const { setPreselectedTopic } = useInquiry();
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleInquiryClick = () => {
+    setPreselectedTopic("jedroplus_app");
+    scrollToSection("#povprasevanje");
   };
 
   return (
@@ -94,7 +102,7 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <button
-                onClick={() => scrollToSection("#povprasevanje")}
+                onClick={handleInquiryClick}
                 className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Pošlji povpraševanje

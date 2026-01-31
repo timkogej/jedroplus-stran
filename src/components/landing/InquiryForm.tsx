@@ -1,25 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { CheckCircle, ChevronDown, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle, Loader2 } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
-import { submitInquiry } from "@/lib/inquiry";
-
-interface InquiryFormProps {
-  selectedPackage: string | null;
-  onClearPackage: () => void;
-}
+import {
+  TOPIC_OPTIONS,
+  TopicSlug,
+  submitUnifiedInquiry,
+  buildMessage,
+} from "@/lib/inquiry";
+import { useInquiry } from "@/lib/inquiry-context";
+import { usePathname } from "next/navigation";
 
 interface FormData {
-  companyName: string;
-  industry: string;
   fullName: string;
   email: string;
   phone: string;
-  companySize: string;
-  goals: string;
-  message: string;
+  company: string;
+  primaryAnswer: string;
+  additionalMessage: string;
   gdprConsent: boolean;
 }
 
@@ -27,33 +27,40 @@ interface FormErrors {
   [key: string]: string;
 }
 
-export default function InquiryForm({
-  selectedPackage,
-  onClearPackage,
-}: InquiryFormProps) {
+export default function InquiryForm() {
+  const pathname = usePathname();
+  const { preselectedTopic, setPreselectedTopic } = useInquiry();
+  const [selectedTopic, setSelectedTopic] = useState<TopicSlug | null>(null);
+
+  // Apply preselected topic when it changes
+  useEffect(() => {
+    if (preselectedTopic) {
+      setSelectedTopic(preselectedTopic);
+      // Clear the preselection after applying
+      setPreselectedTopic(null);
+    }
+  }, [preselectedTopic, setPreselectedTopic]);
   const [formData, setFormData] = useState<FormData>({
-    companyName: "",
-    industry: "",
     fullName: "",
     email: "",
     phone: "",
-    companySize: "",
-    goals: "",
-    message: "",
+    company: "",
+    primaryAnswer: "",
+    additionalMessage: "",
     gdprConsent: false,
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const selectedTopicData = TOPIC_OPTIONS.find((t) => t.slug === selectedTopic);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.companyName.trim()) {
-      newErrors.companyName = "Ime podjetja je obvezno";
-    }
-    if (!formData.industry.trim()) {
-      newErrors.industry = "Dejavnost je obvezna";
+    if (!selectedTopic) {
+      newErrors.topic = "Izberite temo povpraševanja";
     }
     if (!formData.fullName.trim()) {
       newErrors.fullName = "Ime in priimek sta obvezna";
@@ -62,6 +69,9 @@ export default function InquiryForm({
       newErrors.email = "E-mail je obvezen";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Vnesite veljaven e-mail";
+    }
+    if (selectedTopic && !formData.primaryAnswer.trim()) {
+      newErrors.primaryAnswer = "To polje je obvezno";
     }
     if (!formData.gdprConsent) {
       newErrors.gdprConsent = "Morate potrditi strinjanje";
@@ -74,36 +84,56 @@ export default function InquiryForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    if (!validateForm() || !selectedTopic || !selectedTopicData) return;
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    await submitInquiry({
-      ...formData,
-      source: selectedPackage
-        ? `Paket: ${selectedPackage}`
-        : "Splošno povpraševanje",
-    });
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      await submitUnifiedInquiry({
+        formType: selectedTopic,
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone || undefined,
+        company: formData.company || undefined,
+        message: buildMessage(
+          selectedTopicData.label,
+          formData.primaryAnswer,
+          formData.additionalMessage
+        ),
+        source: "jedroplus.com",
+        page: pathname,
+        meta: {
+          topicLabel: selectedTopicData.label,
+          primaryAnswer: formData.primaryAnswer,
+          additionalMessage: formData.additionalMessage,
+        },
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      void error;
+      setSubmitError(
+        "Prišlo je do napake. Poskusite znova ali nas kontaktirajte neposredno."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setFormData({
-      companyName: "",
-      industry: "",
       fullName: "",
       email: "",
       phone: "",
-      companySize: "",
-      goals: "",
-      message: "",
+      company: "",
+      primaryAnswer: "",
+      additionalMessage: "",
       gdprConsent: false,
     });
+    setSelectedTopic(null);
     setErrors({});
     setIsSubmitted(false);
-    onClearPackage();
+    setSubmitError(null);
   };
 
   const handleChange = (
@@ -119,11 +149,21 @@ export default function InquiryForm({
       [name]: type === "checkbox" ? checked : value,
     }));
 
-    // Clear error when field is modified
     if (errors[name]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
         delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
+  const handleTopicSelect = (slug: TopicSlug) => {
+    setSelectedTopic(slug);
+    if (errors.topic) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors.topic;
         return newErrors;
       });
     }
@@ -174,38 +214,15 @@ export default function InquiryForm({
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Pošlji povpraševanje za{" "}
+            Pošlji{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Jedro+
+              povpraševanje
             </span>
           </h2>
           <p className="text-lg lg:text-xl text-gray-600">
-            Povej nam nekaj o podjetju in pripravimo predlog paketa +
-            priporočila
+            Izberite temo in nam povejte, kako vam lahko pomagamo
           </p>
         </motion.div>
-
-        {/* Selected Package Badge */}
-        {selectedPackage && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8 flex justify-center"
-          >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-full px-4 py-2">
-              <span className="text-gray-700">Izbran paket:</span>
-              <span className="font-semibold text-primary">
-                {selectedPackage}
-              </span>
-              <button
-                onClick={onClearPackage}
-                className="ml-1 p-1 hover:bg-gray-200 rounded-full transition-colors"
-              >
-                <X className="w-4 h-4 text-gray-900" />
-              </button>
-            </div>
-          </motion.div>
-        )}
 
         {/* Form */}
         <motion.form
@@ -215,57 +232,40 @@ export default function InquiryForm({
           onSubmit={handleSubmit}
           className="bg-gray-50 rounded-3xl p-6 lg:p-10"
         >
+          {/* Topic Selector */}
+          <div className="mb-8">
+            <label className="block text-sm font-medium text-gray-700 mb-3">
+              Kaj vas zanima? *
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {TOPIC_OPTIONS.map((topic) => (
+                <button
+                  key={topic.slug}
+                  type="button"
+                  onClick={() => handleTopicSelect(topic.slug)}
+                  className={`px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ${
+                    selectedTopic === topic.slug
+                      ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
+                      : "bg-white border border-gray-200 text-gray-700 hover:border-primary hover:text-primary"
+                  }`}
+                >
+                  {topic.label}
+                </button>
+              ))}
+            </div>
+            {errors.topic && (
+              <p className="text-red-500 text-sm mt-2">{errors.topic}</p>
+            )}
+          </div>
+
+          {/* Error Message */}
+          {submitError && (
+            <div className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+              {submitError}
+            </div>
+          )}
+
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Company Name */}
-            <div>
-              <label
-                htmlFor="companyName"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Ime podjetja *
-              </label>
-              <input
-                type="text"
-                id="companyName"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-xl border ${
-                  errors.companyName ? "border-red-500" : "border-gray-200"
-                } focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all`}
-                placeholder="Ime vašega podjetja"
-              />
-              {errors.companyName && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.companyName}
-                </p>
-              )}
-            </div>
-
-            {/* Industry */}
-            <div>
-              <label
-                htmlFor="industry"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Dejavnost / panoga *
-              </label>
-              <input
-                type="text"
-                id="industry"
-                name="industry"
-                value={formData.industry}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-xl border ${
-                  errors.industry ? "border-red-500" : "border-gray-200"
-                } focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all`}
-                placeholder="npr. frizerski salon, klinika..."
-              />
-              {errors.industry && (
-                <p className="text-red-500 text-sm mt-1">{errors.industry}</p>
-              )}
-            </div>
-
             {/* Full Name */}
             <div>
               <label
@@ -333,71 +333,90 @@ export default function InquiryForm({
               />
             </div>
 
-            {/* Company Size */}
+            {/* Company */}
             <div>
               <label
-                htmlFor="companySize"
+                htmlFor="company"
                 className="block text-sm font-medium text-gray-700 mb-2"
               >
-                Velikost podjetja
+                Ime podjetja
               </label>
-              <div className="relative">
-                <select
-                  id="companySize"
-                  name="companySize"
-                  value={formData.companySize}
-                  onChange={handleChange}
-                  aria-label="Velikost podjetja"
-                  className="w-full appearance-none px-4 py-3 pr-10 rounded-xl border border-gray-200 bg-white shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                >
-                  <option value="">Izberite...</option>
-                  <option value="1">1 oseba</option>
-                  <option value="2-5">2-5</option>
-                  <option value="6-10">6-10</option>
-                  <option value="11-20">11-20</option>
-                  <option value="21+">21+</option>
-                </select>
-                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
-              </div>
-            </div>
-
-            {/* Goals */}
-            <div className="md:col-span-2">
-              <label
-                htmlFor="goals"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Kaj želite z Jedro+ izboljšati?
-              </label>
-              <textarea
-                id="goals"
-                name="goals"
-                value={formData.goals}
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
                 onChange={handleChange}
-                rows={3}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                placeholder="Opišite vaše glavne cilje..."
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                placeholder="Ime vašega podjetja"
               />
             </div>
 
-            {/* Additional Message */}
-            <div className="md:col-span-2">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Dodatno sporočilo
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={3}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                placeholder="Karkoli nas želite vprašati..."
-              />
-            </div>
+            {/* Conditional Fields - Animated */}
+            <AnimatePresence>
+              {selectedTopic && selectedTopicData && (
+                <>
+                  {/* Primary Question */}
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="md:col-span-2 overflow-hidden"
+                  >
+                    <label
+                      htmlFor="primaryAnswer"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      {selectedTopicData.questionLabel} *
+                    </label>
+                    <textarea
+                      id="primaryAnswer"
+                      name="primaryAnswer"
+                      value={formData.primaryAnswer}
+                      onChange={handleChange}
+                      rows={3}
+                      className={`w-full px-4 py-3 rounded-xl border ${
+                        errors.primaryAnswer
+                          ? "border-red-500"
+                          : "border-gray-200"
+                      } focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none`}
+                      placeholder={selectedTopicData.placeholder}
+                    />
+                    {errors.primaryAnswer && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.primaryAnswer}
+                      </p>
+                    )}
+                  </motion.div>
+
+                  {/* Additional Message */}
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="md:col-span-2 overflow-hidden"
+                  >
+                    <label
+                      htmlFor="additionalMessage"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Dodatno sporočilo
+                    </label>
+                    <textarea
+                      id="additionalMessage"
+                      name="additionalMessage"
+                      value={formData.additionalMessage}
+                      onChange={handleChange}
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                      placeholder="Karkoli nas želite vprašati..."
+                    />
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
 
             {/* GDPR Consent */}
             <div className="md:col-span-2">
@@ -411,7 +430,7 @@ export default function InquiryForm({
                 />
                 <span className="text-sm text-gray-600">
                   Strinjam se, da se moji podatki uporabijo za kontakt v zvezi z
-                  aplikacijo Jedro+. *
+                  mojim povpraševanjem. *
                 </span>
               </label>
               {errors.gdprConsent && (
@@ -427,13 +446,20 @@ export default function InquiryForm({
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
+              className={`w-full bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${
                 isSubmitting
                   ? "opacity-70 cursor-not-allowed"
                   : "hover:shadow-xl hover:scale-[1.02]"
               }`}
             >
-              {isSubmitting ? "Pošiljam..." : "Pošlji povpraševanje"}
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Pošiljam...
+                </>
+              ) : (
+                "Pošlji povpraševanje"
+              )}
             </button>
           </div>
         </motion.form>
