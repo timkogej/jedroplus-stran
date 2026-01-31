@@ -30,7 +30,7 @@ const packages: Package[] = [
       "Email pošiljanje",
       "Celotna analitika",
       "Booking link",
-      "Različni booking template-i",
+      "Različni booking linki",
     ],
   },
   {
@@ -39,17 +39,12 @@ const packages: Package[] = [
     subtitle: "Za podjetja, ki želijo več zasedenosti in manj praznih terminov",
     description: "Vključuje AI pomočnike, Lost Leads in SMS opomnike.",
     features: [
-      "Baza strank",
-      "Baza terminov",
-      "Baza storitev in osebja",
-      "Personalizirani opomniki pred in po terminu",
-      "Email pošiljanje",
-      "Celotna analitika",
-      "Booking link",
-      "Različni booking template-i",
+      "Vse iz Jedro Plus",
+      "Različni booking linki",
       "Asistent+",
       "Lost Leads sistem",
       "SMS pošiljanje",
+      "Email pošiljanje",
     ],
     popular: true,
   },
@@ -59,17 +54,8 @@ const packages: Package[] = [
     subtitle: "Za podjetja, ki želijo maksimalno avtomatizacijo",
     description: "Celoten nabor AI funkcij za rast in komunikacijo.",
     features: [
-      "Baza strank",
-      "Baza terminov",
-      "Baza storitev in osebja",
-      "Personalizirani opomniki pred in po terminu",
-      "Email pošiljanje",
-      "Celotna analitika",
-      "Booking link",
-      "Različni booking template-i",
-      "Asistent+",
-      "Lost Leads sistem",
-      "SMS pošiljanje",
+      "Vse iz Jedro Pro",
+      "Različni booking linki",
       "Receptionist+",
       "Chatbot+",
       "SMS pošiljanje (višja kvota)",
@@ -84,7 +70,7 @@ const packages: Package[] = [
     features: [
       "Custom AI funkcije prilagojene podjetju",
       "Premium booking page",
-      "Različni booking template-i",
+      "Različni booking linki",
       "Dodatne zahteve po meri",
     ],
     ctaLabel: "Pošlji povpraševanje",
@@ -198,7 +184,7 @@ export default function PackagesSection({
               ) : (
                 <Link
                   href="/prihaja-kmalu"
-                  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 text-center ${
+                  className={`inline-flex items-center justify-center w-full py-4 rounded-xl font-semibold transition-all duration-300 ${
                     pkg.popular
                       ? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:scale-105"
                       : "bg-gray-100 text-gray-900 hover:bg-gray-200"

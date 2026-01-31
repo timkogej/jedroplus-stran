@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserPlus, Import, CalendarDays, Brain } from "lucide-react";
+import { UserPlus, Upload, CalendarDays, Brain } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 
 const steps = [
@@ -14,7 +14,7 @@ const steps = [
   },
   {
     number: "02",
-    icon: Import,
+    icon: Upload,
     title: "Uvoz ali vnos strank",
     description:
       "Uvozimo obstoječo bazo ali začnete z vnosom v aplikaciji",

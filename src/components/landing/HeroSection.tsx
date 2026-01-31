@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Calendar, Users, TrendingUp, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
+import CalendarPreview from "./CalendarPreview";
 
 const benefits = [
   "Manj no-show in odpovedi – personalizirani opomniki pred terminom",
@@ -107,132 +108,14 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Visual */}
+          {/* Right Column - Premium Calendar Preview */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="order-1 lg:order-2"
           >
-            <div className="relative">
-              {/* Main Dashboard Card */}
-              <div className="relative bg-white rounded-3xl shadow-2xl p-6 transform perspective-1000 rotate-y-[-5deg]">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">
-                      Nadzorna plošča
-                    </h3>
-                    <p className="text-sm text-gray-500">Januar 2026</p>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 bg-secondary/10 rounded-full">
-                    <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-                    <span className="text-xs font-medium text-secondary">
-                      AI Asistent+ Aktiviran
-                    </span>
-                  </div>
-                </div>
-
-                {/* Stats Cards */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-4">
-                    <GradientIcon
-                      icon={Users}
-                      variant="gradient"
-                      className="w-6 h-6 mb-2"
-                    />
-                    <div className="text-2xl font-bold text-gray-900">247</div>
-                    <div className="text-sm text-gray-500">Strank</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-2xl p-4">
-                    <GradientIcon
-                      icon={Calendar}
-                      variant="gradient"
-                      className="w-6 h-6 mb-2"
-                    />
-                    <div className="text-2xl font-bold text-gray-900">89</div>
-                    <div className="text-sm text-gray-500">Terminov</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-2xl p-4">
-                    <GradientIcon
-                      icon={TrendingUp}
-                      variant="gradient"
-                      className="w-6 h-6 mb-2"
-                    />
-                    <div className="text-2xl font-bold text-gray-900">+24%</div>
-                    <div className="text-sm text-gray-500">Rast</div>
-                  </div>
-                </div>
-
-                {/* Mini Calendar */}
-                <div className="bg-gray-50 rounded-2xl p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold text-gray-700">
-                      Današnji termini
-                    </span>
-                    <span className="text-xs text-primary font-medium">
-                      Poglej vse
-                    </span>
-                  </div>
-                  <div className="space-y-2">
-                    {[
-                      {
-                        time: "09:00",
-                        name: "Ana Novak",
-                        service: "Striženje",
-                      },
-                      {
-                        time: "10:30",
-                        name: "Marko Horvat",
-                        service: "Barvanje",
-                      },
-                      {
-                        time: "14:00",
-                        name: "Maja Kranjc",
-                        service: "Styling",
-                      },
-                    ].map((appointment, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between bg-white rounded-lg p-2.5 shadow-sm"
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">
-                            {appointment.time}
-                          </span>
-                          <span className="text-sm font-medium text-gray-800">
-                            {appointment.name}
-                          </span>
-                        </div>
-                        <span className="text-xs text-gray-500">
-                          {appointment.service}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating AI Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8 }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3"
-              >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                  <GradientIcon icon={Sparkles} variant="gradient" className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-900">
-                    AI priporočilo
-                  </p>
-                  <p className="text-xs text-gray-500">
-                    3 stranke za follow-up
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+            <CalendarPreview />
           </motion.div>
         </div>
       </div>
