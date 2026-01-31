@@ -1,0 +1,17 @@
+export { default as Navigation } from "./Navigation";
+export { default as HeroSection } from "./HeroSection";
+export { default as BenefitsSection } from "./BenefitsSection";
+export { default as FeaturesSection } from "./FeaturesSection";
+export { default as PersonalizationSection } from "./PersonalizationSection";
+export { default as PackagesSection } from "./PackagesSection";
+export { default as AISection } from "./AISection";
+export { default as TargetAudienceSection } from "./TargetAudienceSection";
+export { default as HowItWorksSection } from "./HowItWorksSection";
+export { default as WhyChooseSection } from "./WhyChooseSection";
+export { default as MidPageCTASection } from "./MidPageCTASection";
+export { default as TestimonialsSection } from "./TestimonialsSection";
+export { default as FAQSection } from "./FAQSection";
+export { default as FreeDemoSection } from "./FreeDemoSection";
+export { default as FreeDemoModal } from "./FreeDemoModal";
+export { default as InquiryForm } from "./InquiryForm";
+export { default as Footer } from "./Footer";
