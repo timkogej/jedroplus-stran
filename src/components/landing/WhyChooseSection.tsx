@@ -47,7 +47,8 @@ export default function WhyChooseSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -64,11 +65,11 @@ export default function WhyChooseSection() {
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
+              className="bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-lg transition-colors duration-300"
             >
               <div className="mb-4">
                 <GradientIcon
@@ -89,7 +90,8 @@ export default function WhyChooseSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 lg:p-12"
         >
           <div className="grid md:grid-cols-2 gap-8 text-center">

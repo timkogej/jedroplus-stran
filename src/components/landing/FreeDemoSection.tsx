@@ -29,7 +29,8 @@ export default function FreeDemoSection({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="relative overflow-hidden rounded-3xl bg-white p-8 lg:p-10 shadow-xl border border-gray-100"
         >
           <div className="absolute -top-24 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />

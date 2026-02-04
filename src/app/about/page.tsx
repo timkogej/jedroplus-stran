@@ -52,6 +52,13 @@ export default function AboutPage() {
             storitev. Zato gradimo sistem, ki poveže termine, stranke,
             personalizirane opomnike in AI pomočnike v eno jedro.
           </p>
+          <p>
+            Želimo postaviti nov standard na področju opomnikov in delovanja
+            storitvenih podjetij. Verjamemo, da mora biti komunikacija s
+            strankami personalizirana, pravočasna in profesionalna – brez
+            dodatnega ročnega dela. S tem podjetjem pomagamo, da se osredotočijo
+            na to, kar znajo najbolje: kakovostne storitve za svoje stranke.
+          </p>
         </div>
       </section>
 

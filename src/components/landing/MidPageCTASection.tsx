@@ -26,7 +26,8 @@ export default function MidPageCTASection({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-gray-100 text-center"
         >
           <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">

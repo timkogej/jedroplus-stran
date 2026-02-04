@@ -24,14 +24,14 @@ const packages: Package[] = [
     description:
       "Koledar, baze in opomniki, ki brez zapletov uredijo vsakdan.",
     features: [
-      "Baza strank",
-      "Baza terminov",
+      "Baza strank in terminov",
       "Baza storitev in osebja",
       "Personalizirani opomniki pred in po terminu",
       "Email pošiljanje",
       "Celotna analitika",
-      "Booking link",
-      "Različni booking linki",
+      "Spletno Naročanje",
+      "Različni dizajni spletnega naročanja",
+      "Asistent+",
     ],
   },
   {
@@ -41,11 +41,11 @@ const packages: Package[] = [
     description: "Vključuje AI pomočnike, Lost Leads in SMS opomnike.",
     features: [
       "Vse iz Jedro Plus",
-      "Različni booking linki",
-      "Asistent+",
+      "Chatbot+",
       "Lost Leads sistem",
       "SMS pošiljanje",
       "Email pošiljanje",
+      "Dodatni dizajni spletnega naročanja",
     ],
     popular: true,
   },
@@ -56,11 +56,11 @@ const packages: Package[] = [
     description: "Celoten nabor AI funkcij za rast in komunikacijo.",
     features: [
       "Vse iz Jedro Pro",
-      "Različni booking linki",
       "Receptionist+",
-      "Chatbot+",
       "SMS pošiljanje (višja kvota)",
       "Email pošiljanje (višja kvota)",
+      "Premium dizajn spletnega naročanja",
+      "Premium chatbot dizajn",
     ],
   },
   {
@@ -96,11 +96,12 @@ export default function PackagesSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Paketi Jedro+ – izberi paket glede na to,{" "}
+            Izberi paket glede na to,{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               koliko želiš avtomatizirati
             </span>
@@ -118,10 +119,10 @@ export default function PackagesSection() {
               key={pkg.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -12 }}
-              className={`relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 ${
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -12, transition: { duration: 0.2 } }}
+              className={`relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 ${
                 pkg.popular
                   ? "border-2 border-primary ring-4 ring-primary/10"
                   : "border border-gray-100"

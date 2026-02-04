@@ -15,7 +15,8 @@ export default function AISection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -37,7 +38,8 @@ export default function AISection() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="bg-white rounded-3xl p-8 shadow-xl"
           >
             <div className="flex items-start gap-4 mb-6">
@@ -87,7 +89,8 @@ export default function AISection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="bg-white rounded-3xl p-8 shadow-xl"
           >
             <div className="flex items-start gap-4 mb-6">
@@ -141,7 +144,8 @@ export default function AISection() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="bg-white rounded-3xl p-8 shadow-xl"
           >
             <div className="flex items-start gap-4 mb-6">
