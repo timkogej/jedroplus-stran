@@ -128,36 +128,40 @@ export default function Navigation() {
             exit={{ opacity: 0, y: -10 }}
             className="md:hidden bg-white border-t shadow-lg"
           >
-            <div className="px-4 py-6 space-y-2">
-              {navLinks.map((link) => (
+            <div className="px-4 py-4">
+              <div className="space-y-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={cn(
+                      "block w-full rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                      isActive(link.href)
+                        ? "bg-primary/10 text-primary font-semibold"
+                        : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
+                <button
+                  type="button"
+                  onClick={(event) => event.preventDefault()}
+                  className="block w-full rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors text-left"
+                >
+                  Prijavi se
+                </button>
                 <Link
-                  key={link.name}
-                  href={link.href}
-                  className={cn(
-                    "block w-full rounded-xl px-4 py-3 text-base font-medium transition-colors",
-                    isActive(link.href)
-                      ? "bg-gray-100 text-gray-900"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                  )}
+                  href="/prihaja-kmalu"
+                  className="flex items-center justify-center w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.name}
+                  Preizkusi zdaj
                 </Link>
-              ))}
-              <button
-                type="button"
-                onClick={(event) => event.preventDefault()}
-                className="block w-full rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
-              >
-                Prijavi se
-              </button>
-              <Link
-                href="/prihaja-kmalu"
-                className="w-full mt-4 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Preizkusi zdaj
-              </Link>
+              </div>
             </div>
           </motion.div>
         )}

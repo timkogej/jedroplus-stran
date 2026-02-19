@@ -52,6 +52,15 @@ body {
   background-color: rgba(91, 79, 233, 0.2);
 }
 
+/* Hide scrollbar for slider */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Smooth scroll and animation optimizations */
 @media (prefers-reduced-motion: no-preference) {
   html {

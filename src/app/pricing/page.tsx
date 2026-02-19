@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Navigation, Footer } from "@/components/landing";
+import { Navigation, Footer, IntegrationSection } from "@/components/landing";
 
 const plans = [
   {
@@ -253,6 +253,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+      <IntegrationSection />
       <Footer />
     </main>
   );

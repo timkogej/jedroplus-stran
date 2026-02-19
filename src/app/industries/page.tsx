@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { industries } from "@/lib/industries-data";
 import {
@@ -16,6 +18,29 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  Scissors,
+  Stethoscope,
+  Sparkles,
+  Dumbbell,
+  Car,
+  MessageCircle,
+  Monitor,
+  Briefcase,
+  type LucideIcon,
+} from "lucide-react";
+import { GradientIcon } from "@/components/ui/gradient-icon";
+
+const industryIconMap: Record<string, LucideIcon> = {
+  saloni: Scissors,
+  klinike: Stethoscope,
+  wellness: Sparkles,
+  fitnes: Dumbbell,
+  servisi: Car,
+  svetovanje: MessageCircle,
+  agencije: Monitor,
+  ostalo: Briefcase,
+};
 
 export default function IndustriesPage() {
   return (
@@ -44,9 +69,16 @@ export default function IndustriesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry) => (
+            {industries.map((industry) => {
+              const Icon = industryIconMap[industry.id];
+              return (
               <Dialog key={industry.id}>
                 <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                  {Icon && (
+                    <div className="mb-4">
+                      <GradientIcon icon={Icon} variant="gradient" className="w-7 h-7" />
+                    </div>
+                  )}
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {industry.title}
                   </h3>
@@ -95,7 +127,8 @@ export default function IndustriesPage() {
                   </div>
                 </DialogContent>
               </Dialog>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

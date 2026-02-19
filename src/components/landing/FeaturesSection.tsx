@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import {
   Bell,
@@ -14,6 +15,8 @@ import {
   Sparkles,
   Headphones,
   Bot,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 
@@ -50,7 +53,7 @@ const features = [
   },
   {
     icon: Link,
-    title: "Booking link / spletno naročanje",
+    title: "Spletno naročanje",
     description:
       "Deljiva povezava za hitro naročanje, kjerkoli se stranka nahaja.",
   },
@@ -93,6 +96,18 @@ const features = [
 ];
 
 export default function FeaturesSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const card = scrollRef.current.querySelector("[data-card]") as HTMLElement;
+    const cardWidth = card ? card.offsetWidth + 24 : 320;
+    scrollRef.current.scrollBy({
+      left: dir === "right" ? cardWidth * 2 : -cardWidth * 2,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       id="funkcije"
@@ -105,9 +120,9 @@ export default function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Funkcije, ki jih storitvena podjetja{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               res potrebujejo
@@ -119,34 +134,63 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="mb-4">
-                <GradientIcon
-                  icon={feature.icon}
-                  variant="gradient"
-                  className="w-7 h-7"
-                />
+        {/* Slider */}
+        <div className="relative">
+          {/* Left Arrow */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 z-10 bg-white rounded-full w-10 h-10 items-center justify-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-200 hidden sm:flex"
+            aria-label="Nazaj"
+          >
+            <ChevronLeft className="w-5 h-5 text-gray-700" />
+          </button>
+
+          {/* Cards */}
+          <motion.div
+            ref={scrollRef}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+          >
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                data-card="true"
+                className="snap-start flex-none w-[82vw] sm:w-[45%] lg:w-[calc(33.333%-16px)] bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="mb-4">
+                  <GradientIcon
+                    icon={feature.icon}
+                    variant="gradient"
+                    className="w-7 h-7"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 z-10 bg-white rounded-full w-10 h-10 items-center justify-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-200 hidden sm:flex"
+            aria-label="Naprej"
+          >
+            <ChevronRight className="w-5 h-5 text-gray-700" />
+          </button>
         </div>
+
+        {/* Mobile scroll hint */}
+        <p className="text-center text-sm text-gray-400 mt-3 sm:hidden">
+          Povleci za več funkcij →
+        </p>
       </div>
     </section>
   );

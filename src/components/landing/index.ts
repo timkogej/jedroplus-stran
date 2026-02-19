@@ -15,4 +15,5 @@ export { default as FAQSection } from "./FAQSection";
 export { default as FreeDemoSection } from "./FreeDemoSection";
 export { default as FreeDemoModal } from "./FreeDemoModal";
 export { default as InquiryForm } from "./InquiryForm";
+export { default as IntegrationSection } from "./IntegrationSection";
 export { default as Footer } from "./Footer";

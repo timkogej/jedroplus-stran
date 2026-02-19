@@ -7,10 +7,10 @@ import CalendarPreview from "./CalendarPreview";
 import { useInquiry } from "@/lib/inquiry-context";
 
 const benefits = [
-  "Manj no-show in odpovedi – personalizirani opomniki pred terminom",
-  "Več ponovnih obiskov – follow-up po terminu z navodili (brez ročnega dela)",
-  "Lost Leads sistem – ponovno aktivirajte neaktivne stranke",
-  "AI asistenti – Asistent+, Receptionist+ in Chatbot+ za komunikacijo: sprejem klicev, pomoč pri rezervacijah in hitri odgovori strankam.",
+  "Manj pozabljenih terminov in odpovedi – pametni opomniki skrbijo za vsak korak",
+  "Luksuzna izkušnja za stranke – personalizirani follow-up z navodili, brez ročnega dela",
+  "Polnejši urnik – Lost Leads sistem samodejno povrne neaktivne stranke",
+  "AI asistenti 24/7 – Asistent+, Receptionist+ in Chatbot+ poskrbijo za stranke, ko ste zasedeni",
 ];
 
 export default function HeroSection() {
@@ -59,7 +59,7 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-5xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
               JedroPlus – vse kar vaše storitveno podjetje potrebuje,{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 na enem mestu
@@ -68,10 +68,10 @@ export default function HeroSection() {
 
             {/* Subtitle */}
             <p className="text-lg lg:text-xl text-gray-600 leading-relaxed mb-8">
-              Jedro+ je all-in-one aplikacija za storitvena podjetja. Združi
-              koledar terminov, baze strank in storitev, personalizirane
-              opomnike, Lost Leads ter AI asistente v eno preprosto, pregledno
-              rešitev.
+              Jedro+ je aplikacija, ki združuje vse, kar vaše storitveno podjetje
+              potrebuje za uspešno delovanje. Vključuje napredne AI funkcije, ki
+              zmanjšujejo ročno delo, dvigujejo raven komunikacije in vsakemu
+              naročilu dodajo profesionalno, osebno noto.
             </p>
 
             {/* Benefits */}
@@ -118,8 +118,8 @@ export default function HeroSection() {
 
           {/* Right Column - Premium Calendar Preview */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="order-2 lg:order-2"
           >

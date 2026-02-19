@@ -116,7 +116,7 @@ const appointments: Appointment[] = [
     day: 5,
     startTime: '09:00',
     endTime: '10:30',
-    clientName: 'Marko Kranjc',
+    clientName: 'Špela Kranjc',
     serviceDescription: 'Nohti',
     gradient: 'vibrant',
     duration: 90
@@ -260,8 +260,8 @@ function AppointmentCard({ appointment, delay, column, totalColumns }: Appointme
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay }}
       className={`
         absolute
@@ -283,13 +283,13 @@ function AppointmentCard({ appointment, delay, column, totalColumns }: Appointme
         width: `${widthPercent - 1}%`,
       }}
     >
-      <div className="text-[10px] font-semibold bg-white/20 px-1.5 py-0.5 rounded w-fit mb-1">
+      <div className="text-[10px] font-semibold opacity-90 mb-1">
         {appointment.startTime}
       </div>
       <div className="font-bold text-[11px] truncate">
         {appointment.clientName}
       </div>
-      <div className="text-[9px] opacity-90 truncate mt-0.5">
+      <div className="text-[9px] opacity-80 truncate mt-0.5">
         {getServiceName(appointment.gradient)}
       </div>
     </motion.div>
@@ -385,9 +385,9 @@ export default function CalendarPreview() {
   return (
     <div className="relative">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
         className="
           relative w-full max-w-lg
           bg-gradient-to-br from-white/90 via-white/80 to-white/70
@@ -421,22 +421,9 @@ export default function CalendarPreview() {
           <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-purple-100 rounded-md">
             <Calendar className="w-3.5 h-3.5 text-purple-600" />
             <span className="text-xs font-semibold text-purple-900">
-              {visibleAppointments.length} terminov
+              {visibleAppointments.length}
             </span>
           </div>
-        </div>
-
-        {/* View Toggle - simplified */}
-        <div className="flex items-center gap-0.5 bg-gray-100/50 rounded-lg p-0.5 mb-4 w-fit mx-auto">
-          <button className="px-3 py-1.5 text-xs font-medium text-gray-500 rounded transition-colors">
-            Dan
-          </button>
-          <button className="px-3 py-1.5 text-xs font-medium bg-white text-purple-600 rounded shadow-sm">
-            Teden
-          </button>
-          <button className="px-3 py-1.5 text-xs font-medium text-gray-500 rounded transition-colors">
-            Mesec
-          </button>
         </div>
 
         {/* Calendar Grid */}

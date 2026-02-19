@@ -3,6 +3,7 @@ export type TopicSlug =
   | "enterprise"
   | "website"
   | "chatbot"
+  | "integration"
   | "other";
 
 export interface TopicOption {
@@ -36,6 +37,12 @@ export const TOPIC_OPTIONS: TopicOption[] = [
     label: "Izdelava AI funkcije",
     questionLabel: "Kaj želite doseči z AI funkcijo?",
     placeholder: "Opišite vaše cilje za AI funkcijo...",
+  },
+  {
+    slug: "integration",
+    label: "Integracija sporočanja",
+    questionLabel: "Kateri sistem za rezervacije že uporabljate?",
+    placeholder: "Npr. Fresha, Booksy, Google Calendar, lastna rešitev...",
   },
   {
     slug: "other",

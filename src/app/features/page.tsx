@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { featuresData } from "@/lib/features-data";
 import {
@@ -8,6 +10,7 @@ import {
   FreeDemoSection,
   TestimonialsSection,
   MidPageCTASection,
+  IntegrationSection,
 } from "@/components/landing";
 import {
   Dialog,
@@ -17,6 +20,37 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  Bell,
+  MessageSquare,
+  CalendarDays,
+  Users,
+  Clock,
+  Link as LinkIcon,
+  Package,
+  TrendingUp,
+  ChartLine,
+  Sparkles,
+  Headphones,
+  Bot,
+  type LucideIcon,
+} from "lucide-react";
+import { GradientIcon } from "@/components/ui/gradient-icon";
+
+const featureIconMap: Record<string, LucideIcon> = {
+  "opomniki-pred": Bell,
+  "opomniki-po": MessageSquare,
+  "koledar": CalendarDays,
+  "crm": Users,
+  "baza-terminov": Clock,
+  "booking-link": LinkIcon,
+  "baza-storitev-osebja": Package,
+  "lost-leads": TrendingUp,
+  "analitika": ChartLine,
+  "asistent-plus": Sparkles,
+  "receptionist-plus": Headphones,
+  "chatbot-plus": Bot,
+};
 
 export default function FeaturesPage() {
   return (
@@ -47,9 +81,16 @@ export default function FeaturesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuresData.map((feature) => (
+            {featuresData.map((feature) => {
+              const Icon = featureIconMap[feature.id];
+              return (
               <Dialog key={feature.id}>
                 <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                  {Icon && (
+                    <div className="mb-4">
+                      <GradientIcon icon={Icon} variant="gradient" className="w-7 h-7" />
+                    </div>
+                  )}
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {feature.title}
                   </h3>
@@ -100,7 +141,8 @@ export default function FeaturesPage() {
                   </div>
                 </DialogContent>
               </Dialog>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -120,6 +162,7 @@ export default function FeaturesPage() {
 
       <PersonalizationSection detailed />
       <AISection />
+      <IntegrationSection />
       <TestimonialsSection />
       <MidPageCTASection
         title="Preizkusi app"
