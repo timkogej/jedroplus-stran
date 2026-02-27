@@ -384,10 +384,7 @@ export default function CalendarPreview() {
 
   return (
     <div className="relative">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+      <div
         className="
           relative w-full max-w-lg
           bg-gradient-to-br from-white/90 via-white/80 to-white/70
@@ -469,7 +466,7 @@ export default function CalendarPreview() {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* SMS Preview - positioned outside calendar */}
       <SMSPreview />

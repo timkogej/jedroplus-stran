@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Star, Repeat2, Plug } from "lucide-react";
+import { Heart, Star, Repeat2, Layers } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 import { setPreselectedTopicExternal } from "@/lib/inquiry-context";
 
@@ -25,7 +25,7 @@ const benefits = [
       "Redna, skrbna komunikacija zmanjša pozabljanje terminov in povečuje število strank, ki se vračajo.",
   },
   {
-    icon: Plug,
+    icon: Layers,
     title: "Ni potrebna menjava sistema",
     description:
       "Preprosto dodamo naše pametno sporočanje k vašemu obstoječemu sistemu. Brez prekinitev, brez učenja od začetka.",

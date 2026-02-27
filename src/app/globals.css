@@ -27,16 +27,13 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #c1c1c1;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
 }
@@ -61,29 +58,34 @@ body {
   display: none;
 }
 
-/* Smooth scroll and animation optimizations */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
+/* Gradient blob - pure CSS ambient animation (compositor thread, zero JS) */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33%       { transform: translate(22px, -16px) scale(1.07); }
+  66%       { transform: translate(-14px, 10px) scale(0.95); }
+}
+@keyframes blob-float-alt {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33%       { transform: translate(-18px, 14px) scale(1.05); }
+  66%       { transform: translate(16px, -8px) scale(0.97); }
+}
+.blob-animate {
+  animation: blob-float 20s ease-in-out infinite;
+  will-change: transform;
+}
+.blob-animate-alt {
+  animation: blob-float-alt 24s ease-in-out infinite;
+  will-change: transform;
 }
 
-/* GPU acceleration for animated elements to prevent glitchy animations */
-.motion-safe *[style*="transform"] {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+/* Floating badge animation for iPhone section */
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
 }
-
-/* Ensure smooth animations with will-change hint */
-section {
-  contain: layout style;
+@keyframes badge-float-alt {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(8px); }
 }
-
-/* Fix for scroll-linked animations */
-@supports (animation-timeline: scroll()) {
-  * {
-    scroll-timeline: --page-scroll block;
-  }
-}
+.badge-float     { animation: badge-float     4s ease-in-out infinite; }
+.badge-float-alt { animation: badge-float-alt 3.5s ease-in-out infinite 0.5s; }

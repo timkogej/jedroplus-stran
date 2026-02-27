@@ -4,8 +4,10 @@ import {
   Navigation,
   HeroSection,
   FeaturesSection,
+  StatsSection,
   FreeDemoSection,
   PersonalizationSection,
+  IPhoneMockupSection,
   TargetAudienceSection,
   HowItWorksSection,
   IntegrationSection,
@@ -23,6 +25,7 @@ export default function Home() {
       <main className="min-h-screen">
         <Navigation />
         <HeroSection />
+        <StatsSection />
         <FeaturesSection />
         <FreeDemoSection
           title="Brezplačna predstavitev Jedro+"
@@ -30,6 +33,7 @@ export default function Home() {
           ctaLabel="Rezerviraj brezplačno predstavitev"
         />
         <PersonalizationSection />
+        <IPhoneMockupSection />
         <TargetAudienceSection />
         <HowItWorksSection />
         <IntegrationSection />

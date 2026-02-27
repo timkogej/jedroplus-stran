@@ -223,33 +223,111 @@ export default function PricingPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 text-gray-700">
-            <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Email agent (personaliziran e-mail bot)
-              </h3>
-              <p>
-                Sortira e-maile, označi pomembne, predlaga odgovore in pomaga
-                pri tipičnih vprašanjih.
-              </p>
+            {/* Spletna stran */}
+            <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 flex flex-col">
+              <div className="mb-5">
+                <span className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  Po meri
+                </span>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  Spletna stran po meri
+                </h3>
+                <p className="text-sm text-gray-500">Cena po dogovoru</p>
+              </div>
+              <div className="space-y-3 text-gray-600 text-sm mb-6">
+                <p>
+                  Zasnujemo in razvijemo profesionalno spletno stran, prilagojeno vašemu podjetju in panogi — od dizajna do delovanja.
+                </p>
+                <ul className="space-y-2 mt-3">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Unikaten dizajn, prilagojen vaši blagovni znamki</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Jasni CTA gumbi in direktna povezava na vaše spletno naročanje</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Mobilno optimizirana, hitra in SEO-pripravljena</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Vključen chatbot ali obrazec za povpraševanje</span>
+                  </li>
+                </ul>
+                <div className="mt-4 p-4 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl border border-primary/10">
+                  <p className="font-semibold text-gray-900 text-sm mb-1">
+                    Ekskluzivno za naročnike Jedro+
+                  </p>
+                  <p>
+                    Vsem aktivnim naročnikom naše aplikacije nudimo{" "}
+                    <span className="font-bold text-primary">15 % popusta</span>{" "}
+                    pri izdelavi spletne strani. Vaše podjetje si zasluži profesionalen nastop — po ugodni ceni.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-auto">
+                <Link
+                  href="/#povprasevanje"
+                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Pošlji povpraševanje
+                </Link>
+              </div>
             </div>
-            <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Izdelava spletne strani po meri
-              </h3>
-              <p>
-                Modern design, jasni CTA gumbi, povezava na booking in osnovna
-                SEO struktura.
-              </p>
-            </div>
-          </div>
 
-          <div className="mt-10 text-center">
-            <Link
-              href="/#povprasevanje"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
-            >
-              Pošlji povpraševanje
-            </Link>
+            {/* Email agent */}
+            <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 flex flex-col">
+              <div className="mb-5">
+                <span className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  AI rešitev
+                </span>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  Email agent po meri
+                </h3>
+                <p className="text-sm text-gray-500">Cena po dogovoru</p>
+              </div>
+              <div className="space-y-3 text-gray-600 text-sm mb-6">
+                <p>
+                  Razvijemo personaliziranega AI email agenta, ki deluje v vašem imenu — razume vaše stranke, vaš ton in vaše procese.
+                </p>
+                <ul className="space-y-2 mt-3">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Samodejno razvrsti in označi dohodne e-maile po prioriteti</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Predlaga ali samostojno pošilja odgovore na pogosta vprašanja strank</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Prepozna namen sporočila: naročanje, odpoved, reklamacija, splošno vprašanje</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Piše v vašem tonu — formalno, prijazno ali sproščeno</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Integracija z vašim obstoječim e-poštnim sistemom (Gmail, Outlook …)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-secondary mt-1.5 shrink-0" />
+                    <span>Deluje 24/7 — tudi ko ste zaprte ali zunaj pisarne</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-auto">
+                <Link
+                  href="/#povprasevanje"
+                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Pošlji povpraševanje
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

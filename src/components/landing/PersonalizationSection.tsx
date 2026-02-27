@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageSquare, Settings, Check } from "lucide-react";
+import { MessageSquare, Settings, Check, Sparkles, Quote } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 
 const card1Features = [
@@ -56,7 +56,7 @@ export default function PersonalizationSection({
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Personalizirani opomniki */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -162,6 +162,87 @@ export default function PersonalizationSection({
             </ul>
           </motion.div>
         </div>
+
+        {/* Nobeno sporočilo ni enako */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="relative rounded-3xl overflow-hidden"
+        >
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-white to-secondary/8 border border-primary/10 rounded-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-secondary/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-primary/10 to-transparent rounded-full translate-y-1/2 -translate-x-1/2" />
+
+          <div className="relative p-8 lg:p-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-md">
+                <Sparkles className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+                AI personalizacija v praksi
+              </span>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              {/* Left: main message */}
+              <div>
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-5 leading-tight">
+                  Nobeno sporočilo ni enako.
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Ko Ana pride na manikuro in Maja na barvanje las — vsaka od njiju prejme povsem drugačno sporočilo. Različno ime, drugačna storitev, specifična navodila. Nič šablonskega — le prava, osebna komunikacija.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  Prav to je tisto, kar stranke opazijo in čutijo. Jedro+ ne pošilja generičnih obvestil — vsako sporočilo nosi karakter vašega podjetja in iskreno skrb za posamezno stranko. Zaupanje se ne gradi z oglasi, ampak z malenkostmi, ki jih stranka prejme ob pravem času.
+                </p>
+              </div>
+
+              {/* Right: trust pillars */}
+              <div className="space-y-4">
+                {[
+                  {
+                    label: "Pristnost, ki jo stranke opazijo",
+                    desc: "Sporočilo, ki se začne z imenom stranke in vsebuje točen termin, zveni kot napis od človeka — ne od sistema.",
+                  },
+                  {
+                    label: "Zaupanje se gradi z vsakim sporočilom",
+                    desc: "Redna, relevantna komunikacija utrjuje odnos. Stranka čuti, da ste pozorni nanjo, ne le na terminski seznam.",
+                  },
+                  {
+                    label: "Vaš glas, v vsakem opomnik",
+                    desc: "AI piše v tonu, ki ste mu ga določili vi — formalno, prijazno ali sproščeno. Vedno dosledno, vedno vaše.",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex gap-4 p-4 rounded-2xl bg-white/70 border border-gray-100 shadow-sm"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-br from-primary to-secondary mt-2 shrink-0" />
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm mb-1">{item.label}</p>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Quote footer */}
+            <div className="mt-10 pt-8 border-t border-gray-100 flex items-start gap-4">
+              <Quote className="w-8 h-8 text-primary/30 shrink-0 mt-1" />
+              <p className="text-gray-500 italic text-base leading-relaxed max-w-2xl">
+                "Stranke ne vedo, da stoji za sporočilom sistem — čutijo le, da ste pozorni. In to je točno to, kar zgradi zvestobo."
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

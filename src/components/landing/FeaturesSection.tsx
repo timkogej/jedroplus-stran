@@ -17,10 +17,11 @@ import {
   Bot,
   ChevronLeft,
   ChevronRight,
+  LucideIcon,
 } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 
-const features = [
+const features: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: Bell,
     title: "Personalizirani opomniki pred terminom",
@@ -152,28 +153,45 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+            className="flex gap-6 overflow-x-auto scrollbar-hide pt-8 pb-6 snap-x snap-mandatory"
           >
-            {features.map((feature) => (
-              <div
+            {features.map((feature, index) => (
+              <motion.div
                 key={feature.title}
                 data-card="true"
-                className="snap-start flex-none w-[82vw] sm:w-[45%] lg:w-[calc(33.333%-16px)] bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
+                whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2, type: "spring", stiffness: 300 } }}
+                className="snap-start flex-none w-[82vw] sm:w-[45%] lg:w-[calc(33.333%-16px)] bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-default group"
               >
-                <div className="mb-4">
+                <div className="mb-4 transition-transform duration-200 group-hover:scale-110 inline-block">
                   <GradientIcon
                     icon={feature.icon}
                     variant="gradient"
                     className="w-7 h-7"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-200">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+
+                {/* Hover arrow */}
+                <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <svg
+                    className="w-5 h-5 text-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </motion.div>
             ))}
           </motion.div>
 

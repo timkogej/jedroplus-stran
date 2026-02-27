@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +21,8 @@ export default function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +49,12 @@ export default function Navigation() {
           : "bg-transparent"
       )}
     >
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-blue-500 to-secondary origin-left z-10"
+        style={{ width: progressWidth }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20 md:grid md:grid-cols-[auto,1fr,auto] md:items-center">
           {/* Logo */}
@@ -72,6 +80,7 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.04 }}
+                className="relative group"
               >
                 <Link
                   href={link.href}
@@ -84,6 +93,12 @@ export default function Navigation() {
                 >
                   {link.name}
                 </Link>
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.2 }}
+                />
               </motion.div>
             ))}
           </div>
@@ -96,12 +111,14 @@ export default function Navigation() {
             >
               Prijavi se
             </button>
-            <Link
-              href="/prihaja-kmalu"
-              className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-xl font-medium shadow-sm"
-            >
-              Preizkusi zdaj
-            </Link>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/prihaja-kmalu"
+                className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-xl font-medium shadow-sm inline-block"
+              >
+                Preizkusi zdaj
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
