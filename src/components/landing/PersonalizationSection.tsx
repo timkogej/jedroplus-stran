@@ -238,7 +238,7 @@ export default function PersonalizationSection({
             <div className="mt-10 pt-8 border-t border-gray-100 flex items-start gap-4">
               <Quote className="w-8 h-8 text-primary/30 shrink-0 mt-1" />
               <p className="text-gray-500 italic text-base leading-relaxed max-w-2xl">
-                "Stranke ne vedo, da stoji za sporočilom sistem — čutijo le, da ste pozorni. In to je točno to, kar zgradi zvestobo."
+                &ldquo;Stranke ne vedo, da stoji za sporočilom sistem — čutijo le, da ste pozorni. In to je točno to, kar zgradi zvestobo.&rdquo;
               </p>
             </div>
           </div>
