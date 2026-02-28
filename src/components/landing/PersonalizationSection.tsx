@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageSquare, Settings, Check, Sparkles, Quote } from "lucide-react";
+import { MessageSquare, Settings, Check, Quote } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 
 const card1Features = [
@@ -177,20 +177,14 @@ export default function PersonalizationSection({
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-primary/10 to-transparent rounded-full translate-y-1/2 -translate-x-1/2" />
 
           <div className="relative p-8 lg:p-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-md">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-                AI personalizacija v praksi
-              </span>
-            </div>
-
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               {/* Left: main message */}
               <div>
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-5 leading-tight">
-                  Nobeno sporočilo ni enako.
+                  Nobeno sporočilo{" "}
+                  <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    ni enako.
+                  </span>
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Ko Ana pride na manikuro in Maja na barvanje las — vsaka od njiju prejme povsem drugačno sporočilo. Različno ime, drugačna storitev, specifična navodila. Nič šablonskega — le prava, osebna komunikacija.

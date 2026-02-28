@@ -24,7 +24,7 @@ export default function HeroSection() {
     target: containerRef,
     offset: ["start start", "end start"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0.3, 0.85], [1, 0]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
