@@ -32,7 +32,11 @@ const benefits = [
   },
 ];
 
-export default function IntegrationSection() {
+interface IntegrationSectionProps {
+  dark?: boolean;
+}
+
+export default function IntegrationSection({ dark = false }: IntegrationSectionProps) {
   const handleClick = () => {
     setPreselectedTopicExternal("integration");
     const el = document.querySelector("#povprasevanje");
@@ -44,7 +48,7 @@ export default function IntegrationSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-purple-50/30 to-cyan-50/30">
+    <section className={`py-20 ${dark ? "bg-gray-800/50" : "bg-gradient-to-br from-gray-50 via-purple-50/30 to-cyan-50/30"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,16 +57,20 @@ export default function IntegrationSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
+          <span className={`inline-flex items-center px-4 py-1.5 rounded-full border text-sm font-medium mb-6 ${
+            dark
+              ? "border-[#6D5EF7]/30 bg-[#6D5EF7]/10 text-[#2AD4C5]"
+              : "border-primary/20 bg-primary/5 text-primary"
+          }`}>
             Že imate sistem za rezervacije?
           </span>
-          <h2 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className={`text-4xl sm:text-4xl lg:text-5xl font-bold mb-6 ${dark ? "text-white" : "text-gray-900"}`}>
             Dodajte pametno sporočanje{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className={`bg-clip-text text-transparent ${dark ? "bg-gradient-to-r from-[#6D5EF7] to-[#2AD4C5]" : "bg-gradient-to-r from-primary to-secondary"}`}>
               k obstoječemu sistemu
             </span>
           </h2>
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className={`text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed ${dark ? "text-gray-400" : "text-gray-600"}`}>
             Če že uporabljate Fresho, Booksy, Google Calendar ali lastno
             rešitev — to ni ovira. Naš sistem pametnega sporočanja se
             integrira v vaš obstoječi sistem naročanja in strankam doda
@@ -79,15 +87,19 @@ export default function IntegrationSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+              className={`rounded-2xl p-6 border ${
+                dark
+                  ? "bg-gray-900 border-white/10 hover:border-[#6D5EF7]/40 transition-colors"
+                  : "bg-white shadow-lg border-gray-100"
+              }`}
             >
               <div className="mb-4">
                 <GradientIcon icon={benefit.icon} variant="gradient" className="w-7 h-7" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className={`text-lg font-bold mb-2 ${dark ? "text-white" : "text-gray-900"}`}>
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className={`text-sm leading-relaxed ${dark ? "text-gray-400" : "text-gray-600"}`}>
                 {benefit.description}
               </p>
             </motion.div>
@@ -99,13 +111,17 @@ export default function IntegrationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="bg-white rounded-3xl p-8 lg:p-10 shadow-xl border border-gray-100 flex flex-col lg:flex-row items-center justify-between gap-6"
+          className={`rounded-3xl p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 ${
+            dark
+              ? "bg-gray-900 border border-white/10"
+              : "bg-white shadow-xl border border-gray-100"
+          }`}
         >
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className={`text-2xl font-bold mb-2 ${dark ? "text-white" : "text-gray-900"}`}>
               Integracija je enostavna
             </h3>
-            <p className="text-gray-600 max-w-xl">
+            <p className={`max-w-xl ${dark ? "text-gray-400" : "text-gray-600"}`}>
               Povejte nam, kateri sistem že uporabljate, in pripravimo
               prilagojeno integracijo. Stranke bodo opazile razliko – vi pa
               ne boste spremenili obstoječega načina dela.
@@ -113,7 +129,11 @@ export default function IntegrationSection() {
           </div>
           <button
             onClick={handleClick}
-            className="flex-shrink-0 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap"
+            className={`flex-shrink-0 text-white px-8 py-4 rounded-xl font-semibold hover:scale-105 transition-all duration-300 whitespace-nowrap ${
+              dark
+                ? "bg-gradient-to-r from-[#6D5EF7] to-[#2AD4C5] hover:shadow-lg hover:shadow-[#6D5EF7]/30"
+                : "bg-gradient-to-r from-primary to-secondary hover:shadow-xl"
+            }`}
           >
             Pošlji povpraševanje za integracijo
           </button>
