@@ -122,7 +122,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/politika-zasebnosti"
+                  href="/privacy"
                   className="text-gray-400 hover:text-secondary transition-colors"
                 >
                   Politika zasebnosti
