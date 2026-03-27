@@ -38,11 +38,11 @@ const packages: Package[] = [
     name: "Jedro Pro",
     price: "39 € / mesec",
     subtitle: "Za podjetja, ki želijo več zasedenosti in manj praznih terminov",
-    description: "Vključuje AI pomočnike, Lost Leads in SMS opomnike.",
+    description: "Vključuje AI pomočnike, Izgubljene stranke in SMS opomnike.",
     features: [
       "Vse iz Jedro Plus",
       "Chatbot+",
-      "Lost Leads sistem",
+      "Izgubljene stranke",
       "SMS pošiljanje",
       "Email pošiljanje",
       "Dodatni dizajni spletnega naročanja",

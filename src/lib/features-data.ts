@@ -115,7 +115,7 @@ export const featuresData: FeatureItem[] = [
   },
   {
     id: "lost-leads",
-    title: "Lost Leads (neaktivne stranke)",
+    title: "Izgubljene stranke",
     shortDescription: "Ponovna aktivacija strank, ki so prenehale prihajati.",
     intro:
       "Sistem sam prepozna neaktivne stranke in pripravi kampanjo za ponovni obisk.",
@@ -160,7 +160,7 @@ export const featuresData: FeatureItem[] = [
   },
   {
     id: "receptionist-plus",
-    title: "Receptionist+ (AI) (Premium)",
+    title: "Receptionist+ (AI)",
     shortDescription: "AI pomoč pri klicih, naročanju in sprejemu strank.",
     intro:
       "Receptionist+ pomaga pri klicih, odgovarja na vprašanja in usmerja stranke do prave storitve.",
@@ -175,7 +175,7 @@ export const featuresData: FeatureItem[] = [
   },
   {
     id: "chatbot-plus",
-    title: "Chatbot+ (AI) (Premium)",
+    title: "Chatbot+ (AI)",
     shortDescription: "Chatbot na spletni strani za takojšnje odgovore.",
     intro:
       "Chatbot+ odgovarja na vprašanja, vodi stranke do prave storitve in olajša rezervacijo.",

@@ -32,7 +32,7 @@ const testimonials = [
   },
   {
     quote:
-      "Imel sem seznam strank, ki niso prišle že pol leta. Z Lost Leads sistemom smo jim poslali sporočilo — brez mojega pisanja. Tretjina se je naročila nazaj. To je prava vrednost, ki jo aplikacija prinese.",
+      "Imel sem seznam strank, ki niso prišle že pol leta. Z sistemom Izgubljenih strank smo jim poslali sporočilo — brez mojega pisanja. Tretjina se je naročila nazaj. To je prava vrednost, ki jo aplikacija prinese.",
     person: "Marko Petek",
   },
 ];

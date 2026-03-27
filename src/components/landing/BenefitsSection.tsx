@@ -27,7 +27,7 @@ const benefits = [
     icon: Heart,
     title: "Več prihodkov iz obstoječih strank",
     description:
-      "Lost Leads prepozna neaktivne stranke in pomaga zapolniti urnik.",
+      "Izgubljene stranke prepozna neaktivne stranke in pomaga zapolniti urnik.",
   },
 ];
 

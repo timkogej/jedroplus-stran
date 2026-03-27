@@ -19,7 +19,7 @@ const reasons = [
   {
     icon: TrendingUp,
     title: "Več zasedenosti",
-    description: "Opomniki + follow-up + Lost Leads zmanjšajo prazne termine",
+    description: "Opomniki + follow-up + Izgubljene stranke zmanjšajo prazne termine",
   },
   {
     icon: Sparkles,

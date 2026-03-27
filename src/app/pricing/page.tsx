@@ -33,7 +33,7 @@ const pricingPlans = [
     features: [
       'vse iz Jedro Plus',
       'Chatbot+',
-      'Lost Leads sistem',
+      'Izgubljene stranke',
       'SMS pošiljanje (150 SMS/mesec)',
       'email pošiljanje',
       'dodatni dizajni spletnega naročanja',
@@ -46,6 +46,7 @@ const pricingPlans = [
     description: 'Za podjetja, ki želijo največ avtomatizacije in naprednih AI funkcij.',
     monthlyPrice: 99,
     yearlyPrice: 79,
+    comingSoon: true,
     features: [
       'vse iz Jedro Pro',
       'Receptionist+',
@@ -60,10 +61,7 @@ const pricingPlans = [
 
 const addOns = [
   { name: 'Dodatni uporabnik', price: '7 € / mesec' },
-  { name: 'Dodatna lokacija', price: '10 € / mesec' },
   { name: 'Chatbot add-on (če ni v paketu)', price: '19 € / mesec' },
-  { name: 'Receptionist add-on (če ni v paketu)', price: '29 € / mesec' },
-  { name: 'Asistent add-on (če ni v paketu)', price: '15 € / mesec' },
   { name: 'Dodatni SMS', price: '0,06 € / sporočilo' },
 ];
 
@@ -129,6 +127,7 @@ export default function PricingPage() {
               <PricingCard
                 key={plan.name}
                 {...plan}
+                comingSoon={'comingSoon' in plan ? plan.comingSoon : false}
                 isYearly={isYearly}
                 index={index}
               />

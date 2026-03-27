@@ -29,7 +29,7 @@ const steps = [
   {
     number: "04",
     icon: Brain,
-    title: "Rast: Lost Leads + AI",
+    title: "Rast: Izgubljene stranke + AI",
     description:
       "Sistem pomaga polniti urnik in izboljševati komunikacijo ter rezultate",
   },

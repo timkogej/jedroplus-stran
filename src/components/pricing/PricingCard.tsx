@@ -12,6 +12,7 @@ interface PricingCardProps {
   features: string[];
   isYearly: boolean;
   isPopular?: boolean;
+  comingSoon?: boolean;
   ctaText?: string;
   index: number;
 }
@@ -24,6 +25,7 @@ export function PricingCard({
   features,
   isYearly,
   isPopular,
+  comingSoon,
   ctaText = 'Začni zdaj',
   index,
 }: PricingCardProps) {
@@ -41,17 +43,24 @@ export function PricingCard({
       transition={{ delay: index * 0.1, duration: 0.5 }}
       whileHover={{ y: -8, scale: 1.02 }}
     >
-      {/* Najbolj priljubljen Badge */}
-      {isPopular && (
+      {/* Badges */}
+      {(isPopular || comingSoon) && (
         <motion.div
-          className="absolute -top-4 left-1/2 -translate-x-1/2 z-10"
+          className={`absolute -top-4 left-1/2 -translate-x-1/2 z-10 flex gap-2 ${comingSoon && isPopular ? 'flex-col items-center' : ''}`}
           initial={{ scale: 0, y: 10 }}
           animate={{ scale: 1, y: 0 }}
           transition={{ delay: 0.3, type: 'spring' }}
         >
-          <span className="px-4 py-1.5 bg-gradient-to-r from-[#6D5EF7] to-[#2F80ED] rounded-full text-sm font-semibold text-white shadow-lg whitespace-nowrap">
-            ⭐ Najbolj priljubljen
-          </span>
+          {isPopular && (
+            <span className="px-4 py-1.5 bg-gradient-to-r from-[#6D5EF7] to-[#2F80ED] rounded-full text-sm font-semibold text-white shadow-lg whitespace-nowrap">
+              ⭐ Najbolj priljubljen
+            </span>
+          )}
+          {comingSoon && (
+            <span className="px-4 py-1.5 bg-gradient-to-r from-[#6D5EF7] to-[#2AD4C5] rounded-full text-sm font-semibold text-white shadow-lg whitespace-nowrap">
+              🚀 Prihaja kmalu
+            </span>
+          )}
         </motion.div>
       )}
 
@@ -66,20 +75,31 @@ export function PricingCard({
 
         {/* Price */}
         <div className="mb-8">
-          <AnimatedPrice
-            price={currentPrice}
-            originalPrice={monthlyPrice}
-            showOriginal={isYearly}
-          />
-
-          {isYearly && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-sm text-[#2AD4C5] mt-2"
-            >
-              Plačano letno: €{yearlyPrice * 12}/leto
-            </motion.p>
+          {comingSoon ? (
+            <div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-5xl font-bold text-white">?? €</span>
+                <span className="text-gray-400 text-sm ml-1">/mesec</span>
+              </div>
+              <p className="text-sm text-[#2AD4C5] mt-2">Cena bo kmalu objavljena</p>
+            </div>
+          ) : (
+            <>
+              <AnimatedPrice
+                price={currentPrice}
+                originalPrice={monthlyPrice}
+                showOriginal={isYearly}
+              />
+              {isYearly && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-sm text-[#2AD4C5] mt-2"
+                >
+                  Plačano letno: €{yearlyPrice * 12}/leto
+                </motion.p>
+              )}
+            </>
           )}
         </div>
 

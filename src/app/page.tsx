@@ -7,7 +7,7 @@ import {
   StatsSection,
   FreeDemoSection,
   PersonalizationSection,
-  IPhoneMockupSection,
+  BookingDesignSection,
   TargetAudienceSection,
   HowItWorksSection,
   IntegrationSection,
@@ -33,7 +33,7 @@ export default function Home() {
           ctaLabel="Rezerviraj brezplačno predstavitev"
         />
         <PersonalizationSection />
-        <IPhoneMockupSection />
+        <BookingDesignSection />
         <TargetAudienceSection />
         <HowItWorksSection />
         <IntegrationSection />

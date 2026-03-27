@@ -20,9 +20,9 @@ export const faqItems: FAQItem[] = [
       "Da. E-mail opomniki so vključeni v vseh paketih, SMS opomniki pa v Pro in Premium paketih.",
   },
   {
-    question: "Kaj je Lost Leads in kako pomaga?",
+    question: "Kaj so Izgubljene stranke in kako pomaga?",
     answer:
-      "Lost Leads prepozna neaktivne stranke in omogoča kampanje za ponovni obisk, da zapolniš prazne termine.",
+      "Izgubljene stranke prepozna neaktivne stranke in omogoča kampanje za ponovni obisk, da zapolniš prazne termine.",
   },
   {
     question: "Kaj je Asistent+?",

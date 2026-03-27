@@ -106,9 +106,6 @@ export default function AISection() {
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
                     Chatbot+
                   </h3>
-                  <span className="text-xs font-semibold bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                    Premium
-                  </span>
                 </div>
                 <p className="text-gray-600">AI chatbot za spletno stran</p>
               </div>
@@ -161,8 +158,8 @@ export default function AISection() {
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
                     Receptionist+
                   </h3>
-                  <span className="text-xs font-semibold bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                    Premium
+                  <span className="text-xs font-semibold bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                    Prihaja kmalu
                   </span>
                 </div>
                 <p className="text-gray-600">AI receptionist za sprejem</p>
