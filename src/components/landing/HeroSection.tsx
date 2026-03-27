@@ -31,7 +31,7 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden">
       <BackgroundLines
-        className="min-h-screen pt-52 sm:pt-44 lg:pt-36 flex flex-col items-center"
+        className="min-h-screen pt-24 sm:pt-44 lg:pt-36 flex flex-col items-center"
       >
         <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center relative z-10">
         {/* Headline */}
