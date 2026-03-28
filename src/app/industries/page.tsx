@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { industries } from "@/lib/industries-data";
@@ -51,22 +51,33 @@ const ACCENT_TEXT = "text-primary";
 /* ── Industry image (with placeholder fallback) ─────────────────── */
 const industryImageNames: Record<string, string> = {
   saloni:   "jedro-bar",
-  klinike:  "jedro-zob",
+  klinike:  "jedro-zob-2",
   wellness: "jedro-mas",
   fitnes:   "jedro-fit",
   servisi:  "jedro-meh",
 };
 
 function IndustryImage({ id }: { id: string }) {
+  const [loaded, setLoaded] = useState(false);
   const name = industryImageNames[id];
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [id]);
+
   return (
     <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+      {!loaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-blue-50 to-secondary/10 animate-pulse" />
+      )}
       <Image
         src={`/images/industries/${name}.webp`}
         alt={name}
         fill
         priority
-        className="object-cover"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        className={`object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );
