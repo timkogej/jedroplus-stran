@@ -12,6 +12,7 @@ import {
   FAQSection,
   FreeDemoSection,
 } from "@/components/landing";
+import Image from "next/image";
 import {
   Scissors,
   Stethoscope,
@@ -43,53 +44,44 @@ const industryIconMap: Record<string, LucideIcon> = {
 /* Industries that get an image placeholder */
 const withImageIds = new Set(["saloni", "klinike", "wellness", "fitnes", "servisi"]);
 
-/* Accent gradients per industry */
-const accentGradient: Record<string, string> = {
-  saloni:    "from-pink-400 to-purple-500",
-  klinike:   "from-blue-400 to-cyan-500",
-  wellness:  "from-teal-400 to-emerald-500",
-  fitnes:    "from-orange-400 to-red-500",
-  servisi:   "from-slate-400 to-gray-500",
-  svetovanje:"from-violet-400 to-purple-500",
-  agencije:  "from-indigo-400 to-blue-500",
-  ostalo:    "from-primary to-secondary",
+/* Unified brand gradient for all industries */
+const ACCENT_GRADIENT = "from-primary via-blue-500 to-secondary";
+const ACCENT_BG = "bg-primary/10";
+const ACCENT_TEXT = "text-primary";
+
+/* ── Industry image (with placeholder fallback) ─────────────────── */
+const industryImageNames: Record<string, string> = {
+  saloni:   "jedro-bar",
+  klinike:  "jedro-zob",
+  wellness: "jedro-mas",
+  fitnes:   "jedro-fit",
+  servisi:  "jedro-meh",
 };
 
-const accentBg: Record<string, string> = {
-  saloni:    "bg-pink-50",
-  klinike:   "bg-blue-50",
-  wellness:  "bg-teal-50",
-  fitnes:    "bg-orange-50",
-  servisi:   "bg-slate-50",
-  svetovanje:"bg-violet-50",
-  agencije:  "bg-indigo-50",
-  ostalo:    "bg-primary/10",
-};
-
-const accentText: Record<string, string> = {
-  saloni:    "text-pink-500",
-  klinike:   "text-blue-500",
-  wellness:  "text-teal-500",
-  fitnes:    "text-orange-500",
-  servisi:   "text-slate-500",
-  svetovanje:"text-violet-500",
-  agencije:  "text-indigo-500",
-  ostalo:    "text-primary",
-};
-
-/* ── Image placeholder ──────────────────────────────────────────── */
-function ImagePlaceholder() {
+function IndustryImage({ id }: { id: string }) {
+  const name = industryImageNames[id];
+  // Try .jpg, fallback to placeholder via onError
   return (
-    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border-2 border-dashed border-gray-200 bg-gray-50 flex flex-col items-center justify-center gap-3">
-      <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-100">
-        <ImageIcon className="w-6 h-6 text-gray-300" />
+    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gray-100 bg-gray-50">
+      <Image
+        src={`/images/industries/${name}.webp`}
+        alt={name}
+        fill
+        className="object-cover"
+        onError={(e) => {
+          const target = e.currentTarget as HTMLImageElement;
+          target.style.display = "none";
+          const parent = target.parentElement;
+          if (parent) parent.setAttribute("data-missing", "1");
+        }}
+      />
+      {/* Fallback overlay (shown via CSS when data-missing is set) */}
+      <div className="industry-img-fallback absolute inset-0 flex flex-col items-center justify-center gap-3 border-2 border-dashed border-gray-200 rounded-2xl">
+        <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-100">
+          <ImageIcon className="w-6 h-6 text-gray-300" />
+        </div>
+        <p className="text-xs font-medium text-gray-400">Prostor za sliko panoge</p>
       </div>
-      <p className="text-xs font-medium text-gray-400">Prostor za sliko panoge</p>
-      {/* Corner dots */}
-      <span className="absolute top-3 left-3 w-1.5 h-1.5 rounded-full bg-gray-300" />
-      <span className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-gray-300" />
-      <span className="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-gray-300" />
-      <span className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-gray-300" />
     </div>
   );
 }
@@ -119,7 +111,7 @@ function SidebarTabs({
           >
             {/* Accent bar */}
             <span
-              className={`absolute left-0 inset-y-0 my-auto w-[3px] h-8 rounded-r-full bg-gradient-to-b transition-opacity duration-150 ${accentGradient[industry.id]} ${
+              className={`absolute left-0 inset-y-0 my-auto w-[3px] h-8 rounded-r-full bg-gradient-to-b transition-opacity duration-150 ${ACCENT_GRADIENT} ${
                 isActive ? "opacity-100" : "opacity-0"
               }`}
             />
@@ -127,7 +119,7 @@ function SidebarTabs({
             <div
               className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-150 ${
                 isActive
-                  ? `${accentBg[industry.id]} ${accentText[industry.id]}`
+                  ? `${ACCENT_BG} ${ACCENT_TEXT}`
                   : "bg-gray-100 text-gray-400 group-hover:bg-gray-200"
               }`}
             >
@@ -145,7 +137,7 @@ function SidebarTabs({
             <ChevronRight
               className={`w-4 h-4 shrink-0 transition-all duration-150 ${
                 isActive
-                  ? `${accentText[industry.id]} opacity-100`
+                  ? `${ACCENT_TEXT} opacity-100`
                   : "text-gray-300 opacity-0 group-hover:opacity-60"
               }`}
             />
@@ -179,32 +171,32 @@ function IndustryDetail({ industry }: { industry: (typeof industries)[0] }) {
       className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-xl shadow-gray-200/50"
     >
       {/* Top color strip */}
-      <div className={`h-1 w-full bg-gradient-to-r ${accentGradient[industry.id]}`} />
+      <div className={`h-1 w-full bg-gradient-to-r ${ACCENT_GRADIENT}`} />
 
-      {/* Subtle bg blobs */}
-      <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-gradient-to-bl from-gray-100/80 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-gradient-to-tr from-gray-50 to-transparent blur-3xl pointer-events-none" />
+      {/* Subtle brand-color bg blobs */}
+      <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-gradient-to-bl from-primary/5 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-gradient-to-tr from-secondary/5 to-transparent blur-3xl pointer-events-none" />
 
       <div className="relative p-8">
         {/* Header */}
         <div className="flex items-start gap-4 mb-6">
-          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${accentBg[industry.id]} ${accentText[industry.id]}`}>
+          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${ACCENT_BG} ${ACCENT_TEXT}`}>
             {Icon && <Icon className="w-7 h-7" />}
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 leading-tight">{industry.title}</h2>
+            <h2 className="text-2xl font-bold leading-tight bg-gradient-to-r from-primary via-blue-500 to-secondary bg-clip-text text-transparent">{industry.title}</h2>
             <p className="text-sm text-gray-500 mt-1">{industry.intro}</p>
           </div>
         </div>
 
-        <div className={`h-px bg-gradient-to-r ${accentGradient[industry.id]} opacity-20 mb-6`} />
+        <div className={`h-px bg-gradient-to-r ${ACCENT_GRADIENT} opacity-20 mb-6`} />
 
         {/* Body */}
         <div className={`grid gap-6 ${hasImage ? "md:grid-cols-2" : "grid-cols-1"}`}>
           {/* Left column: image + scenario */}
           {hasImage && (
             <div className="space-y-4">
-              <ImagePlaceholder />
+              <IndustryImage id={industry.id} />
               <div className="rounded-xl bg-gray-50 border border-gray-100 px-5 py-4">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Primer uporabe</p>
                 <p className="text-sm text-gray-600 leading-relaxed italic">&ldquo;{industry.scenario}&rdquo;</p>
@@ -222,8 +214,8 @@ function IndustryDetail({ industry }: { industry: (typeof industries)[0] }) {
                     key={benefit}
                     className="flex items-start gap-3"
                   >
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${accentBg[industry.id]}`}>
-                      <CheckCircle2 className={`w-3.5 h-3.5 ${accentText[industry.id]}`} />
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${ACCENT_BG}`}>
+                      <CheckCircle2 className={`w-3.5 h-3.5 ${ACCENT_TEXT}`} />
                     </div>
                     <span className="text-gray-700 text-sm leading-relaxed">{benefit}</span>
                   </li>
@@ -280,7 +272,7 @@ function MobileIndustryCard({
       >
         <div
           className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-200 ${
-            open ? `${accentBg[industry.id]} ${accentText[industry.id]}` : "bg-gray-100 text-gray-400"
+            open ? `${ACCENT_BG} ${ACCENT_TEXT}` : "bg-gray-100 text-gray-400"
           }`}
         >
           {Icon && <Icon className="w-5 h-5" />}
@@ -309,18 +301,18 @@ function MobileIndustryCard({
             className="overflow-hidden"
           >
             <div className="px-5 pb-5 pt-1 space-y-4 border-t border-gray-100">
-              <div className={`h-px bg-gradient-to-r ${accentGradient[industry.id]} opacity-30 mt-3`} />
+              <div className={`h-px bg-gradient-to-r ${ACCENT_GRADIENT} opacity-30 mt-3`} />
 
               <p className="text-sm text-gray-600 leading-relaxed">{industry.intro}</p>
 
-              {hasImage && <ImagePlaceholder />}
+              {hasImage && <IndustryImage id={industry.id} />}
 
               <div>
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Ključne prednosti</p>
                 <ul className="space-y-2.5">
                   {industry.benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-2.5">
-                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${accentText[industry.id]}`} />
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${ACCENT_TEXT}`} />
                       <span className="text-sm text-gray-700 leading-relaxed">{benefit}</span>
                     </li>
                   ))}
@@ -393,7 +385,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* ── INDUSTRIES EXPLORER ─────────────────────────────────── */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50/50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-purple-50/30 to-cyan-50/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <motion.div
