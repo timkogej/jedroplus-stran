@@ -24,7 +24,6 @@ import {
   Briefcase,
   CheckCircle2,
   ArrowRight,
-  ImageIcon,
   ChevronRight,
   type LucideIcon,
 } from "lucide-react";
@@ -60,28 +59,15 @@ const industryImageNames: Record<string, string> = {
 
 function IndustryImage({ id }: { id: string }) {
   const name = industryImageNames[id];
-  // Try .jpg, fallback to placeholder via onError
   return (
-    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gray-100 bg-gray-50">
+    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
       <Image
         src={`/images/industries/${name}.webp`}
         alt={name}
         fill
+        priority
         className="object-cover"
-        onError={(e) => {
-          const target = e.currentTarget as HTMLImageElement;
-          target.style.display = "none";
-          const parent = target.parentElement;
-          if (parent) parent.setAttribute("data-missing", "1");
-        }}
       />
-      {/* Fallback overlay (shown via CSS when data-missing is set) */}
-      <div className="industry-img-fallback absolute inset-0 flex flex-col items-center justify-center gap-3 border-2 border-dashed border-gray-200 rounded-2xl">
-        <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-100">
-          <ImageIcon className="w-6 h-6 text-gray-300" />
-        </div>
-        <p className="text-xs font-medium text-gray-400">Prostor za sliko panoge</p>
-      </div>
     </div>
   );
 }
