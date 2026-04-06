@@ -14,6 +14,7 @@ interface PricingCardProps {
   isPopular?: boolean;
   comingSoon?: boolean;
   ctaText?: string;
+  ctaHref?: string;
   index: number;
 }
 
@@ -27,6 +28,7 @@ export function PricingCard({
   isPopular,
   comingSoon,
   ctaText = 'Začni zdaj',
+  ctaHref,
   index,
 }: PricingCardProps) {
   const currentPrice = isYearly ? yearlyPrice : monthlyPrice;
@@ -90,31 +92,37 @@ export function PricingCard({
                 originalPrice={monthlyPrice}
                 showOriginal={isYearly}
               />
-              {isYearly && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-sm text-[#2AD4C5] mt-2"
-                >
-                  Plačano letno: €{yearlyPrice * 12}/leto
-                </motion.p>
-              )}
             </>
           )}
         </div>
 
         {/* CTA Button */}
-        <motion.button
-          className={`w-full py-4 rounded-xl font-semibold mb-8 transition-all ${
-            isPopular
-              ? 'bg-gradient-to-r from-[#6D5EF7] to-[#2F80ED] text-white shadow-lg shadow-[#6D5EF7]/30 hover:shadow-[#6D5EF7]/50'
-              : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
-          }`}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          {ctaText}
-        </motion.button>
+        {ctaHref ? (
+          <motion.a
+            href={ctaHref}
+            className={`w-full py-4 rounded-xl font-semibold mb-8 transition-all flex items-center justify-center ${
+              isPopular
+                ? 'bg-gradient-to-r from-[#6D5EF7] to-[#2F80ED] text-white shadow-lg shadow-[#6D5EF7]/30 hover:shadow-[#6D5EF7]/50'
+                : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
+            }`}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {ctaText}
+          </motion.a>
+        ) : (
+          <motion.button
+            className={`w-full py-4 rounded-xl font-semibold mb-8 transition-all ${
+              isPopular
+                ? 'bg-gradient-to-r from-[#6D5EF7] to-[#2F80ED] text-white shadow-lg shadow-[#6D5EF7]/30 hover:shadow-[#6D5EF7]/50'
+                : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
+            }`}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {ctaText}
+          </motion.button>
+        )}
 
         {/* Features */}
         <ul className="space-y-3">

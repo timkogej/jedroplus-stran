@@ -24,6 +24,7 @@ const pricingPlans = [
       'Asistent+',
     ],
     ctaText: 'Preizkusi brezplačno',
+    ctaHref: 'https://app.jedroplus.com/billing',
   },
   {
     name: 'Jedro Pro',
@@ -40,6 +41,7 @@ const pricingPlans = [
     ],
     isPopular: true,
     ctaText: 'Začni zdaj',
+    ctaHref: 'https://app.jedroplus.com/billing',
   },
   {
     name: 'Jedro Premium',
@@ -62,7 +64,8 @@ const pricingPlans = [
 const addOns = [
   { name: 'Dodatni uporabnik', price: '7 € / mesec' },
   { name: 'Chatbot add-on (če ni v paketu)', price: '19 € / mesec' },
-  { name: 'Dodatni SMS', price: '0,06 € / sporočilo' },
+  { name: 'Dodatni SMS', price: 'Po dogovoru' },
+  { name: 'Dodatni email', price: 'Po dogovoru' },
 ];
 
 export default function PricingPage() {

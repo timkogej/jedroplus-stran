@@ -104,16 +104,15 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <button
-              type="button"
-              onClick={(event) => event.preventDefault()}
+            <Link
+              href="https://app.jedroplus.com/login"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 px-3 py-2.5 rounded-lg transition-colors"
             >
               Prijavi se
-            </button>
+            </Link>
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
               <Link
-                href="/prihaja-kmalu"
+                href="https://app.jedroplus.com/signup"
                 className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-xl font-medium shadow-sm inline-block"
               >
                 Preizkusi zdaj
@@ -164,15 +163,15 @@ export default function Navigation() {
                 ))}
               </div>
               <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
-                <button
-                  type="button"
-                  onClick={(event) => event.preventDefault()}
+                <Link
+                  href="https://app.jedroplus.com/login"
                   className="block w-full rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors text-left"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Prijavi se
-                </button>
+                </Link>
                 <Link
-                  href="/prihaja-kmalu"
+                  href="https://app.jedroplus.com/signup"
                   className="flex items-center justify-center w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

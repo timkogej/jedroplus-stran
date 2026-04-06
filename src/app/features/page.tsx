@@ -129,10 +129,10 @@ export default function FeaturesPage() {
               termini in komunikacijo.
             </p>
             <Link
-              href="/#povprasevanje"
+              href="https://app.jedroplus.com/signup"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-7 py-3.5 rounded-2xl font-semibold shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
             >
-              Pošlji povpraševanje
+              Preizkusi brezplačno
               <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
@@ -340,10 +340,10 @@ export default function FeaturesPage() {
 
                       {/* CTA */}
                       <Link
-                        href="/#povprasevanje"
+                        href="https://app.jedroplus.com/signup"
                         className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
                       >
-                        Pošlji povpraševanje
+                        Preizkusi brezplačno
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
@@ -467,10 +467,10 @@ export default function FeaturesPage() {
                                 </p>
                               </div>
                               <Link
-                                href="/#povprasevanje"
+                                href="https://app.jedroplus.com/signup"
                                 className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-md"
                               >
-                                Pošlji povpraševanje
+                                Preizkusi brezplačno
                                 <ArrowRight className="w-3.5 h-3.5" />
                               </Link>
                             </div>

@@ -146,17 +146,19 @@ export const featuresData: FeatureItem[] = [
   {
     id: "asistent-plus",
     title: "Asistent+ (AI)",
-    shortDescription: "AI pomočnik za komunikacijo in vsakodnevno delo.",
+    shortDescription: "Vaš AI pomagač v žepu — ve vse o vsaki stranki.",
     intro:
-      "Asistent+ pripravi besedila, predloge odgovorov in pomaga pri operativnih nalogah.",
+      "Asistent+ je kot osebni asistent, ki ga vedno imate pri sebi. Pozna vsako stranko, njeno zgodovino in navade — in vam v pravem trenutku poda točno tisto informacijo, ki jo potrebujete. Pomaga vam voditi posel, oblikovati sporočila, analizirati poslovanje in sprejemati boljše odločitve.",
     benefits: [
-      "Predlogi besedil opomnikov",
-      "Odgovori na pogosta vprašanja",
-      "Pomoč pri vnosu terminov",
-      "Boljša konsistentnost komunikacije",
+      "Takojšen pregled nad vsako stranko: zgodovina obiskov, preference, opombe",
+      "Analitika poslovanja — zasedenost, trendi, uspešnost storitev",
+      "Oblikuje personalizirana sporočila in opomnije namesto vas",
+      "Svetuje pri poslovnih odločitvah na podlagi vaših podatkov",
+      "Pomaga pri vsakodnevnih nalogah: vnos terminov, odgovori na pogosta vprašanja",
+      "Dosegljiv 24/7 — tudi takrat, ko niste vi",
     ],
     audience:
-      "Za ekipe, ki želijo manj ročnega pisanja in hitrejši odziv.",
+      "Za vsakega, ki želi imeti v žepu pametnega pomočnika, ki pozna vaše stranke in vaš posel bolje kot kdorkoli.",
   },
   {
     id: "receptionist-plus",

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 import { BackgroundLines } from "@/components/ui/animated-svg-background";
@@ -66,8 +67,8 @@ export default function HeroSection() {
           transition={{ delay: 0.42, ease: [0.25, 0.4, 0.25, 1] }}
           className="flex flex-col sm:flex-row gap-4 mb-12"
         >
-          <motion.button
-            onClick={handleInquiryClick}
+          <motion.a
+            href="https://app.jedroplus.com/signup"
             className="relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg shadow-primary/25"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
@@ -80,10 +81,10 @@ export default function HeroSection() {
               transition={{ duration: 0.28 }}
             />
             <span className="relative z-10 flex items-center gap-2">
-              Pošlji povpraševanje
+              Preizkusi Brezplačno
               <ArrowRight className="w-5 h-5" />
             </span>
-          </motion.button>
+          </motion.a>
 
           <motion.button
             onClick={() => scrollToSection("#funkcije")}

@@ -228,10 +228,10 @@ function IndustryDetail({ industry }: { industry: (typeof industries)[0] }) {
             )}
 
             <Link
-              href="/#povprasevanje"
+              href="https://app.jedroplus.com/signup"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:shadow-primary/30 hover:scale-[1.03] transition-all duration-300 self-start mt-auto"
             >
-              Pošlji povpraševanje
+              Preizkusi zdaj
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -322,10 +322,10 @@ function MobileIndustryCard({
               </div>
 
               <Link
-                href="/#povprasevanje"
+                href="https://app.jedroplus.com/signup"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-md"
               >
-                Pošlji povpraševanje
+                Preizkusi zdaj
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -371,10 +371,10 @@ export default function IndustriesPage() {
             </p>
 
             <Link
-              href="/#povprasevanje"
+              href="https://app.jedroplus.com/signup"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-7 py-3.5 rounded-2xl font-semibold shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
             >
-              Pošlji povpraševanje
+              Preizkusi zdaj
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
