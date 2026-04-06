@@ -1,11 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 import { BackgroundLines } from "@/components/ui/animated-svg-background";
-import { useInquiry } from "@/lib/inquiry-context";
 
 const benefits = [
   "Manj pozabljenih terminov – pametni opomniki skrbijo za vsak korak",
@@ -15,18 +13,12 @@ const benefits = [
 ];
 
 export default function HeroSection() {
-  const { setPreselectedTopic } = useInquiry();
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const handleInquiryClick = () => {
-    setPreselectedTopic("jedroplus_app");
-    scrollToSection("#povprasevanje");
   };
 
   return (
