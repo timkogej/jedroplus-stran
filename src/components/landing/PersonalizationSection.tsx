@@ -338,8 +338,9 @@ export default function PersonalizationSection({
                           src={phoneImage}
                           alt="App screenshot"
                           fill
-                          className="object-cover"
+                          className="object-cover object-top"
                           sizes="260px"
+                          style={{ transform: "scale(1.165) translateY(0.21%)" }}
                         />
                       )}
                     </div>

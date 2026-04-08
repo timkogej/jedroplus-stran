@@ -32,7 +32,7 @@ export default function Home() {
           subtitle="V 15 minutah vam pokažemo, kako Jedro+ uredi termine, opomnike, stranke in AI funkcije v praksi."
           ctaLabel="Rezerviraj brezplačno predstavitev"
         />
-        <PersonalizationSection />
+        <PersonalizationSection phoneImage="/images/jedroplus-stran-message.webp" />
         <BookingDesignSection />
         <TargetAudienceSection />
         <HowItWorksSection />
