@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { MessageSquare, Settings, ArrowRight, Check, Quote } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 import { WordRotate } from "@/components/ui/word-rotate";
 
@@ -47,7 +46,6 @@ interface PersonalizationSectionProps {
 
 export default function PersonalizationSection({
   detailed = false,
-  phoneImage,
 }: PersonalizationSectionProps) {
   return (
     <section id="personalizacija" className="py-20 bg-white overflow-hidden">
@@ -300,53 +298,94 @@ export default function PersonalizationSection({
               </motion.div>
             </div>
 
-            {/* Right: iPhone mockup */}
+            {/* Right: iOS 26 iMessage bubbles */}
             <div className="relative flex justify-center items-center h-[520px]">
-              <div className="absolute w-72 h-72 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-3xl" />
+              {/* Ambient glow */}
+              <div className="absolute w-80 h-80 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 blur-3xl" />
 
-              <motion.div
-                initial={{ opacity: 0, x: 120, rotate: -10 }}
-                whileInView={{ opacity: 1, x: 40, rotate: -10 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative"
-              >
-                <div
-                  className="relative w-[260px] h-[530px] rounded-[48px] shadow-2xl"
-                  style={{
-                    background: "linear-gradient(145deg, #2a2a2a, #1a1a1a)",
-                    boxShadow:
-                      "0 40px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.08), inset 0 0 0 1px rgba(255,255,255,0.05)",
-                  }}
+              <div className="relative w-full max-w-[340px] flex flex-col">
+                {/* Timestamp */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="text-center text-[11px] text-gray-400 font-medium mb-5 tracking-wide"
+                  style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                 >
-                  {/* Side buttons left */}
-                  <div className="absolute -left-[3px] top-[110px] w-[3px] h-8 rounded-l-full bg-[#333]" />
-                  <div className="absolute -left-[3px] top-[155px] w-[3px] h-12 rounded-l-full bg-[#333]" />
-                  <div className="absolute -left-[3px] top-[215px] w-[3px] h-12 rounded-l-full bg-[#333]" />
-                  {/* Side button right */}
-                  <div className="absolute -right-[3px] top-[160px] w-[3px] h-16 rounded-r-full bg-[#333]" />
+                  Danes, 14:23
+                </motion.p>
 
-                  {/* Screen bezel */}
-                  <div className="absolute inset-[3px] rounded-[45px] bg-[#111] overflow-hidden">
-                    {/* Dynamic Island */}
-                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-10" />
-
-                    {/* Screen content */}
-                    <div className="absolute inset-0 bg-[#0a0a0a]">
-                      {phoneImage && (
-                        <Image
-                          src={phoneImage}
-                          alt="App screenshot"
-                          fill
-                          className="object-cover object-top"
-                          sizes="260px"
-                          style={{ transform: "scale(1.165) translateY(0.21%)" }}
-                        />
-                      )}
-                    </div>
+                {/* Bubble 1 — right (blue) — follow-up po beljenju zob */}
+                <motion.div
+                  initial={{ opacity: 0, x: 36, scale: 0.92 }}
+                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.52, delay: 0.08, ease: [0.34, 1.56, 0.64, 1] }}
+                  className="flex justify-end"
+                  style={{ zIndex: 10, position: "relative" }}
+                >
+                  <div
+                    className="max-w-[82%] text-white text-[14px] leading-[1.45]"
+                    style={{
+                      padding: "10px 14px",
+                      background: "linear-gradient(145deg, #1A8FFF 0%, #006EE5 100%)",
+                      borderRadius: "20px 20px 5px 20px",
+                      boxShadow: "0 6px 20px rgba(0, 110, 229, 0.38), 0 1px 4px rgba(0,0,0,0.12)",
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif',
+                    }}
+                  >
+                    Pozdravljeni Ana! 😊 Ker ste imeli danes beljenje zob, priporočamo, da naslednje 24 ur ne uživate temnih napitkov in hrane — kave, rdečega vina ali borovnic. Vaš nasmeh bo zasijal! ✨
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+
+                {/* Bubble 2 — left (gray) — opomnik za striženje */}
+                <motion.div
+                  initial={{ opacity: 0, x: -36, scale: 0.92 }}
+                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.52, delay: 0.22, ease: [0.34, 1.56, 0.64, 1] }}
+                  className="flex justify-start"
+                  style={{ zIndex: 20, position: "relative", marginTop: "-10px" }}
+                >
+                  <div
+                    className="max-w-[82%] text-[14px] leading-[1.45]"
+                    style={{
+                      padding: "10px 14px",
+                      background: "#E5E5EA",
+                      color: "#1C1C1E",
+                      borderRadius: "20px 20px 20px 5px",
+                      boxShadow: "0 3px 12px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06)",
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif',
+                    }}
+                  >
+                    Spoštovani Luka! ✂️ Jutri ob 14:30 vas čaka termin za striženje. Prosimo, oglasite se 5 minut pred terminom. Lepo se imejte!
+                  </div>
+                </motion.div>
+
+                {/* Bubble 3 — right (blue) — zahvala za zaupanje */}
+                <motion.div
+                  initial={{ opacity: 0, x: 36, scale: 0.92 }}
+                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.52, delay: 0.38, ease: [0.34, 1.56, 0.64, 1] }}
+                  className="flex justify-end"
+                  style={{ zIndex: 30, position: "relative", marginTop: "-10px" }}
+                >
+                  <div
+                    className="max-w-[82%] text-white text-[14px] leading-[1.45]"
+                    style={{
+                      padding: "10px 14px",
+                      background: "linear-gradient(145deg, #1A8FFF 0%, #006EE5 100%)",
+                      borderRadius: "20px 20px 5px 20px",
+                      boxShadow: "0 6px 20px rgba(0, 110, 229, 0.38), 0 1px 4px rgba(0,0,0,0.12)",
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif',
+                    }}
+                  >
+                    Hvala, Sara, za vaše zaupanje! 💙 Bilo nam je v veselje skrbeti za vas. Vaše mnenje nam ogromno pomeni — se vidimo kmalu! 🌟
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         )}
