@@ -22,11 +22,11 @@ const DEFAULT_IMAGES = [
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2940&auto=format&fit=crop",
+    src: "/images/booking/jedroplus-booking-all.webp",
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=2940&auto=format&fit=crop",
+    src: "/images/booking/jedroplus-booking-telefon.webp",
     scale: null,
   },
   {
@@ -34,7 +34,7 @@ const DEFAULT_IMAGES = [
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=2940&auto=format&fit=crop",
+    src: "/images/booking/jedroplus-koledar-salon.webp",
     scale: null,
   },
   {
