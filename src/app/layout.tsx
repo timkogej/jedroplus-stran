@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "Slovenija",
   ],
   authors: [{ name: "Jedro+" }],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "Jedro+ | Sistem za termine, stranke in opomnike",
     description:
