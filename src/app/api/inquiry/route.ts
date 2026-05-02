@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const N8N_ENDPOINT = "https://tikej.app.n8n.cloud/webhook/jedroplus/email";
+const N8N_ENDPOINT = "https://n8n.jedroplus.com/webhook/jedroplus/email";
 
 export async function POST(request: NextRequest) {
   try {

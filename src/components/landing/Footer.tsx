@@ -113,12 +113,12 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Pravne informacije</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="/pogoji-uporabe"
+                <Link
+                  href="/terms"
                   className="text-gray-400 hover:text-secondary transition-colors"
                 >
                   Pogoji uporabe
-                </a>
+                </Link>
               </li>
               <li>
                 <a
