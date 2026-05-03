@@ -12,32 +12,31 @@ const pricingPlans = [
     name: 'Jedro Plus',
     description: 'Za podjetja, ki želijo urediti termine, stranke in komunikacijo na enem mestu.',
     monthlyPrice: 19,
-    yearlyPrice: 15,
+    yearlyPrice: 16,
     features: [
-      'baza strank in terminov',
-      'baza storitev in osebja',
-      'personalizirani opomniki pred in po terminu',
-      'email pošiljanje',
-      'celotna analitika',
-      'Spletno Naročanje',
-      'različni dizajni spletnega naročanja',
-      'Asistent+',
+      'Baza strank in terminov',
+      'Baza storitev in osebja',
+      'Personalizirani opomniki pred in po terminu',
+      'Email pošiljanje (500 email/mesec)',
+      'Komunikacija',
+      'Celotna analitika',
+      'Spletno naročanje',
+      'Različni dizajni spletnega naročanja',
     ],
     ctaText: 'Preizkusi brezplačno',
     ctaHref: 'https://app.jedroplus.com/billing',
   },
   {
     name: 'Jedro Pro',
-    description: 'Za podjetja, ki želijo z AI avtomatizirati komunikacijo in povečati zasedenost.',
-    monthlyPrice: 39,
-    yearlyPrice: 31,
+    description: 'Za podjetja, ki želijo z avtomatizacijo povečati zasedenost in komunikacijo.',
+    monthlyPrice: 35,
+    yearlyPrice: 29,
     features: [
-      'vse iz Jedro Plus',
-      'Chatbot+',
-      'Izgubljene stranke',
-      'SMS pošiljanje (150 SMS/mesec)',
-      'email pošiljanje',
-      'dodatni dizajni spletnega naročanja',
+      'Vse iz Jedro Plus',
+      'Obveščanje izgubljenih strank',
+      'SMS pošiljanje (200 sms/mesec)',
+      'Email pošiljanje (2000 email/mesec)',
+      'Dodatni dizajni spletnega naročanja',
     ],
     isPopular: true,
     ctaText: 'Začni zdaj',
@@ -47,15 +46,14 @@ const pricingPlans = [
     name: 'Jedro Premium',
     description: 'Za podjetja, ki želijo največ avtomatizacije in naprednih AI funkcij.',
     monthlyPrice: 99,
-    yearlyPrice: 79,
+    yearlyPrice: 83,
     comingSoon: true,
     features: [
-      'vse iz Jedro Pro',
-      'Receptionist+',
-      'SMS pošiljanje (250 SMS/mesec)',
-      'Email pošiljanje (višja kvota)',
-      'premium dizajn spletnega naročanja',
-      'premium chatbot dizajn',
+      'Vse iz Jedro Pro',
+      'Premium AI funkcije',
+      'Najvišja email kvota',
+      'Najvišja SMS kvota',
+      'Premium dizajn spletnega naročanja',
     ],
     ctaText: 'Kontaktiraj nas',
   },
@@ -63,7 +61,6 @@ const pricingPlans = [
 
 const addOns = [
   { name: 'Dodatni uporabnik', price: '7 € / mesec' },
-  { name: 'Chatbot add-on (če ni v paketu)', price: '19 € / mesec' },
   { name: 'Dodatni SMS', price: 'Po dogovoru' },
   { name: 'Dodatni email', price: 'Po dogovoru' },
 ];
@@ -90,7 +87,7 @@ export default function PricingPage() {
             </h1>
 
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Brez skritih stroškov. Brez dolgoročnih obveznosti. Prekličite kadarkoli.
+              Paketi, prilagojeni za vsako stopnjo vaše rasti. Izberite in začnite danes.
             </p>
           </motion.div>
 
@@ -117,7 +114,7 @@ export default function PricingPage() {
               <svg className="w-5 h-5 text-[#2AD4C5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>100% garancija vračila</span>
+              <span>Brezplačni onboarding in nastavitev</span>
             </div>
           </motion.div>
 
@@ -156,17 +153,18 @@ export default function PricingPage() {
                     </span>
                   </div>
                   <p className="text-gray-400 text-sm mb-6">
-                    Za podjetja, ki želijo rešitev, popolnoma prilagojeno njihovim potrebam in poslovnim procesom.
+                    Prilagodimo custom dizajne, custom funkcije in celoten sistem vašemu specifičnemu poslovanju ter procesom.
                   </p>
                   <div className="flex items-baseline gap-2 mb-6">
                     <span className="text-4xl font-bold text-white">Po dogovoru</span>
                   </div>
                   <ul className="space-y-3">
                     {[
-                      'Custom AI funkcije prilagojene podjetju',
-                      'Premium booking page',
-                      'Različni booking linki',
-                      '…',
+                      'Custom AI funkcije (chatbot, asistent, receptionist in več)',
+                      'Custom booking dizajni z obdelavo slik in naprednimi elementi',
+                      'Avtomatizacije poslovnih procesov po meri',
+                      'Neomejena email in SMS kvota',
+                      'Dedicirani manager in prioritetna podpora',
                     ].map((feature, i) => (
                       <motion.li
                         key={i}

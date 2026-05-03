@@ -115,7 +115,7 @@ export const featuresData: FeatureItem[] = [
   },
   {
     id: "lost-leads",
-    title: "Izgubljene stranke",
+    title: "Obveščanje izgubljenih strank",
     shortDescription: "Ponovna aktivacija strank, ki so prenehale prihajati.",
     intro:
       "Sistem sam prepozna neaktivne stranke in pripravi kampanjo za ponovni obisk.",
@@ -144,50 +144,20 @@ export const featuresData: FeatureItem[] = [
       "Za podjetja, ki želijo odločati na podlagi podatkov.",
   },
   {
-    id: "asistent-plus",
-    title: "Asistent+ (AI)",
-    shortDescription: "Vaš AI pomagač v žepu — ve vse o vsaki stranki.",
+    id: "komunikacija",
+    title: "Komunikacija",
+    shortDescription: "AI generira personalizirana sporočila za vsako stranko hkrati.",
     intro:
-      "Asistent+ je kot osebni asistent, ki ga vedno imate pri sebi. Pozna vsako stranko, njeno zgodovino in navade — in vam v pravem trenutku poda točno tisto informacijo, ki jo potrebujete. Pomaga vam voditi posel, oblikovati sporočila, analizirati poslovanje in sprejemati boljše odločitve.",
+      "Komunikacija je orodje za hitro množično obveščanje strank. AI za vsako stranko pripravi personalizirano sporočilo — vi le določite vsebino in kliknete pošlji. Predstavljajte si: zbolite en dan in morate odpovedati vseh 15 terminov. Namesto da pišete vsakemu posebej, Jedro+ v enem kliku vsem pošlje personalizirano sporočilo z opravičilom in predlogom novega termina.",
     benefits: [
-      "Takojšen pregled nad vsako stranko: zgodovina obiskov, preference, opombe",
-      "Analitika poslovanja — zasedenost, trendi, uspešnost storitev",
-      "Oblikuje personalizirana sporočila in opomnije namesto vas",
-      "Svetuje pri poslovnih odločitvah na podlagi vaših podatkov",
-      "Pomaga pri vsakodnevnih nalogah: vnos terminov, odgovori na pogosta vprašanja",
-      "Dosegljiv 24/7 — tudi takrat, ko niste vi",
+      "AI pripravi personalizirano sporočilo za vsako stranko posebej",
+      "Hkratno obveščanje 10, 20 ali več strank naenkrat",
+      "Primerno za odpovedi, novosti, posebne ponudbe ali obvestila",
+      "Pošiljanje po e-pošti ali SMS-u",
+      "Prihranek časa pri ročnem pisanju sporočil",
+      "Profesionalno in hitro — vsi obveščeni v enem kliku",
     ],
     audience:
-      "Za vsakega, ki želi imeti v žepu pametnega pomočnika, ki pozna vaše stranke in vaš posel bolje kot kdorkoli.",
-  },
-  {
-    id: "receptionist-plus",
-    title: "Receptionist+ (AI)",
-    shortDescription: "AI pomoč pri klicih, naročanju in sprejemu strank.",
-    intro:
-      "Receptionist+ pomaga pri klicih, odgovarja na vprašanja in usmerja stranke do prave storitve.",
-    benefits: [
-      "Manj zamujenih klicev",
-      "Hitrejše naročanje terminov",
-      "Standardizirana komunikacija",
-      "Pomoč tudi izven delovnega časa",
-    ],
-    audience:
-      "Najbolj uporabno za podjetja z veliko telefonskimi povpraševanji.",
-  },
-  {
-    id: "chatbot-plus",
-    title: "Chatbot+ (AI)",
-    shortDescription: "Chatbot na spletni strani za takojšnje odgovore.",
-    intro:
-      "Chatbot+ odgovarja na vprašanja, vodi stranke do prave storitve in olajša rezervacijo.",
-    benefits: [
-      "Dostopen 24/7 na spletni strani",
-      "Usmerjanje do booking linka",
-      "Manj obremenitve za ekipo",
-      "Konsistentni odgovori",
-    ],
-    audience:
-      "Za podjetja, ki želijo hitro podporo tudi izven delovnega časa.",
+      "Za vsako podjetje, ki želi hitro in profesionalno obvestiti stranke — ob odpovedi, spremembi urnika, posebni ponudbi ali kateremkoli obvestilu.",
   },
 ];

@@ -11,9 +11,7 @@ import {
   Package,
   TrendingUp,
   ChartLine,
-  Sparkles,
-  Headphones,
-  Bot,
+  Send,
   LucideIcon,
 } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
@@ -56,7 +54,7 @@ const features: { icon: LucideIcon; title: string; description: string; gradient
   },
   {
     icon: TrendingUp,
-    title: "Izgubljene stranke",
+    title: "Obveščanje izgubljenih strank",
     description: "Seznam neaktivnih strank + kampanje za ponovni obisk. Zapolnite luknje v urniku.",
   },
   {
@@ -65,22 +63,9 @@ const features: { icon: LucideIcon; title: string; description: string; gradient
     description: "Pregled ključnih številk: termini, zasedenost, odpovedi/no-show in trendi.",
   },
   {
-    icon: Sparkles,
-    title: "Asistent+",
-    description: "Pomoč pri besedilih opomnikov, komunikaciji in hitrih odgovorih.",
-    gradient: true,
-  },
-  {
-    icon: Headphones,
-    title: "Receptionist+",
-    description: "AI pomoč pri sprejemu strank, razbremenitev telefona in standardizirana komunikacija.",
-    gradient: true,
-    comingSoon: true,
-  },
-  {
-    icon: Bot,
-    title: "Chatbot+",
-    description: "Chatbot na spletni strani za pogosta vprašanja in usmerjanje k naročanju.",
+    icon: Send,
+    title: "Komunikacija",
+    description: "AI generira personalizirana sporočila za vsako stranko — en klik, vsi obveščeni.",
     gradient: true,
   },
 ];

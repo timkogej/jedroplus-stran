@@ -23,7 +23,7 @@ const packages: Package[] = [
   {
     name: "Jedro Plus",
     monthlyPrice: "19 €",
-    yearlyPrice: "190 €",
+    yearlyPrice: "16 €",
     yearlySaving: "38 €",
     subtitle: "Za podjetja, ki želijo urejen sistem in jasen pregled",
     description:
@@ -32,26 +32,25 @@ const packages: Package[] = [
       "Baza strank in terminov",
       "Baza storitev in osebja",
       "Personalizirani opomniki pred in po terminu",
-      "Email pošiljanje",
+      "Email pošiljanje (500 email/mesec)",
+      "Komunikacija",
       "Celotna analitika",
-      "Spletno Naročanje",
+      "Spletno naročanje",
       "Različni dizajni spletnega naročanja",
-      "Asistent+",
     ],
   },
   {
     name: "Jedro Pro",
-    monthlyPrice: "39 €",
-    yearlyPrice: "390 €",
-    yearlySaving: "78 €",
+    monthlyPrice: "35 €",
+    yearlyPrice: "29 €",
+    yearlySaving: "20%",
     subtitle: "Za podjetja, ki želijo več zasedenosti in manj praznih terminov",
-    description: "Vključuje AI pomočnike, Izgubljene stranke in SMS opomnike.",
+    description: "Vključuje obveščanje izgubljenih strank, SMS opomnike in napredne komunikacijske funkcije.",
     features: [
       "Vse iz Jedro Plus",
-      "Chatbot+",
-      "Izgubljene stranke",
-      "SMS pošiljanje",
-      "Email pošiljanje",
+      "Obveščanje izgubljenih strank",
+      "SMS pošiljanje (200 sms/mesec)",
+      "Email pošiljanje (2000 email/mesec)",
       "Dodatni dizajni spletnega naročanja",
     ],
     popular: true,
@@ -59,17 +58,16 @@ const packages: Package[] = [
   {
     name: "Jedro Premium",
     monthlyPrice: "99 €",
-    yearlyPrice: "990 €",
-    yearlySaving: "198 €",
+    yearlyPrice: "83 €",
+    yearlySaving: "192 €",
     subtitle: "Za podjetja, ki želijo maksimalno avtomatizacijo",
     description: "Celoten nabor AI funkcij za rast in komunikacijo.",
     features: [
       "Vse iz Jedro Pro",
-      "Receptionist+",
-      "SMS pošiljanje (višja kvota)",
-      "Email pošiljanje (višja kvota)",
+      "Premium AI funkcije",
+      "Najvišja email kvota",
+      "Najvišja SMS kvota",
       "Premium dizajn spletnega naročanja",
-      "Premium chatbot dizajn",
     ],
   },
   {
@@ -77,12 +75,13 @@ const packages: Package[] = [
     monthlyPrice: "po dogovoru",
     yearlyPrice: "po dogovoru",
     subtitle: "Za podjetja s posebnimi zahtevami in prilagoditvami",
-    description: "Prilagoditve funkcij, AI in booking okolja po meri.",
+    description: "Prilagodimo custom dizajne, custom funkcije in celoten sistem vašemu poslovanju.",
     features: [
-      "Custom AI funkcije prilagojene podjetju",
-      "Premium booking page",
-      "Različni booking linki",
-      "Dodatne zahteve po meri",
+      "Custom AI funkcije (chatbot, asistent, receptionist in več)",
+      "Custom booking dizajni z obdelavo slik in naprednimi elementi",
+      "Avtomatizacije poslovnih procesov po meri",
+      "Neomejena email in SMS kvota",
+      "Dedicirani manager in prioritetna podpora",
     ],
     ctaLabel: "Pošlji povpraševanje",
   },
@@ -189,11 +188,7 @@ export default function PackagesSection() {
           {packages.map((pkg, index) => {
             const displayPrice = isYearly ? pkg.yearlyPrice : pkg.monthlyPrice;
             const priceSuffix =
-              pkg.monthlyPrice === "po dogovoru"
-                ? ""
-                : isYearly
-                ? " / leto"
-                : " / mesec";
+              pkg.monthlyPrice === "po dogovoru" ? "" : " / mesec";
 
             return (
               <motion.div
@@ -247,7 +242,7 @@ export default function PackagesSection() {
                     </AnimatePresence>
                   </div>
 
-                  {/* Yearly savings line */}
+                  {/* Yearly savings / billing note */}
                   <div className="h-5">
                     <AnimatePresence>
                       {isYearly && pkg.yearlySaving && (

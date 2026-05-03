@@ -25,16 +25,6 @@ export const faqItems: FAQItem[] = [
       "Izgubljene stranke prepozna neaktivne stranke in omogoča kampanje za ponovni obisk, da zapolniš prazne termine.",
   },
   {
-    question: "Kaj je Asistent+?",
-    answer:
-      "Asistent+ pomaga pri komunikaciji, predlaga besedila opomnikov in odgovore na pogosta vprašanja.",
-  },
-  {
-    question: "Kaj je Receptionist+ in Chatbot+?",
-    answer:
-      "Receptionist+ je AI pomočnik za sprejem klicev in naročanje, Chatbot+ pa odgovarja na vprašanja na spletni strani ter usmerja k rezervaciji.",
-  },
-  {
     question: "Kako je z varnostjo in varovanjem podatkov?",
     answer:
       "Podatki so shranjeni varno, dostopi so omejeni, pri obdelavi pa upoštevamo dobre prakse varovanja in GDPR.",

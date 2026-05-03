@@ -8,7 +8,6 @@ import {
   Navigation,
   Footer,
   PersonalizationSection,
-  AISection,
   FreeDemoSection,
   TestimonialsSection,
   MidPageCTASection,
@@ -24,15 +23,12 @@ import {
   Package,
   TrendingUp,
   ChartLine,
-  Sparkles,
-  Headphones,
-  Bot,
+  Send,
   CheckCircle2,
   ChevronRight,
   ArrowRight,
   LayoutGrid,
   MessageCircle,
-  Cpu,
   type LucideIcon,
 } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
@@ -47,12 +43,10 @@ const featureIconMap: Record<string, LucideIcon> = {
   "baza-storitev-osebja": Package,
   "lost-leads": TrendingUp,
   "analitika": ChartLine,
-  "asistent-plus": Sparkles,
-  "receptionist-plus": Headphones,
-  "chatbot-plus": Bot,
+  "komunikacija": Send,
 };
 
-const comingSoonIds = new Set(["receptionist-plus"]);
+const comingSoonIds = new Set<string>([]);
 
 const categories = [
   {
@@ -65,13 +59,7 @@ const categories = [
     id: "komunikacija",
     label: "Komunikacija",
     icon: MessageCircle,
-    featureIds: ["opomniki-pred", "opomniki-po", "lost-leads", "analitika"],
-  },
-  {
-    id: "ai",
-    label: "AI+",
-    icon: Cpu,
-    featureIds: ["asistent-plus", "receptionist-plus", "chatbot-plus"],
+    featureIds: ["opomniki-pred", "opomniki-po", "lost-leads", "analitika", "komunikacija"],
   },
 ];
 
@@ -89,9 +77,6 @@ export default function FeaturesPage() {
   const selectedFeature =
     featuresData.find((f) => f.id === selectedId) ?? filteredFeatures[0];
 
-  // When category changes, auto-select first feature
-  // Only depend on activeCategory — categories is a constant so featureIds
-  // reference changes every render, which would cause infinite re-renders
   useEffect(() => {
     const cat = categories.find((c) => c.id === activeCategory)!;
     setSelectedId(cat.featureIds[0]);
@@ -104,7 +89,6 @@ export default function FeaturesPage() {
 
       {/* ── Hero ────────────────────────────────────────────────── */}
       <section className="relative pt-28 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 via-purple-50/40 to-cyan-50/40">
-        {/* Static blobs — no JS animation, GPU-friendly */}
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/8 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full bg-secondary/10 blur-3xl pointer-events-none" />
 
@@ -115,8 +99,8 @@ export default function FeaturesPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-1.5 rounded-full bg-primary/10 text-primary mb-6">
-              <Sparkles className="w-3.5 h-3.5" />
-              12 funkcij v enem orodju
+              <Send className="w-3.5 h-3.5" />
+              10 funkcij v enem orodju
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Funkcije{" "}
@@ -212,7 +196,6 @@ export default function FeaturesPage() {
                           : "bg-gray-50 border border-transparent hover:bg-gray-100 hover:border-gray-200"
                       }`}
                     >
-                      {/* Left accent bar — CSS transition, no layoutId to avoid cross-list glitch */}
                       <span
                         className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 rounded-r-full bg-gradient-to-b from-primary to-secondary transition-all duration-200 ${
                           isSelected ? "h-8 opacity-100" : "h-0 opacity-0"
@@ -264,12 +247,10 @@ export default function FeaturesPage() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                     className="relative overflow-hidden rounded-3xl border border-gray-100 bg-gradient-to-br from-white via-purple-50/20 to-cyan-50/20 shadow-xl p-8"
                   >
-                    {/* Background decoration */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/6 to-transparent rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-secondary/6 to-transparent rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
                     <div className="relative">
-                      {/* Icon + title */}
                       <div className="flex items-start gap-4 mb-6">
                         <div className="w-14 h-14 rounded-2xl bg-white shadow-md border border-gray-100 flex items-center justify-center shrink-0">
                           {featureIconMap[selectedFeature.id] && (
@@ -297,15 +278,12 @@ export default function FeaturesPage() {
                         </div>
                       </div>
 
-                      {/* Divider */}
                       <div className="h-px bg-gradient-to-r from-primary/20 via-secondary/20 to-transparent mb-6" />
 
-                      {/* Intro */}
                       <p className="text-gray-700 leading-relaxed mb-8 text-base">
                         {selectedFeature.intro}
                       </p>
 
-                      {/* Benefits */}
                       <div className="mb-8">
                         <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
                           Ključne prednosti
@@ -328,7 +306,6 @@ export default function FeaturesPage() {
                         </ul>
                       </div>
 
-                      {/* Audience */}
                       <div className="rounded-2xl bg-primary/5 border border-primary/10 px-5 py-4 mb-8">
                         <p className="text-sm text-gray-700 leading-relaxed">
                           <span className="font-semibold text-gray-900">
@@ -338,7 +315,6 @@ export default function FeaturesPage() {
                         </p>
                       </div>
 
-                      {/* CTA */}
                       <Link
                         href="https://app.jedroplus.com/signup"
                         className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
@@ -486,7 +462,7 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* ── Rest of the page (unchanged) ────────────────────────── */}
+      {/* ── Rest of the page ────────────────────────────────────── */}
       <FreeDemoSection
         title="Brezplačna predstavitev funkcij Jedro+"
         subtitle="V živo vam pokažemo, kako Jedro+ v praksi avtomatizira vaše vsakodnevne procese."
@@ -494,14 +470,13 @@ export default function FeaturesPage() {
           "Pametni opomniki in avtomatska komunikacija",
           "Koledar terminov in upravljanje storitev",
           "CRM in zgodovina obiskov strank",
-          "Izgubljene stranke za ponovno aktivacijo strank",
-          "AI funkcije za hitrejše odzive",
+          "Obveščanje izgubljenih strank za ponovno aktivacijo",
+          "Množična Komunikacija z AI personalizacijo",
         ]}
         ctaLabel="Rezerviraj brezplačno predstavitev"
       />
 
       <PersonalizationSection detailed />
-      <AISection />
       <IntegrationSection />
       <TestimonialsSection />
       <MidPageCTASection
