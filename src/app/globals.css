@@ -103,3 +103,94 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out both;
 }
+
+/* ─── Agency dark theme ─────────────────────────────────────── */
+.agency-theme {
+  --ag-bg:           #0a0a0a;
+  --ag-bg-2:         #131313;
+  --ag-bg-3:         #1c1c1c;
+  --ag-border:       rgba(255,255,255,0.08);
+  --ag-border-s:     rgba(255,255,255,0.14);
+  --ag-text:         #fafafa;
+  --ag-muted:        #a1a1a1;
+  --ag-subtle:       #6e6e6e;
+  --ag-purple:       #8b5cf6;
+  --ag-blue:         #3b82f6;
+  --ag-teal:         #14b8a6;
+  --ag-gradient:     linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #14b8a6 100%);
+  --ag-gradient-txt: linear-gradient(135deg, #c4b5fd 0%, #93c5fd 50%, #5eead4 100%);
+  --ag-gradient-soft:linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(59,130,246,0.15) 50%, rgba(20,184,166,0.15) 100%);
+
+  background-color: #0a0a0a;
+  color: #fafafa;
+}
+
+/* Grain overlay for agency pages */
+.ag-grain {
+  position: relative;
+}
+.ag-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Agency gradient text */
+.ag-gradient-text {
+  background: var(--ag-gradient-txt);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Agency gradient border card technique */
+.ag-border-card {
+  background: linear-gradient(var(--ag-bg-2), var(--ag-bg-2)) padding-box,
+              var(--ag-gradient) border-box;
+  border: 1px solid transparent;
+}
+
+/* Agency scrollbar */
+.agency-theme ::-webkit-scrollbar { width: 6px; }
+.agency-theme ::-webkit-scrollbar-track { background: #0a0a0a; }
+.agency-theme ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+.agency-theme ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+/* Agency focus rings */
+.agency-theme *:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Italic display — Cormorant as editorial accent */
+.italic-display {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Heading italic — 1.35× larger than surrounding sans text */
+.heading-italic {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.35em;
+  line-height: 0.85;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* Shimmer animation for CTA buttons */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.ag-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}

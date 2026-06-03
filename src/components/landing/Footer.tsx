@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 import { Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 
-const routeLinks = [
-  { name: "Domov", href: "/" },
-  { name: "Funkcije", href: "/features" },
-  { name: "Panoge", href: "/industries" },
-  { name: "Cenik", href: "/pricing" },
-  { name: "O nas", href: "/about" },
-  { name: "Kontakt", href: "/contact" },
-  { name: "FAQ", href: "/faq" },
-];
-
 const socialLinks = [
   { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
   { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
 ];
 
 export default function Footer() {
+  const routeLinks = [
+    { name: "Domov", href: "/" },
+    { name: "Funkcije", href: "/features" },
+    { name: "Panoge", href: "/industries" },
+    { name: "Cenik", href: "/pricing" },
+    { name: "O nas", href: "/about" },
+    { name: "Kontakt", href: "/contact" },
+    { name: "FAQ", href: "/faq" },
+  ];
+
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

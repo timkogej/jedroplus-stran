@@ -7,22 +7,22 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { name: "Domov", href: "/" },
-  { name: "Funkcije", href: "/features" },
-  { name: "Panoge", href: "/industries" },
-  { name: "Cenik", href: "/pricing" },
-  { name: "O nas", href: "/about" },
-  { name: "Kontakt", href: "/contact" },
-  { name: "FAQ", href: "/faq" },
-];
-
 export default function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  const navLinks = [
+    { name: "Domov", href: "/" },
+    { name: "Funkcije", href: "/features" },
+    { name: "Panoge", href: "/industries" },
+    { name: "Cenik", href: "/pricing" },
+    { name: "O nas", href: "/about" },
+    { name: "Kontakt", href: "/contact" },
+    { name: "FAQ", href: "/faq" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,9 +33,7 @@ export default function Navigation() {
   }, []);
 
   const isActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
+    if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
 

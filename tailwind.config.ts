@@ -37,6 +37,28 @@ const config: Config = {
           800: "#103F3B",
           900: "#071715",
         },
+        // Agency brand
+        "brand-purple": "#8b5cf6",
+        "brand-blue": "#3b82f6",
+        "brand-teal": "#14b8a6",
+        "ag-bg": "#0a0a0a",
+        "ag-bg-2": "#131313",
+        "ag-bg-3": "#1c1c1c",
+        "ag-text": "#fafafa",
+        "ag-muted": "#a1a1a1",
+        "ag-subtle": "#6e6e6e",
+        "ag-border": "rgba(255,255,255,0.08)",
+      },
+      fontFamily: {
+        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
+        geist: ["var(--font-geist)", "system-ui", "sans-serif"],
+        cormorant: ["var(--font-cormorant)", "Georgia", "serif"],
+      },
+      backgroundImage: {
+        "brand-gradient": "linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #14b8a6 100%)",
+        "brand-gradient-text": "linear-gradient(135deg, #c4b5fd 0%, #93c5fd 50%, #5eead4 100%)",
+        "brand-gradient-soft": "linear-gradient(135deg, rgba(139,92,246,0.18) 0%, rgba(59,130,246,0.18) 50%, rgba(20,184,166,0.18) 100%)",
       },
       animation: {
         "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
