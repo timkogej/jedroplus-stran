@@ -646,7 +646,6 @@ p{ margin:0; }
 }
 @media (max-width:560px){
   .flow__cols{ grid-template-columns:1fr; }
-  .flow__stats{ grid-template-columns:1fr; }
   .flow__lead--r{ margin-left:0; text-align:left; }
 }
 @media (prefers-reduced-motion:reduce){
@@ -758,20 +757,7 @@ p{ margin:0; }
 .flow__bg img.flow__start-bg{ object-position:center center; }
 
 @media (max-width:900px){
-  /* Communication is taller than one phone viewport. Let it scroll as a
-     normal content section instead of clipping the message card inside the
-     full-screen sticky panel. */
-  #komunikacija{
-    position:relative;
-    top:auto;
-    min-height:100dvh;
-    overflow:hidden;
-    scroll-snap-align:none;
-  }
   #komunikacija .flow__inner{
-    padding-top:clamp(104px,14vh,132px);
-    padding-bottom:clamp(72px,10vh,104px);
-    justify-content:flex-start;
     transform:none !important;
   }
   #komunikacija .commgrid{
@@ -793,10 +779,6 @@ p{ margin:0; }
 }
 
 @media (max-width:560px){
-  #komunikacija .flow__inner{
-    padding-top:104px;
-    padding-bottom:72px;
-  }
   #komunikacija .chat{
     padding:16px;
     gap:10px;
@@ -805,6 +787,83 @@ p{ margin:0; }
     max-width:92%;
     padding:13px 15px;
     font-size:14px;
+  }
+}
+
+/* ============ home mobile flow ============ */
+@media (max-width:900px){
+  html:has(.flow--home){ scroll-snap-type:none; }
+
+  .flow--home .flow__panel{
+    overflow:clip;
+    will-change:auto;
+    transform:translateZ(0);
+  }
+  .flow--home .flow__inner{
+    min-width:0;
+  }
+  .flow--home .flow__panel:nth-child(1){ z-index:1; }
+  .flow--home .flow__panel:nth-child(2){ z-index:2; }
+  .flow--home .flow__panel:nth-child(3){ z-index:3; }
+  .flow--home .flow__panel:nth-child(4){ z-index:4; }
+  .flow--home .flow__panel:nth-child(5){ z-index:5; }
+  .flow--home .flow__panel:nth-child(6){ z-index:6; }
+  .flow--home .flow__panel:nth-child(7){ z-index:7; }
+
+  .flow--home .flow__panel.is-mobile-tall{
+    position:relative;
+    top:auto;
+    scroll-snap-align:none;
+  }
+  .flow--home .flow__panel.is-mobile-tall .flow__inner{
+    justify-content:flex-start;
+  }
+  .flow--home .flow__bg{
+    transform:none !important;
+    will-change:auto;
+  }
+
+  .flow--home .flow__stats{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px 18px;
+  }
+  .flow--home .flow__stat b{
+    font-size:clamp(2.35rem,12vw,3.5rem);
+  }
+  .flow--home .flow__stat span{
+    font-size:14px;
+  }
+
+  .flow--home .flow__cols{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:560px){
+  .flow--home .flow__inner{
+    padding:96px var(--gutter) 64px;
+  }
+  .flow--home .rotor{
+    display:block;
+    width:max-content;
+    max-width:100%;
+  }
+  .flow--home .flow__cta{
+    align-items:flex-start;
+  }
+  .flow--home .flow__panel--tall .flow__inner{
+    gap:20px;
+  }
+  .flow--home .flow__rule{
+    margin:15px 0;
+  }
+  .flow--home .flow__lead{
+    font-size:1.05rem;
+    line-height:1.45;
+  }
+  .flow--home .flow__cols{
+    grid-template-columns:1fr !important;
+    gap:22px;
   }
 }
 

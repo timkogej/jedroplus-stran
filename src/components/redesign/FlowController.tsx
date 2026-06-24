@@ -9,18 +9,24 @@ export function FlowController({
   rotors = [],
   wordmark = false,
   industries,
+  adaptiveMobile = false,
 }: {
   rotors?: Rotor[];
   wordmark?: boolean;
   industries?: Industry[];
+  adaptiveMobile?: boolean;
 }) {
   useEffect(() => {
     const panels = Array.from(
-      document.querySelectorAll<HTMLElement>(".flow__panel")
+      document.querySelectorAll<HTMLElement>(
+        adaptiveMobile ? ".flow--home .flow__panel" : ".flow__panel"
+      )
     );
     const nav = document.querySelector<HTMLElement>(".nav");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const cleanups: Array<() => void> = [];
+    let frame = 0;
+    let lastLayoutWidth = 0;
 
     // ---- panel reveal ----
     if ("IntersectionObserver" in window) {
@@ -41,17 +47,41 @@ export function FlowController({
     const easeInOutCubic = (x: number) =>
       x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
+    const isAdaptiveMobile = () =>
+      adaptiveMobile && window.matchMedia("(max-width: 900px)").matches;
+
+    const syncMobilePanelMode = () => {
+      if (!adaptiveMobile) return;
+
+      const mobile = isAdaptiveMobile();
+      const viewportHeight = window.innerHeight;
+
+      panels.forEach((panel) => {
+        panel.classList.toggle(
+          "is-mobile-tall",
+          mobile && panel.scrollHeight > viewportHeight + 8
+        );
+      });
+    };
+
     const updClip = () => {
       const vh = window.innerHeight;
       const small = window.innerWidth <= 900;
       panels.forEach((p, idx) => {
         const r = p.getBoundingClientRect();
+
+        if (r.bottom < -vh || r.top > vh * 2) return;
+
         let pprog = (vh - r.top) / (vh + r.height);
         pprog = Math.max(0, Math.min(1, pprog));
         const bg = p.querySelector<HTMLElement>(".flow__bg");
-        if (bg)
+
+        // Mobile background parallax creates unnecessary repaints and visible
+        // jitter while the browser toolbar changes the viewport height.
+        if (bg && !isAdaptiveMobile())
           bg.style.transform =
             "scale(1.1) translateY(" + (pprog - 0.5) * -4.5 + "%)";
+
         if (idx === 0) {
           p.style.clipPath = "inset(0% round 0px)";
           return;
@@ -59,10 +89,12 @@ export function FlowController({
         let rise = (vh - r.top) / vh;
         rise = Math.max(0, Math.min(1, rise));
         const e = easeInOutCubic(rise);
-        const s = (1 - e) * (small ? 0 : 27);
+        const s = (1 - e) * (small ? 18 : 27);
         const rad = (1 - e) * (small ? 24 : 34);
         p.style.clipPath =
-          "inset(0% " + s + "% 0% " + s + "% round " + rad + "px)";
+          small
+            ? "inset(0px " + s + "px 0px " + s + "px round " + rad + "px)"
+            : "inset(0% " + s + "% 0% " + s + "% round " + rad + "px)";
       });
     };
 
@@ -84,16 +116,40 @@ export function FlowController({
       if (wordmark) nav.classList.toggle("show-word", active !== panels[0]);
     };
 
-    const onScroll = () => {
+    const update = () => {
+      frame = 0;
       if (!reduce) updClip();
       navSync();
     };
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    const onResize = () => {
+      const width = window.innerWidth;
+      if (Math.abs(width - lastLayoutWidth) > 4) {
+        lastLayoutWidth = width;
+        syncMobilePanelMode();
+      }
+      onScroll();
+    };
+
+    lastLayoutWidth = window.innerWidth;
+    syncMobilePanelMode();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    onScroll();
+    window.addEventListener("resize", onResize, { passive: true });
+    update();
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(syncMobilePanelMode);
+    }
+
     cleanups.push(() => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
+      if (frame) window.cancelAnimationFrame(frame);
     });
 
     // ---- rotating words ----

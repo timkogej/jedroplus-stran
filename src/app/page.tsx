@@ -150,7 +150,7 @@ export default function Home() {
       <JsonLd schema={softwareApplicationSchema} />
       <Nav variant="flow" active="/" />
 
-      <div className="flow">
+      <div className="flow flow--home">
         {/* 01 — HERO */}
         <section
           className="flow__panel"
@@ -335,6 +335,7 @@ export default function Home() {
 
         {/* 04 — ŠTEVILKE GOVORIJO */}
         <section
+          id="rezultati"
           className="flow__panel"
           data-ink="dark"
           style={{
@@ -576,6 +577,7 @@ export default function Home() {
       <Footer />
 
       <FlowController
+        adaptiveMobile
         wordmark
         rotors={[
           {
