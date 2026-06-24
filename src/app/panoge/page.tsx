@@ -6,6 +6,13 @@ import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
 
 export const metadata: Metadata = {
   title: "Panoge | Jedro+",
+  description:
+    "Jedro+ pokriva panoge od frizerskih salonov in klinik do wellnessa, fitnesa, avtoservisov in coachinga. Poiščite rešitev za naročanje v svoji panogi.",
+  openGraph: {
+    title: "Panoge | Jedro+",
+    description:
+      "Jedro+ pokriva panoge od frizerskih salonov in klinik do wellnessa, fitnesa, avtoservisov in coachinga. Poiščite rešitev za naročanje v svoji panogi.",
+  },
 };
 
 const rows = [

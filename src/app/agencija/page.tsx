@@ -3,9 +3,20 @@ import Image from "next/image";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { FlowController } from "@/components/redesign/FlowController";
+import { Faq } from "@/components/redesign/Faq";
+import { agencijaFaq } from "@/components/redesign/faq-data";
+import { JsonLd } from "@/components/JsonLd";
+import { professionalServiceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Agencija | Jedro+ — AI agencija za storitvena podjetja",
+  description:
+    "Jedro+ Agencija je AI agencija za storitvena podjetja: razvijamo pametne rešitve za naročanje, opomnike in avtomatizacijo, prilagojene vaši dejavnosti.",
+  openGraph: {
+    title: "Agencija | Jedro+ — AI agencija za storitvena podjetja",
+    description:
+      "Jedro+ Agencija je AI agencija za storitvena podjetja: razvijamo pametne rešitve za naročanje, opomnike in avtomatizacijo, prilagojene vaši dejavnosti.",
+  },
 };
 
 const Adv = () => (
@@ -19,7 +30,8 @@ const Adv = () => (
 export default function Agencija() {
   return (
     <div className="theme-agency">
-      <Nav variant="flow" active="/agencija" aboutHref="#kontakt" />
+      <JsonLd schema={professionalServiceSchema} />
+      <Nav variant="flow" active="/agencija" />
 
       <div className="flow">
         {/* 01 — HERO */}
@@ -42,12 +54,12 @@ export default function Agencija() {
             <p className="flow__eyebrow">01 — Agencija Jedro+</p>
             <hr className="flow__rule" />
             <h1 className="flow__h flow__h--hero" style={{ fontSize: 65 }}>
-              GRADIMO{" "}
+              Gradimo{" "}
               <span id="agRotor" className="rotor grad-text">
-                SISTEME
+                sisteme
               </span>
               <br />
-              ZA STORITVENA PODJETJA
+              za storitvena podjetja
             </h1>
             <hr className="flow__rule" />
             <p className="flow__lead">
@@ -150,9 +162,9 @@ export default function Agencija() {
             <p className="flow__eyebrow">03 — Hitrost</p>
             <hr className="flow__rule" />
             <h2 className="flow__h flow__h--md" style={{ fontSize: 65 }}>
-              PROJEKT V TEDNIH.
+              Projekt v tednih.
               <br />
-              NE MESECIH.
+              Ne mesecih.
             </h2>
             <hr className="flow__rule" />
             <p className="flow__lead">
@@ -185,9 +197,9 @@ export default function Agencija() {
             <p className="flow__eyebrow">04 — Kaj ponujamo?</p>
             <hr className="flow__rule" />
             <h2 className="flow__h flow__h--md" style={{ fontSize: 65 }}>
-              BOLJE JE VPRAŠATI
+              Bolje je vprašati
               <br />
-              ČESA NE PONUJAMO?
+              česa ne ponujamo?
             </h2>
             <p className="flow__sub" style={{ marginTop: "clamp(14px,2vh,26px)" }}>
               Naredimo vse, kar vaše podjetje potrebuje za rast.{" "}
@@ -316,7 +328,7 @@ export default function Agencija() {
             <p className="flow__eyebrow">06 — Pokličite nas</p>
             <hr className="flow__rule" />
             <h2 className="flow__h flow__h--sm" style={{ maxWidth: "22ch", fontSize: 65 }}>
-              PRIPRAVLJENI ZA NASLEDNJI KORAK?
+              Pripravljeni za naslednji korak?
             </h2>
             <hr className="flow__rule" />
             <p className="flow__lead">
@@ -336,9 +348,19 @@ export default function Agencija() {
         </section>
       </div>
 
+      <Faq
+        items={agencijaFaq}
+        title={
+          <>
+            Pogosta <span className="grad-text">vprašanja</span>
+          </>
+        }
+        soft
+      />
+
       <Footer variant="agency" />
 
-      <FlowController rotors={[{ id: "agRotor", words: ["SISTEME", "KOMUNIKACIJO", "SPLETNE STRANI", "RAST"] }]} />
+      <FlowController rotors={[{ id: "agRotor", words: ["sisteme", "komunikacijo", "spletne strani", "rast"] }]} />
     </div>
   );
 }

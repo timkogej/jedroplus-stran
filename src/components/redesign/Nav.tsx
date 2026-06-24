@@ -17,7 +17,7 @@ const LINKS = [
 export function Nav({
   variant = "plain",
   active,
-  aboutHref = "/#kontakt",
+  aboutHref = "/o-nas",
 }: {
   variant?: Variant;
   active?: string;

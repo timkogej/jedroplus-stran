@@ -43,7 +43,7 @@ export function Footer({
                 <Link href="/agencija">Agencija</Link>
               </li>
               <li>
-                <Link href="/#kontakt">O nas</Link>
+                <Link href="/o-nas">O nas</Link>
               </li>
             </ul>
           </div>
@@ -74,10 +74,13 @@ export function Footer({
                 <h4 style={{ marginTop: 28 }}>Pravne informacije</h4>
                 <ul>
                   <li>
-                    <a href="#">Pogoji uporabe</a>
+                    <Link href="/pogoji-uporabe">Pogoji uporabe</Link>
                   </li>
                   <li>
-                    <a href="#">Politika zasebnosti</a>
+                    <Link href="/zasebnost">Politika zasebnosti</Link>
+                  </li>
+                  <li>
+                    <Link href="/o-nas">O nas</Link>
                   </li>
                 </ul>
               </>

@@ -3,6 +3,10 @@ import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { FlowController } from "@/components/redesign/FlowController";
 import { industries } from "@/components/redesign/data";
+import { JsonLd } from "@/components/JsonLd";
+import { Faq } from "@/components/redesign/Faq";
+import { homeFaq } from "@/components/redesign/faq-data";
+import { softwareApplicationSchema } from "@/lib/schema";
 import type { ReactNode } from "react";
 
 const Check = () => (
@@ -143,7 +147,8 @@ export default function Home() {
 
   return (
     <>
-      <Nav variant="flow" active="/" aboutHref="#kontakt" />
+      <JsonLd schema={softwareApplicationSchema} />
+      <Nav variant="flow" active="/" />
 
       <div className="flow">
         {/* 01 — HERO */}
@@ -174,11 +179,11 @@ export default function Home() {
             <p className="flow__eyebrow">01 — Jedro+</p>
             <hr className="flow__rule" />
             <h1 className="flow__h flow__h--hero" style={{ fontSize: 60 }}>
-              PRIHODNOST{" "}
+              Prihodnost{" "}
               <span id="heroRotor" className="rotor grad-text">
                 naročanja
               </span>{" "}
-              VAŠEGA PODJETJA
+              vašega podjetja
             </h1>
             <hr className="flow__rule" />
             <p className="flow__lead">
@@ -514,7 +519,7 @@ export default function Home() {
             <p className="flow__eyebrow">07 — Začni</p>
             <hr className="flow__rule" />
             <h2 className="flow__h flow__h--sm" style={{ maxWidth: "24ch", fontSize: 65 }}>
-              KDAJ STE PRIPRAVLJENI DVIGNITI PODJETJE NA VIŠJO RAVEN?
+              Kdaj ste pripravljeni dvigniti podjetje na višjo raven?
             </h2>
             <hr className="flow__rule" />
             <p className="flow__lead">
@@ -557,6 +562,16 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Faq
+        items={homeFaq}
+        title={
+          <>
+            Pogosta <span className="grad-text">vprašanja</span>
+          </>
+        }
+        soft
+      />
 
       <Footer />
 

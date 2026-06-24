@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Jedro+ | Sistem za termine, stranke in opomnike",
   description:
-    "Jedro+ je all-in-one aplikacija za storitvena podjetja. Združi koledar terminov, baze strank in storitev, personalizirane opomnike, spletno naročanje ter pametne AI funkcije v eno enostavno, pregledno rešitev.",
-  keywords: [
-    "termini",
-    "stranke",
-    "opomniki",
-    "booking",
-    "naročanje",
-    "salon",
-    "klinika",
-    "CRM",
-    "storitvena podjetja",
-    "Slovenija",
-  ],
+    "Jedro+ je rezervacijski sistem za storitvena podjetja v Sloveniji. Spletno naročanje terminov, baza strank in pametni AI opomniki, ki zmanjšajo odpovedi.",
   authors: [{ name: "Jedro+" }],
   icons: {
     icon: "/favicon.ico",
@@ -24,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jedro+ | Sistem za termine, stranke in opomnike",
     description:
-      "All-in-one aplikacija za storitvena podjetja. Koledar, baze, opomniki, booking in AI na enem mestu.",
+      "Jedro+ je rezervacijski sistem za storitvena podjetja v Sloveniji. Spletno naročanje terminov, baza strank in pametni AI opomniki, ki zmanjšajo odpovedi.",
     type: "website",
     locale: "sl_SI",
   },
@@ -37,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sl">
-      <body>{children}</body>
+      <body>
+        <JsonLd schema={organizationSchema} />
+        {children}
+      </body>
     </html>
   );
 }

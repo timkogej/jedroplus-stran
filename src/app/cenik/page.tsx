@@ -3,9 +3,20 @@ import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
 import { PricingTiers } from "@/components/redesign/PricingTiers";
+import { Faq } from "@/components/redesign/Faq";
+import { cenikFaq } from "@/components/redesign/faq-data";
+import { JsonLd } from "@/components/JsonLd";
+import { pricingProductsSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Cenik | Jedro+",
+  description:
+    "Cenik Jedro+: pregledne cene rezervacijskega sistema za storitvena podjetja. Začnite brezplačno in nadgradite brez vezave — prekličete kadarkoli.",
+  openGraph: {
+    title: "Cenik | Jedro+",
+    description:
+      "Cenik Jedro+: pregledne cene rezervacijskega sistema za storitvena podjetja. Začnite brezplačno in nadgradite brez vezave — prekličete kadarkoli.",
+  },
 };
 
 const Chk = () => (
@@ -19,6 +30,7 @@ const Chk = () => (
 export default function Cenik() {
   return (
     <>
+      <JsonLd schema={pricingProductsSchema} />
       <Nav variant="plain" active="/cenik" />
 
       {/* HERO (editorial) */}
@@ -128,6 +140,17 @@ export default function Cenik() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <Faq
+        items={cenikFaq}
+        title={
+          <>
+            Pogosta <span className="grad-text">vprašanja</span>
+          </>
+        }
+        reveal
+      />
 
       {/* CTA */}
       <section className="section">

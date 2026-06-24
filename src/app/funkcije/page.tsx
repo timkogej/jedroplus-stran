@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
+import Link from "next/link";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
 
 export const metadata: Metadata = {
   title: "Funkcije | Jedro+",
+  description:
+    "Vse funkcije Jedro+ na enem mestu: koledar terminov, CRM baza strank, samodejni AI opomniki, spletno naročanje in pametne funkcije za storitvena podjetja.",
+  openGraph: {
+    title: "Funkcije | Jedro+",
+    description:
+      "Vse funkcije Jedro+ na enem mestu: koledar terminov, CRM baza strank, samodejni AI opomniki, spletno naročanje in pametne funkcije za storitvena podjetja.",
+  },
 };
 
 const ChkWhite = () => (
@@ -123,6 +131,45 @@ const feats: Feat[] = [
   },
 ];
 
+const deepDives = [
+  {
+    slug: "sms-opomniki",
+    n: "01",
+    title: "SMS opomniki za stranke",
+    desc: "Samodejni opomniki ob pravem času — manj odpovedi in no-show terminov.",
+    tag: "FOTO — SMS opomnik pred terminom",
+  },
+  {
+    slug: "spletno-narocanje",
+    n: "02",
+    title: "Spletno naročanje in booking 24/7",
+    desc: "Stranke rezervirajo same, kadarkoli — poln urnik brez klicev.",
+    tag: "FOTO — spletno naročanje na telefonu",
+  },
+  {
+    slug: "crm-baza-strank",
+    n: "03",
+    title: "CRM za storitvena podjetja",
+    desc: "Kontakti, zgodovina obiskov in opombe vsake stranke na enem mestu.",
+    tag: "FOTO — baza strank / kartica stranke",
+  },
+  {
+    slug: "ai-komunikacija",
+    n: "04",
+    title: "AI personalizirana sporočila",
+    desc: "AI napiše sporočilo v vašem tonu — z imenom, terminom in storitvijo.",
+    tag: "FOTO — AI sporočila za stranke",
+  },
+];
+
+const DeepArrow = () => (
+  <span className="indrow__go">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
 export default function Funkcije() {
   return (
     <>
@@ -188,8 +235,41 @@ export default function Funkcije() {
         </div>
       </section>
 
+      {/* DEEP DIVES — povezave na funkcijske pod-strani */}
+      <section className="section section--soft">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="eyebrow">Podrobneje</span>
+            <h2 style={{ marginTop: 18 }}>
+              Spoznajte ključne funkcije <span className="grad-text">v globino</span>
+            </h2>
+            <p className="lead">
+              Vsaka funkcija ima svojo stran z razlago, primeri in pogostimi
+              vprašanji.
+            </p>
+          </div>
+          <div className="ind-rows" style={{ marginTop: 40 }}>
+            {deepDives.map((r) => (
+              <Link className="indrow reveal" href={`/funkcije/${r.slug}`} key={r.slug}>
+                <div className="indrow__media">
+                  <div className="ph">
+                    <span className="ph__tag">{r.tag}</span>
+                  </div>
+                </div>
+                <div className="indrow__body">
+                  <span className="indrow__n">{r.n}</span>
+                  <h3>{r.title}</h3>
+                  <p>{r.desc}</p>
+                </div>
+                <DeepArrow />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PERSONALIZACIJA */}
-      <section className="section section--soft" id="personalizacija">
+      <section className="section" id="personalizacija">
         <div className="wrap split">
           <div className="split__body reveal">
             <span className="eyebrow">Personalizacija</span>
