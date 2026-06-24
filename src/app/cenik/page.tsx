@@ -1,0 +1,167 @@
+import type { Metadata } from "next";
+import { Nav } from "@/components/redesign/Nav";
+import { Footer } from "@/components/redesign/Footer";
+import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
+import { PricingTiers } from "@/components/redesign/PricingTiers";
+
+export const metadata: Metadata = {
+  title: "Cenik | Jedro+",
+};
+
+const Chk = () => (
+  <span className="chk">
+    <svg viewBox="0 0 12 12" fill="none">
+      <path d="M2 6.2l2.6 2.6L10 3" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+export default function Cenik() {
+  return (
+    <>
+      <Nav variant="plain" active="/cenik" />
+
+      {/* HERO (editorial) */}
+      <section
+        className="vhero"
+        style={{ background: "#0C0D10", minHeight: "100vh" }}
+      >
+        <div className="wrap vhero__in">
+          <p className="vhero__eyebrow">Cenik</p>
+          <hr className="vhero__rule" />
+          <h1 className="vhero__h">
+            Preprost cenik za <span>vsako fazo rasti.</span>
+          </h1>
+          <hr className="vhero__rule" />
+          <p className="vhero__sub">
+            Začnite brezplačno, nadgradite, ko ste pripravljeni. Brez vezave —
+            prekličete kadarkoli.
+          </p>
+          <div className="vhero__cta">
+            <a className="btn btn--light btn--lg" href="/#kontakt">
+              Preizkusi brezplačno <span className="arr">→</span>
+            </a>
+            <a
+              className="btn btn--ghost btn--lg"
+              href="/#kontakt"
+              style={{ color: "#fff", borderColor: "rgba(255,255,255,.3)" }}
+            >
+              Rezerviraj predstavitev
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section className="section" id="cenik">
+        <div className="wrap">
+          <div className="section-head center reveal">
+            <span className="eyebrow eyebrow--plain" style={{ justifyContent: "center" }}>
+              Paketi
+            </span>
+            <h2 style={{ marginTop: 18 }}>
+              Izberi paket glede na to,{" "}
+              <span className="grad-text">koliko želiš avtomatizirati</span>
+            </h2>
+            <p className="lead">
+              Vsi paketi vključujejo: Baze podatkov, Koledar terminov, Spletno
+              naročanje, Analitiko
+            </p>
+          </div>
+          <PricingTiers />
+        </div>
+      </section>
+
+      {/* VSE VKLJUČENO */}
+      <section className="section section--soft">
+        <div className="wrap split">
+          <div className="split__body reveal">
+            <span className="eyebrow">V vsakem paketu</span>
+            <h2 style={{ marginTop: 18 }}>
+              Osnova, ki <span className="grad-text">vedno deluje</span>
+            </h2>
+            <p className="lead">
+              Ne glede na paket dobite povezan sistem — koledar, stranke in
+              naročanje, ki delujejo kot ena celota.
+            </p>
+            <ul className="split__list">
+              <li>
+                <Chk />
+                <span>
+                  <b>Spletno naročanje</b> prilagojeno vašim barvam in logotipu
+                </span>
+              </li>
+              <li>
+                <Chk />
+                <span>
+                  <b>Povezan CRM</b> z zgodovino in preferencami strank
+                </span>
+              </li>
+              <li>
+                <Chk />
+                <span>
+                  <b>Opomniki</b>, ki zmanjšajo no-show od prvega dne
+                </span>
+              </li>
+              <li>
+                <Chk />
+                <span>
+                  <b>Mobilna izkušnja</b> — vi in stranke kjerkoli
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div className="split__media reveal" data-d="1">
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <div className="ph" style={{ aspectRatio: "9/16" }}>
+                <span className="ph__tag">SCREENSHOT — aplikacija</span>
+              </div>
+              <div style={{ display: "grid", gap: 14 }}>
+                <div className="ph" style={{ aspectRatio: "1/1" }}>
+                  <span className="ph__tag">koledar</span>
+                </div>
+                <div className="ph" style={{ aspectRatio: "4/3" }}>
+                  <span className="ph__tag">naročanje</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section">
+        <div className="wrap">
+          <div className="cta-band reveal">
+            <div className="cta-band__glow"></div>
+            <div className="cta-band__in">
+              <span className="eyebrow" style={{ color: "rgba(255,255,255,.75)" }}>
+                Pripravljeni?
+              </span>
+              <h2 style={{ marginTop: 18 }}>Začnite brezplačno, še danes.</h2>
+              <p>
+                Brez vezave, brez kreditne kartice. V 15 minutah vam pokažemo
+                Jedro+ v praksi.
+              </p>
+              <div className="cta-band__btns">
+                <a className="btn btn--light btn--lg" href="/#kontakt">
+                  Preizkusi brezplačno <span className="arr">→</span>
+                </a>
+                <a
+                  className="btn btn--ghost btn--lg"
+                  href="/#kontakt"
+                  style={{ color: "#fff", borderColor: "rgba(255,255,255,.25)" }}
+                >
+                  Rezerviraj predstavitev
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+      <RevealOnScroll />
+    </>
+  );
+}
