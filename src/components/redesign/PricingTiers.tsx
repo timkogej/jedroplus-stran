@@ -63,7 +63,7 @@ const tiers: Tier[] = [
       "Custom AI funkcije (chatbot, asistent, receptionist in več)",
       "Custom booking dizajni z obdelavo slik in naprednimi elementi",
       "Avtomatizacije poslovnih procesov po meri",
-      "Neomejena email in SMS kvota",
+      "SMS in Email kvota po meri",
       "Dedicirani manager in prioritetna podpora",
     ],
     ctaLabel: "Pošlji povpraševanje",

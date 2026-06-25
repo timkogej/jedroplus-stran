@@ -51,10 +51,13 @@ export function Footer({
             <h4>Sledite nam</h4>
             <ul>
               <li>
-                <a href="#">LinkedIn</a>
-              </li>
-              <li>
-                <a href="#">Instagram</a>
+                <a
+                  href="https://www.instagram.com/jedroplus"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
               </li>
             </ul>
             {variant === "agency" ? (
@@ -88,7 +91,10 @@ export function Footer({
           </div>
         </div>
         <div className="footer__bot">
-          <span>© 2026 Jedro+. Vse pravice pridržane.</span>
+          <span>
+            © 2026 Sonja Žužek s.p. · Davčna številka: 97477621. Vse pravice
+            pridržane.
+          </span>
           <span>Narejeno v Sloveniji 🇸🇮</span>
         </div>
       </div>

@@ -470,12 +470,44 @@ p{ margin:0; }
 .imghero{ position:relative; min-height:clamp(480px,84vh,780px); display:flex; align-items:flex-end; overflow:hidden; }
 .imghero__img{ position:absolute; inset:0; }
 .imghero__img .ph{ position:absolute; inset:0; border-radius:0; background-color:#e7e9e8; }
+.imghero__photo{
+  object-fit:cover;
+  object-position:var(--hero-position, center center);
+  transform:scale(1.006);
+  filter:saturate(.82) sepia(.08) contrast(.94) brightness(.94) blur(.35px);
+}
+.imghero--photo .imghero__img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(110deg, rgba(244,241,234,.24) 0%, rgba(232,220,202,.14) 48%, rgba(244,241,234,.08) 100%),
+    radial-gradient(circle at 72% 35%, rgba(255,248,237,.11), transparent 48%);
+  backdrop-filter:blur(.45px);
+  -webkit-backdrop-filter:blur(.45px);
+}
 .imghero__scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,12,.5) 0%, rgba(8,9,12,0) 17%, rgba(8,9,12,0) 48%, rgba(8,9,12,.8) 100%); }
 .imghero__in{ position:relative; z-index:3; width:100%; padding-bottom:clamp(44px,7vh,84px); color:#fff; }
 .imghero .eyebrow{ color:rgba(255,255,255,.9); }
 .imghero h1{ color:#fff; max-width:16ch; }
 .imghero__sub{ margin-top:22px; color:rgba(255,255,255,.85); font-size:clamp(17px,1.5vw,21px); max-width:560px; line-height:1.5; }
 .imghero__cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+@media(max-width:760px){
+  .imghero__photo{ object-position:var(--hero-position-mobile, var(--hero-position, center center)); }
+  .imghero--photo .imghero__img::after{
+    background:
+      linear-gradient(110deg, rgba(244,241,234,.2) 0%, rgba(232,220,202,.12) 55%, rgba(244,241,234,.07) 100%),
+      radial-gradient(circle at 60% 32%, rgba(255,248,237,.09), transparent 52%);
+  }
+  .imghero__scrim{
+    background:
+      linear-gradient(180deg, rgba(8,9,12,.58) 0%, rgba(8,9,12,.08) 25%, rgba(8,9,12,.18) 42%, rgba(8,9,12,.9) 100%);
+  }
+  .imghero__cta{ flex-direction:column; align-items:stretch; }
+  .imghero__cta .btn{ justify-content:center; width:100%; }
+}
 
 /* ============ industry image cards (hover + expand) ============ */
 .icard{ position:relative; aspect-ratio:1/1; border-radius:var(--r-lg); overflow:hidden; cursor:pointer; background:#e7e9e8; transition:transform .45s var(--ease), box-shadow .45s var(--ease); }
@@ -542,7 +574,11 @@ p{ margin:0; }
   color:var(--p-ink,#fff);
   background:var(--p-bg,#0C0D10);
   isolation:isolate;
-  will-change:clip-path;
+  /* story-scroll reveal: each incoming panel swings up from its
+     bottom-left corner (rotation driven in FlowController). */
+  transform-origin:bottom left;
+  backface-visibility:hidden;
+  will-change:transform;
 }
 .flow__bg{ position:absolute; inset:0; z-index:0; will-change:transform; }
 .flow__bg .imgslot{
@@ -796,8 +832,9 @@ p{ margin:0; }
 
   .flow--home .flow__panel{
     overflow:clip;
-    will-change:auto;
-    transform:translateZ(0);
+    /* rotation reveal now runs on phones too — keep the compositor hint so the
+       swing-in stays smooth (transform set per-frame in FlowController). */
+    will-change:transform;
   }
   .flow--home .flow__inner{
     min-width:0;
@@ -880,6 +917,28 @@ p{ margin:0; }
   --violet:#00b3a8;
 }
 
+/* Slightly calmer section-heading scale on the agency page. */
+.agency-page .flow__h--hero{
+  font-size:clamp(2.25rem,4.8vw,3.65rem) !important;
+}
+.agency-page .flow__h--md{
+  font-size:clamp(2.15rem,4.9vw,3.5rem) !important;
+}
+.agency-page .flow__h--sm{
+  font-size:clamp(2rem,4.4vw,3.25rem) !important;
+}
+@media (max-width:560px){
+  .agency-page .flow__h--hero{
+    font-size:clamp(31px,8.2vw,36px) !important;
+  }
+  .agency-page .flow__h--md{
+    font-size:clamp(29px,7.8vw,34px) !important;
+  }
+  .agency-page .flow__h--sm{
+    font-size:clamp(28px,7.4vw,32px) !important;
+  }
+}
+
 /* nav on a light page head (subpages) — keep links dark at top */
 .nav--light:not(.is-stuck) .nav__menu a{ color:var(--ink-2); }
 .nav--light:not(.is-stuck) .nav__menu a:hover{ color:var(--ink); background:var(--bg-soft); }
@@ -893,7 +952,8 @@ p{ margin:0; }
 .imghero--editorial .imghero__in{ color:var(--ink); padding-block:clamp(124px,17vh,176px); display:flex; flex-direction:column; }
 .imghero__eyebrow{ font-family:var(--text); font-size:13px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-2); }
 .imghero__rule{ border:0; border-top:1px solid rgba(21,22,27,.16); margin:clamp(16px,2.2vw,28px) 0; width:100%; max-width:820px; }
-.imghero__h{ font-family:"Inter Display","Inter",sans-serif; font-weight:800; font-optical-sizing:auto; text-transform:none; letter-spacing:-.035em; line-height:1.02; font-size:clamp(2.5rem,5.6vw,5.2rem); color:var(--ink); max-width:18ch; margin:0; text-wrap:balance; }
+.imghero__h{ font-family:"Inter Display","Inter",sans-serif; font-weight:300; font-optical-sizing:auto; text-transform:none; letter-spacing:-.035em; line-height:1.02; font-size:clamp(2.5rem,5.6vw,5.2rem); color:var(--ink); max-width:18ch; margin:0; text-wrap:balance; }
+.imghero--editorial .imghero__h{ color:var(--ink); }
 .imghero--editorial .imghero__sub{ margin-top:24px; color:var(--ink-2); }
 @media(max-width:860px){ .imghero--editorial{ min-height:auto; } .imghero--editorial .imghero__in{ padding-block:140px 70px; } }
 
@@ -926,6 +986,14 @@ p{ margin:0; }
 .vhero__h span{ color:rgba(255,255,255,.6); }
 .vhero__sub{ margin-top:24px; color:rgba(255,255,255,.88); font-size:clamp(17px,1.5vw,21px); max-width:620px; line-height:1.5; }
 .vhero__cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.vhero--white{ background:#fff; }
+.vhero--white .vhero__tint{ display:none; }
+.vhero--white .vhero__in{ color:var(--ink); }
+.vhero--white .vhero__eyebrow{ color:var(--ink-2); }
+.vhero--white .vhero__rule{ border-top-color:rgba(21,22,27,.16); }
+.vhero--white .vhero__h{ color:var(--ink); font-weight:300; }
+.vhero--white .vhero__h span.grad-text{ color:transparent; }
+.vhero--white .vhero__sub{ color:var(--ink-2); }
 @media(max-width:860px){ .vhero{ min-height:auto; } .vhero__in{ padding-block:140px 70px; } }
 
 /* ============ industry rows (panoge index) ============ */
@@ -967,14 +1035,37 @@ p{ margin:0; }
 
 /* ============ service cards (agencija light panel) ============ */
 .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,26px); width:100%; }
-.svc{ border:1px solid var(--line); border-radius:var(--r-lg); padding:clamp(24px,2.2vw,34px); background:#fff; display:flex; flex-direction:column; transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s; }
+.svc{ border:1px solid var(--line); border-radius:var(--r-lg); padding:clamp(26px,2.2vw,34px); background:#fff; display:flex; flex-direction:column; transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s; }
 .svc:hover{ transform:translateY(-6px); box-shadow:0 30px 60px -34px rgba(8,9,12,.26); border-color:transparent; }
 .svc__n{ font-family:ui-monospace,monospace; font-size:12px; color:var(--muted); letter-spacing:.04em; }
 .svc__ico{ width:52px; height:52px; border-radius:15px; background:var(--grad); display:grid; place-items:center; color:#fff; margin:16px 0 20px; }
 .svc__ico svg{ width:25px; height:25px; }
-.svc h3{ font-family:var(--display); font-weight:600; font-size:clamp(20px,1.7vw,25px); letter-spacing:-.02em; line-height:1.05; }
+.svc h3{ font-family:var(--display); font-weight:600; font-size:clamp(20px,1.7vw,25px); letter-spacing:-.02em; line-height:1.08; }
 .svc p{ margin-top:13px; color:var(--ink-2); font-size:clamp(14.5px,1.05vw,16px); line-height:1.58; }
 @media (max-width:900px){ .svc-grid{ grid-template-columns:1fr; max-width:520px; } }
+
+.flow__panel .svc-marquee{
+  padding-block:8px 16px;
+}
+.flow__panel .svc-track{
+  gap:18px;
+  --mq-half-gap:9px;
+  animation-duration:34s;
+}
+.flow__panel .svc-marquee .svc{
+  flex:0 0 clamp(280px,27vw,360px);
+  min-height:240px;
+}
+.flow__panel .svc-marquee .svc h3{
+  color:var(--t-deep,#00b3a8);
+}
+@media (max-width:560px){
+  .flow__panel .svc-track{ animation-duration:28s; }
+  .flow__panel .svc-marquee .svc{
+    flex-basis:min(82vw,320px);
+    min-height:260px;
+  }
+}
 
 /* ============ connected pieces row (agencija) ============ */
 .onerow{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 14px; margin-top:6px; }
@@ -1066,6 +1157,19 @@ p{ margin:0; }
 .legal b{ color:var(--ink); }
 .legal__note{ margin-top:clamp(40px,5vh,64px); padding:clamp(20px,2.4vw,30px); border:1px solid var(--line); border-radius:var(--r-lg); background:var(--bg-soft); }
 .legal__note p{ margin-top:0; font-size:15px; color:var(--ink-2); }
+
+/* ============ home: nav over white body (new cinematic hero) ============ */
+/* The flow nav stays transparent over the dark hero, but once we scroll into
+   the white page body it needs a real surface so the dark links stay legible. */
+.nav--flow.on-light.is-stuck{
+  background:rgba(255,255,255,.82) !important;
+  backdrop-filter:saturate(180%) blur(16px) !important;
+  box-shadow:0 1px 0 var(--line) !important;
+}
+.nav--flow.on-light .nav__menu a,
+.nav--flow.on-light .nav__login,
+.nav--flow.on-light .nav__word{ color:var(--ink) !important; }
+.nav--flow.on-light .nav__menu a:hover{ background:var(--bg-soft) !important; }
 
 /* ============ about page value cards ============ */
 .about-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,26px); margin-top:clamp(40px,6vh,66px); }

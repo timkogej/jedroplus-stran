@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { GradientIcon } from "@/components/ui/gradient-icon";
 
 const socialLinks = [
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/jedroplus",
+  },
 ];
 
 export default function Footer() {
@@ -137,7 +140,8 @@ export default function Footer() {
       <div className="border-t border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <p className="text-center text-gray-500 text-sm">
-            © 2026 Jedro+. Vse pravice pridržane.
+            © 2026 Sonja Žužek s.p. · Davčna številka: 97477621. Vse pravice
+            pridržane.
           </p>
         </div>
       </div>

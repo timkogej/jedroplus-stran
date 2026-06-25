@@ -3,15 +3,11 @@
 import { useEffect } from "react";
 import type { Industry } from "./data";
 
-type Rotor = { id: string; words: string[] };
-
 export function FlowController({
-  rotors = [],
   wordmark = false,
   industries,
   adaptiveMobile = false,
 }: {
-  rotors?: Rotor[];
   wordmark?: boolean;
   industries?: Industry[];
   adaptiveMobile?: boolean;
@@ -64,37 +60,73 @@ export function FlowController({
       });
     };
 
-    const updClip = () => {
+    // Natural (pre-transform, pre-sticky) document offset of an element.
+    // offsetTop walks the layout box, so it is immune to both the `rotate()`
+    // we apply below and to `position: sticky` — reading it (instead of
+    // getBoundingClientRect, which returns the *rotated* bounding box) keeps
+    // the rotation from feeding back into its own measurement and jittering.
+    const absTop = (el: HTMLElement) => {
+      let t = 0;
+      let n: HTMLElement | null = el;
+      while (n) {
+        t += n.offsetTop;
+        n = n.offsetParent as HTMLElement | null;
+      }
+      return t;
+    };
+
+    // ---- story-scroll rotation reveal ----
+    // Each incoming panel starts rotated 30° about its bottom-left corner and
+    // straightens to 0° as it rises into view, swinging up over the previous
+    // (sticky, lower z-index) panel — the corner gap reveals the panel behind.
+    const MAX_ROT = 30;
+    const updRot = () => {
       const vh = window.innerHeight;
-      const small = window.innerWidth <= 900;
+      const scrollY = window.scrollY;
+      const mobile = isAdaptiveMobile();
       panels.forEach((p, idx) => {
-        const r = p.getBoundingClientRect();
+        // Natural top of the panel relative to the viewport, unaffected by the
+        // sticky pinning or the rotation we set on it.
+        const natTop = absTop(p) - scrollY;
+        const h = p.offsetHeight;
 
-        if (r.bottom < -vh || r.top > vh * 2) return;
+        if (natTop > vh * 1.05 || natTop + h < -vh * 0.05) return;
 
-        let pprog = (vh - r.top) / (vh + r.height);
+        let pprog = (vh - natTop) / (vh + h);
         pprog = Math.max(0, Math.min(1, pprog));
         const bg = p.querySelector<HTMLElement>(".flow__bg");
 
         // Mobile background parallax creates unnecessary repaints and visible
         // jitter while the browser toolbar changes the viewport height.
-        if (bg && !isAdaptiveMobile())
+        if (bg && !mobile)
           bg.style.transform =
             "scale(1.1) translateY(" + (pprog - 0.5) * -4.5 + "%)";
 
+        // First panel never rotates (it is the entry hero).
         if (idx === 0) {
-          p.style.clipPath = "inset(0% round 0px)";
+          if (p.style.transform) p.style.transform = "";
           return;
         }
-        let rise = (vh - r.top) / vh;
+
+        // rise: 0 when the panel's top sits at the bottom of the viewport,
+        // 1 once it has reached the top (and stays 1 while it is pinned).
+        let rise = (vh - natTop) / vh;
         rise = Math.max(0, Math.min(1, rise));
         const e = easeInOutCubic(rise);
-        const s = (1 - e) * (small ? 18 : 27);
-        const rad = (1 - e) * (small ? 24 : 34);
-        p.style.clipPath =
-          small
-            ? "inset(0px " + s + "px 0px " + s + "px round " + rad + "px)"
-            : "inset(0% " + s + "% 0% " + s + "% round " + rad + "px)";
+        const rot = (1 - e) * MAX_ROT;
+
+        if (rot > 0.02) {
+          // On phones, panels taller than the viewport leave the sticky stack
+          // (is-mobile-tall → position:relative), so their element bottom-left
+          // can sit far below the screen — pivoting there would fling the
+          // content sideways. Anchor the hinge to the viewport's bottom-left
+          // instead so every panel swings up uniformly from the screen edge.
+          if (mobile) p.style.transformOrigin = "0px " + (vh - natTop).toFixed(1) + "px";
+          p.style.transform = "rotate(" + rot + "deg)";
+        } else {
+          if (p.style.transform) p.style.transform = "";
+          if (mobile && p.style.transformOrigin) p.style.transformOrigin = "";
+        }
       });
     };
 
@@ -118,7 +150,7 @@ export function FlowController({
 
     const update = () => {
       frame = 0;
-      if (!reduce) updClip();
+      if (!reduce) updRot();
       navSync();
     };
 
@@ -151,23 +183,6 @@ export function FlowController({
       window.removeEventListener("resize", onResize);
       if (frame) window.cancelAnimationFrame(frame);
     });
-
-    // ---- rotating words ----
-    if (!reduce) {
-      rotors.forEach(({ id, words }) => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        let i = 0;
-        const t = window.setInterval(() => {
-          i = (i + 1) % words.length;
-          el.classList.remove("is-swap");
-          void el.offsetWidth;
-          el.textContent = words[i];
-          el.classList.add("is-swap");
-        }, 2300);
-        cleanups.push(() => window.clearInterval(t));
-      });
-    }
 
     // ---- panoge modal ----
     if (industries) {

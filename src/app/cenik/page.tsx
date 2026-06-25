@@ -31,18 +31,16 @@ export default function Cenik() {
   return (
     <>
       <JsonLd schema={pricingProductsSchema} />
-      <Nav variant="plain" active="/cenik" />
+      <Nav variant="light" active="/cenik" />
 
       {/* HERO (editorial) */}
-      <section
-        className="vhero"
-        style={{ background: "#0C0D10", minHeight: "100vh" }}
-      >
+      <section className="vhero vhero--white">
         <div className="wrap vhero__in">
           <p className="vhero__eyebrow">Cenik</p>
           <hr className="vhero__rule" />
           <h1 className="vhero__h">
-            Preprost cenik za <span>vsako fazo rasti.</span>
+            Preprost cenik za{" "}
+            <span className="grad-text">vsako fazo rasti.</span>
           </h1>
           <hr className="vhero__rule" />
           <p className="vhero__sub">
@@ -50,14 +48,10 @@ export default function Cenik() {
             prekličete kadarkoli.
           </p>
           <div className="vhero__cta">
-            <a className="btn btn--light btn--lg" href="/#kontakt">
+            <a className="btn btn--grad btn--lg" href="/#kontakt">
               Preizkusi brezplačno <span className="arr">→</span>
             </a>
-            <a
-              className="btn btn--ghost btn--lg"
-              href="/#kontakt"
-              style={{ color: "#fff", borderColor: "rgba(255,255,255,.3)" }}
-            >
+            <a className="btn btn--ghost btn--lg" href="/#kontakt">
               Rezerviraj predstavitev
             </a>
           </div>

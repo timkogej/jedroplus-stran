@@ -3,11 +3,8 @@
 
 export const SITE_URL = "https://jedroplus.com";
 
-// Update these with the real profiles when available.
-const SAME_AS = [
-  "https://www.linkedin.com/company/jedroplus",
-  "https://www.instagram.com/jedroplus",
-];
+// Add LinkedIn here once the profile exists.
+const SAME_AS = ["https://www.instagram.com/jedroplus"];
 
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
@@ -16,6 +13,8 @@ export const organizationSchema = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Jedro+",
+  legalName: "Sonja Žužek s.p.",
+  taxID: "97477621",
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
   description:

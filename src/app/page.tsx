@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
-import { FlowController } from "@/components/redesign/FlowController";
+import { HeroCalendar } from "@/components/redesign/HeroCalendar";
+import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
 import { industries } from "@/components/redesign/data";
 import { JsonLd } from "@/components/JsonLd";
 import { Faq } from "@/components/redesign/Faq";
@@ -107,462 +107,231 @@ const Fcard = ({ f, hidden }: { f: Feature; hidden?: boolean }) => (
   </article>
 );
 
-const TapPlus = () => (
-  <span className="icard__tap">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <path d="M12 5v14M5 12h14" />
-    </svg>
-  </span>
-);
+const stats = [
+  { n: "80%", l: "manj časa za administracijo" },
+  { n: "3×", l: "hitrejši odziv strankam" },
+  { n: "120+", l: "zadovoljnih podjetij" },
+  { n: "24/7", l: "delovanje AI funkcij" },
+];
+
+const steps = [
+  { n: "01 — Ustvari račun", t: "Registracija v nekaj sekundah in osnovna konfiguracija vašega podjetja." },
+  { n: "02 — Uvozi stranke", t: "Uvozimo obstoječo bazo ali začnete z vnosom neposredno v aplikaciji." },
+  { n: "03 — Termini & opomniki", t: "Koledar, baze in obveščanje začnejo delovati kot ena celota." },
+  { n: "04 — Rast z AI", t: "Sistem polni urnik in izboljšuje komunikacijo ter rezultate." },
+];
 
 export default function Home() {
-  const indCards = (dup: boolean) =>
-    industries.map((d, idx) => (
-      <article
-        key={(dup ? "d" : "o") + idx}
-        className="icard"
-        data-i={idx}
-        aria-hidden={dup || undefined}
-      >
-        {d.photo ? (
-          <Image
-            src={`/images/industries/${d.photo}.webp`}
-            alt={d.t}
-            fill
-            sizes="300px"
-            style={{ objectFit: "cover" }}
-          />
-        ) : (
-          <div className="imgslot"></div>
-        )}
-        <div className="icard__grad"></div>
-        <div className="icard__scrim"></div>
-        <span className="icard__n">{String(idx + 1).padStart(2, "0")}</span>
-        <TapPlus />
-        <div className="icard__body">
-          <h3>{d.t}</h3>
-        </div>
-      </article>
-    ));
-
   return (
     <>
       <JsonLd schema={softwareApplicationSchema} />
       <Nav variant="flow" active="/" />
 
-      <div className="flow flow--home">
-        {/* 01 — HERO */}
-        <section
-          className="flow__panel"
-          data-ink="dark"
-          style={{
-            "--p-bg": "#0C0D10",
-            "--p-ink": "#fff",
-            "--p-tint":
-              "linear-gradient(96deg, rgba(8,9,12,.9) 0%, rgba(8,9,12,.58) 30%, rgba(8,9,12,.16) 56%, rgba(8,9,12,0) 80%), linear-gradient(0deg, rgba(8,9,12,.5), rgba(8,9,12,0) 34%)",
-          } as React.CSSProperties}
-        >
-          <div className="flow__bg">
-            <Image
-              className="flow__hero-bg"
-              src="/images/jedro-stran-home-hero.jpeg"
-              alt="Podjetnica uporablja Jedro+ v sodobnem poslovnem prostoru"
-              fill
-              priority
-              sizes="100vw"
-              quality={90}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="flow__tint"></div>
-          <div className="flow__inner">
-            <p className="flow__eyebrow">01 — Jedro+</p>
-            <hr className="flow__rule" />
-            <h1 className="flow__h flow__h--hero" style={{ fontSize: 60 }}>
-              Prihodnost{" "}
-              <span id="heroRotor" className="rotor grad-text">
-                naročanja
-              </span>{" "}
-              vašega podjetja
-            </h1>
-            <hr className="flow__rule" />
-            <p className="flow__lead">
-              Koledar terminov, baze strank, personalizirani opomniki, spletno
-              naročanje in pametni AI — povezani v eno jedro.
+      {/* 01 — CINEMATIC HERO */}
+      <HeroCalendar />
+
+      {/* 02 — FUNKCIJE */}
+      <section className="section" id="funkcije">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <p className="eyebrow">Funkcije</p>
+            <h2 style={{ marginTop: 18 }}>
+              Vse, kar potrebujete,
+              <br />
+              povezano v <span className="grad-text">eno jedro</span>
+            </h2>
+            <p className="lead">
+              Koledar, baza strank in pametni AI opomniki — brez preklapljanja
+              med orodji.
             </p>
-            <div className="flow__cta flow__cta--spaced">
-              <a className="btn btn--light btn--lg" href="#kontakt">
-                Preizkusi brezplačno <span className="arr">→</span>
-              </a>
-              <a className="flow__link" href="/funkcije">
-                Oglej si funkcije <span className="arr">→</span>
-              </a>
-            </div>
           </div>
-        </section>
+        </div>
+        <div className="marquee reveal" style={{ marginTop: 52 }}>
+          <div className="marquee__track">
+            {features.map((f, i) => (
+              <Fcard key={"o" + i} f={f} />
+            ))}
+            {features.map((f, i) => (
+              <Fcard key={"d" + i} f={f} hidden />
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* 02 — FUNKCIJE */}
-        <section
-          className="flow__panel flow__panel--tall"
-          data-ink="dark"
-          style={{
-            "--p-bg": "#2F6BF0",
-            "--p-ink": "#fff",
-            "--p-tint":
-              "linear-gradient(100deg, rgba(33,86,210,.94) 0%, rgba(33,86,210,.85) 38%, rgba(33,86,210,.45) 70%, rgba(33,86,210,.30) 100%), linear-gradient(0deg, rgba(33,86,210,.40), rgba(33,86,210,0) 55%)",
-          } as React.CSSProperties}
-        >
-          <div className="flow__bg">
-            <div className="imgslot"></div>
-            <span className="slot-tag">SLIKA V OZADJU — delovni prostor</span>
-          </div>
-          <div className="flow__tint"></div>
-          <div className="flow__inner">
-            <p className="flow__eyebrow">02 — Funkcije</p>
-            <hr className="flow__rule" />
-            <h2 className="flow__h flow__h--md" style={{ maxWidth: "15ch", fontSize: 65 }}>
-              Prihodnost je bližje
-              <br />
-              kot si mislite
-            </h2>
-            <div className="fn-subrow">
-              <p className="flow__sub">Skriva se v naših funkcijah.</p>
-              <a className="flow__link" href="/funkcije">
-                Poglej si več <span className="arr">→</span>
-              </a>
+      {/* 03 — KOMUNIKACIJA */}
+      <section className="section section--soft" id="komunikacija">
+        <div className="wrap">
+          <div className="split">
+            <div className="reveal">
+              <p className="eyebrow">Komunikacija</p>
+              <h2 style={{ marginTop: 18 }}>
+                Pokažite strankam,
+                <br />
+                da vam je mar
+              </h2>
+              <p className="lead" style={{ maxWidth: "46ch" }}>
+                Prepustite AI, da vašim strankam polepša izkušnjo. Vaš ton, vaše
+                ime, prava navodila ob pravem času.
+              </p>
+              <ul className="split__list">
+                <li>
+                  <Check />
+                  <span>
+                    <b>Vedno sveže besedilo.</b> AI sestavi vsako sporočilo
+                    posebej — nikoli kopirano, nikoli robotsko.
+                  </span>
+                </li>
+                <li>
+                  <Check />
+                  <span>
+                    <b>Vse samodejno.</b> Brez dodatnega truda in ročnega
+                    tipkanja — opomniki in zahvale gredo sami.
+                  </span>
+                </li>
+                <li>
+                  <Check />
+                  <span>
+                    <b>Boljša izkušnja stranke.</b> Pravo sporočilo ob pravem
+                    trenutku — in stranke se rade vračajo.
+                  </span>
+                </li>
+                <li>
+                  <Check />
+                  <span>
+                    <b>Manj zamujenih terminov.</b> Pravočasni opomniki pomenijo
+                    polnejši urnik in manj odpovedi.
+                  </span>
+                </li>
+              </ul>
             </div>
-            <div className="marquee" style={{ marginTop: 6 }}>
-              <div className="marquee__track">
-                {features.map((f, i) => (
-                  <Fcard key={"o" + i} f={f} />
-                ))}
-                {features.map((f, i) => (
-                  <Fcard key={"d" + i} f={f} hidden />
-                ))}
+            <div className="chat reveal" data-d="1">
+              <div className="chat__time">Danes, 14:23</div>
+              <div className="bubble bubble--out">
+                Pozdravljeni Ana! 😊 Ker ste imeli danes beljenje zob, naslednjih
+                24 ur priporočamo izogibanje temnim napitkom — kavi, rdečemu
+                vinu, borovnicam. Vaš nasmeh bo zasijal! ✨
+              </div>
+              <div className="bubble bubble--in">
+                Spoštovani Luka! ✂️ Jutri ob 14:30 vas čaka termin za striženje.
+                Oglasite se 5 minut prej. Lepo se imejte!
+              </div>
+              <div className="bubble bubble--out">
+                Hvala, Sara, za zaupanje! 💙 Bilo nam je v veselje skrbeti za vas.
+                Vaše mnenje nam ogromno pomeni — se vidimo kmalu! 🌟
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 03 — KOMUNIKACIJA */}
-        <section
-          id="komunikacija"
-          className="flow__panel flow__panel--tall"
-          data-ink="light"
-          style={{
-            "--p-bg": "#F4F1EA",
-            "--p-ink": "#15161B",
-            "--p-tint":
-              "linear-gradient(155deg, rgba(244,241,234,.96) 0%, rgba(236,232,222,.92) 100%)",
-          } as React.CSSProperties}
-        >
-          <div className="flow__bg">
-            <Image
-              className="flow__communication-bg"
-              src="/images/jedro-stran-home-komunikacija.png"
-              alt="Osebna komunikacija med svetovalko in stranko"
-              fill
-              sizes="100vw"
-              quality={90}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="flow__tint"></div>
-          <div className="flow__inner" style={{ transform: "translateY(-28px)" }}>
-            <p className="flow__eyebrow">03 — Komunikacija</p>
-            <hr className="flow__rule" />
-            <h2 className="flow__h flow__h--sm" style={{ maxWidth: "18ch", fontSize: 65 }}>
-              Pokažite strankam,
-              <br />
-              da vam je mar
-            </h2>
-            <div className="commgrid">
-              <div>
-                <p className="flow__lead" style={{ maxWidth: "46ch" }}>
-                  Prepustite AI, da vašim strankam polepša izkušnjo. Vaš ton,
-                  vaše ime, prava navodila ob pravem času.
-                </p>
-                <ul className="adv">
-                  <li>
-                    <Check />
-                    <span>
-                      <b>Vedno svežo besedilo.</b> AI sestavi vsako sporočilo
-                      posebej — nikoli kopirano, nikoli robotsko.
-                    </span>
-                  </li>
-                  <li>
-                    <Check />
-                    <span>
-                      <b>Vse samodejno.</b> Brez dodatnega truda in ročnega
-                      tipkanja — opomniki in zahvale gredo sami.
-                    </span>
-                  </li>
-                  <li>
-                    <Check />
-                    <span>
-                      <b>Boljša izkušnja stranke.</b> Pravo sporočilo ob pravem
-                      trenutku — in stranke se rade vračajo.
-                    </span>
-                  </li>
-                  <li>
-                    <Check />
-                    <span>
-                      <b>Manj zamujenih terminov.</b> Pravočasni opomniki
-                      pomenijo polnejši urnik in manj odpovedi.
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div className="chat">
-                <div className="chat__time">Danes, 14:23</div>
-                <div className="bubble bubble--out">
-                  Pozdravljeni Ana! 😊 Ker ste imeli danes beljenje zob,
-                  naslednjih 24 ur priporočamo izogibanje temnim napitkom —
-                  kavi, rdečemu vinu, borovnicam. Vaš nasmeh bo zasijal! ✨
-                </div>
-                <div className="bubble bubble--in">
-                  Spoštovani Luka! ✂️ Jutri ob 14:30 vas čaka termin za
-                  striženje. Oglasite se 5 minut prej. Lepo se imejte!
-                </div>
-                <div className="bubble bubble--out">
-                  Hvala, Sara, za zaupanje! 💙 Bilo nam je v veselje skrbeti za
-                  vas. Vaše mnenje nam ogromno pomeni — se vidimo kmalu! 🌟
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 04 — ŠTEVILKE GOVORIJO */}
-        <section
-          id="rezultati"
-          className="flow__panel"
-          data-ink="dark"
-          style={{
-            "--p-bg": "#0C0D10",
-            "--p-ink": "#fff",
-            "--p-tint":
-              "linear-gradient(100deg, rgba(8,9,12,.95) 0%, rgba(8,9,12,.88) 40%, rgba(8,9,12,.62) 72%, rgba(8,9,12,.55) 100%), linear-gradient(0deg, rgba(8,9,12,.45), rgba(8,9,12,0) 55%)",
-          } as React.CSSProperties}
-        >
-          <div className="flow__bg">
-            <Image
-              src="/redesign/stranka-telefon.jpg"
-              alt="Zadovoljna stranka uporablja telefon"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="flow__tint"></div>
-          <div className="flow__inner">
-            <p className="flow__eyebrow">04 — Rezultati</p>
-            <hr className="flow__rule" />
-            <h2 className="flow__h flow__h--md" style={{ fontSize: 65 }}>
-              Številke
-              <br />
-              govorijo
-            </h2>
-            <hr className="flow__rule" />
-            <p className="flow__lead">
+      {/* 04 — REZULTATI */}
+      <section className="section" id="rezultati">
+        <div className="wrap">
+          <div className="section-head center reveal">
+            <p className="eyebrow eyebrow--plain" style={{ justifyContent: "center" }}>
+              Rezultati
+            </p>
+            <h2 style={{ marginTop: 18 }}>Številke govorijo</h2>
+            <p className="lead">
               Manj administracije, več potrjenih terminov, bolj zadovoljne
               stranke — kaj drugega si lahko vaše podjetje sploh še želi?
             </p>
-            <hr className="flow__rule" />
-            <div className="flow__stats">
-              <div className="flow__stat">
-                <b>80%</b>
-                <span>manj časa za administracijo</span>
-              </div>
-              <div className="flow__stat">
-                <b>3×</b>
-                <span>hitrejši odziv strankam</span>
-              </div>
-              <div className="flow__stat">
-                <b>120+</b>
-                <span>zadovoljnih podjetij</span>
-              </div>
-              <div className="flow__stat">
-                <b>24/7</b>
-                <span>delovanje AI funkcij</span>
-              </div>
+          </div>
+          <div className="hero-stats reveal" style={{ marginTop: 56, borderRadius: "var(--r-lg)", border: "1px solid var(--line)", overflow: "hidden" }}>
+            <div className="hero-stats__grid">
+              {stats.map((s) => (
+                <div className="stat" key={s.n}>
+                  <div className="stat__n">{s.n}</div>
+                  <div className="stat__l">{s.l}</div>
+                </div>
+              ))}
             </div>
-            <hr className="flow__rule" />
-            <p className="flow__lead flow__lead--r">
-              Vsak prazen termin je izgubljen prihodek. Jedro+ ga zapolni.
-            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 05 — PANOGE */}
-        <section
-          className="flow__panel flow__panel--tall"
-          data-ink="dark"
-          style={{
-            "--p-bg": "#6E5BF6",
-            "--p-ink": "#fff",
-            "--p-tint":
-              "linear-gradient(100deg, rgba(78,62,200,.94) 0%, rgba(78,62,200,.85) 38%, rgba(110,91,246,.45) 70%, rgba(110,91,246,.30) 100%), linear-gradient(0deg, rgba(60,46,170,.42), rgba(60,46,170,0) 55%)",
-          } as React.CSSProperties}
-        >
-          <div className="flow__bg">
-            <Image
-              src="/redesign/brivnica.jpg"
-              alt="Moderna brivnica — striženje stranke"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="flow__tint"></div>
-          <div className="flow__inner">
-            <p className="flow__eyebrow">05 — Panoge</p>
-            <hr className="flow__rule" />
-            <h2 className="flow__h flow__h--md" style={{ maxWidth: "16ch", fontSize: 65 }}>
+      {/* 05 — PANOGE */}
+      <section className="section section--soft" id="panoge">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <p className="eyebrow">Panoge</p>
+            <h2 style={{ marginTop: 18 }}>
               Za vse, ki delajo
               <br />
               s strankami
             </h2>
-            <p className="flow__sub">
-              Kliknite panogo in poglejte, kje vse lahko Jedro+ pomaga prav vam.
+            <p className="lead">
+              Karkoli s termini in strankami — Jedro+ se prilagodi vašemu načinu
+              dela, ne obratno.
             </p>
-            <div className="marquee marquee--ind" style={{ marginTop: 6 }}>
-              <div className="marquee__track" id="indTrack">
-                {indCards(false)}
-                {indCards(true)}
-              </div>
-            </div>
-            <div className="flow__cta" style={{ marginTop: "clamp(18px,2.6vh,34px)" }}>
-              <a className="btn btn--light btn--lg" href="#kontakt">
-                Preizkusi zdaj <span className="arr">→</span>
-              </a>
-            </div>
           </div>
-        </section>
+          <div className="ind-grid reveal">
+            {industries.map((d, i) => (
+              <article className="ind" key={i}>
+                <div className="ind__bg" />
+                <span className="ind__n">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{d.t}</h3>
+              </article>
+            ))}
+          </div>
+          <div className="reveal" style={{ marginTop: 44 }}>
+            <a className="btn btn--grad btn--lg" href="/panoge">
+              Vse panoge <span className="arr">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-        {/* 06 — KAKO DELUJE */}
-        <section
-          className="flow__panel"
-          data-ink="light"
-          style={{
-            "--p-bg": "#F4F1EA",
-            "--p-ink": "#15161B",
-            "--p-tint":
-              "linear-gradient(155deg, rgba(244,241,234,.95) 0%, rgba(235,231,221,.9) 100%)",
-          } as React.CSSProperties}
-        >
-          <div className="flow__bg">
-            <div className="imgslot"></div>
-            <span className="slot-tag">SLIKA V OZADJU — uporabnik / postavitev</span>
-          </div>
-          <div className="flow__tint"></div>
-          <div className="flow__inner">
-            <p className="flow__eyebrow">06 — Kako deluje</p>
-            <hr className="flow__rule" />
-            <h2 className="flow__h flow__h--md" style={{ fontSize: 65 }}>
+      {/* 06 — KAKO DELUJE */}
+      <section className="section" id="kako">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <p className="eyebrow">Kako deluje</p>
+            <h2 style={{ marginTop: 18 }}>
               Prijavi se.
               <br />
               Samo še tebe čakamo.
             </h2>
-            <p className="flow__sub" style={{ marginTop: "clamp(16px,2.4vh,30px)" }}>
-              En, dva, tri — in vaše podjetje že teče.
-            </p>
-            <hr className="flow__rule" />
-            <div className="flow__cols" style={{ gridTemplateColumns: "repeat(4,1fr)" }}>
-              <div className="flow__col">
-                <h4>01 — Ustvari račun</h4>
-                <p>Registracija v nekaj sekundah in osnovna konfiguracija vašega podjetja.</p>
-              </div>
-              <div className="flow__col">
-                <h4>02 — Uvozi stranke</h4>
-                <p>Uvozimo obstoječo bazo ali začnete z vnosom neposredno v aplikaciji.</p>
-              </div>
-              <div className="flow__col">
-                <h4>03 — Termini &amp; opomniki</h4>
-                <p>Koledar, baze in obveščanje začnejo delovati kot ena celota.</p>
-              </div>
-              <div className="flow__col">
-                <h4>04 — Rast z AI</h4>
-                <p>Sistem polni urnik in izboljšuje komunikacijo ter rezultate.</p>
-              </div>
-            </div>
-            <div className="flow__cta" style={{ marginTop: "clamp(20px,3vh,38px)" }}>
-              <a className="btn btn--primary btn--lg" href="#kontakt">
-                Preizkusi brezplačno <span className="arr">→</span>
-              </a>
-            </div>
+            <p className="lead">En, dva, tri — in vaše podjetje že teče.</p>
           </div>
-        </section>
-
-        {/* 07 — ZAČNI */}
-        <section
-          className="flow__panel"
-          id="kontakt"
-          data-ink="dark"
-          style={{
-            "--p-bg": "#0C0D10",
-            "--p-ink": "#fff",
-            "--p-tint":
-              "linear-gradient(100deg, rgba(8,9,12,.88) 0%, rgba(8,9,12,.68) 52%, rgba(8,9,12,.24) 100%), linear-gradient(0deg, rgba(8,9,12,.34), rgba(8,9,12,0) 48%)",
-          } as React.CSSProperties}
-        >
-          <div className="flow__bg">
-            <Image
-              className="flow__start-bg"
-              src="/images/jedro-stran-home-zacni.jpeg"
-              alt="Uspešna podjetnica v sodobnem poslovnem prostoru"
-              fill
-              sizes="100vw"
-              quality={90}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="flow__tint"></div>
-          <div className="flow__inner">
-            <p className="flow__eyebrow">07 — Začni</p>
-            <hr className="flow__rule" />
-            <h2 className="flow__h flow__h--sm" style={{ maxWidth: "24ch", fontSize: 65 }}>
-              Kdaj ste pripravljeni dvigniti podjetje na višjo raven?
-            </h2>
-            <hr className="flow__rule" />
-            <p className="flow__lead">
-              Prevzemite nadzor nad termini, strankami in komunikacijo. Pokažemo
-              vam Jedro+ v živo — v 15 minutah. Nič skrbeti, predstavimo vam
-              brezplačno.
-            </p>
-            <div className="flow__cta flow__cta--spaced">
-              <a className="btn btn--light btn--lg" href="mailto:info@jedroplus.com">
-                Rezerviraj predstavitev <span className="arr">→</span>
-              </a>
-              <a className="btn btn--lg btn--out" href="tel:068663410">
-                068 663 410
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* PANOGA MODAL */}
-      <div className="pmodal" id="pmodal" aria-hidden="true" role="dialog" aria-modal="true">
-        <div className="pmodal__bd" data-close></div>
-        <div className="pmodal__card">
-          <button className="pmodal__close" data-close aria-label="Zapri">
-            ×
-          </button>
-          <div className="pmodal__img">
-            <div className="imgslot"></div>
-            <span className="slot-tag" id="pmImgTag">
-              SLIKA — panoga
-            </span>
-          </div>
-          <div className="pmodal__body">
-            <span className="pmodal__n" id="pmNum">
-              01
-            </span>
-            <h3 className="pmodal__title" id="pmTitle"></h3>
-            <p className="pmodal__desc" id="pmDesc"></p>
-            <div className="pmodal__tags" id="pmTags"></div>
+          <div className="steps reveal">
+            {steps.map((s) => (
+              <div className="step" key={s.n}>
+                <span className="step__n">{s.n}</span>
+                <p>{s.t}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* 07 — ZAČNI */}
+      <section className="section" id="kontakt">
+        <div className="wrap">
+          <div className="cta-band reveal">
+            <div className="cta-band__glow" />
+            <div className="cta-band__in">
+              <h2>
+                Kdaj ste pripravljeni dvigniti
+                <br />
+                podjetje na višjo raven?
+              </h2>
+              <p>
+                Prevzemite nadzor nad termini, strankami in komunikacijo.
+                Pokažemo vam Jedro+ v živo — v 15 minutah, brezplačno.
+              </p>
+              <div className="cta-band__btns">
+                <a className="btn btn--light btn--lg" href="mailto:info@jedroplus.com">
+                  Rezerviraj predstavitev <span className="arr">→</span>
+                </a>
+                <a className="btn btn--lg btn--ghost" href="tel:068663410" style={{ color: "#fff", borderColor: "rgba(255,255,255,.3)" }}>
+                  068 663 410
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Faq
         items={homeFaq}
@@ -575,18 +344,7 @@ export default function Home() {
       />
 
       <Footer />
-
-      <FlowController
-        adaptiveMobile
-        wordmark
-        rotors={[
-          {
-            id: "heroRotor",
-            words: ["komunikacije", "naročanja", "izkušnje", "terminov"],
-          },
-        ]}
-        industries={industries}
-      />
+      <RevealOnScroll />
     </>
   );
 }

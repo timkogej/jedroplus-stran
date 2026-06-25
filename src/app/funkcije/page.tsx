@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
@@ -176,23 +176,15 @@ export default function Funkcije() {
       <Nav variant="light" active="/funkcije" />
 
       {/* IMAGE HERO (editorial) */}
-      <section
-        className="imghero imghero--editorial"
-        style={{
-          background: "#2F6BF0",
-          minHeight: "100vh",
-          "--ink": "#fff",
-          "--ink-2": "rgba(255,255,255,.85)",
-        } as CSSProperties}
-      >
+      <section className="imghero imghero--editorial">
         <div className="wrap imghero__in">
           <p className="imghero__eyebrow">Funkcije</p>
-          <hr className="imghero__rule" style={{ borderTopColor: "rgba(255,255,255,.24)" }} />
-          <h1 className="imghero__h" style={{ fontSize: 60, color: "#fff" }}>
+          <hr className="imghero__rule" />
+          <h1 className="imghero__h">
             Vse kar potrebujete{" "}
-            <span style={{ color: "rgba(255,255,255,.6)" }}>in še več</span>
+            <span className="grad-text">in še več</span>
           </h1>
-          <hr className="imghero__rule" style={{ borderTopColor: "rgba(255,255,255,.24)" }} />
+          <hr className="imghero__rule" />
           <p className="imghero__sub">
             Vse je povezano: koledar → stranka → storitev → osebje → opomniki →
             analitika. Zgrajeno za učinkovitost — z AI, ki zmanjšuje ročno delo.

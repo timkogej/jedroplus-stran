@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { FlowController } from "@/components/redesign/FlowController";
+import { Rotor } from "@/components/redesign/Rotor";
 import { Faq } from "@/components/redesign/Faq";
 import { agencijaFaq } from "@/components/redesign/faq-data";
 import { JsonLd } from "@/components/JsonLd";
@@ -27,9 +28,32 @@ const Adv = () => (
   </span>
 );
 
+const agencyServices = [
+  {
+    title: "Poslovni sistemi",
+    text: "Združimo celotno poslovanje vašega podjetja v eno platformo: termini, stranke, naročanje, evidence in poročila — vse na enem mestu, brez podvajanja dela.",
+  },
+  {
+    title: "Komunikacijski sistemi",
+    text: "Izdelamo sisteme za komunikacijo s strankami: samodejni opomniki, personalizirana sporočila in obveščanje pred ter po terminu — vse poteka samodejno.",
+  },
+  {
+    title: "Spletne strani",
+    text: "Hitro izdelamo sodobne spletne strani, ki pripeljejo stranke. Postavimo jih v nekaj dneh in jih povežemo z vašim poslovnim sistemom.",
+  },
+  {
+    title: "AI produkcija slik in videov",
+    text: "Z umetno inteligenco ustvarimo profesionalne slike, oglase in videe za spletne strani ter družbena omrežja — hitro, usklajeno in v slogu vaše znamke.",
+  },
+  {
+    title: "AI agenti in avtomatizacije",
+    text: "Razvijemo AI agente, ki odgovarjajo strankam, obdelujejo povpraševanja in avtomatizirajo ponavljajoča se opravila, da vaša ekipa prihrani čas.",
+  },
+];
+
 export default function Agencija() {
   return (
-    <div className="theme-agency">
+    <div className="theme-agency agency-page">
       <JsonLd schema={professionalServiceSchema} />
       <Nav variant="flow" active="/agencija" />
 
@@ -55,9 +79,10 @@ export default function Agencija() {
             <hr className="flow__rule" />
             <h1 className="flow__h flow__h--hero" style={{ fontSize: 65 }}>
               Gradimo{" "}
-              <span id="agRotor" className="rotor grad-text">
-                sisteme
-              </span>
+              <Rotor
+                id="agRotor"
+                words={["sisteme", "komunikacijo", "spletne strani", "rast"]}
+              />
               <br />
               za storitvena podjetja
             </h1>
@@ -204,53 +229,28 @@ export default function Agencija() {
             <p className="flow__sub" style={{ marginTop: "clamp(14px,2vh,26px)" }}>
               Naredimo vse, kar vaše podjetje potrebuje za rast.{" "}
             </p>
-            <div className="svc-grid" style={{ marginTop: "clamp(22px,3vh,40px)" }}>
-              <article className="svc">
-                <span className="svc__n">01</span>
-                <div className="svc__ico">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="8" height="8" rx="1.5" />
-                    <rect x="13" y="3" width="8" height="8" rx="1.5" />
-                    <rect x="3" y="13" width="8" height="8" rx="1.5" />
-                    <rect x="13" y="13" width="8" height="8" rx="1.5" />
-                  </svg>
-                </div>
-                <h3>Poslovni sistemi</h3>
-                <p>
-                  Združimo celotno poslovanje vašega podjetja v eno platformo:
-                  termini, stranke, naročanje, evidence in poročila — vse na enem
-                  mestu, brez podvajanja dela.
-                </p>
-              </article>
-              <article className="svc">
-                <span className="svc__n">02</span>
-                <div className="svc__ico">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z" />
-                  </svg>
-                </div>
-                <h3>Komunikacijski sistemi</h3>
-                <p>
-                  Izdelamo sisteme za komunikacijo s strankami: samodejni opomniki,
-                  personalizirana sporočila in obveščanje pred ter po terminu — vse
-                  poteka samodejno.
-                </p>
-              </article>
-              <article className="svc">
-                <span className="svc__n">03</span>
-                <div className="svc__ico">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="16" rx="2" />
-                    <path d="M3 8.5h18M6.5 6.2h.01M9 6.2h.01" />
-                  </svg>
-                </div>
-                <h3>Spletne strani</h3>
-                <p>
-                  Hitro izdelamo sodobne spletne strani, ki pripeljejo stranke.
-                  Postavimo jih v nekaj dneh in jih povežemo z vašim poslovnim
-                  sistemom.
-                </p>
-              </article>
+            <div
+              className="marquee svc-marquee"
+              style={{ marginTop: "clamp(22px,3vh,40px)" }}
+            >
+              <div className="marquee__track svc-track">
+                {agencyServices.map((service) => (
+                  <article className="svc" key={service.title}>
+                    <h3>{service.title}</h3>
+                    <p>{service.text}</p>
+                  </article>
+                ))}
+                {agencyServices.map((service) => (
+                  <article
+                    className="svc"
+                    key={`duplicate-${service.title}`}
+                    aria-hidden="true"
+                  >
+                    <h3>{service.title}</h3>
+                    <p>{service.text}</p>
+                  </article>
+                ))}
+              </div>
             </div>
             <div className="flow__cta" style={{ marginTop: "clamp(22px,3vh,40px)" }}>
               <a className="btn btn--primary btn--lg" href="tel:068663410">
@@ -360,7 +360,7 @@ export default function Agencija() {
 
       <Footer variant="agency" />
 
-      <FlowController rotors={[{ id: "agRotor", words: ["sisteme", "komunikacijo", "spletne strani", "rast"] }]} />
+      <FlowController />
     </div>
   );
 }

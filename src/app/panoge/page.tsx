@@ -85,15 +85,16 @@ const Arrow = () => (
 export default function Panoge() {
   return (
     <>
-      <Nav variant="plain" active="/panoge" />
+      <Nav variant="light" active="/panoge" />
 
-      <section className="vhero">
+      <section className="vhero vhero--white">
         <div className="vhero__tint"></div>
         <div className="wrap vhero__in">
           <p className="vhero__eyebrow">Panoge</p>
           <hr className="vhero__rule" />
           <h1 className="vhero__h">
-            Za vsako podjetje, ki dela s <span>termini in strankami</span>
+            Za vsako podjetje, ki dela s{" "}
+            <span className="grad-text">termini in strankami</span>
           </h1>
           <hr className="vhero__rule" />
           <p className="vhero__sub">
@@ -101,14 +102,10 @@ export default function Panoge() {
             in poglejte, kako vam Jedro+ konkretno pomaga.
           </p>
           <div className="vhero__cta">
-            <a className="btn btn--light btn--lg" href="/#kontakt">
+            <a className="btn btn--grad btn--lg" href="/#kontakt">
               Preizkusi brezplačno <span className="arr">→</span>
             </a>
-            <a
-              className="btn btn--ghost btn--lg"
-              href="/cenik"
-              style={{ color: "#fff", borderColor: "rgba(255,255,255,.3)" }}
-            >
+            <a className="btn btn--ghost btn--lg" href="/cenik">
               Poglej cenik
             </a>
           </div>
