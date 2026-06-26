@@ -8,6 +8,7 @@ import { Faq } from "@/components/redesign/Faq";
 import { homeFaq } from "@/components/redesign/faq-data";
 import { softwareApplicationSchema } from "@/lib/schema";
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 const Check = () => (
   <span className="chk">
@@ -265,14 +266,31 @@ export default function Home() {
               dela, ne obratno.
             </p>
           </div>
-          <div className="ind-grid reveal">
-            {industries.map((d, i) => (
-              <article className="ind" key={i}>
-                <div className="ind__bg" />
-                <span className="ind__n">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{d.t}</h3>
-              </article>
-            ))}
+          <div className="industries-marquee reveal">
+            <div className="industries-marquee__track">
+              {industries.map((d, i) => (
+                <Link className="ind" href={`/panoge/${d.slug}`} key={d.slug}>
+                  <div className="ind__bg" />
+                  <span className="ind__n">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{d.t}</h3>
+                  <span className="ind__arrow" aria-hidden="true">→</span>
+                </Link>
+              ))}
+              {industries.map((d, i) => (
+                <Link
+                  className="ind"
+                  href={`/panoge/${d.slug}`}
+                  key={`duplicate-${d.slug}`}
+                  aria-hidden="true"
+                  tabIndex={-1}
+                >
+                  <div className="ind__bg" />
+                  <span className="ind__n">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{d.t}</h3>
+                  <span className="ind__arrow" aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="reveal" style={{ marginTop: 44 }}>
             <a className="btn btn--grad btn--lg" href="/panoge">

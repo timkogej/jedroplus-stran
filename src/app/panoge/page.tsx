@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
+import { SubpageHero } from "@/components/redesign/SubpageHero";
 
 export const metadata: Metadata = {
   title: "Panoge | Jedro+",
@@ -87,32 +88,33 @@ export default function Panoge() {
     <>
       <Nav variant="light" active="/panoge" />
 
-      <section className="vhero vhero--white">
-        <div className="vhero__tint"></div>
-        <div className="wrap vhero__in">
-          <p className="vhero__eyebrow">Panoge</p>
-          <hr className="vhero__rule" />
-          <h1 className="vhero__h">
+      <SubpageHero
+        eyebrow="Panoge"
+        title={
+          <>
             Za vsako podjetje, ki dela s{" "}
             <span className="grad-text">termini in strankami</span>
-          </h1>
-          <hr className="vhero__rule" />
-          <p className="vhero__sub">
+          </>
+        }
+        description={
+          <>
             Saloni, klinike, studii, servisi ali agencije — izberite svojo panogo
             in poglejte, kako vam Jedro+ konkretno pomaga.
-          </p>
-          <div className="vhero__cta">
+          </>
+        }
+        actions={
+          <>
             <a className="btn btn--grad btn--lg" href="/#kontakt">
               Preizkusi brezplačno <span className="arr">→</span>
             </a>
             <a className="btn btn--ghost btn--lg" href="/cenik">
               Poglej cenik
             </a>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
-      <section className="section" id="panoge" style={{ paddingTop: 0 }}>
+      <section className="section subpage-first panoge-list" id="panoge">
         <div className="wrap">
           <div className="ind-rows">
             {rows.map((r) => (

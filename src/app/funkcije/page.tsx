@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
+import { SubpageHero } from "@/components/redesign/SubpageHero";
 
 export const metadata: Metadata = {
   title: "Funkcije | Jedro+",
@@ -175,33 +176,34 @@ export default function Funkcije() {
     <>
       <Nav variant="light" active="/funkcije" />
 
-      {/* IMAGE HERO (editorial) */}
-      <section className="imghero imghero--editorial">
-        <div className="wrap imghero__in">
-          <p className="imghero__eyebrow">Funkcije</p>
-          <hr className="imghero__rule" />
-          <h1 className="imghero__h">
+      <SubpageHero
+        eyebrow="Funkcije"
+        title={
+          <>
             Vse kar potrebujete{" "}
             <span className="grad-text">in še več</span>
-          </h1>
-          <hr className="imghero__rule" />
-          <p className="imghero__sub">
+          </>
+        }
+        description={
+          <>
             Vse je povezano: koledar → stranka → storitev → osebje → opomniki →
             analitika. Zgrajeno za učinkovitost — z AI, ki zmanjšuje ročno delo.
-          </p>
-          <div className="imghero__cta">
+          </>
+        }
+        actions={
+          <>
             <a className="btn btn--grad btn--lg" href="/#kontakt">
               Preizkusi brezplačno <span className="arr">→</span>
             </a>
             <a className="btn btn--ghost btn--lg" href="/#kontakt">
               Rezerviraj predstavitev
             </a>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       {/* FEATURE GRID */}
-      <section className="section" style={{ paddingTop: "clamp(40px,5vh,72px)" }}>
+      <section className="section subpage-first">
         <div className="wrap">
           <div className="section-head reveal">
             <span className="eyebrow">Vse funkcije</span>

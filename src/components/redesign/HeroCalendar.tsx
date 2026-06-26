@@ -104,15 +104,15 @@ export function HeroCalendar() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isMobile = window.innerWidth < 768;
 
-    // nav colour: white text over the dark hero, dark text once into the page
+    // nav colour follows the white outer frames and the dark card in between
     const nav = document.querySelector<HTMLElement>(".nav");
-    const setNav = (light: boolean) => {
+    const setNav = (light: boolean, showWord = light) => {
       if (!nav) return;
       nav.classList.toggle("on-light", light);
       nav.classList.toggle("on-dark", !light);
-      nav.classList.toggle("show-word", light);
+      nav.classList.toggle("show-word", showWord);
     };
-    setNav(false);
+    setNav(true, false);
 
     const ctx = gsap.context(() => {
       if (reduce) {
@@ -178,8 +178,10 @@ export function HeroCalendar() {
           scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          onLeave: () => setNav(true),
-          onEnterBack: () => setNav(false),
+          onUpdate: (self) =>
+            setNav(self.progress < 0.24 || self.progress >= 0.78, false),
+          onLeave: () => setNav(true, true),
+          onEnterBack: () => setNav(true, false),
         },
       });
 
@@ -290,7 +292,8 @@ export function HeroCalendar() {
     // reduced-motion fallback: no pin/scrub, so toggle nav on plain scroll
     let onScroll: (() => void) | undefined;
     if (reduce) {
-      onScroll = () => setNav(window.scrollY > window.innerHeight * 0.6);
+      onScroll = () =>
+        setNav(true, window.scrollY > window.innerHeight * 0.6);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
     }
@@ -327,10 +330,10 @@ export function HeroCalendar() {
           vam Jedro+ v živo, brezplačno.
         </p>
         <div className="jhc-cta-row">
-          <a className="btn btn--light btn--lg" href="https://app.jedroplus.com/signup">
+          <a className="btn btn--grad btn--lg" href="https://app.jedroplus.com/signup">
             Preizkusi brezplačno <span className="arr">→</span>
           </a>
-          <a className="btn btn--lg jhc-cta-out" href="/funkcije">
+          <a className="jhc-cta-link" href="/funkcije">
             Oglej si funkcije <span className="arr">→</span>
           </a>
         </div>
@@ -449,13 +452,13 @@ function fmt(h: number) {
 const STYLES = `
   .jhc{ position:relative; width:100%; height:100vh; height:100svh; overflow:hidden;
     display:flex; align-items:center; justify-content:center;
-    background:#070A14; color:#fff; perspective:1500px; }
+    background:#fff; color:#0E0E12; perspective:1500px; }
 
   .jhc-grid{ position:absolute; inset:0; z-index:0; opacity:.5; pointer-events:none;
     background-size:58px 58px;
     background-image:
-      linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
+      linear-gradient(to right, rgba(14,14,18,.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(14,14,18,.045) 1px, transparent 1px);
     -webkit-mask-image:radial-gradient(ellipse at center, #000 0%, transparent 70%);
     mask-image:radial-gradient(ellipse at center, #000 0%, transparent 70%); }
 
@@ -463,13 +466,13 @@ const STYLES = `
   .jhc-hero{ position:absolute; z-index:10; inset:0; display:flex; flex-direction:column;
     align-items:center; justify-content:center; text-align:center; padding:0 24px; }
   .jhc-h{ font-family:var(--display); font-weight:300; letter-spacing:-.04em;
-    line-height:1.06; font-size:clamp(2.6rem,7vw,6rem); margin:0; }
+    line-height:1.06; font-size:clamp(2.6rem,7vw,6rem); margin:0; color:#0E0E12; }
   .jhc-h span{ display:block; }
   .jhc-line2{ background:linear-gradient(108deg,#8E7DFF 0%,#5FA8FF 50%,#3FE5D2 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
     line-height:1.18; padding-bottom:.14em; }
   .jhc-sub{ margin:clamp(20px,3vh,34px) auto 0; max-width:52ch;
-    font-family:var(--text); font-weight:400; color:rgba(255,255,255,.66);
+    font-family:var(--text); font-weight:400; color:rgba(14,14,18,.66);
     font-size:clamp(1rem,1.5vw,1.35rem); line-height:1.5; }
 
   /* CTA */
@@ -478,14 +481,15 @@ const STYLES = `
     pointer-events:auto; }
   .jhc-cta-h{ font-family:var(--display); font-weight:300; letter-spacing:-.04em;
     font-size:clamp(2.4rem,6vw,5rem); margin:0;
-    background:linear-gradient(108deg,#fff 0%,#9FB4FF 100%);
-    -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .jhc-cta-p{ margin:22px auto 36px; max-width:48ch; color:rgba(255,255,255,.66);
+    background:var(--grad); -webkit-background-clip:text; background-clip:text;
+    color:transparent; }
+  .jhc-cta-p{ margin:22px auto 36px; max-width:48ch; color:rgba(14,14,18,.66);
     font-size:clamp(1rem,1.5vw,1.25rem); line-height:1.55; }
-  .jhc-cta-row{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
-  .jhc-cta-out{ background:rgba(255,255,255,.08); color:#fff;
-    border:1px solid rgba(255,255,255,.28); backdrop-filter:blur(8px); }
-  .jhc-cta-out:hover{ background:rgba(255,255,255,.16); transform:translateY(-2px); }
+  .jhc-cta-row{ display:flex; flex-wrap:wrap; align-items:center; gap:28px; justify-content:center; }
+  .jhc-cta-link{ display:inline-flex; align-items:center; gap:9px; color:#0E0E12;
+    font-weight:600; font-size:17px; line-height:1.2; padding:4px 0;
+    border-bottom:1px solid currentColor; transition:gap .25s var(--ease), opacity .25s var(--ease); }
+  .jhc-cta-link:hover{ gap:13px; opacity:.68; }
 
   /* card */
   .jhc-card-layer{ position:absolute; inset:0; z-index:20; display:flex;

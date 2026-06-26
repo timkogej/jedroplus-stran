@@ -7,6 +7,7 @@ import { Faq } from "@/components/redesign/Faq";
 import { cenikFaq } from "@/components/redesign/faq-data";
 import { JsonLd } from "@/components/JsonLd";
 import { pricingProductsSchema } from "@/lib/schema";
+import { SubpageHero } from "@/components/redesign/SubpageHero";
 
 export const metadata: Metadata = {
   title: "Cenik | Jedro+",
@@ -33,33 +34,34 @@ export default function Cenik() {
       <JsonLd schema={pricingProductsSchema} />
       <Nav variant="light" active="/cenik" />
 
-      {/* HERO (editorial) */}
-      <section className="vhero vhero--white">
-        <div className="wrap vhero__in">
-          <p className="vhero__eyebrow">Cenik</p>
-          <hr className="vhero__rule" />
-          <h1 className="vhero__h">
+      <SubpageHero
+        eyebrow="Cenik"
+        title={
+          <>
             Preprost cenik za{" "}
             <span className="grad-text">vsako fazo rasti.</span>
-          </h1>
-          <hr className="vhero__rule" />
-          <p className="vhero__sub">
+          </>
+        }
+        description={
+          <>
             Začnite brezplačno, nadgradite, ko ste pripravljeni. Brez vezave —
             prekličete kadarkoli.
-          </p>
-          <div className="vhero__cta">
+          </>
+        }
+        actions={
+          <>
             <a className="btn btn--grad btn--lg" href="/#kontakt">
               Preizkusi brezplačno <span className="arr">→</span>
             </a>
             <a className="btn btn--ghost btn--lg" href="/#kontakt">
               Rezerviraj predstavitev
             </a>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       {/* PRICING */}
-      <section className="section" id="cenik">
+      <section className="section subpage-first" id="cenik">
         <div className="wrap">
           <div className="section-head center reveal">
             <span className="eyebrow eyebrow--plain" style={{ justifyContent: "center" }}>

@@ -4,6 +4,7 @@ import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
+import { SubpageHero } from "@/components/redesign/SubpageHero";
 
 export const metadata: Metadata = {
   title: "O nas | Jedro+ — narejeno v Sloveniji za storitvena podjetja",
@@ -20,27 +21,27 @@ export default function ONas() {
   return (
     <>
       <JsonLd schema={organizationSchema} />
-      <Nav variant="plain" active="/o-nas" />
+      <Nav variant="light" active="/o-nas" />
 
-      {/* HERO */}
-      <section className="vhero" style={{ minHeight: "70vh" }}>
-        <div className="wrap vhero__in">
-          <p className="vhero__eyebrow">O nas</p>
-          <hr className="vhero__rule" />
-          <h1 className="vhero__h">
-            Narejeno v Sloveniji, <span>za storitvena podjetja.</span>
-          </h1>
-          <hr className="vhero__rule" />
-          <p className="vhero__sub">
+      <SubpageHero
+        eyebrow="O nas"
+        title={
+          <>
+            Narejeno v Sloveniji,{" "}
+            <span className="grad-text">za storitvena podjetja.</span>
+          </>
+        }
+        description={
+          <>
             Jedro+ povezuje termine, stranke, opomnike in spletno naročanje v eno
             jedro — da se lahko posvetite tistemu, kar znate najbolje: svojim
             strankam.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       {/* ZGODBA */}
-      <section className="section">
+      <section className="section subpage-first">
         <div className="wrap split">
           <div className="split__body reveal">
             <span className="eyebrow">Naša zgodba</span>
