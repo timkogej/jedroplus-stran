@@ -6,6 +6,7 @@ export type Industry = {
   d: string; // modal description
   tg: string[]; // tags
   photo?: string; // real photo in /images/industries/<photo>.webp (else striped placeholder)
+  bg?: string; // square panoge image in /images/industries/<bg>
 };
 
 export const industries: Industry[] = [
@@ -15,6 +16,7 @@ export const industries: Industry[] = [
     img: "salon / barber",
     d: "Manj no-showov z opomniki, polnejši urnik in stranke, ki se rade vračajo. Personalizirana sporočila pred in po terminu poskrbijo za vtis, ki ga stranke ne pozabijo.",
     tg: ["Opomniki", "Spletno naročanje", "Zvestoba"],
+    bg: "jedro-stran-panoge-1.png",
     photo: "jedro-bar",
   },
   {
@@ -23,6 +25,7 @@ export const industries: Industry[] = [
     img: "klinika / ordinacija",
     d: "Pred- in po-terminska navodila se pošljejo samodejno, kartoteka ostane urejena, odpovedi pa upadejo. Več časa za paciente, manj za administracijo.",
     tg: ["Navodila", "Kartoteka", "Manj odpovedi"],
+    bg: "jedro-stran-panoge-5.png",
     photo: "jedro-zob-2",
   },
   {
@@ -31,6 +34,7 @@ export const industries: Industry[] = [
     img: "wellness / masaža",
     d: "Serije terminov, nežni opomniki in povabila k ponovnemu obisku — vse poteka v ozadju, da se lahko v miru posvetite strankam.",
     tg: ["Serije terminov", "Opomniki", "Ponovni obiski"],
+    bg: "jedro-stran-panoge-3.png",
     photo: "jedro-mas",
   },
   {
@@ -39,6 +43,7 @@ export const industries: Industry[] = [
     img: "fitnes / studio",
     d: "Skupinski termini, članske evidence in obveščanje o prostih mestih. Urnik se polni sam, vi pa trenirate.",
     tg: ["Skupine", "Članstva", "Zasedenost"],
+    bg: "jedro-stran-panoge-2.png",
     photo: "jedro-fit",
   },
   {
@@ -47,6 +52,7 @@ export const industries: Industry[] = [
     img: "servis / delavnica",
     d: "Opomniki za redni servis in samodejno obvestilo, ko je vozilo pripravljeno za prevzem. Brez nepotrebnih klicev in čakanja.",
     tg: ["Servisni opomniki", "Obvestila", "Prevzem"],
+    bg: "jedro-stran-panoge-4.png",
     photo: "jedro-meh",
   },
   {
@@ -55,6 +61,7 @@ export const industries: Industry[] = [
     img: "svetovanje / pisarna",
     d: "Diskretni opomniki, ponavljajoči se termini in sledenje napredku strank — odnos, ki gradi zaupanje.",
     tg: ["Diskretnost", "Ponavljanje", "Napredek"],
+    bg: "jedro-stran-panoge-7.png",
   },
   {
     t: "IT & poslovne storitve, agencije",
@@ -62,6 +69,7 @@ export const industries: Industry[] = [
     img: "pisarna / ekipa",
     d: "Sestanki, onboarding strank in avtomatska komunikacija brez ročnega dela. Vse povezano na enem mestu.",
     tg: ["Sestanki", "Onboarding", "Avtomatizacija"],
+    bg: "jedro-stran-panoge-6.png",
   },
   {
     t: "Ostala storitvena podjetja",
@@ -69,5 +77,6 @@ export const industries: Industry[] = [
     img: "storitev / stranka",
     d: "Karkoli s termini in strankami — Jedro+ se prilagodi vašemu načinu dela, ne obratno.",
     tg: ["Prilagodljivo", "Termini", "Stranke"],
+    bg: "jedro-stran-panoge-8.png",
   },
 ];

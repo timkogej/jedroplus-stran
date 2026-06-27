@@ -5,12 +5,35 @@ import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
 import { funkcije, funkcijeSlugs } from "@/components/redesign/funkcije-data";
+import { HeroEmojis } from "@/components/redesign/HeroEmojis";
+import { HeroWords } from "@/components/redesign/HeroWords";
 import { JsonLd } from "@/components/JsonLd";
 import { funkcijeBreadcrumbSchema, faqPageSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return funkcijeSlugs.map((slug) => ({ slug }));
 }
+
+// Emojiji, ki lebdijo čez beli hero pri funkcijah, ki jih ponazorijo s slikicami.
+const heroEmojis: Record<string, string[]> = {
+  "sms-opomniki": ["💬", "🕐", "🔔", "📲", "✉️", "⏰"],
+  "spletno-narocanje": ["📅", "🗓️", "📲", "✅", "🕐", "✨"],
+};
+
+// Lebdeče besede v gradient barvi za funkcije, kjer besede povedo več kot emoji.
+const heroWords: Record<string, string[]> = {
+  "crm-baza-strank": [
+    "Ana", "Luka", "Maja", "Marko", "Eva", "Nejc", "Sara", "Žan",
+    "Nina", "Matej", "Lara", "Tilen", "Mojca", "Jure", "Tina", "Rok",
+    "Petra", "Miha", "Katja", "David",
+  ],
+  "ai-komunikacija": [
+    "Živjo, Ana!", "Hvala za zaupanje, Maja", "Se vidimo kmalu, Luka",
+    "Lep pozdrav, Sara", "Vabljeni nazaj, Marko", "Hvala za obisk, Eva",
+    "Veselimo se, Nina", "Dobrodošli, Nejc", "Se slišimo, Lara",
+    "Hvala, Tina ❤️", "Pridite spet, Rok", "Lep dan, Petra",
+  ],
+};
 
 export function generateMetadata({
   params,
@@ -40,6 +63,8 @@ const Chk = () => (
 export default function FunkcijaPage({ params }: { params: { slug: string } }) {
   const f = funkcije[params.slug];
   if (!f) notFound();
+  const emojis = heroEmojis[params.slug];
+  const words = heroWords[params.slug];
 
   return (
     <>
@@ -47,14 +72,10 @@ export default function FunkcijaPage({ params }: { params: { slug: string } }) {
       <JsonLd schema={faqPageSchema(f.faq)} />
       <Nav variant="light" active="/funkcije" />
 
-      {/* IMAGE HERO (full-bleed) */}
-      <section className="imghero">
-        <div className="imghero__img">
-          <div className="ph">
-            <span className="ph__tag">{f.heroTag}</span>
-          </div>
-        </div>
-        <div className="imghero__scrim"></div>
+      {/* EMOJI / WORD HERO (bel, lebdeči motivi) */}
+      <section className="imghero imghero--plain">
+        {emojis && <HeroEmojis emojis={emojis} />}
+        {words && <HeroWords words={words} />}
         <div className="imghero__in">
           <div className="wrap">
             {/* BREADCRUMB */}

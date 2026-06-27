@@ -22,65 +22,63 @@ const rows = [
     n: "01",
     title: "Frizerski, kozmetični & barber saloni",
     desc: "Poln urnik, manj odpovedi in stranke, ki se rade vračajo.",
-    tag: "FOTO — frizerski / barber salon (širok kader)",
+    img: "jedro-stran-panoge-1.png",
   },
   {
     slug: "klinike",
     n: "02",
     title: "Zobne, estetske & medicinske klinike",
     desc: "Urejena kartoteka, pravočasna navodila in manj odpovedi.",
-    tag: "FOTO — estetska / zobna klinika (čist, svetel prostor)",
+    img: "jedro-stran-panoge-5.png",
   },
   {
     slug: "wellness",
     n: "03",
     title: "Masažni & wellness studii, fizioterapija",
     desc: "Serije terminov, nežni opomniki in povabila k ponovnemu obisku.",
-    tag: "FOTO — wellness / masažni studio (umirjeno vzdušje)",
+    img: "jedro-stran-panoge-3.png",
   },
   {
     slug: "fitnes",
     n: "04",
     title: "Fitnes, joga, pilates & osebni trenerji",
     desc: "Skupinski termini, članske evidence in obveščanje o prostih mestih.",
-    tag: "FOTO — fitnes / joga studio",
+    img: "jedro-stran-panoge-2.png",
   },
   {
     slug: "avtoservisi",
     n: "05",
     title: "Avtoservisi, vulkanizerji & čistilni servisi",
     desc: "Opomniki za servis in obvestilo, ko je vozilo pripravljeno za prevzem.",
-    tag: "FOTO — avtoservis / delavnica",
+    img: "jedro-stran-panoge-4.png",
   },
   {
     slug: "coaching",
     n: "06",
     title: "Svetovanje, coaching & terapija",
     desc: "Diskretni opomniki, ponavljajoči se termini in sledenje napredku.",
-    tag: "FOTO — svetovalni / coaching prostor",
+    img: "jedro-stran-panoge-7.png",
   },
   {
     slug: "poslovne-storitve",
     n: "07",
     title: "IT, poslovne storitve & agencije",
     desc: "Sestanki, onboarding strank in komunikacija brez ročnega dela.",
-    tag: "FOTO — pisarna / agencija",
+    img: "jedro-stran-panoge-6.png",
   },
   {
     slug: "ostalo",
     n: "08",
     title: "Ostala storitvena podjetja",
     desc: "Karkoli s termini in strankami — Jedro+ se prilagodi vašemu načinu dela.",
-    tag: "FOTO — storitvena dejavnost",
+    img: "jedro-stran-panoge-8.png",
   },
 ];
 
 const Arrow = () => (
-  <span className="indrow__go">
-    <svg viewBox="0 0 24 24" fill="none">
-      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  </span>
+  <svg className="pcard__arr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
 );
 
 export default function Panoge() {
@@ -116,20 +114,25 @@ export default function Panoge() {
 
       <section className="section subpage-first panoge-list" id="panoge">
         <div className="wrap">
-          <div className="ind-rows">
+          <div className="panoge-grid">
             {rows.map((r) => (
-              <Link className="indrow reveal" href={`/panoge/${r.slug}`} key={r.slug}>
-                <div className="indrow__media">
-                  <div className="ph">
-                    <span className="ph__tag">{r.tag}</span>
-                  </div>
+              <Link className="pcard reveal" href={`/panoge/${r.slug}`} key={r.slug}>
+                <div className="pcard__media">
+                  <img
+                    className="pcard__img"
+                    src={`/images/industries/${r.img}`}
+                    alt={r.title}
+                    loading="lazy"
+                  />
+                  <span className="pcard__n">{r.n}</span>
                 </div>
-                <div className="indrow__body">
-                  <span className="indrow__n">{r.n}</span>
+                <div className="pcard__body">
                   <h3>{r.title}</h3>
                   <p>{r.desc}</p>
+                  <span className="pcard__go">
+                    Poglej panogo <Arrow />
+                  </span>
                 </div>
-                <Arrow />
               </Link>
             ))}
           </div>

@@ -17,6 +17,27 @@ if (typeof window !== "undefined") {
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
+// Izmenjujoča se beseda v hero naslovu: "Prihodnost <…> vašega podjetja".
+const ROT_WORDS = ["komunikacije", "naročanja", "izkušnje", "terminov"];
+
+function RotatingWord() {
+  const [i, setI] = React.useState(0);
+  useEffect(() => {
+    const id = setInterval(
+      () => setI((p) => (p + 1) % ROT_WORDS.length),
+      2400
+    );
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span className="jhc-rot">
+      <span key={i} className="jhc-rot__w">
+        {ROT_WORDS[i]}
+      </span>
+    </span>
+  );
+}
+
 /* ------------------------------------------------------------------ *
  *  Jedro+ cinematic hero — a white "Apple Calendar"-style day view
  *  inside an iPhone. As you scroll, gradient appointment blocks drop
@@ -313,7 +334,9 @@ export function HeroCalendar() {
       {/* ---- background hero text ---- */}
       <div className="jhc-hero">
         <h1 className="jhc-h">
-          <span className="jhc-line1">Prihodnost naročanja</span>
+          <span className="jhc-line1">
+            Prihodnost <RotatingWord />
+          </span>
           <span className="jhc-line2">vašega podjetja</span>
         </h1>
         <p className="jhc-sub">
@@ -468,6 +491,14 @@ const STYLES = `
   .jhc-h{ font-family:var(--display); font-weight:300; letter-spacing:-.04em;
     line-height:1.06; font-size:clamp(2.6rem,7vw,6rem); margin:0; color:#0E0E12; }
   .jhc-h span{ display:block; }
+  .jhc-h .jhc-rot{ display:block; }
+  .jhc-h .jhc-rot__w{ display:inline-block; color:#0E0E12;
+    padding-bottom:.06em;
+    animation:jhcRotIn .55s var(--ease,cubic-bezier(.22,1,.36,1)) both; }
+  @keyframes jhcRotIn{
+    from{ opacity:0; transform:translateY(.32em); filter:blur(7px); }
+    to{ opacity:1; transform:none; filter:blur(0); }
+  }
   .jhc-line2{ background:linear-gradient(108deg,#8E7DFF 0%,#5FA8FF 50%,#3FE5D2 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
     line-height:1.18; padding-bottom:.14em; }

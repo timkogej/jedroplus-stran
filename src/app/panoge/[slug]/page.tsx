@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
+import { HeroEmojis } from "@/components/redesign/HeroEmojis";
 import { panoge, panogeSlugs } from "@/components/redesign/panoge-data";
 import { Faq } from "@/components/redesign/Faq";
 import { JsonLd } from "@/components/JsonLd";
@@ -34,45 +33,16 @@ const panogeDesc: Record<string, string> = {
     "Jedro+ za vsa storitvena podjetja: prilagodljiv urnik, spletno naročanje 24/7 in samodejni opomniki pred terminom — ne glede na vašo panogo.",
 };
 
-const heroImages: Record<
-  string,
-  {
-    src: string;
-    alt: string;
-    position: string;
-    mobilePosition: string;
-  }
-> = {
-  "frizerski-saloni": {
-    src: "/images/industries/jedro-stran-frizerstvo-hero.png",
-    alt: "Frizerka med urejanjem pričeske stranke v sodobnem salonu",
-    position: "center center",
-    mobilePosition: "77% center",
-  },
-  klinike: {
-    src: "/images/industries/jedro-stran-zobozdravstvo-hero.png",
-    alt: "Zobozdravnica med pogovorom s pacientko v sodobni ordinaciji",
-    position: "center center",
-    mobilePosition: "69% center",
-  },
-  wellness: {
-    src: "/images/industries/jedro-stran-masaze-hero.png",
-    alt: "Terapevtka med masažno obravnavo stranke v wellness studiu",
-    position: "center center",
-    mobilePosition: "69% center",
-  },
-  fitnes: {
-    src: "/images/industries/jedro-stran-joga-hero.png",
-    alt: "Vodena skupinska vadba v sodobnem joga in pilates studiu",
-    position: "center center",
-    mobilePosition: "46% center",
-  },
-  coaching: {
-    src: "/images/industries/jedro-stran-svetovanje-hero.png",
-    alt: "Svetovalka med zaupnim pogovorom s stranko",
-    position: "center center",
-    mobilePosition: "76% center",
-  },
+// Emojiji, ki lebdijo čez beli hero posamezne panoge.
+const heroEmojis: Record<string, string[]> = {
+  "frizerski-saloni": ["✂️", "💅", "💇‍♀️"],
+  klinike: ["🦷", "🩺", "💉"],
+  wellness: ["💆", "🌿", "💧"],
+  fitnes: ["🧘", "🏋️", "🤸"],
+  avtoservisi: ["🚗", "🛞", "🔧"],
+  coaching: ["💬", "🧠", "🌱"],
+  "poslovne-storitve": ["💼", "📊", "💻"],
+  ostalo: ["📅", "✨", "🔔"],
 };
 
 export function generateMetadata({
@@ -103,41 +73,16 @@ const Chk = () => (
 export default function PanogaPage({ params }: { params: { slug: string } }) {
   const p = panoge[params.slug];
   if (!p) notFound();
-  const heroImage = heroImages[params.slug];
-  const heroStyle = heroImage
-    ? ({
-        "--hero-position": heroImage.position,
-        "--hero-position-mobile": heroImage.mobilePosition,
-      } as CSSProperties)
-    : undefined;
+  const emojis = heroEmojis[params.slug] ?? heroEmojis.ostalo;
 
   return (
     <>
       <JsonLd schema={breadcrumbSchema(params.slug, p.title)} />
       <Nav variant="light" active="/panoge" />
 
-      {/* IMAGE HERO (full-bleed) */}
-      <section
-        className={`imghero${heroImage ? " imghero--photo" : ""}`}
-        style={heroStyle}
-      >
-        <div className="imghero__img">
-          {heroImage ? (
-            <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
-              fill
-              priority
-              sizes="100vw"
-              className="imghero__photo"
-            />
-          ) : (
-            <div className="ph">
-              <span className="ph__tag">{p.heroTag}</span>
-            </div>
-          )}
-        </div>
-        <div className="imghero__scrim"></div>
+      {/* EMOJI HERO (bel, lebdeči emojiji) */}
+      <section className="imghero imghero--plain">
+        <HeroEmojis emojis={emojis} />
         <div className="imghero__in">
           <div className="wrap">
             <span className="eyebrow">Panoga</span>
