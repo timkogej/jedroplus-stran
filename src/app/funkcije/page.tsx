@@ -138,28 +138,24 @@ const deepDives = [
     n: "01",
     title: "SMS opomniki za stranke",
     desc: "Samodejni opomniki ob pravem času — manj odpovedi in no-show terminov.",
-    tag: "FOTO — SMS opomnik pred terminom",
   },
   {
     slug: "spletno-narocanje",
     n: "02",
     title: "Spletno naročanje in booking 24/7",
     desc: "Stranke rezervirajo same, kadarkoli — poln urnik brez klicev.",
-    tag: "FOTO — spletno naročanje na telefonu",
   },
   {
     slug: "crm-baza-strank",
     n: "03",
     title: "CRM za storitvena podjetja",
     desc: "Kontakti, zgodovina obiskov in opombe vsake stranke na enem mestu.",
-    tag: "FOTO — baza strank / kartica stranke",
   },
   {
     slug: "ai-komunikacija",
     n: "04",
     title: "AI personalizirana sporočila",
     desc: "AI napiše sporočilo v vašem tonu — z imenom, terminom in storitvijo.",
-    tag: "FOTO — AI sporočila za stranke",
   },
 ];
 
@@ -244,12 +240,7 @@ export default function Funkcije() {
           </div>
           <div className="ind-rows" style={{ marginTop: 40 }}>
             {deepDives.map((r) => (
-              <Link className="indrow reveal" href={`/funkcije/${r.slug}`} key={r.slug}>
-                <div className="indrow__media">
-                  <div className="ph">
-                    <span className="ph__tag">{r.tag}</span>
-                  </div>
-                </div>
+              <Link className="indrow indrow--nomedia reveal" href={`/funkcije/${r.slug}`} key={r.slug}>
                 <div className="indrow__body">
                   <span className="indrow__n">{r.n}</span>
                   <h3>{r.title}</h3>

@@ -1254,6 +1254,16 @@ p{ margin:0; }
   .indrow__body{ padding:24px; }
 }
 
+/* row variant brez slike (funkcije — podrobneje) */
+.indrow--nomedia{ grid-template-columns:1fr auto; min-height:clamp(132px,15vh,168px); }
+.indrow--nomedia .indrow__n{
+  font-size:15px; font-weight:700; letter-spacing:.02em;
+  background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+@media(max-width:760px){
+  .indrow--nomedia{ grid-template-columns:1fr; }
+}
+
 /* ============ panoge square cards (panoge index) ============ */
 .panoge-grid{
   display:grid; grid-template-columns:repeat(3,1fr);
