@@ -186,7 +186,7 @@ export function faqPageSchema(faqs: { q: string; a: string }[]) {
   };
 }
 
-// One Product per pricing tier, mirroring PricingTiers.tsx.
+// One pricing tier, mirroring PricingTiers.tsx.
 type PricingTier = {
   name: string;
   price?: string; // monthly EUR amount; omitted for "Po dogovoru"
@@ -213,33 +213,45 @@ const pricingTiers: PricingTier[] = [
   },
 ];
 
+// SaaS pricing is modeled as a Service with an OfferCatalog instead of
+// Product/Offer. Product/Offer triggers Google's e-commerce validators
+// (Product snippets, Merchant listings), which then demand image,
+// shippingDetails and hasMerchantReturnPolicy — none of which apply to a
+// software subscription. Service + OfferCatalog keeps the tier names and
+// prices machine-readable (for GEO / AI) without those requirements.
 export const pricingProductsSchema = {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Cenik Jedro+",
-  itemListElement: pricingTiers.map((tier, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    item: {
-      "@type": "Product",
+  "@type": "Service",
+  name: "Jedro+ — rezervacijski sistem",
+  serviceType: "Rezervacijski sistem za storitvena podjetja",
+  url: `${SITE_URL}/cenik`,
+  provider: { "@id": ORGANIZATION_ID },
+  areaServed: {
+    "@type": "Country",
+    name: "Slovenija",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Cenik Jedro+",
+    itemListElement: pricingTiers.map((tier) => ({
+      "@type": "Offer",
       name: tier.name,
       description: tier.description,
-      brand: { "@type": "Brand", name: "Jedro+" },
-      offers: tier.price
+      ...(tier.price
         ? {
-            "@type": "Offer",
             price: tier.price,
             priceCurrency: "EUR",
-            url: `${SITE_URL}/cenik`,
-            availability: "https://schema.org/InStock",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: tier.price,
+              priceCurrency: "EUR",
+              billingIncrement: 1,
+              unitText: "MONTH",
+            },
           }
         : {
-            "@type": "Offer",
-            priceCurrency: "EUR",
-            url: `${SITE_URL}/cenik`,
-            availability: "https://schema.org/InStock",
-            description: "Cena po dogovoru",
-          },
-    },
-  })),
+            description: `${tier.description} Cena po dogovoru.`,
+          }),
+    })),
+  },
 };
