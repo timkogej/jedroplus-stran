@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { FlowController } from "@/components/redesign/FlowController";
@@ -69,10 +68,6 @@ export default function Agencija() {
               "linear-gradient(100deg, rgba(8,9,12,.92) 0%, rgba(8,9,12,.66) 46%, rgba(8,9,12,.34) 80%), linear-gradient(0deg, rgba(8,9,12,.5), rgba(8,9,12,0) 36%)",
           } as React.CSSProperties}
         >
-          <div className="flow__bg">
-            <div className="imgslot"></div>
-            <span className="slot-tag">SLIKA V OZADJU — ekipa / pisarna agencije</span>
-          </div>
           <div className="flow__tint"></div>
           <div className="flow__inner">
             <p className="flow__eyebrow">01 — Agencija Jedro+</p>
@@ -113,10 +108,6 @@ export default function Agencija() {
               "linear-gradient(155deg, rgba(0,255,239,.95) 0%, rgba(0,230,218,.93) 100%)",
           } as React.CSSProperties}
         >
-          <div className="flow__bg">
-            <div className="imgslot"></div>
-            <span className="slot-tag">SLIKA V OZADJU — delo z AI / zaslon</span>
-          </div>
           <div className="flow__tint"></div>
           <div className="flow__inner">
             <p className="flow__eyebrow">02 — Kdo smo</p>
@@ -174,14 +165,6 @@ export default function Agencija() {
               "linear-gradient(100deg, rgba(8,9,12,.95) 0%, rgba(8,9,12,.84) 44%, rgba(8,9,12,.58) 78%, rgba(8,9,12,.5) 100%)",
           } as React.CSSProperties}
         >
-          <div className="flow__bg">
-            <Image
-              src="/images/jedro-stran-agency-hitrost.png"
-              alt="Turkizne svetlobne linije, ki ponazarjajo hitrost in digitalni pretok"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
           <div className="flow__tint"></div>
           <div className="flow__inner">
             <p className="flow__eyebrow">03 — Hitrost</p>
@@ -214,9 +197,6 @@ export default function Agencija() {
               "linear-gradient(155deg, rgba(255,255,255,.96) 0%, rgba(248,248,245,.92) 100%)",
           } as React.CSSProperties}
         >
-          <div className="flow__bg">
-            <div className="imgslot imgslot--light"></div>
-          </div>
           <div className="flow__tint"></div>
           <div className="flow__inner">
             <p className="flow__eyebrow">04 — Kaj ponujamo?</p>
@@ -271,14 +251,6 @@ export default function Agencija() {
               "linear-gradient(100deg, rgba(0,255,239,.95) 0%, rgba(0,255,239,.86) 38%, rgba(0,230,218,.45) 70%, rgba(0,230,218,.28) 100%), linear-gradient(0deg, rgba(0,230,218,.40), rgba(0,230,218,0) 55%)",
           } as React.CSSProperties}
         >
-          <div className="flow__bg">
-            <Image
-              src="/images/jedro-stran-agency-vsenaenem.png"
-              alt="Povezana poslovna platforma Jedro+ na računalniku in telefonu"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
           <div className="flow__tint"></div>
           <div className="flow__inner">
             <p className="flow__eyebrow">05 — Vse povezano</p>
@@ -319,10 +291,6 @@ export default function Agencija() {
               "linear-gradient(100deg, rgba(8,9,12,.92) 0%, rgba(8,9,12,.72) 52%, rgba(8,9,12,.44) 100%)",
           } as React.CSSProperties}
         >
-          <div className="flow__bg">
-            <div className="imgslot"></div>
-            <span className="slot-tag">SLIKA V OZADJU — vzdušje agencije</span>
-          </div>
           <div className="flow__tint"></div>
           <div className="flow__inner">
             <p className="flow__eyebrow">06 — Pokličite nas</p>

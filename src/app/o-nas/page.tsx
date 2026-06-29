@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Nav } from "@/components/redesign/Nav";
 import { Footer } from "@/components/redesign/Footer";
 import { RevealOnScroll } from "@/components/redesign/RevealOnScroll";
@@ -63,8 +64,14 @@ export default function ONas() {
             </p>
           </div>
           <div className="split__media reveal" data-d="1">
-            <div className="ph" style={{ aspectRatio: "4/3" }}>
-              <span className="ph__tag">SLIKA — ekipa / delo s strankami</span>
+            <div className="ph about-team-photo" style={{ aspectRatio: "16/9" }}>
+              <Image
+                src="/images/jedroplus-stran-ekipa.png"
+                alt="Ekipa Jedro+"
+                fill
+                sizes="(max-width: 900px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+              />
             </div>
           </div>
         </div>
@@ -136,8 +143,14 @@ export default function ONas() {
             </p>
           </div>
           <div className="split__media reveal" data-d="1">
-            <div className="ph" style={{ aspectRatio: "4/3" }}>
-              <span className="ph__tag">SLIKA — panoge / saloni & klinike</span>
+            <div className="ph about-closeup-photo" style={{ aspectRatio: "16/9" }}>
+              <Image
+                src="/images/jedro-stran-closeup.png"
+                alt="Podrobnost dela ekipe Jedro+"
+                fill
+                sizes="(max-width: 900px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+              />
             </div>
           </div>
         </div>

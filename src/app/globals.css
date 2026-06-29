@@ -1347,10 +1347,6 @@ p{ margin:0; }
 .onerow span{ font-family:var(--text); font-weight:600; font-size:clamp(15px,1.4vw,20px); padding:10px 18px; border-radius:100px; border:1px solid rgba(255,255,255,.34); }
 .onerow i{ font-style:normal; opacity:.6; font-size:18px; }
 
-/* agency light image slots */
-.flow__bg .imgslot--light{ background-image:repeating-linear-gradient(135deg, rgba(14,140,127,.10) 0 2px, transparent 2px 14px); }
-.flow__bg .slot-tag--light{ background:rgba(255,255,255,.85); border-color:rgba(0,0,0,.08); color:#5a5b64; }
-
 /* ============ mobile heading scale ============ */
 @media (max-width:560px){
   h1{ font-size:clamp(36px,10vw,42px); }
@@ -1447,6 +1443,21 @@ p{ margin:0; }
 .nav--flow.on-light .nav__menu a:hover{ background:var(--bg-soft) !important; }
 
 /* ============ about page value cards ============ */
+.about-team-photo::after,
+.about-closeup-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(135deg, rgba(166,145,255,.44) 0%, rgba(112,190,255,.36) 48%, rgba(49,238,223,.42) 100%),
+    radial-gradient(circle at 18% 16%, rgba(255,255,255,.30), transparent 34%);
+  mix-blend-mode:screen;
+  opacity:.68;
+}
+.about-team-photo img,
+.about-closeup-photo img{ filter:saturate(1.05) brightness(1.03); }
 .about-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,26px); margin-top:clamp(40px,6vh,66px); }
 .about-card{ border:1px solid var(--line); border-radius:var(--r-lg); padding:clamp(24px,2.4vw,36px); background:#fff; }
 .about-card h3{ font-family:var(--display); font-weight:600; font-size:clamp(19px,1.6vw,23px); letter-spacing:-.02em; }
