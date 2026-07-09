@@ -11,6 +11,7 @@ const LINKS = [
   { href: "/funkcije", label: "Funkcije" },
   { href: "/panoge", label: "Panoge" },
   { href: "/cenik", label: "Cenik" },
+  { href: "/blog", label: "Blog" },
   { href: "/agencija", label: "Agencija" },
 ];
 
@@ -100,13 +101,22 @@ export function Nav({
         <Link href={aboutHref} onClick={() => setOpen(false)}>
           O nas
         </Link>
-        <a
-          className="btn btn--grad btn--lg"
-          href="https://app.jedroplus.com/signup"
-          onClick={() => setOpen(false)}
-        >
-          Preizkusi zdaj
-        </a>
+        <div className="mobile-menu__actions">
+          <a
+            className="btn btn--grad btn--lg"
+            href="https://app.jedroplus.com/signup"
+            onClick={() => setOpen(false)}
+          >
+            Preizkusi zdaj
+          </a>
+          <a
+            className="btn btn--ghost btn--lg"
+            href="https://app.jedroplus.com/login"
+            onClick={() => setOpen(false)}
+          >
+            Prijavi se
+          </a>
+        </div>
       </div>
     </>
   );

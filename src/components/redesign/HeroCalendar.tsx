@@ -158,6 +158,7 @@ export function HeroCalendar() {
       gsap.set(".jhc-line1", { autoAlpha: 0, y: 60, filter: "blur(16px)" });
       gsap.set(".jhc-line2", { autoAlpha: 0, y: 60, filter: "blur(16px)" });
       gsap.set(".jhc-sub", { autoAlpha: 0, y: 30 });
+      gsap.set(".jhc-hero-actions", { autoAlpha: 0, y: 24 });
       gsap.set(".jhc-card", { yPercent: 130, autoAlpha: 1 });
       gsap.set(
         [".jhc-phone-wrap", ".jhc-notif", ".jhc-left", ".jhc-brand"],
@@ -188,7 +189,12 @@ export function HeroCalendar() {
           },
           "-=1.05"
         )
-        .to(".jhc-sub", { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out" }, "-=0.8");
+        .to(".jhc-sub", { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out" }, "-=0.8")
+        .to(
+          ".jhc-hero-actions",
+          { autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out" },
+          "-=0.55"
+        );
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -343,6 +349,14 @@ export function HeroCalendar() {
           Koledar terminov, baza strank in personalizirani AI opomniki —
           povezani v eno jedro.
         </p>
+        <div className="jhc-hero-actions">
+          <a className="btn btn--grad btn--lg" href="https://app.jedroplus.com/signup">
+            Preizkusi zdaj <span className="arr">→</span>
+          </a>
+          <a className="btn btn--ghost btn--lg" href="mailto:info@jedroplus.com">
+            Brezplačna predstavitev
+          </a>
+        </div>
       </div>
 
       {/* ---- CTA (revealed at the end) ---- */}
@@ -505,6 +519,8 @@ const STYLES = `
   .jhc-sub{ margin:clamp(20px,3vh,34px) auto 0; max-width:52ch;
     font-family:var(--text); font-weight:400; color:rgba(14,14,18,.66);
     font-size:clamp(1rem,1.5vw,1.35rem); line-height:1.5; }
+  .jhc-hero-actions{ margin-top:clamp(24px,4vh,42px); display:flex; flex-wrap:wrap;
+    justify-content:center; align-items:center; gap:14px; }
 
   /* CTA */
   .jhc-cta{ position:absolute; z-index:10; inset:0; display:flex; flex-direction:column;

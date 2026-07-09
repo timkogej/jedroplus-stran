@@ -170,6 +170,139 @@ export function funkcijeBreadcrumbSchema(slug: string, name: string) {
   };
 }
 
+// Domov > Primerjava > [naslov primerjave]
+export function primerjavaBreadcrumbSchema(slug: string, name: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Domov",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Primerjava",
+        item: `${SITE_URL}/primerjava`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name,
+        item: `${SITE_URL}/primerjava/${slug}`,
+      },
+    ],
+  };
+}
+
+// ItemList za /primerjava (hub) — seznam posameznih primerjav.
+export function primerjavaItemListSchema(
+  items: { slug: string; title: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Primerjave rezervacijskih sistemov",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.title,
+      url: `${SITE_URL}/primerjava/${it.slug}`,
+    })),
+  };
+}
+
+// Domov > Davčna blagajna
+export function davcnaBlagajnaBreadcrumbSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Domov",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Davčna blagajna",
+        item: `${SITE_URL}/davcna-blagajna`,
+      },
+    ],
+  };
+}
+
+// Domov > Blog > [naslov članka]
+export function blogBreadcrumbSchema(slug: string, title: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Domov",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${SITE_URL}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: `${SITE_URL}/blog/${slug}`,
+      },
+    ],
+  };
+}
+
+// BlogPosting — posamezen članek na /blog/[slug].
+export function blogPostingSchema({
+  slug,
+  title,
+  description,
+  datePublished,
+  image,
+}: {
+  slug: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  image: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished,
+    dateModified: datePublished,
+    url: `${SITE_URL}/blog/${slug}`,
+    image: `${SITE_URL}${image}`,
+    author: {
+      "@type": "Organization",
+      name: "Jedro+",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@id": ORGANIZATION_ID,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${slug}`,
+    },
+  };
+}
+
 // FAQPage — seznam vprašanj/odgovorov za rich rezultate.
 export function faqPageSchema(faqs: { q: string; a: string }[]) {
   return {

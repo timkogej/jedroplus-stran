@@ -33,6 +33,18 @@ const panogeDesc: Record<string, string> = {
     "Jedro+ za vsa storitvena podjetja: prilagodljiv urnik, spletno naročanje 24/7 in samodejni opomniki pred terminom — ne glede na vašo panogo.",
 };
 
+// Relevantne primerjave po panogi — prikažemo le, kjer se dejansko sklada
+// (Lime Booking in mojsalon.si ciljata predvsem salone in wellness).
+const panogaCompare: Record<string, { slug: string; label: string }[]> = {
+  "frizerski-saloni": [
+    { slug: "jedroplus-vs-lime-booking", label: "Jedro+ ali Lime Booking?" },
+    { slug: "jedroplus-vs-mojsalon", label: "Jedro+ ali mojsalon.si?" },
+  ],
+  wellness: [
+    { slug: "jedroplus-vs-lime-booking", label: "Jedro+ ali Lime Booking?" },
+  ],
+};
+
 // Emojiji, ki lebdijo čez beli hero posamezne panoge.
 const heroEmojis: Record<string, string[]> = {
   "frizerski-saloni": ["✂️", "💅", "💇‍♀️"],
@@ -74,6 +86,7 @@ export default function PanogaPage({ params }: { params: { slug: string } }) {
   const p = panoge[params.slug];
   if (!p) notFound();
   const emojis = heroEmojis[params.slug] ?? heroEmojis.ostalo;
+  const compare = panogaCompare[params.slug];
 
   return (
     <>
@@ -237,6 +250,28 @@ export default function PanogaPage({ params }: { params: { slug: string } }) {
               </li>
             ))}
           </ul>
+          {compare && (
+            <p
+              className="reveal"
+              style={{
+                maxWidth: 760,
+                margin: "30px auto 0",
+                textAlign: "center",
+                color: "var(--ink-2)",
+                fontSize: 16,
+              }}
+            >
+              Primerjate ponudnike?{" "}
+              {compare.map((c, i) => (
+                <span key={c.slug}>
+                  {i > 0 && " · "}
+                  <a className="grad-text" href={`/primerjava/${c.slug}`} style={{ fontWeight: 600 }}>
+                    {c.label}
+                  </a>
+                </span>
+              ))}
+            </p>
+          )}
         </div>
       </section>
 

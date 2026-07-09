@@ -40,6 +40,15 @@ export function Footer({
                 <Link href="/cenik">Cenik</Link>
               </li>
               <li>
+                <Link href="/primerjava">Primerjava</Link>
+              </li>
+              <li>
+                <Link href="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link href="/davcna-blagajna">Davčna blagajna</Link>
+              </li>
+              <li>
                 <Link href="/agencija">Agencija</Link>
               </li>
               <li>

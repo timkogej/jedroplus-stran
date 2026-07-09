@@ -1,0 +1,92 @@
+/* Scoped typography for /blog/[slug] long-form content. Additive only —
+   reuses the global design tokens so it matches the rest of the redesign
+   without touching globals.css. */
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-2);
+  font-size: 14.5px;
+}
+.metaDot {
+  opacity: 0.5;
+}
+.category {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.body {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.body p {
+  margin-top: 22px;
+  color: var(--ink-2);
+}
+.body h2 {
+  margin-top: 52px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(24px, 2.4vw, 32px);
+  color: var(--ink);
+}
+.body h3 {
+  margin-top: 38px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(19px, 1.7vw, 23px);
+  color: var(--ink);
+}
+.body ul,
+.body ol {
+  margin-top: 20px;
+  padding-left: 22px;
+  color: var(--ink-2);
+  display: grid;
+  gap: 10px;
+}
+.body li {
+  line-height: 1.6;
+}
+.body blockquote {
+  margin: 32px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--accent);
+  color: var(--ink);
+  font-size: 18.5px;
+  font-style: italic;
+}
+.body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.body strong {
+  color: var(--ink);
+}
+.body code {
+  background: var(--bg-soft);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 15px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-2);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.backLink:hover {
+  color: var(--ink);
+}

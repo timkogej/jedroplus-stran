@@ -313,8 +313,8 @@ export default function Funkcije() {
 
       {/* BOOKING */}
       <section className="section">
-        <div className="wrap split split--rev">
-          <div className="split__body reveal">
+        <div className="wrap">
+          <div className="split__body reveal" style={{ maxWidth: 760 }}>
             <span className="eyebrow">Spletno naročanje</span>
             <h2 style={{ marginTop: 18 }}>
               Rezervacije, ki <span className="grad-text">razbijejo rutino</span>
@@ -343,21 +343,6 @@ export default function Funkcije() {
                 </span>
               </li>
             </ul>
-          </div>
-          <div className="split__media reveal" data-d="1">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-              <div className="ph" style={{ aspectRatio: "9/16" }}>
-                <span className="ph__tag">dizajn naročanja — salon</span>
-              </div>
-              <div style={{ display: "grid", gap: 14 }}>
-                <div className="ph" style={{ aspectRatio: "1/1" }}>
-                  <span className="ph__tag">koledar</span>
-                </div>
-                <div className="ph" style={{ aspectRatio: "4/3" }}>
-                  <span className="ph__tag">booking — klinika</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

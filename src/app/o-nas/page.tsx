@@ -66,7 +66,7 @@ export default function ONas() {
           <div className="split__media reveal" data-d="1">
             <div className="ph about-team-photo" style={{ aspectRatio: "16/9" }}>
               <Image
-                src="/images/jedroplus-stran-ekipa.png"
+                src="/images/jedro-stran-team.png"
                 alt="Ekipa Jedro+"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
