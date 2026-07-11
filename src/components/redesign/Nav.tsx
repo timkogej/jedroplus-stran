@@ -82,8 +82,10 @@ export function Nav({
             Preizkusi zdaj
           </a>
           <button
+            type="button"
             className="nav__burger"
             aria-label="Meni"
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <span></span>
@@ -93,14 +95,16 @@ export function Nav({
       </header>
 
       <div className={`mobile-menu${open ? " is-open" : ""}`}>
-        {LINKS.map((l) => (
-          <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
-            {l.label}
+        <nav className="mobile-menu__links" aria-label="Mobilni meni">
+          {LINKS.map((l) => (
+            <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
+              {l.label}
+            </Link>
+          ))}
+          <Link href={aboutHref} onClick={() => setOpen(false)}>
+            O nas
           </Link>
-        ))}
-        <Link href={aboutHref} onClick={() => setOpen(false)}>
-          O nas
-        </Link>
+        </nav>
         <div className="mobile-menu__actions">
           <a
             className="btn btn--grad btn--lg"
