@@ -49,7 +49,7 @@ const packages: Package[] = [
     features: [
       "Vse iz Jedro Plus",
       "Obveščanje izgubljenih strank",
-      "SMS pošiljanje (200 sms/mesec)",
+      "SMS pošiljanje (250 sms/mesec)",
       "Email pošiljanje (2000 email/mesec)",
       "Dodatni dizajni spletnega naročanja",
     ],
