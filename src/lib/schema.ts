@@ -16,7 +16,7 @@ export const organizationSchema = {
   legalName: "Sonja Žužek s.p.",
   taxID: "97477621",
   url: SITE_URL,
-  logo: `${SITE_URL}/icon.png`,
+  logo: `${SITE_URL}/brand/jedro-icon-512.png`,
   description:
     "Jedro+ je rezervacijski sistem za storitvena podjetja v Sloveniji. Spletno naročanje terminov, baza strank in pametni AI opomniki, ki zmanjšajo odpovedi.",
   email: "info@jedroplus.com",

@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   description:
     "Jedro+ je rezervacijski sistem za storitvena podjetja v Sloveniji. Spletno naročanje terminov, baza strank in pametni AI opomniki, ki zmanjšajo odpovedi.",
   authors: [{ name: "Jedro+" }],
-  icons: {
-    icon: "/favicon.ico",
-  },
+  // Ikon tu ne naštevamo: ročni `icons` prepiše Next.jsovo datotečno
+  // konvencijo, zaradi česar apple-icon.png ni prišel v HTML. Zdaj jih Next
+  // pobere sam iz src/app/{favicon.ico,icon.png,apple-icon.png}.
   openGraph: {
     title: "Jedro+ | Sistem za termine, stranke in opomnike",
     description:

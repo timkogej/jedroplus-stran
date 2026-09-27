@@ -13,9 +13,9 @@ export function Footer({
           <div className="footer__brand">
             <Image
               className="footer__logo"
-              src="/redesign/logo.png"
+              src="/redesign/logo-white.png"
               alt="Jedro+"
-              width={120}
+              width={116}
               height={30}
             />
             <p>
