@@ -70,8 +70,23 @@ export function Nav({
     <>
       <header className={cls}>
         <Link className="nav__logo" href="/" aria-label="Jedro+">
-          <span className="nav__word">Jedro+</span>
-          <Image src="/redesign/logo.png" alt="Jedro+" width={132} height={34} priority />
+          <Image
+            className="nav__logo-img nav__logo-img--ink"
+            src="/redesign/logo.png"
+            alt="Jedro+"
+            width={132}
+            height={34}
+            priority
+          />
+          <Image
+            className="nav__logo-img nav__logo-img--white"
+            src="/redesign/logo-white.png"
+            alt=""
+            aria-hidden
+            width={132}
+            height={34}
+            priority
+          />
         </Link>
         <nav className="nav__menu">{menu}</nav>
         <div className="nav__cta">

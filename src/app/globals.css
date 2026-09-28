@@ -857,8 +857,14 @@ p{ margin:0; }
   font-weight:650; font-size:30px; line-height:1; letter-spacing:-.025em;
   display:none; transition:color .4s var(--ease);
 }
-.nav--flow.show-word .nav__logo img{ display:none; }
-.nav--flow.show-word .nav__word{ display:inline-block; }
+/* The logo stays a logo at every scroll position. It used to be swapped for
+   plain text once you scrolled off the hero, because a single dark lockup
+   vanished on the dark panels. There are now two lockups and the panel state
+   picks one, so the swap is gone. */
+.nav__logo-img{ height:100%; width:auto; display:block; }
+.nav__logo-img--white{ display:none; }
+.nav.on-dark .nav__logo-img--ink{ display:none; }
+.nav.on-dark .nav__logo-img--white{ display:block; }
 
 /* flow nav colour is driven per-panel via .on-light / .on-dark */
 .nav--flow.is-stuck{ background:transparent !important; box-shadow:none !important; backdrop-filter:none !important; }
