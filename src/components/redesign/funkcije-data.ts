@@ -209,6 +209,194 @@ export const funkcije: Record<string, Funkcija> = {
       },
     ],
   },
+
+  "promocije-popusti": {
+    title: "Popusti, happy hours in akcije",
+    metaTitle: "Popusti in happy hours za storitvena podjetja | Jedro+",
+    metaDescription:
+      "Popusti, happy hours in dodatne storitve s popustom neposredno v Jedro+. Napolnite tihe termine z akcijami, ki jih nastavite v nekaj klikih.",
+    eyebrow: "Funkcija",
+    heroTag: "FOTO — akcijska ponudba v koledarju",
+    mediaTag: "FOTO — pregled popustov in happy hours",
+    heroSub:
+      "Popolnite tihe ure z akcijami, ki jih nastavite sami: popust na izbrane storitve, happy hour ob določenih urah ali ugodna dodatna storitev.",
+    lead: "Vsak salon ali studio pozna tihe ure, ko je koledar prazen. Namesto da jih sprijaznjeno gledate, jih lahko napolnite z ciljno ponudbo. Promocije v Jedro+ so na enem mestu in se povežejo s storitvami, ki jih že imate v sistemu.",
+    body: [
+      "Popust nastavite kot odstotek ali fiksen znesek, izberete storitve, ki ga dobijo, in določite obdobje veljavnosti. Tako lahko pripravite poletno akcijo, popust za nove stranke ali ugodnost samo za določeno storitev, brez ročnega preračunavanja cen.",
+      "Happy hour je popust, vezan na dneve v tednu in uro. Idealen je za polnjenje terminov, ki jih stranke manj iščejo, na primer dopoldanskih ur sredi tedna. Veljati more za vse storitve ali samo za izbrane.",
+      "Dodatne storitve (add-oni) omogočajo, da ob rezervaciji stranki ponudite dodatno storitev po ugodnejši ceni. Vidite originalno ceno, popust in končno ceno, zato je ponudba vedno pregledna.",
+    ],
+    list: [
+      { b: "Popust v % ali €", rest: " — na izbranih storitvah, v izbranem obdobju" },
+      { b: "Happy hours", rest: " — popust ob določenih dnevih in urah" },
+      { b: "Dodatne storitve s popustom", rest: " — več vrednosti na termin" },
+      { b: "Vse na enem mestu", rest: " — vsaka promocija je vezana na vaše storitve" },
+    ],
+    cards: [
+      { title: "Popusti", text: "Odstotek ali fiksen znesek, izbrane storitve in datum od–do." },
+      { title: "Happy hours", text: "Dnevi v tednu, ura od–do in popust za tihe termine." },
+      { title: "Dodatne storitve", text: "Dodatna storitev ob terminu z prikazano originalno in končno ceno." },
+    ],
+    faq: [
+      {
+        q: "Ali lahko popust velja samo za nekatere storitve?",
+        a: "Da. Pri vsakem popustu izberete storitve, za katere velja. Pri happy hour lahko izberete tudi vse storitve naenkrat.",
+      },
+      {
+        q: "Ali lahko popust časovno omejim?",
+        a: "Da. Popustu nastavite datum začetka in konca. Happy hour pa velja ob izbranih dnevih v tednu in v izbranem časovnem oknu.",
+      },
+      {
+        q: "Kaj so dodatne storitve (add-oni)?",
+        a: "To so storitve, ki jih stranki ponudite ob glavni storitvi po ugodnejši ceni. V pregledu vidite originalno ceno, popust in končno ceno.",
+      },
+      {
+        q: "Lahko popust določim kot fiksen znesek?",
+        a: "Da. Popust nastavite bodisi v odstotkih bodisi kot fiksen znesek v evrih.",
+      },
+    ],
+  },
+
+  "resursi": {
+    title: "Resursi: sobe, kabine in oprema",
+    metaTitle: "Upravljanje resursov (sobe, kabine, oprema) | Jedro+",
+    metaDescription:
+      "Upravljajte fizične resurse, ki jih vaše storitve potrebujejo: masažne mize, kabine, opremo. Jedro+ prepreči dvojne rezervacije in pokaže zasedenost.",
+    eyebrow: "Funkcija",
+    heroTag: "FOTO — kabine in oprema v salonu",
+    mediaTag: "FOTO — pregled resursov in zasedenosti",
+    heroSub:
+      "Termin ni odvisen samo od osebe, ampak tudi od mize, kabine ali aparata. Jedro+ spremlja tudi to.",
+    lead: "Marsikatera storitev potrebuje več kot izvajalca: masažno mizo, kabino, laser, sobo. Če teh resursov ne spremljate, se prej ali slej zgodi dvojna rezervacija. Resursi v Jedro+ so fizične stvari, ki jih storitve potrebujejo, in jih povežete s storitvami, ki jih uporabljajo.",
+    body: [
+      "Vsak resurs ima ime, število enot in kapaciteto (koliko oseb sprejme ena enota). Hitro vidite skupno kapaciteto, število aktivnih resursov in koliko storitev je povezanih z njimi.",
+      "Resurs lahko nastavite kot vedno na voljo ali mu določite urnik. Nepotrebnega resursa ne izbrišete, ampak ga deaktivirate, ko ga ne uporabljate.",
+      "Ko so resursi povezani s storitvami, sistem ve, kaj mora biti prosto, da je termin mogoč. Tako se izognete zapletom, ko je izvajalec prost, oprema pa zasedena.",
+    ],
+    list: [
+      { b: "Manj dvojnih rezervacij", rest: " — termin upošteva tudi mizo, kabino ali opremo" },
+      { b: "Enote in kapaciteta", rest: " — več enot istega resursa, ob tem koliko oseb sprejme" },
+      { b: "Urnik resursa", rest: " — vedno na voljo ali po nastavljenem urniku" },
+      { b: "Povezano s storitvami", rest: " — vidite, katere storitve resurs uporabljajo" },
+    ],
+    cards: [
+      { title: "Enote in kapaciteta", text: "Več enot istega resursa in kapaciteta posamezne enote." },
+      { title: "Aktiven / neaktiven", text: "Resurs začasno izklopite, ne da bi ga izgubili." },
+      { title: "Pregled na hitro", text: "Skupno resursov, aktivnih, kapaciteta in povezane storitve." },
+    ],
+    faq: [
+      {
+        q: "Kaj je resurs v Jedro+?",
+        a: "Fizična stvar, ki jo storitev potrebuje, na primer masažna miza, kabina, soba ali oprema. Ni isto kot zaposleni, ki je izvajalec storitve.",
+      },
+      {
+        q: "Ali lahko imam več enot istega resursa?",
+        a: "Da. Pri resursu nastavite število enot in kapaciteto posamezne enote, sistem pa prikaže skupno kapaciteto.",
+      },
+      {
+        q: "Ali lahko resursu določim urnik?",
+        a: "Da. Resurs je lahko vedno na voljo ali ima nastavljen svoj urnik.",
+      },
+      {
+        q: "Kako povežem resurs s storitvijo?",
+        a: "Resurs povežete s storitvami, ki ga potrebujejo. Na kartici resursa vidite, s katerimi storitvami je povezan.",
+      },
+    ],
+  },
+
+  "zahteve-za-termin": {
+    title: "Zahteve za termin: potrdite sami",
+    metaTitle: "Zahteve za termin in ročno potrjevanje rezervacij | Jedro+",
+    metaDescription:
+      "Stranka pošlje zahtevo z željenim obdobjem, vi pa potrdite točen termin, storitev in osebo. Jedro+ je rešitev za poslovanje, kjer ne rezervirate vsega samodejno.",
+    eyebrow: "Funkcija",
+    heroTag: "FOTO — seznam zahtev za termin",
+    mediaTag: "FOTO — potrditev zahteve za termin",
+    heroSub:
+      "Ne vsak termin se rezervira z enim klikom. Stranka pošlje željo, vi pa jo pregledate in potrdite pravi termin.",
+    lead: "Pri nekaterih storitvah ne želite, da stranka sama izbere uro: trajanje je odvisno od primera, izvajalec mora potrditi ali pa je urnik zahteven. Zahteve za termin uredijo to: stranka pošlje, kdaj bi ji ustrezalo, vi pa v nekaj korakih določite storitev, osebo in točen termin.",
+    body: [
+      "Zahteve so na enem mestu in jih lahko filtrirate po stanju: v pregledu, potrjeno ali zavrnjeno. Pri vsaki zahtevi vidite, kdaj jo je stranka poslala in katero obdobje si želi.",
+      "Potrditev poteka v treh korakih: izberete storitev, osebo in nato izmed prostih terminov v želenem obdobju tisti, ki ustreza vam in stranki. Termin se zapiše v koledar.",
+      "Če termina ni mogoče razporediti, zahtevo zavrnete in navedete razlog, tako da stranka ve, kaj je razlog.",
+    ],
+    list: [
+      { b: "Zahteve na enem mestu", rest: " — filter po stanju: v pregledu, potrjeno, zavrnjeno" },
+      { b: "Potrditev v treh korakih", rest: " — storitev, oseba, datum in ura" },
+      { b: "Samo prosti termini", rest: " — ponujeni so termini v želenem obdobju stranke" },
+      { b: "Zavrnitev z razlogom", rest: " — stranka ve, zakaj termin ni mogoč" },
+    ],
+    cards: [
+      { title: "Želeno obdobje", text: "Stranka navede, kdaj bi ji ustrezalo, vi izberete točno uro." },
+      { title: "Prosti termini", text: "Sistem poišče proste termine za izbrano storitev in osebo." },
+      { title: "Sledljivo stanje", text: "Vsaka zahteva je v pregledu, potrjena ali zavrnjena." },
+    ],
+    faq: [
+      {
+        q: "Kdaj so zahteve za termin smiselne?",
+        a: "Kadar ne želite samodejne rezervacije: ko je trajanje odvisno od primera, ko mora izvajalec potrditi ali ko urnik ni povsem predvidljiv.",
+      },
+      {
+        q: "Kaj stranka vidi, če zahtevo zavrnem?",
+        a: "Ob zavrnitvi vnesete razlog, na primer da v želenem obdobju ni prostih terminov, ki je naveden pri zahtevi.",
+      },
+      {
+        q: "Kako potrdim zahtevo?",
+        a: "Izberete storitev, osebo in nato prost termin v želenem obdobju. Potrjen termin se zapiše v koledar.",
+      },
+      {
+        q: "Ali lahko filtriram zahteve?",
+        a: "Da. Zahteve lahko pregledujete po stanju: vse, v pregledu, potrjene in zavrnjene.",
+      },
+    ],
+  },
+
+  "qr-kode-booking-dizajni": {
+    title: "Booking dizajni, linki in QR kode",
+    metaTitle: "Booking strani, dizajni in QR kode za naročanje | Jedro+",
+    metaDescription:
+      "Izberite videz spletnega naročanja, uporabite različne booking povezave za različne kanale in natisnite QR kodo za pult. Vse v Jedro+.",
+    eyebrow: "Funkcija",
+    heroTag: "FOTO — QR koda za rezervacijo na pultu",
+    mediaTag: "FOTO — izbira dizajna booking strani",
+    heroSub:
+      "Videz, ki ustreza vaši znamki, povezava za vsak kanal in QR koda, ki jo natisnete in nalepite na pult.",
+    lead: "Spletno naročanje je prvi stik stranke z vašim podjetjem. V Jedro+ izberete videz naročilne strani, za vsak kanal (Instagram, spletna stran, e-poštni podpis) uporabite svojo povezavo, QR kodo pa natisnete za pult, vrata ali izložbo.",
+    body: [
+      "Standardni dizajni so Klasičen, Moderen in Eleganten. V paketu Jedro Pro so na voljo še Sezonsko (spreminja se z letnim časom in prazniki), Magazine in Casino. V aplikaciji se redno pojavljajo novi dizajni.",
+      "Vsak booking link lahko uporabite na drugem kanalu: na Instagramu en dizajn, na spletni strani drug, v e-poštnem podpisu tretji. Stranke vsakič pristanejo na isti vaši strani, samo z drugačnim videzom. Ena povezava je glavna, ki jo pošiljamo tudi v sporočilih.",
+      "QR kodo za rezervacijo natisnete kot plakat v formatu A6 (105 × 148 mm) in izberete videz: čisti, vaše barve, eleganten ali temen. Ker koda vodi na glavno povezavo, ostane pravilna, tudi če kasneje zamenjate videz strani. Obstaja tudi QR koda za vpis nove stranke, ki jo doda med vaše stranke, brez rezervacije termina.",
+    ],
+    list: [
+      { b: "6 dizajnov", rest: " — Klasičen, Moderen, Eleganten ter v Pro Sezonsko, Magazine in Casino" },
+      { b: "Povezava za vsak kanal", rest: " — Instagram, spletna stran, e-pošta, vsak s svojim videzom" },
+      { b: "QR plakat A6", rest: " — za pult, vrata ali izložbo, v štirih videzih" },
+      { b: "QR za vpis stranke", rest: " — nova stranka se vpiše sama, brez rezervacije" },
+    ],
+    cards: [
+      { title: "Izbira dizajna", text: "Od preprostega do glamuroznega, prilagojeno vaši znamki." },
+      { title: "Več povezav", text: "Ista stran, različen videz po kanalih." },
+      { title: "QR za tisk", text: "Plakat A6 z izbranim videzom, ki vedno vodi na glavno povezavo." },
+    ],
+    faq: [
+      {
+        q: "Kateri dizajni so na voljo?",
+        a: "Standardno Klasičen, Moderen in Eleganten. V paketu Jedro Pro še Sezonsko, Magazine in Casino.",
+      },
+      {
+        q: "Ali lahko uporabljam več booking povezav?",
+        a: "Da. Vsako povezavo lahko uporabite na drugem kanalu, z drugačnim videzom. Ena je glavna, ki jo pošiljamo tudi v sporočilih.",
+      },
+      {
+        q: "Kaj se zgodi z natisnjeno QR kodo, če zamenjam dizajn?",
+        a: "Koda vodi na glavno rezervacijsko povezavo, zato ostane pravilna tudi po zamenjavi videza strani.",
+      },
+      {
+        q: "Ali lahko stranka s QR kodo samo vpiše svoje podatke?",
+        a: "Da. Posebna QR koda za vpis stranki omogoča, da vnese svoje podatke in se vpiše med vaše stranke, termina pa s tem ne rezervira.",
+      },
+    ],
+  },
 };
 
 export const funkcijeSlugs = Object.keys(funkcije);

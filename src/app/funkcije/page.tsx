@@ -157,6 +157,36 @@ const deepDives = [
     title: "AI personalizirana sporočila",
     desc: "AI napiše sporočilo v vašem tonu — z imenom, terminom in storitvijo.",
   },
+  {
+    slug: "promocije-popusti",
+    n: "05",
+    title: "Popusti, happy hours in akcije",
+    desc: "Napolnite tihe ure z ciljnimi ponudbami in dodatnimi storitvami.",
+  },
+  {
+    slug: "resursi",
+    n: "06",
+    title: "Resursi: sobe, kabine in oprema",
+    desc: "Termin upošteva tudi mizo, kabino ali aparat, ne samo izvajalca.",
+  },
+  {
+    slug: "zahteve-za-termin",
+    n: "07",
+    title: "Zahteve za termin",
+    desc: "Stranka predlaga obdobje, vi potrdite točen termin.",
+  },
+  {
+    slug: "qr-kode-booking-dizajni",
+    n: "08",
+    title: "Booking dizajni, linki in QR kode",
+    desc: "Videz po vaši znamki, povezava za vsak kanal in QR plakat.",
+  },
+  {
+    slug: "receptionist-plus",
+    n: "09",
+    title: "Receptionist+ — AI recepcionistka",
+    desc: "Sprejme klic namesto vas, odgovori in vpiše termin v koledar.",
+  },
 ];
 
 const DeepArrow = () => (

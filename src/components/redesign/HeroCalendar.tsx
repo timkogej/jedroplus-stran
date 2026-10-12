@@ -31,7 +31,7 @@ function RotatingWord() {
   }, []);
   return (
     <span className="jhc-rot">
-      <span key={i} className="jhc-rot__w">
+      <span key={i} className={i > 0 ? "jhc-rot__w jhc-rot__w--swap" : "jhc-rot__w"}>
         {ROT_WORDS[i]}
       </span>
     </span>
@@ -170,7 +170,7 @@ export function HeroCalendar() {
 
       // intro (autoplay)
       gsap
-        .timeline({ delay: 0.25 })
+        .timeline({ delay: 0.15 })
         .to(".jhc-line1", {
           autoAlpha: 1,
           y: 0,
@@ -507,7 +507,8 @@ const STYLES = `
   .jhc-h span{ display:block; }
   .jhc-h .jhc-rot{ display:block; }
   .jhc-h .jhc-rot__w{ display:inline-block; color:#0E0E12;
-    padding-bottom:.06em;
+    padding-bottom:.06em; }
+  .jhc-h .jhc-rot__w--swap{
     animation:jhcRotIn .55s var(--ease,cubic-bezier(.22,1,.36,1)) both; }
   @keyframes jhcRotIn{
     from{ opacity:0; transform:translateY(.32em); filter:blur(7px); }
@@ -521,6 +522,15 @@ const STYLES = `
     font-size:clamp(1rem,1.5vw,1.35rem); line-height:1.5; }
   .jhc-hero-actions{ margin-top:clamp(24px,4vh,42px); display:flex; flex-wrap:wrap;
     justify-content:center; align-items:center; gap:14px; }
+
+  /* Pre-hydration state: the intro starts hidden in the server HTML so the
+     text never flashes before GSAP takes over (inline styles from gsap.set /
+     the intro timeline override these). */
+  @media (prefers-reduced-motion:no-preference){
+    .jhc-line1,.jhc-line2{ opacity:0; visibility:hidden; transform:translateY(60px); filter:blur(16px); }
+    .jhc-sub{ opacity:0; visibility:hidden; transform:translateY(30px); }
+    .jhc-hero-actions{ opacity:0; visibility:hidden; transform:translateY(24px); }
+  }
 
   /* CTA */
   .jhc-cta{ position:absolute; z-index:10; inset:0; display:flex; flex-direction:column;

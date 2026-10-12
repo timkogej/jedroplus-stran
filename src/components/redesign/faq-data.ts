@@ -15,7 +15,7 @@ export const homeFaq: FaqItem[] = [
   },
   {
     q: "Ali Jedro+ podpira e-mail in SMS opomnike?",
-    a: "Da. E-mail opomniki so vključeni v vseh paketih, SMS opomniki pa v paketu Jedro Pro in Enterprise. Opomnike pošlje sistem samodejno pred terminom in po njem, brez vašega ročnega dela.",
+    a: "Da. E-mail opomniki so vključeni v vseh plačljivih paketih. SMS opomniki so vključeni v paketu Jedro Pro (250 SMS na mesec) in Enterprise, v paketu Jedro Plus pa jih po potrebi dokupite (od 4 € za 50 SMS). Opomnike pošlje sistem samodejno pred terminom in po njem, brez vašega ročnega dela.",
   },
   {
     q: "Kaj so „izgubljene stranke“ in kako mi pomagajo?",
@@ -57,7 +57,7 @@ export const cenikFaq: FaqItem[] = [
   },
   {
     q: "Koliko stanejo paketi?",
-    a: "Jedro Plus stane 19 € na mesec, Jedro Pro 35 € na mesec, paket Enterprise pa je po dogovoru. Vsi paketi vključujejo baze podatkov, koledar terminov, spletno naročanje in analitiko.",
+    a: "Free je brezplačen za vedno, Jedro Plus stane 19 € na mesec, Jedro Pro 35 € na mesec (ob letnem plačilu 15 € oziroma 28 € na mesec), paket Enterprise pa je po dogovoru. Obstaja tudi brezplačen paket Free (koledar, termini, stranke, 1 uporabnik). Vsi plačljivi paketi vključujejo baze podatkov, koledar terminov, spletno naročanje in analitiko.",
   },
   {
     q: "Kakšna je razlika med paketoma Plus in Pro?",

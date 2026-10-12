@@ -111,7 +111,7 @@ const Fcard = ({ f, hidden }: { f: Feature; hidden?: boolean }) => (
 const stats = [
   { n: "80%", l: "manj časa za administracijo" },
   { n: "3×", l: "hitrejši odziv strankam" },
-  { n: "120+", l: "zadovoljnih podjetij" },
+  { n: "10.000+", l: "rezerviranih terminov" },
   { n: "24/7", l: "delovanje AI funkcij" },
 ];
 
@@ -126,7 +126,7 @@ export default function Home() {
   return (
     <>
       <JsonLd schema={softwareApplicationSchema} />
-      <Nav variant="flow" active="/" />
+      <Nav variant="flow" active="/" tone="light" />
 
       {/* 01 — CINEMATIC HERO */}
       <HeroCalendar />

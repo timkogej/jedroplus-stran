@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Glavne strani
   const mainPages: MetadataRoute.Sitemap = [
     "/funkcije",
+    "/funkcije/receptionist-plus",
     "/panoge",
     "/agencija",
     "/cenik",

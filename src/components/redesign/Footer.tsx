@@ -34,6 +34,12 @@ export function Footer({
                 <Link href="/funkcije">Funkcije</Link>
               </li>
               <li>
+                <Link href="/funkcije/receptionist-plus">Receptionist+</Link>
+              </li>
+              <li>
+                <Link href="/davcna-blagajna">Davčna blagajna</Link>
+              </li>
+              <li>
                 <Link href="/panoge">Panoge</Link>
               </li>
               <li>

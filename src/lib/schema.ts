@@ -237,6 +237,19 @@ export function davcnaBlagajnaBreadcrumbSchema() {
   };
 }
 
+// Domov > Funkcije > Receptionist+
+export function receptionistBreadcrumbSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Domov", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Funkcije", item: `${SITE_URL}/funkcije` },
+      { "@type": "ListItem", position: 3, name: "Receptionist+", item: `${SITE_URL}/funkcije/receptionist-plus` },
+    ],
+  };
+}
+
 // Domov > Blog > [naslov članka]
 export function blogBreadcrumbSchema(slug: string, title: string) {
   return {
@@ -327,6 +340,12 @@ type PricingTier = {
 };
 
 const pricingTiers: PricingTier[] = [
+  {
+    name: "Free",
+    price: "0",
+    description:
+      "Brezplačno za vedno: koledar, termini, stranke, storitve in osebje za 1 uporabnika aplikacije.",
+  },
   {
     name: "Jedro Plus",
     price: "19",

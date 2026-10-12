@@ -12,9 +12,26 @@ interface Tier {
   features: string[];
   popular?: boolean;
   ctaLabel: string;
+  ctaHref?: string;
 }
 
 const tiers: Tier[] = [
+  {
+    name: "Free",
+    monthlyPrice: "0 €",
+    yearlyPrice: "0 €",
+    subtitle: "Za začetek: osnovni koledar in stranke, brezplačno za vedno",
+    description: "Koledar, termini in stranke za samostojne začetnike.",
+    features: [
+      "Koledar, termini in stranke",
+      "Storitve in osebje brez omejitev",
+      "1 uporabnik aplikacije",
+      "Uvoz strank iz Excela",
+      "Enkratni preizkus opomnikov (SMS in email)",
+    ],
+    ctaLabel: "Začni brezplačno",
+    ctaHref: "https://app.jedroplus.com/signup",
+  },
   {
     name: "Jedro Plus",
     monthlyPrice: "19 €",
@@ -27,6 +44,7 @@ const tiers: Tier[] = [
       "Baza storitev in osebja",
       "Personalizirani opomniki pred in po terminu",
       "Email pošiljanje (500 email/mesec)",
+      "SMS opomniki z dokupom SMS paketov (od 4 € za 50 SMS)",
       "Komunikacija",
       "Celotna analitika",
       "Spletno naročanje",
@@ -107,9 +125,10 @@ export function PricingTiers() {
         </span>
       </div>
 
-      <div className="price-grid" style={{ marginTop: 40 }}>
+      <div className="price-grid price-grid--4" style={{ marginTop: 40 }}>
         {tiers.map((tier, i) => {
           const isQuote = tier.monthlyPrice === "Po dogovoru";
+          const isFree = tier.monthlyPrice === "0 €";
           const price = isYearly ? tier.yearlyPrice : tier.monthlyPrice;
           const feat = tier.popular;
 
@@ -124,7 +143,8 @@ export function PricingTiers() {
               <div className="ptier__name">{tier.name}</div>
               <div className="ptier__price">
                 {price}
-                {!isQuote && <span> / mesec</span>}
+                {!isQuote && !isFree && <span> / mesec</span>}
+                {isFree && <span> za vedno</span>}
               </div>
               <div className="ptier__save">
                 {isYearly && tier.yearlySaving ? tier.yearlySaving : ""}
@@ -140,7 +160,7 @@ export function PricingTiers() {
               </ul>
               <a
                 className={`btn btn--lg ${feat ? "btn--light" : "btn--ghost"}`}
-                href="/#kontakt"
+                href={tier.ctaHref ?? "/#kontakt"}
               >
                 {tier.ctaLabel}
               </a>

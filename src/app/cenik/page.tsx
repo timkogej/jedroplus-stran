@@ -72,8 +72,8 @@ export default function Cenik() {
               <span className="grad-text">koliko želiš avtomatizirati</span>
             </h2>
             <p className="lead">
-              Vsi paketi vključujejo: Baze podatkov, Koledar terminov, Spletno
-              naročanje, Analitiko
+              Vsi plačljivi paketi vključujejo: Baze podatkov, Koledar terminov,
+              Spletno naročanje, Analitiko
             </p>
           </div>
           <PricingTiers />

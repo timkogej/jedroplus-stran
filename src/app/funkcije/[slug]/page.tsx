@@ -18,6 +18,10 @@ export function generateStaticParams() {
 const heroEmojis: Record<string, string[]> = {
   "sms-opomniki": ["💬", "🕐", "🔔", "📲", "✉️", "⏰"],
   "spletno-narocanje": ["📅", "🗓️", "📲", "✅", "🕐", "✨"],
+  "promocije-popusti": ["🏷️", "🎉", "⏰", "💸", "✨", "🎁"],
+  "resursi": ["🛏️", "🪑", "🚪", "🧴", "⚙️", "✅"],
+  "zahteve-za-termin": ["📩", "🗓️", "✅", "🕐", "📲", "✨"],
+  "qr-kode-booking-dizajni": ["📱", "🎨", "🔗", "✨", "🖨️", "📅"],
 };
 
 // Lebdeče besede v gradient barvi za funkcije, kjer besede povedo več kot emoji.

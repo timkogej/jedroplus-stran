@@ -69,7 +69,7 @@ export default function DavcnaBlagajna() {
     <>
       <JsonLd schema={davcnaBlagajnaBreadcrumbSchema()} />
       <JsonLd schema={faqPageSchema(faq)} />
-      <Nav variant="light" />
+      <Nav variant="light" active="/davcna-blagajna" />
 
       {/* HERO */}
       <section className="imghero imghero--plain">
