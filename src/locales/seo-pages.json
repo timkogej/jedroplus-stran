@@ -1,0 +1,622 @@
+{
+  "sl": {
+    "/": {
+      "title": "Program za naročanje strank in AI recepcija | Jedro+",
+      "description": "Jedro+ za storitvena podjetja po EU: spletno naročanje, koledar, baza strank in opomniki. Spoznajte pakete ter AI recepcionistko Receptionist+."
+    },
+    "/funkcije": {
+      "title": "Funkcije programa za naročanje strank | Jedro+",
+      "description": "Spletno naročanje, CRM, SMS opomniki in AI komunikacija v enem sistemu. Preverite funkcije Jedro+ in izberite orodja za svoje storitveno podjetje."
+    },
+    "/funkcije/receptionist-plus": {
+      "title": "AI recepcionistka za telefonsko naročanje | Receptionist+",
+      "description": "Receptionist+ sprejme klic v jeziku stranke, rezervira, prestavi ali odpove termin. Paketi od 100 minut za 15 € brez DDV; 30 minut za prvi preizkus."
+    },
+    "/panoge": {
+      "title": "Naročanje strank za salone, studie in servise | Jedro+",
+      "description": "Poiščite rešitev za svojo panogo: salone, klinike, wellness, fitnes, avtoservise ali svetovanje. Povežite termine, stranke in opomnike v Jedro+."
+    },
+    "/agencija": {
+      "title": "AI avtomatizacija in spletne strani za podjetja | Jedro+",
+      "description": "Jedro+ Agencija razvija poslovne sisteme, AI avtomatizacije in spletne strani za storitvena podjetja. Pogovorimo se o rešitvi za vaš način dela."
+    },
+    "/cenik": {
+      "title": "Cenik: Free, Plus, Pro in minute Receptionist+ | Jedro+",
+      "description": "Primerjajte funkcije, SMS in e-mail količine ter mesečno ali letno plačilo. Preverite tudi pakete minut za Receptionist+. Vse cene so brez DDV."
+    },
+    "/primerjava": {
+      "title": "Primerjava sistemov za naročanje strank | Jedro+",
+      "description": "Preverjena primerjava Jedro+ in Lime Booking: funkcije, cenik ter povezave do primarnih virov. Izberite sistem po svojem načinu dela."
+    },
+    "/davcna-blagajna": {
+      "title": "Davčna blagajna s FURS potrjevanjem računov | Jedro+",
+      "description": "Davčna blagajna Jedro+ za Slovenijo: FURS potrjevanje računov, povezava s spletnim naročanjem in plačili. Na voljo kot ločen modul z doplačilom."
+    },
+    "/blog": {
+      "title": "Nasveti za naročanje, opomnike in stranke | Jedro+ Blog",
+      "description": "Preberite vodnike o spletnih rezervacijah, odpovedih terminov in vračanju strank. Nasveti za salone, studie in druga storitvena podjetja."
+    },
+    "/o-nas": {
+      "title": "O Jedro+: ekipa in rešitev za storitvena podjetja",
+      "description": "Spoznajte Jedro+, slovensko rešitev za termine, stranke in komunikacijo. Preberite o našem pristopu ter poiščite kontakt in podatke ponudnika."
+    },
+    "/pogoji-uporabe": {
+      "title": "Pogoji uporabe platforme | Jedro+",
+      "description": "Preberite pogoje uporabe Jedro+: uporabniški račun, naročnine, obveznosti uporabnikov in pravila uporabe storitve. Objavljeni so tudi podatki ponudnika."
+    },
+    "/zasebnost": {
+      "title": "Politika zasebnosti in osebni podatki | Jedro+",
+      "description": "Preverite, kako Jedro+ obravnava osebne podatke: namen obdelave, pravice posameznikov in kontakt za vprašanja o zasebnosti ter varstvu podatkov."
+    },
+    "/funkcije/sms-opomniki": {
+      "title": "Samodejni SMS opomniki za termine | Jedro+",
+      "description": "Pošiljajte personalizirane SMS opomnike pred terminom in sporočila po obisku. Povežite obveščanje s koledarjem in bazo strank brez ročnega tipkanja."
+    },
+    "/funkcije/spletno-narocanje": {
+      "title": "Spletno naročanje strank in rezervacija terminov | Jedro+",
+      "description": "Strankam omogočite spletno rezervacijo storitve, izvajalca in prostega termina. Delite povezavo za naročanje ter spremljajte rezervacije v koledarju."
+    },
+    "/funkcije/crm-baza-strank": {
+      "title": "CRM in baza strank za storitvena podjetja | Jedro+",
+      "description": "Zberite kontakte, zgodovino obiskov, opombe in preference strank v Jedro+. Povežite bazo strank s koledarjem, naročanjem in personaliziranimi sporočili."
+    },
+    "/funkcije/ai-komunikacija": {
+      "title": "AI komunikacija in personalizirana sporočila | Jedro+",
+      "description": "Jedro+ sestavi opomnike, zahvale in povabila k ponovnemu obisku v tonu vašega podjetja. Povežite AI sporočila s storitvami, termini in strankami."
+    },
+    "/funkcije/promocije-popusti": {
+      "title": "Promocije, popusti in kuponi za stranke | Jedro+",
+      "description": "Pripravite popuste, kupone in akcije za svoje storitve. Spoznajte, kako Jedro+ poveže promocije z naročanjem in komunikacijo z vašimi strankami."
+    },
+    "/funkcije/resursi": {
+      "title": "Rezervacija prostorov in opreme ob terminih | Jedro+",
+      "description": "Uskladite termine z razpoložljivostjo sob, stolov in opreme. Upravljajte vire skupaj z izvajalci ter zmanjšajte prekrivanje rezervacij v Jedro+."
+    },
+    "/funkcije/zahteve-za-termin": {
+      "title": "Zahteve za termin in potrjevanje rezervacij | Jedro+",
+      "description": "Prejmite zahtevo stranke za termin, preverite razpoložljivost in potrdite rezervacijo. Jedro+ poveže pregled zahtev, koledar in obveščanje strank."
+    },
+    "/funkcije/qr-kode-booking-dizajni": {
+      "title": "QR kode in prilagoditev strani za naročanje | Jedro+",
+      "description": "Prilagodite videz spletnega naročanja svojim barvam in logotipu. Delite QR kodo ali povezavo, da stranke hitro odprejo stran za rezervacijo termina."
+    },
+    "/panoge/frizerski-saloni": {
+      "title": "Program za naročanje v frizerskem salonu | Jedro+",
+      "description": "Uredite spletno naročanje za frizerski, kozmetični ali barber salon. Koledar ekipe, zgodovina obiskov in SMS opomniki za urejen dan v salonu.",
+      "heading": "Program za naročanje v salonu"
+    },
+    "/panoge/klinike": {
+      "title": "Naročanje pacientov za klinike in ordinacije | Jedro+",
+      "description": "Uredite naročanje pacientov, urnike izvajalcev in opomnike za zobne ter estetske klinike. Jedro+ poveže termine, kontakte in obveščanje pred obiskom.",
+      "heading": "Naročanje pacientov za klinike in ordinacije"
+    },
+    "/panoge/wellness": {
+      "title": "Rezervacijski sistem za masaže in wellness | Jedro+",
+      "description": "Povežite spletne rezervacije masaž, urnike izvajalcev, razpoložljive prostore in opomnike. Jedro+ za masažne studie, wellness in fizioterapijo.",
+      "heading": "Rezervacije za masaže in wellness"
+    },
+    "/panoge/fitnes": {
+      "title": "Naročanje na vadbe za fitnes in trenerje | Jedro+",
+      "description": "Uredite termine osebnih treningov in prijave na vadbo. Povežite urnike trenerjev, podatke članov in opomnike za fitnes, jogo ali pilates studio.",
+      "heading": "Naročanje za fitnes in osebne trenerje"
+    },
+    "/panoge/avtoservisi": {
+      "title": "Program za naročanje v avtoservisu | Jedro+",
+      "description": "Uredite rezervacije za servis vozil in menjavo pnevmatik. Povežite urnik ekipe, podatke strank in opomnike za avtoservis ali vulkanizerstvo.",
+      "heading": "Program za naročanje v avtoservisu"
+    },
+    "/panoge/coaching": {
+      "title": "Naročanje za coaching in svetovanje | Jedro+",
+      "description": "Povežite spletno naročanje, koledar srečanj, podatke strank in opomnike. Jedro+ za coache, svetovalce in izvajalce individualnih pogovorov.",
+      "heading": "Termini za coaching in svetovanje"
+    },
+    "/panoge/poslovne-storitve": {
+      "title": "Koledar sestankov za agencije in podjetja | Jedro+",
+      "description": "Strankam omogočite rezervacijo poslovnega sestanka prek povezave. Povežite koledar ekipe, podatke strank in opomnike za agencije ter poslovne storitve.",
+      "heading": "Rezervacija sestankov za poslovne storitve"
+    },
+    "/panoge/ostalo": {
+      "title": "Program za termine v storitvenih dejavnostih | Jedro+",
+      "description": "Vodite storitveno podjetje s spletnim naročanjem, koledarjem in bazo strank. Jedro+ prilagodite svojim storitvam, izvajalcem in načinu obveščanja.",
+      "heading": "Naročanje za storitvena podjetja"
+    },
+    "/primerjava/jedroplus-vs-lime-booking": {
+      "title": "Jedro+ ali Lime Booking? Primerjava funkcij",
+      "description": "Primerjajte Jedro+ in Lime Booking za naročanje strank v Sloveniji. Preglejte koledar, opomnike, AI komunikacijo in funkcije za vodenje storitvenega podjetja."
+    },
+    "/primerjava/jedroplus-vs-mojsalon": {
+      "title": "Jedro+ in mojsalon.si: stanje preverjanja",
+      "description": "Primerjave trenutno ne moremo zanesljivo podpreti s primarnim virom.",
+      "indexable": false
+    },
+    "/blog/dobrodosli-na-jedro-plus-blogu": {
+      "title": "Prvi koraki z Jedro+: nastavitve in testna rezervacija",
+      "description": "Praktičen začetek z Jedro+: določite storitve in ekipo, preverite podatke strank, preizkusite rezervacijo ter šele nato delite povezavo za naročanje."
+    },
+    "/blog/kako-obdrzati-stranke-zvestoba-storitvena-dejavnost": {
+      "title": "Kako obdržati stranke v storitveni dejavnosti | Jedro+",
+      "description": "Določite skupino strank in obdobje, izračunajte delež ponovnih obiskov ter pripravite uporabno povabilo. Metoda in ponazoritveni primer za storitvena podjetja."
+    },
+    "/blog/kako-zmanjsati-no-show-odpovedi-terminov": {
+      "title": "Kako zmanjšati odpovedi in no-show termine | Jedro+",
+      "description": "Ločite izostanek od odpovedi, preverite opomnike in izmerite spremembo na primerljivem obdobju. Konkreten računski primer in povezave do funkcij Jedro+."
+    },
+    "/blog/najboljsi-rezervacijski-sistemi-saloni-slovenija-2026": {
+      "title": "Rezervacijski sistemi za salone v Sloveniji 2026 | Jedro+",
+      "description": "Postopek izbire sistema za salon: preverite rezervacijo, sporočila in celoten strošek. Pregled Jedro+ in Lime Booking z neposrednimi primarnimi viri."
+    },
+    "/blog/kako-deluje-ai-recepcionistka": {
+      "title": "Kako deluje AI recepcionistka | Jedro+",
+      "description": "Konkreten potek klica Receptionist+: pozdrav, izbira dneva in ure, potrditev ter zapis v koledar. Preizkus in obračun minut sta pojasnjena korak za korakom."
+    },
+    "/blog/uvoz-strank-v-jedroplus": {
+      "title": "Uvoz strank v Jedro+: priprava in preverjanje",
+      "description": "Pripravite preglednico strank, preverite kontakte in podvojene zapise ter primerjajte rezultat na majhnem vzorcu. Kontrolni seznam za urejen prenos podatkov."
+    }
+  },
+  "en": {
+    "/": {
+      "title": "Appointment Scheduling Software & AI Receptionist | Jedro+",
+      "description": "Appointment scheduling for service businesses across the EU. Manage online bookings, client records and reminders, with Receptionist+ for phone bookings."
+    },
+    "/funkcije": {
+      "title": "Booking Software Features: CRM & Reminders | Jedro+",
+      "description": "Explore online booking, client CRM, SMS reminders and AI communication. See how Jedro+ connects the everyday tasks of an appointment-based business."
+    },
+    "/funkcije/receptionist-plus": {
+      "title": "AI Receptionist for Appointment Booking | Receptionist+",
+      "description": "Receptionist+ answers calls in your client’s language and books, reschedules or cancels appointments. Packs from €15 excluding VAT; 30 trial minutes."
+    },
+    "/panoge": {
+      "title": "Appointment Software for Salons & Service Businesses | Jedro+",
+      "description": "Find booking software for salons, clinics, wellness studios, fitness, garages and consulting. Connect appointments, client records and reminders in Jedro+."
+    },
+    "/agencija": {
+      "title": "AI Automation & Web Development for Businesses | Jedro+",
+      "description": "Jedro+ Agency builds business systems, AI automations and websites for service businesses. Discuss a solution shaped around your team and daily work."
+    },
+    "/cenik": {
+      "title": "Pricing: Free, Plus, Pro & AI Call Minutes | Jedro+",
+      "description": "Compare features, SMS and email allowances, and monthly or annual billing. See Receptionist+ call minute packs and trial details. All prices exclude VAT."
+    },
+    "/primerjava": {
+      "title": "Compare Booking Systems for Slovenia | Jedro+",
+      "description": "Compare Jedro+ and Lime Booking using reviewed features, pricing and primary sources. Test each system against your team’s actual workflow."
+    },
+    "/davcna-blagajna": {
+      "title": "Slovenian Fiscal Cash Register & FURS Invoicing | Jedro+",
+      "description": "Explore the Jedro+ fiscal cash register for Slovenia, with FURS invoice confirmation and links to bookings and payments. A separate paid add-on."
+    },
+    "/blog": {
+      "title": "Appointment Booking & Client Retention Guides | Jedro+",
+      "description": "Read guides to online booking, appointment reminders, no-shows and client retention. Practical topics for salons, studios and other service businesses."
+    },
+    "/o-nas": {
+      "title": "About Jedro+: Booking Software Built in Slovenia",
+      "description": "Meet Jedro+, a Slovenian solution for appointments, client management and communication. Learn about our approach and find provider and contact details."
+    },
+    "/pogoji-uporabe": {
+      "title": "Terms of Service | Jedro+",
+      "description": "Read the Jedro+ terms of service covering user accounts, subscriptions, user responsibilities and use of the platform, together with provider details."
+    },
+    "/zasebnost": {
+      "title": "Privacy Policy & Personal Data | Jedro+",
+      "description": "Learn how Jedro+ handles personal data, including processing purposes, individual rights and contact details for privacy and data protection questions."
+    },
+    "/funkcije/sms-opomniki": {
+      "title": "Automated SMS Appointment Reminders | Jedro+",
+      "description": "Send personalised SMS appointment reminders and follow-up messages. Connect client communication to your calendar and client records without manual typing."
+    },
+    "/funkcije/spletno-narocanje": {
+      "title": "Online Appointment Booking for Your Clients | Jedro+",
+      "description": "Let clients book a service, staff member and available time online. Share your booking link and keep online and manually entered appointments together."
+    },
+    "/funkcije/crm-baza-strank": {
+      "title": "Client CRM & Customer Records for Service Businesses | Jedro+",
+      "description": "Keep client contacts, visit history, notes and preferences together. Connect your client database to appointments, online booking and personalised messages."
+    },
+    "/funkcije/ai-komunikacija": {
+      "title": "AI Client Communication & Personalised Messages | Jedro+",
+      "description": "Create appointment reminders, thank-you messages and return invitations in your business’s voice. Connect AI messaging to services, appointments and clients."
+    },
+    "/funkcije/promocije-popusti": {
+      "title": "Promotions, Discounts & Client Coupons | Jedro+",
+      "description": "Create service promotions, discounts and coupon offers. Explore how Jedro+ connects promotions with online booking and communication with your clients."
+    },
+    "/funkcije/resursi": {
+      "title": "Room & Equipment Booking for Appointments | Jedro+",
+      "description": "Coordinate appointments with the availability of rooms, chairs and equipment. Manage resources alongside staff schedules to avoid overlapping bookings."
+    },
+    "/funkcije/zahteve-za-termin": {
+      "title": "Appointment Requests & Booking Approvals | Jedro+",
+      "description": "Receive appointment requests, review availability and approve bookings. Jedro+ brings requests, your calendar and client notifications into one workflow."
+    },
+    "/funkcije/qr-kode-booking-dizajni": {
+      "title": "Booking Page Designs & QR Codes | Jedro+",
+      "description": "Match your online booking page to your colours and logo. Share a QR code or direct link so clients can quickly open your appointment booking page."
+    },
+    "/panoge/frizerski-saloni": {
+      "title": "Salon Booking Software for Hair & Beauty | Jedro+",
+      "description": "Manage online bookings for hairdressers, beauty salons and barbers. Keep staff schedules, client visit history and appointment reminders together in Jedro+.",
+      "heading": "Online booking for hair and beauty salons"
+    },
+    "/panoge/klinike": {
+      "title": "Appointment Booking for Clinics & Dental Practices | Jedro+",
+      "description": "Manage patient appointments, staff schedules and reminders for dental and aesthetic clinics. Connect booking, contact records and pre-visit messages.",
+      "heading": "Appointment booking for clinics and practices"
+    },
+    "/panoge/wellness": {
+      "title": "Massage & Wellness Appointment Software | Jedro+",
+      "description": "Connect massage bookings, practitioner schedules, room availability and reminders. Appointment software for massage studios, wellness and physiotherapy.",
+      "heading": "Appointment booking for massage and wellness"
+    },
+    "/panoge/fitnes": {
+      "title": "Fitness & Personal Training Booking Software | Jedro+",
+      "description": "Organise personal training appointments and class bookings. Connect trainer schedules, member records and reminders for fitness, yoga and Pilates studios.",
+      "heading": "Booking software for fitness and personal trainers"
+    },
+    "/panoge/avtoservisi": {
+      "title": "Garage & Tyre Service Appointment Software | Jedro+",
+      "description": "Manage vehicle servicing and tyre-change appointments. Connect staff schedules, client records and service reminders for garages and tyre workshops.",
+      "heading": "Appointment booking for garages and tyre services"
+    },
+    "/panoge/coaching": {
+      "title": "Appointment Scheduling for Coaches & Consultants | Jedro+",
+      "description": "Connect online appointment booking, session calendars, client records and reminders. Jedro+ for coaches, consultants and individual client sessions.",
+      "heading": "Appointment scheduling for coaches and consultants"
+    },
+    "/panoge/poslovne-storitve": {
+      "title": "Meeting Booking for Agencies & Business Services | Jedro+",
+      "description": "Let clients book business appointments through a shared link. Connect team calendars, client records and reminders for agencies and business service teams.",
+      "heading": "Meeting booking for agencies and business services"
+    },
+    "/panoge/ostalo": {
+      "title": "Appointment Software for Service Businesses | Jedro+",
+      "description": "Run your appointment-based business with online booking, a calendar and client records. Shape Jedro+ around your services, staff and client communication.",
+      "heading": "Appointment booking for service businesses"
+    },
+    "/primerjava/jedroplus-vs-lime-booking": {
+      "title": "Jedro+ vs Lime Booking: Features Compared",
+      "description": "Compare Jedro+ and Lime Booking for appointment-based businesses in Slovenia. Explore calendars, reminders, AI communication and client management tools."
+    },
+    "/primerjava/jedroplus-vs-mojsalon": {
+      "title": "Jedro+ and mojsalon.si: verification status",
+      "description": "We cannot currently support this comparison with a reliable primary source.",
+      "indexable": false
+    },
+    "/blog/dobrodosli-na-jedro-plus-blogu": {
+      "title": "Getting Started with Jedro+: Setup & First Booking",
+      "description": "A practical start with Jedro+: define services and staff, check client records, test a booking and then share your online booking link."
+    },
+    "/blog/kako-obdrzati-stranke-zvestoba-storitvena-dejavnost": {
+      "title": "How to Retain Clients in a Service Business | Jedro+",
+      "description": "Define a client group and period, calculate repeat visits and prepare a useful invitation. A method and illustrative example for service businesses."
+    },
+    "/blog/kako-zmanjsati-no-show-odpovedi-terminov": {
+      "title": "How to Reduce No-Shows & Appointment Cancellations | Jedro+",
+      "description": "Separate no-shows from cancellations, check reminders and measure changes across comparable periods. Includes a worked example and Jedro+ feature links."
+    },
+    "/blog/najboljsi-rezervacijski-sistemi-saloni-slovenija-2026": {
+      "title": "Salon Booking Systems in Slovenia 2026 | Jedro+",
+      "description": "A salon software selection process: test bookings, messages and total cost. Jedro+ and Lime Booking with direct primary sources."
+    },
+    "/blog/kako-deluje-ai-recepcionistka": {
+      "title": "How an AI Receptionist Works | Jedro+",
+      "description": "Follow a Receptionist+ call: greeting, day and time selection, confirmation and calendar entry. Includes a trial checklist and minute billing."
+    },
+    "/blog/uvoz-strank-v-jedroplus": {
+      "title": "Client Import into Jedro+: Preparation & Checks",
+      "description": "Prepare a client spreadsheet, check contacts and duplicates, and validate a small sample. A practical checklist for a controlled client data transfer."
+    }
+  },
+  "it": {
+    "/": {
+      "title": "Gestione appuntamenti e receptionist AI | Jedro+",
+      "description": "Jedro+ per le attività di servizi nell’UE: appuntamenti, prenotazioni online, clienti e promemoria. Scopri i piani e Receptionist+ per le chiamate."
+    },
+    "/funkcije": {
+      "title": "Funzionalità: prenotazioni, CRM e promemoria | Jedro+",
+      "description": "Scopri prenotazioni online, CRM clienti, promemoria SMS e comunicazione AI. Jedro+ collega gli strumenti per gestire appuntamenti e clienti."
+    },
+    "/funkcije/receptionist-plus": {
+      "title": "Receptionist AI per prenotare appuntamenti | Receptionist+",
+      "description": "Receptionist+ risponde nella lingua del cliente e prenota, sposta o annulla appuntamenti. Pacchetti da 15 € IVA esclusa; 30 minuti di prova."
+    },
+    "/panoge": {
+      "title": "Software appuntamenti per saloni e servizi | Jedro+",
+      "description": "Scopri le soluzioni per saloni, cliniche, centri benessere, fitness, officine e consulenti. Gestisci appuntamenti, clienti e promemoria con Jedro+."
+    },
+    "/agencija": {
+      "title": "Automazioni AI e siti web per le imprese | Jedro+",
+      "description": "Jedro+ Agenzia sviluppa sistemi aziendali, automazioni AI e siti web per le attività di servizi. Parliamo di una soluzione su misura per il tuo lavoro."
+    },
+    "/cenik": {
+      "title": "Prezzi: Free, Plus, Pro e minuti Receptionist+ | Jedro+",
+      "description": "Confronta funzionalità, SMS, e-mail e pagamento mensile o annuale. Scopri i pacchetti di minuti Receptionist+ e la prova iniziale. Prezzi IVA esclusa."
+    },
+    "/primerjava": {
+      "title": "Confronto software prenotazioni in Slovenia | Jedro+",
+      "description": "Confronta Jedro+ e Lime Booking con funzionalità, prezzi e fonti primarie verificate. Scegli in base al lavoro reale del tuo team."
+    },
+    "/davcna-blagajna": {
+      "title": "Cassa fiscale per la Slovenia e fatture FURS | Jedro+",
+      "description": "Scopri la cassa fiscale Jedro+ per la Slovenia: conferma delle fatture FURS collegata a prenotazioni e pagamenti. Modulo separato a pagamento."
+    },
+    "/blog": {
+      "title": "Guide su appuntamenti e fidelizzazione clienti | Jedro+",
+      "description": "Leggi le guide su prenotazioni online, promemoria, appuntamenti saltati e fidelizzazione. Consigli per saloni, studi e altre attività di servizi."
+    },
+    "/o-nas": {
+      "title": "Chi siamo: Jedro+, software nato in Slovenia",
+      "description": "Scopri Jedro+, la soluzione slovena per appuntamenti, clienti e comunicazione. Conosci il nostro approccio e trova i contatti e i dati del fornitore."
+    },
+    "/pogoji-uporabe": {
+      "title": "Condizioni di utilizzo della piattaforma | Jedro+",
+      "description": "Leggi le condizioni di utilizzo di Jedro+: account, abbonamenti, obblighi degli utenti e regole della piattaforma. Sono inclusi i dati del fornitore."
+    },
+    "/zasebnost": {
+      "title": "Informativa sulla privacy e dati personali | Jedro+",
+      "description": "Scopri come Jedro+ tratta i dati personali: finalità del trattamento, diritti degli interessati e contatti per domande su privacy e protezione dei dati."
+    },
+    "/funkcije/sms-opomniki": {
+      "title": "Promemoria appuntamenti via SMS automatici | Jedro+",
+      "description": "Invia promemoria SMS personalizzati prima degli appuntamenti e messaggi dopo la visita. Collega le comunicazioni al calendario e alla scheda cliente."
+    },
+    "/funkcije/spletno-narocanje": {
+      "title": "Prenotazione appuntamenti online per i clienti | Jedro+",
+      "description": "Permetti ai clienti di scegliere online servizio, operatore e orario disponibile. Condividi il link e gestisci le prenotazioni nel calendario Jedro+."
+    },
+    "/funkcije/crm-baza-strank": {
+      "title": "CRM e schede clienti per attività di servizi | Jedro+",
+      "description": "Raccogli contatti, storico delle visite, note e preferenze dei clienti. Collega il CRM agli appuntamenti, alle prenotazioni online e ai messaggi personalizzati."
+    },
+    "/funkcije/ai-komunikacija": {
+      "title": "Comunicazione AI e messaggi personalizzati | Jedro+",
+      "description": "Crea promemoria, ringraziamenti e inviti a tornare con il tono della tua attività. Collega i messaggi AI a servizi, appuntamenti e informazioni sui clienti."
+    },
+    "/funkcije/promocije-popusti": {
+      "title": "Promozioni, sconti e coupon per i clienti | Jedro+",
+      "description": "Prepara promozioni, sconti e coupon per i tuoi servizi. Scopri come Jedro+ collega le offerte alle prenotazioni e alla comunicazione con i clienti."
+    },
+    "/funkcije/resursi": {
+      "title": "Gestione sale e attrezzature per appuntamenti | Jedro+",
+      "description": "Coordina gli appuntamenti con la disponibilità di sale, postazioni e attrezzature. Gestisci le risorse insieme agli operatori per evitare sovrapposizioni."
+    },
+    "/funkcije/zahteve-za-termin": {
+      "title": "Richieste di appuntamento e conferme | Jedro+",
+      "description": "Ricevi le richieste di appuntamento, verifica la disponibilità e conferma le prenotazioni. Jedro+ collega richieste, calendario e notifiche ai clienti."
+    },
+    "/funkcije/qr-kode-booking-dizajni": {
+      "title": "Pagina prenotazioni personalizzata e QR code | Jedro+",
+      "description": "Personalizza la pagina delle prenotazioni con colori e logo della tua attività. Condividi un QR code o un link per facilitare la prenotazione ai clienti."
+    },
+    "/panoge/frizerski-saloni": {
+      "title": "Gestionale appuntamenti per parrucchieri e saloni | Jedro+",
+      "description": "Gestisci le prenotazioni di parrucchieri, centri estetici e barbieri. Calendario degli operatori, storico clienti e promemoria per organizzare il salone.",
+      "heading": "Gestione appuntamenti per saloni e parrucchieri"
+    },
+    "/panoge/klinike": {
+      "title": "Gestione appuntamenti per cliniche e studi dentistici | Jedro+",
+      "description": "Organizza appuntamenti, agende degli operatori e promemoria per cliniche dentali ed estetiche. Collega prenotazioni, contatti e messaggi prima della visita.",
+      "heading": "Gestione appuntamenti per cliniche e studi"
+    },
+    "/panoge/wellness": {
+      "title": "Software prenotazioni per massaggi e benessere | Jedro+",
+      "description": "Collega prenotazioni dei massaggi, agende degli operatori, disponibilità delle sale e promemoria. Per centri benessere, studi di massaggi e fisioterapia.",
+      "heading": "Prenotazioni per massaggi e centri benessere"
+    },
+    "/panoge/fitnes": {
+      "title": "Software prenotazioni per fitness e personal trainer | Jedro+",
+      "description": "Organizza lezioni e appuntamenti di personal training. Collega agende degli istruttori, dati degli iscritti e promemoria per fitness, yoga e pilates.",
+      "heading": "Prenotazioni per fitness e personal trainer"
+    },
+    "/panoge/avtoservisi": {
+      "title": "Software appuntamenti per officine e gommisti | Jedro+",
+      "description": "Gestisci le prenotazioni per manutenzione auto e cambio pneumatici. Collega l’agenda del team, i dati dei clienti e i promemoria per officine e gommisti.",
+      "heading": "Gestione appuntamenti per officine e gommisti"
+    },
+    "/panoge/coaching": {
+      "title": "Gestione appuntamenti per coach e consulenti | Jedro+",
+      "description": "Collega prenotazioni online, calendario degli incontri, schede clienti e promemoria. Jedro+ per coach, consulenti e professionisti con sessioni individuali.",
+      "heading": "Gestione appuntamenti per coach e consulenti"
+    },
+    "/panoge/poslovne-storitve": {
+      "title": "Prenotazione incontri per agenzie e imprese | Jedro+",
+      "description": "Consenti ai clienti di prenotare un incontro tramite link. Collega calendari del team, schede clienti e promemoria per agenzie e servizi alle imprese.",
+      "heading": "Prenotazione incontri per agenzie e imprese"
+    },
+    "/panoge/ostalo": {
+      "title": "Software appuntamenti per attività di servizi | Jedro+",
+      "description": "Gestisci la tua attività con prenotazioni online, calendario e schede clienti. Adatta Jedro+ ai servizi, agli operatori e al modo di comunicare con i clienti.",
+      "heading": "Gestione appuntamenti per attività di servizi"
+    },
+    "/primerjava/jedroplus-vs-lime-booking": {
+      "title": "Jedro+ o Lime Booking? Confronto delle funzionalità",
+      "description": "Confronta Jedro+ e Lime Booking per le attività con appuntamenti in Slovenia. Scopri calendari, promemoria, comunicazione AI e strumenti per i clienti."
+    },
+    "/primerjava/jedroplus-vs-mojsalon": {
+      "title": "Jedro+ e mojsalon.si: stato della verifica",
+      "description": "Al momento non possiamo sostenere questo confronto con una fonte primaria affidabile.",
+      "indexable": false
+    },
+    "/blog/dobrodosli-na-jedro-plus-blogu": {
+      "title": "Iniziare con Jedro+: impostazioni e prima prenotazione",
+      "description": "Un inizio pratico con Jedro+: definisci servizi e team, controlla i clienti, prova una prenotazione e poi condividi il link."
+    },
+    "/blog/kako-obdrzati-stranke-zvestoba-storitvena-dejavnost": {
+      "title": "Come fidelizzare i clienti nelle attività di servizi | Jedro+",
+      "description": "Definisci gruppo e periodo, calcola le visite ripetute e prepara un invito utile. Metodo ed esempio illustrativo per attività di servizi."
+    },
+    "/blog/kako-zmanjsati-no-show-odpovedi-terminov": {
+      "title": "Come ridurre appuntamenti saltati e disdette | Jedro+",
+      "description": "Distingui assenze e disdette, verifica i promemoria e confronta periodi omogenei. Con un esempio di calcolo e collegamenti alle funzioni Jedro+."
+    },
+    "/blog/najboljsi-rezervacijski-sistemi-saloni-slovenija-2026": {
+      "title": "Software prenotazioni saloni in Slovenia 2026 | Jedro+",
+      "description": "Come scegliere il software per il salone: prova prenotazioni, messaggi e costo totale. Jedro+ e Lime Booking con fonti primarie dirette."
+    },
+    "/blog/kako-deluje-ai-recepcionistka": {
+      "title": "Come funziona una receptionist AI | Jedro+",
+      "description": "Segui una chiamata Receptionist+: saluto, scelta del giorno e dell’ora, conferma e calendario. Con test iniziale e spiegazione dei minuti."
+    },
+    "/blog/uvoz-strank-v-jedroplus": {
+      "title": "Importare clienti in Jedro+: preparazione e controlli",
+      "description": "Prepara il foglio clienti, verifica recapiti e duplicati e controlla un piccolo campione. Una checklist pratica per trasferire i dati in modo ordinato."
+    }
+  },
+  "de": {
+    "/": {
+      "title": "Terminsoftware mit Online-Buchung & KI-Telefonie | Jedro+",
+      "description": "Terminsoftware für Dienstleister in der EU: Online-Buchung, Kundenverwaltung und Erinnerungen. Entdecke die Tarife und Receptionist+ für Telefonbuchungen."
+    },
+    "/funkcije": {
+      "title": "Funktionen: Online-Buchung, CRM & Erinnerungen | Jedro+",
+      "description": "Entdecke Online-Terminbuchung, Kundenverwaltung, SMS-Erinnerungen und KI-Kommunikation. Jedro+ verbindet die Abläufe deines Dienstleistungsbetriebs."
+    },
+    "/funkcije/receptionist-plus": {
+      "title": "KI-Telefonassistent für Terminbuchungen | Receptionist+",
+      "description": "Receptionist+ nimmt Anrufe in der Sprache deiner Kunden an und bucht, verschiebt oder storniert Termine. Pakete ab 15 € zzgl. MwSt.; 30 Testminuten."
+    },
+    "/panoge": {
+      "title": "Terminsoftware für Salons & Dienstleister | Jedro+",
+      "description": "Finde Terminlösungen für Salons, Praxen, Wellness, Fitness, Werkstätten und Beratung. Verbinde Termine, Kundenverwaltung und Erinnerungen mit Jedro+."
+    },
+    "/agencija": {
+      "title": "KI-Automatisierung & Webentwicklung | Jedro+",
+      "description": "Jedro+ Agentur entwickelt Geschäftssysteme, KI-Automatisierungen und Websites für Dienstleister. Besprich eine Lösung passend zu deinen Arbeitsabläufen."
+    },
+    "/cenik": {
+      "title": "Preise: Free, Plus, Pro & Receptionist+ Minuten | Jedro+",
+      "description": "Vergleiche Funktionen, SMS- und E-Mail-Kontingente sowie monatliche und jährliche Zahlung. Entdecke Receptionist+ Minutenpakete. Alle Preise zzgl. MwSt."
+    },
+    "/primerjava": {
+      "title": "Buchungssysteme für Slowenien im Vergleich | Jedro+",
+      "description": "Vergleiche Jedro+ und Lime Booking anhand geprüfter Funktionen, Preise und Primärquellen. Teste die Systeme passend zu deinem Arbeitsablauf."
+    },
+    "/davcna-blagajna": {
+      "title": "Fiskalkasse für Slowenien mit FURS-Anbindung | Jedro+",
+      "description": "Entdecke die Jedro+ Fiskalkasse für Slowenien: FURS-Rechnungsbestätigung, verbunden mit Buchungen und Zahlungen. Als separates Zusatzmodul erhältlich."
+    },
+    "/blog": {
+      "title": "Ratgeber zu Terminen & Kundenbindung | Jedro+",
+      "description": "Lies unsere Ratgeber zu Online-Buchung, Terminerinnerungen, Terminausfällen und Kundenbindung. Themen für Salons, Studios und andere Dienstleister."
+    },
+    "/o-nas": {
+      "title": "Über Jedro+: Terminsoftware aus Slowenien",
+      "description": "Lerne Jedro+ kennen: eine Lösung aus Slowenien für Termine, Kunden und Kommunikation. Erfahre mehr über unseren Ansatz und finde Kontakt- und Anbieterangaben."
+    },
+    "/pogoji-uporabe": {
+      "title": "Nutzungsbedingungen der Plattform | Jedro+",
+      "description": "Lies die Nutzungsbedingungen von Jedro+ zu Benutzerkonten, Abonnements, Pflichten der Nutzer und der Plattformnutzung sowie die Angaben zum Anbieter."
+    },
+    "/zasebnost": {
+      "title": "Datenschutzerklärung & personenbezogene Daten | Jedro+",
+      "description": "Erfahre, wie Jedro+ personenbezogene Daten verarbeitet: Zwecke der Verarbeitung, Rechte betroffener Personen und Kontakt für Fragen zum Datenschutz."
+    },
+    "/funkcije/sms-opomniki": {
+      "title": "Automatische Terminerinnerungen per SMS | Jedro+",
+      "description": "Versende personalisierte SMS-Erinnerungen vor Terminen und Nachrichten nach dem Besuch. Verbinde die Kommunikation mit Kalender und Kundenverwaltung."
+    },
+    "/funkcije/spletno-narocanje": {
+      "title": "Online-Terminbuchung für deine Kunden | Jedro+",
+      "description": "Lass Kunden online eine Leistung, einen Mitarbeiter und einen freien Termin wählen. Teile deinen Buchungslink und behalte die Termine im Kalender im Blick."
+    },
+    "/funkcije/crm-baza-strank": {
+      "title": "Kundenverwaltung & CRM für Dienstleister | Jedro+",
+      "description": "Verwalte Kontakte, Besuchsverläufe, Notizen und Kundenwünsche an einem Ort. Verbinde dein CRM mit Terminen, Online-Buchung und personalisierten Nachrichten."
+    },
+    "/funkcije/ai-komunikacija": {
+      "title": "KI-Kundenkommunikation & persönliche Nachrichten | Jedro+",
+      "description": "Erstelle Erinnerungen, Dankesnachrichten und Einladungen zum nächsten Besuch im Ton deines Betriebs. Verbinde KI-Nachrichten mit Leistungen und Terminen."
+    },
+    "/funkcije/promocije-popusti": {
+      "title": "Aktionen, Rabatte & Gutscheincodes | Jedro+",
+      "description": "Erstelle Aktionen, Rabatte und Gutscheincodes für deine Leistungen. Entdecke, wie Jedro+ Angebote mit Terminbuchungen und Kundenkommunikation verbindet."
+    },
+    "/funkcije/resursi": {
+      "title": "Räume & Geräte für Termine verwalten | Jedro+",
+      "description": "Stimme Termine mit verfügbaren Räumen, Plätzen und Geräten ab. Verwalte Ressourcen gemeinsam mit Mitarbeiterplänen und vermeide Buchungsüberschneidungen."
+    },
+    "/funkcije/zahteve-za-termin": {
+      "title": "Terminanfragen prüfen & Buchungen bestätigen | Jedro+",
+      "description": "Erhalte Terminanfragen, prüfe die Verfügbarkeit und bestätige Buchungen. Jedro+ verbindet Anfragen, Kalender und Kundenbenachrichtigungen in einem Ablauf."
+    },
+    "/funkcije/qr-kode-booking-dizajni": {
+      "title": "Buchungsseite gestalten & QR-Codes teilen | Jedro+",
+      "description": "Passe deine Online-Buchungsseite an Farben und Logo deines Betriebs an. Teile einen QR-Code oder Link, damit Kunden schnell einen Termin buchen können."
+    },
+    "/panoge/frizerski-saloni": {
+      "title": "Terminsoftware für Friseure & Kosmetikstudios | Jedro+",
+      "description": "Organisiere Online-Termine für Friseure, Kosmetikstudios und Barbershops. Verbinde Mitarbeiterkalender, Kundenhistorie und Terminerinnerungen mit Jedro+.",
+      "heading": "Terminbuchung für Friseure und Kosmetikstudios"
+    },
+    "/panoge/klinike": {
+      "title": "Terminbuchung für Praxen & Kliniken | Jedro+",
+      "description": "Organisiere Patiententermine, Mitarbeiterpläne und Erinnerungen für Zahn- und Ästhetikpraxen. Verbinde Buchungen, Kontaktdaten und Nachrichten vor dem Besuch.",
+      "heading": "Terminbuchung für Praxen und Kliniken"
+    },
+    "/panoge/wellness": {
+      "title": "Terminsoftware für Massage & Wellness | Jedro+",
+      "description": "Verbinde Massagebuchungen, Behandlerpläne, Raumverfügbarkeit und Erinnerungen. Terminverwaltung für Massagestudios, Wellness und Physiotherapie.",
+      "heading": "Terminbuchung für Massage und Wellness"
+    },
+    "/panoge/fitnes": {
+      "title": "Terminbuchung für Fitness & Personal Training | Jedro+",
+      "description": "Organisiere Personal-Training-Termine und Kursbuchungen. Verbinde Trainerpläne, Mitgliederdaten und Erinnerungen für Fitness-, Yoga- und Pilatesstudios.",
+      "heading": "Terminbuchung für Fitness und Personal Training"
+    },
+    "/panoge/avtoservisi": {
+      "title": "Terminsoftware für Werkstätten & Reifenservice | Jedro+",
+      "description": "Verwalte Termine für Fahrzeugservice und Reifenwechsel. Verbinde Teamkalender, Kundendaten und Service-Erinnerungen für Werkstätten und Reifenbetriebe.",
+      "heading": "Terminbuchung für Werkstätten und Reifenservice"
+    },
+    "/panoge/coaching": {
+      "title": "Terminsoftware für Coaching & Beratung | Jedro+",
+      "description": "Verbinde Online-Terminbuchung, Sitzungskalender, Kundendaten und Erinnerungen. Jedro+ für Coaches, Berater und Anbieter von individuellen Gesprächen.",
+      "heading": "Terminplanung für Coaching und Beratung"
+    },
+    "/panoge/poslovne-storitve": {
+      "title": "Terminbuchung für Agenturen & Geschäftskunden | Jedro+",
+      "description": "Lass Kunden Geschäftstermine über einen Link buchen. Verbinde Teamkalender, Kundendaten und Erinnerungen für Agenturen und Unternehmensdienstleister.",
+      "heading": "Terminbuchung für Agenturen und Geschäftskunden"
+    },
+    "/panoge/ostalo": {
+      "title": "Terminverwaltung für Dienstleistungsbetriebe | Jedro+",
+      "description": "Verwalte deinen Betrieb mit Online-Buchung, Kalender und Kundenkartei. Passe Jedro+ an deine Leistungen, Mitarbeiter und Kundenkommunikation an.",
+      "heading": "Terminverwaltung für Dienstleistungsbetriebe"
+    },
+    "/primerjava/jedroplus-vs-lime-booking": {
+      "title": "Jedro+ oder Lime Booking? Funktionen im Vergleich",
+      "description": "Vergleiche Jedro+ und Lime Booking für Dienstleister in Slowenien. Erfahre mehr über Kalender, Erinnerungen, KI-Kommunikation und Kundenverwaltung."
+    },
+    "/primerjava/jedroplus-vs-mojsalon": {
+      "title": "Jedro+ und mojsalon.si: Prüfstatus",
+      "description": "Diesen Vergleich können wir derzeit nicht durch eine verlässliche Primärquelle belegen.",
+      "indexable": false
+    },
+    "/blog/dobrodosli-na-jedro-plus-blogu": {
+      "title": "Mit Jedro+ starten: Einrichtung und erste Buchung",
+      "description": "Ein praktischer Start mit Jedro+: Leistungen und Team einrichten, Kundendaten prüfen, eine Buchung testen und anschließend den Buchungslink teilen."
+    },
+    "/blog/kako-obdrzati-stranke-zvestoba-storitvena-dejavnost": {
+      "title": "Kundenbindung für Dienstleister verbessern | Jedro+",
+      "description": "Definiere Kundengruppe und Zeitraum, berechne Wiederbesuche und formuliere eine hilfreiche Einladung. Methode mit Beispiel für Dienstleister."
+    },
+    "/blog/kako-zmanjsati-no-show-odpovedi-terminov": {
+      "title": "Terminausfälle & kurzfristige Absagen reduzieren | Jedro+",
+      "description": "Trenne Nichterscheinen und Absagen, prüfe Erinnerungen und vergleiche passende Zeiträume. Mit Rechenbeispiel und Links zu Jedro+ Funktionen."
+    },
+    "/blog/najboljsi-rezervacijski-sistemi-saloni-slovenija-2026": {
+      "title": "Buchungssysteme für Salons in Slowenien 2026 | Jedro+",
+      "description": "So wählst du Salonsoftware: Buchungen, Nachrichten und Gesamtkosten testen. Jedro+ und Lime Booking mit direkten Primärquellen."
+    },
+    "/blog/kako-deluje-ai-recepcionistka": {
+      "title": "Wie ein KI-Telefonassistent funktioniert | Jedro+",
+      "description": "Ein Receptionist+ Anruf: Begrüßung, Auswahl von Tag und Uhrzeit, Bestätigung und Kalendereintrag. Mit Testablauf und Minutenabrechnung."
+    },
+    "/blog/uvoz-strank-v-jedroplus": {
+      "title": "Kundenimport in Jedro+: Vorbereitung und Prüfung",
+      "description": "Kundentabelle vorbereiten, Kontakte und Dubletten prüfen und eine Stichprobe vergleichen. Eine praktische Checkliste für die Datenübertragung."
+    }
+  }
+}

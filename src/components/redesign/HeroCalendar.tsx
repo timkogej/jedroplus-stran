@@ -23,16 +23,23 @@ const ROT_WORDS = ["komunikacije", "naročanja", "izkušnje", "terminov"];
 function RotatingWord() {
   const [i, setI] = React.useState(0);
   useEffect(() => {
-    const id = setInterval(
-      () => setI((p) => (p + 1) % ROT_WORDS.length),
-      2400
-    );
-    return () => clearInterval(id);
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const update = () => {
+      if (timer) clearInterval(timer);
+      if (!preference.matches) timer = setInterval(() => setI(p => p + 1), 2400);
+    };
+    update();
+    preference.addEventListener("change", update);
+    return () => {
+      if (timer) clearInterval(timer);
+      preference.removeEventListener("change", update);
+    };
   }, []);
   return (
     <span className="jhc-rot">
-      <span key={i} className="jhc-rot__w">
-        {ROT_WORDS[i]}
+      <span key={i} className={i > 0 ? "jhc-rot__w jhc-rot__w--swap" : "jhc-rot__w"}>
+        {ROT_WORDS[i % ROT_WORDS.length]}
       </span>
     </span>
   );
@@ -155,10 +162,6 @@ export function HeroCalendar() {
       }
 
       // initial states
-      gsap.set(".jhc-line1", { autoAlpha: 0, y: 60, filter: "blur(16px)" });
-      gsap.set(".jhc-line2", { autoAlpha: 0, y: 60, filter: "blur(16px)" });
-      gsap.set(".jhc-sub", { autoAlpha: 0, y: 30 });
-      gsap.set(".jhc-hero-actions", { autoAlpha: 0, y: 24 });
       gsap.set(".jhc-card", { yPercent: 130, autoAlpha: 1 });
       gsap.set(
         [".jhc-phone-wrap", ".jhc-notif", ".jhc-left", ".jhc-brand"],
@@ -168,34 +171,7 @@ export function HeroCalendar() {
       gsap.set(".jhc-appt", { autoAlpha: 0, y: 26, scale: 0.9 });
       gsap.set(".jhc-cta", { autoAlpha: 0, scale: 0.85, filter: "blur(24px)" });
 
-      // intro (autoplay)
-      gsap
-        .timeline({ delay: 0.25 })
-        .to(".jhc-line1", {
-          autoAlpha: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 1.3,
-          ease: "expo.out",
-        })
-        .to(
-          ".jhc-line2",
-          {
-            autoAlpha: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 1.3,
-            ease: "expo.out",
-          },
-          "-=1.05"
-        )
-        .to(".jhc-sub", { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out" }, "-=0.8")
-        .to(
-          ".jhc-hero-actions",
-          { autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out" },
-          "-=0.55"
-        );
-
+      // CSS keeps the intro readable before scroll enhancement.
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -317,6 +293,8 @@ export function HeroCalendar() {
     }, containerRef);
 
     // reduced-motion fallback: no pin/scrub, so toggle nav on plain scroll
+    if (!reduce) containerRef.current?.setAttribute("data-enhanced", "true");
+
     let onScroll: (() => void) | undefined;
     if (reduce) {
       onScroll = () =>
@@ -327,6 +305,7 @@ export function HeroCalendar() {
 
     return () => {
       ctx.revert();
+      containerRef.current?.removeAttribute("data-enhanced");
       if (onScroll) window.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -342,12 +321,11 @@ export function HeroCalendar() {
         <h1 className="jhc-h">
           <span className="jhc-line1">
             Prihodnost <RotatingWord />
-          </span>
+          </span>{" "}
           <span className="jhc-line2">vašega podjetja</span>
         </h1>
         <p className="jhc-sub">
-          Koledar terminov, baza strank in personalizirani AI opomniki —
-          povezani v eno jedro.
+          Jedro+ je program za naročanje strank: spletne rezervacije, koledar, baza strank in AI opomniki na enem mestu.
         </p>
         <div className="jhc-hero-actions">
           <a className="btn btn--grad btn--lg" href="https://app.jedroplus.com/signup">
@@ -383,7 +361,7 @@ export function HeroCalendar() {
           <div className="jhc-row">
             {/* brand */}
             <div className="jhc-brand">
-              <span>Jedro+</span>
+              <span>Več časa za stranke.</span>
             </div>
 
             {/* phone */}
@@ -402,7 +380,7 @@ export function HeroCalendar() {
 
                   {/* personalised AI reminder */}
                   <div className="jhc-notif">
-                    <div className="jhc-notif-ic">J+</div>
+                    <div className="jhc-notif-ic" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg></div>
                     <div className="jhc-notif-body">
                       <div className="jhc-notif-top">
                         <span>Jedro+ · AI opomnik</span>
@@ -507,7 +485,8 @@ const STYLES = `
   .jhc-h span{ display:block; }
   .jhc-h .jhc-rot{ display:block; }
   .jhc-h .jhc-rot__w{ display:inline-block; color:#0E0E12;
-    padding-bottom:.06em;
+    padding-bottom:.06em; }
+  .jhc-h .jhc-rot__w--swap{
     animation:jhcRotIn .55s var(--ease,cubic-bezier(.22,1,.36,1)) both; }
   @keyframes jhcRotIn{
     from{ opacity:0; transform:translateY(.32em); filter:blur(7px); }
@@ -521,6 +500,16 @@ const STYLES = `
     font-size:clamp(1rem,1.5vw,1.35rem); line-height:1.5; }
   .jhc-hero-actions{ margin-top:clamp(24px,4vh,42px); display:flex; flex-wrap:wrap;
     justify-content:center; align-items:center; gap:14px; }
+
+  /* Critical content stays readable before hydration and without scripts. */
+  @keyframes jhcIntro{ from{transform:translateY(22px);} to{transform:translateY(0);} }
+  @media (prefers-reduced-motion:no-preference){
+    .jhc-line1{animation:jhcIntro 1.3s var(--ease) both;}
+    .jhc-line2{animation:jhcIntro 1.3s .15s var(--ease) both;}
+    .jhc-sub,.jhc-hero-actions{animation:jhcIntro 1s .25s var(--ease) both;}
+  }
+  .jhc:not([data-enhanced="true"]) .jhc-card-layer,
+  .jhc:not([data-enhanced="true"]) .jhc-cta{display:none;}
 
   /* CTA */
   .jhc-cta{ position:absolute; z-index:10; inset:0; display:flex; flex-direction:column;
@@ -552,17 +541,17 @@ const STYLES = `
       rgba(255,255,255,.07) 0%, transparent 42%); mix-blend-mode:screen; }
   .jhc-row{ position:relative; z-index:10; width:100%; max-width:1280px; height:100%;
     margin:0 auto; padding:24px clamp(16px,4vw,56px);
-    display:flex; flex-direction:column; align-items:center; justify-content:space-evenly;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
     gap:8px; }
 
-  .jhc-brand{ order:1; width:100%; display:flex; justify-content:center; }
+  .jhc-brand{ order:1; width:100%; display:none; justify-content:center; }
   .jhc-brand span{ font-family:var(--display); font-weight:300; letter-spacing:-.04em;
-    font-size:clamp(3rem,8vw,7rem);
+    font-size:clamp(30px,3.8vw,54px); line-height:1.12; max-width:9ch;
     background:linear-gradient(180deg,#FFFFFF 0%,#9AA6C8 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
     filter:drop-shadow(0 12px 24px rgba(0,0,0,.6)); }
 
-  .jhc-left{ order:3; width:100%; text-align:center; max-width:30ch; }
+  .jhc-left{ display:none; order:3; width:100%; text-align:center; max-width:30ch; }
   .jhc-left h3{ font-family:var(--display); font-weight:300; letter-spacing:-.03em;
     font-size:clamp(1.4rem,2.4vw,2rem); color:#fff; margin:0; }
   .jhc-left p{ margin:12px auto 0; color:rgba(180,196,255,.7);
@@ -646,22 +635,19 @@ const STYLES = `
   .jhc-homebar{ position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
     width:118px; height:4px; border-radius:4px; background:rgba(0,0,0,.22); z-index:58; }
 
-  /* layout: phone centred, brand + copy flank it on desktop */
+  /* Supporting copy is reserved for desktop; mobile shows only the phone. */
   @media (min-width:1000px){
-    .jhc-row{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:24px; }
-    .jhc-brand{ order:3; justify-content:flex-end; }
-    .jhc-phone-wrap{ order:2; }
-    .jhc-left{ order:1; text-align:left; }
-    .jhc-left p{ margin-left:0; margin-right:0; }
-  }
-  @media (max-width:999px){
-    .jhc-left{ display:none; }
-    .jhc-brand span{ font-size:clamp(2.6rem,11vw,4rem); }
+    .jhc-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px;}
+    .jhc-brand{display:flex;order:3;justify-content:flex-end;}
+    .jhc-phone-wrap{order:2;}
+    .jhc-left{display:block;order:1;text-align:left;}
+    .jhc-left p{margin-left:0;margin-right:0;}
   }
   @media (max-width:560px){
     .jhc-phone{ transform:scale(.9); }
   }
   @media (prefers-reduced-motion:reduce){
+    .jhc-rot__w--swap{ animation:none; }
     .jhc-cta{ display:none; }
   }
 `;

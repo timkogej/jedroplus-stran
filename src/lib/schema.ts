@@ -1,85 +1,55 @@
 // Centralized Schema.org JSON-LD definitions for jedroplus.com.
 // Each helper returns a plain object that is serialized via the <JsonLd> component.
 
-export const SITE_URL = "https://jedroplus.com";
+import { subscriptionPlans } from "@/lib/pricing";
+import { SITE_URL } from "@/lib/seo";
+import { receptionistPacks, RECEPTIONIST_PATH } from "@/lib/receptionist";
+export { SITE_URL } from "@/lib/seo";
 
-// Add LinkedIn here once the profile exists.
-const SAME_AS = ["https://www.instagram.com/jedroplus"];
-
-const ORGANIZATION_ID = `${SITE_URL}/#organization`;
-
+import { organizationIdentity, websiteIdentity, ORGANIZATION_ID, SOFTWARE_APPLICATION_ID, BOOKING_SERVICE_ID, RECEPTIONIST_SERVICE_ID, AGENCY_SERVICE_ID, EU_SERVICE_AREA } from "@/lib/site-identity";
 export const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": ORGANIZATION_ID,
-  name: "Jedro+",
-  legalName: "Sonja Žužek s.p.",
-  taxID: "97477621",
-  url: SITE_URL,
-  logo: `${SITE_URL}/brand/jedro-icon-512.png`,
-  description:
-    "Jedro+ je rezervacijski sistem za storitvena podjetja v Sloveniji. Spletno naročanje terminov, baza strank in pametni AI opomniki, ki zmanjšajo odpovedi.",
-  email: "info@jedroplus.com",
-  telephone: "+386 68 663 410",
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "info@jedroplus.com",
-    telephone: "+386 68 663 410",
-    contactType: "customer support",
-    areaServed: "SI",
-    availableLanguage: ["Slovenian"],
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "SI",
-  },
-  sameAs: SAME_AS,
+  "@context": "https://schema.org", ...organizationIdentity,
+  description: "Jedro+ je rezervacijski sistem za storitvena podjetja v Sloveniji. Spletno naročanje terminov, baza strank in pametni AI opomniki, ki zmanjšajo odpovedi.",
 };
 
-// Pricing mirrors src/components/redesign/PricingTiers.tsx (monthly prices).
+// Each offer uses the amount actually billed, including yearly totals.
+const subscriptionOffers = subscriptionPlans.flatMap((tier) => {
+  const price = Number.parseInt(tier.monthlyPrice);
+  const base = { "@type": "Offer", name: tier.name, description: tier.description, url: `${SITE_URL}/cenik` };
+  if (Number.isNaN(price)) return [base];
+  const monthly = { ...base, price: String(price), priceCurrency: "EUR" };
+  if (price === 0) return [monthly];
+  const yearlyTotal = Number.parseInt(tier.yearlyPrice) * 12;
+  return [
+    { ...monthly, name: `${tier.name} — mesečno`, priceSpecification: { "@type": "UnitPriceSpecification", price: String(price), priceCurrency: "EUR", unitText: "mesec", valueAddedTaxIncluded: false } },
+    { ...base, name: `${tier.name} — letno`, price: String(yearlyTotal), priceCurrency: "EUR", description: `${tier.description} Letni obračun: ${yearlyTotal} € za eno leto, kar ustreza ${tier.yearlyPrice} na mesec.`, priceSpecification: { "@type": "UnitPriceSpecification", price: String(yearlyTotal), priceCurrency: "EUR", unitText: "leto", valueAddedTaxIncluded: false } },
+  ];
+});
+
+
 export const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": SOFTWARE_APPLICATION_ID,
   name: "Jedro+",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  url: SITE_URL,
+  url: `${SITE_URL}/sl`,
   description:
     "Jedro+ je rezervacijski sistem za storitvena podjetja: spletno naročanje terminov, baza strank in pametni AI opomniki, ki zmanjšajo odpovedi.",
   publisher: { "@id": ORGANIZATION_ID },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Jedro Plus",
-      price: "19",
-      priceCurrency: "EUR",
-      description: "Mesečna naročnina — koledar, baze in opomniki.",
-    },
-    {
-      "@type": "Offer",
-      name: "Jedro Pro",
-      price: "35",
-      priceCurrency: "EUR",
-      description:
-        "Mesečna naročnina — obveščanje izgubljenih strank, SMS opomniki in napredne komunikacijske funkcije.",
-    },
-    {
-      "@type": "Offer",
-      name: "Enterprise",
-      priceCurrency: "EUR",
-      description: "Cena po dogovoru — prilagoditve in custom AI funkcije.",
-    },
-  ],
+  offers: subscriptionOffers,
 };
 
 export const professionalServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": "Service",
+  "@id": AGENCY_SERVICE_ID,
   name: "Jedro+ Agencija",
   description:
     "Jedro+ Agencija je AI agencija za storitvena podjetja: razvijamo pametne rešitve za naročanje, opomnike in avtomatizacijo, prilagojene vaši dejavnosti.",
   url: `${SITE_URL}/agencija`,
-  parentOrganization: { "@id": ORGANIZATION_ID },
+  provider: { "@id": ORGANIZATION_ID },
   areaServed: {
     "@type": "Country",
     name: "Slovenija",
@@ -124,7 +94,7 @@ export function breadcrumbSchema(slug: string, name: string) {
         "@type": "ListItem",
         position: 1,
         name: "Domov",
-        item: SITE_URL,
+        item: `${SITE_URL}/sl`,
       },
       {
         "@type": "ListItem",
@@ -152,7 +122,7 @@ export function funkcijeBreadcrumbSchema(slug: string, name: string) {
         "@type": "ListItem",
         position: 1,
         name: "Domov",
-        item: SITE_URL,
+        item: `${SITE_URL}/sl`,
       },
       {
         "@type": "ListItem",
@@ -180,7 +150,7 @@ export function primerjavaBreadcrumbSchema(slug: string, name: string) {
         "@type": "ListItem",
         position: 1,
         name: "Domov",
-        item: SITE_URL,
+        item: `${SITE_URL}/sl`,
       },
       {
         "@type": "ListItem",
@@ -225,7 +195,7 @@ export function davcnaBlagajnaBreadcrumbSchema() {
         "@type": "ListItem",
         position: 1,
         name: "Domov",
-        item: SITE_URL,
+        item: `${SITE_URL}/sl`,
       },
       {
         "@type": "ListItem",
@@ -233,6 +203,19 @@ export function davcnaBlagajnaBreadcrumbSchema() {
         name: "Davčna blagajna",
         item: `${SITE_URL}/davcna-blagajna`,
       },
+    ],
+  };
+}
+
+// Domov > Funkcije > Receptionist+
+export function receptionistBreadcrumbSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Domov", item: `${SITE_URL}/sl` },
+      { "@type": "ListItem", position: 2, name: "Funkcije", item: `${SITE_URL}/funkcije` },
+      { "@type": "ListItem", position: 3, name: "Receptionist+", item: `${SITE_URL}/funkcije/receptionist-plus` },
     ],
   };
 }
@@ -247,7 +230,7 @@ export function blogBreadcrumbSchema(slug: string, title: string) {
         "@type": "ListItem",
         position: 1,
         name: "Domov",
-        item: SITE_URL,
+        item: `${SITE_URL}/sl`,
       },
       {
         "@type": "ListItem",
@@ -271,12 +254,14 @@ export function blogPostingSchema({
   title,
   description,
   datePublished,
+  dateModified,
   image,
 }: {
   slug: string;
   title: string;
   description: string;
   datePublished: string;
+  dateModified?: string;
   image: string;
 }) {
   return {
@@ -285,13 +270,14 @@ export function blogPostingSchema({
     headline: title,
     description,
     datePublished,
-    dateModified: datePublished,
+    dateModified: dateModified ?? datePublished,
     url: `${SITE_URL}/blog/${slug}`,
     image: `${SITE_URL}${image}`,
     author: {
       "@type": "Organization",
+      "@id": ORGANIZATION_ID,
       name: "Jedro+",
-      url: SITE_URL,
+      url: `${SITE_URL}/sl`,
     },
     publisher: {
       "@id": ORGANIZATION_ID,
@@ -303,7 +289,7 @@ export function blogPostingSchema({
   };
 }
 
-// FAQPage — seznam vprašanj/odgovorov za rich rezultate.
+// FAQPage mirrors the visible questions and answers; rich results are not guaranteed.
 export function faqPageSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -319,33 +305,6 @@ export function faqPageSchema(faqs: { q: string; a: string }[]) {
   };
 }
 
-// One pricing tier, mirroring PricingTiers.tsx.
-type PricingTier = {
-  name: string;
-  price?: string; // monthly EUR amount; omitted for "Po dogovoru"
-  description: string;
-};
-
-const pricingTiers: PricingTier[] = [
-  {
-    name: "Jedro Plus",
-    price: "19",
-    description:
-      "Za podjetja, ki želijo urejen sistem in jasen pregled. Koledar, baze in opomniki, ki brez zapletov uredijo vsakdan.",
-  },
-  {
-    name: "Jedro Pro",
-    price: "35",
-    description:
-      "Za podjetja, ki želijo več zasedenosti in manj praznih terminov. Vključuje obveščanje izgubljenih strank, SMS opomnike in napredne komunikacijske funkcije.",
-  },
-  {
-    name: "Enterprise",
-    description:
-      "Za podjetja s posebnimi zahtevami in prilagoditvami. Custom dizajni, custom funkcije in celoten sistem po meri vašega poslovanja.",
-  },
-];
-
 // SaaS pricing is modeled as a Service with an OfferCatalog instead of
 // Product/Offer. Product/Offer triggers Google's e-commerce validators
 // (Product snippets, Merchant listings), which then demand image,
@@ -355,36 +314,47 @@ const pricingTiers: PricingTier[] = [
 export const pricingProductsSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": BOOKING_SERVICE_ID,
   name: "Jedro+ — rezervacijski sistem",
   serviceType: "Rezervacijski sistem za storitvena podjetja",
   url: `${SITE_URL}/cenik`,
   provider: { "@id": ORGANIZATION_ID },
-  areaServed: {
-    "@type": "Country",
-    name: "Slovenija",
-  },
+  areaServed: EU_SERVICE_AREA,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Cenik Jedro+",
-    itemListElement: pricingTiers.map((tier) => ({
+    itemListElement: subscriptionOffers,
+  },
+};
+
+
+export const websiteSchema = {
+  "@context": "https://schema.org", ...websiteIdentity,
+};
+
+export const receptionistServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": RECEPTIONIST_SERVICE_ID,
+  name: "Receptionist+",
+  serviceType: "AI recepcionistka za storitvena podjetja",
+  url: `${SITE_URL}${RECEPTIONIST_PATH}`,
+  description: "Receptionist+ sprejema telefonske klice in govori v jeziku stranke. Rezervira, prestavi ali odpove termin, odgovori na vprašanja, pošlje opomnik ter zabeleži dogovor v Jedro+. Ob prvi aktivaciji prejmete 30 brezplačnih minut za preizkus.",
+  provider: { "@id": ORGANIZATION_ID },
+  areaServed: EU_SERVICE_AREA,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Minute za Receptionist+",
+    itemListElement: receptionistPacks.map((pack) => ({
       "@type": "Offer",
-      name: tier.name,
-      description: tier.description,
-      ...(tier.price
-        ? {
-            price: tier.price,
-            priceCurrency: "EUR",
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
-              price: tier.price,
-              priceCurrency: "EUR",
-              billingIncrement: 1,
-              unitText: "MONTH",
-            },
-          }
-        : {
-            description: `${tier.description} Cena po dogovoru.`,
-          }),
+      name: `Receptionist+ ${pack.name}`,
+      description: `${pack.credits} minut klicev. Enkratni nakup, ločeno od naročnine za Jedro+.`,
+      price: pack.price,
+      priceSpecification: { "@type": "PriceSpecification", price: pack.price, priceCurrency: "EUR", valueAddedTaxIncluded: false },
+      priceCurrency: "EUR",
+      url: `${SITE_URL}${RECEPTIONIST_PATH}#cenik-receptionist`,
+      eligibleQuantity: { "@type": "QuantitativeValue", value: pack.credits, unitCode: "MIN", unitText: "minuta klica" },
+      itemOffered: { "@type": "Service", "@id": RECEPTIONIST_SERVICE_ID, name: "Receptionist+" },
     })),
   },
 };

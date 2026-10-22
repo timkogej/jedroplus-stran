@@ -28,10 +28,16 @@ export function Footer({
             <h4>Navigacija</h4>
             <ul>
               <li>
-                <Link href="/">Domov</Link>
+                <Link href="/sl">Domov</Link>
               </li>
               <li>
                 <Link href="/funkcije">Funkcije</Link>
+              </li>
+              <li>
+                <Link href="/funkcije/receptionist-plus">Receptionist+ <span className="new-badge">Novo</span></Link>
+              </li>
+              <li>
+                <Link href="/davcna-blagajna">Davčna blagajna</Link>
               </li>
               <li>
                 <Link href="/panoge">Panoge</Link>
@@ -45,9 +51,7 @@ export function Footer({
               <li>
                 <Link href="/blog">Blog</Link>
               </li>
-              <li>
-                <Link href="/davcna-blagajna">Davčna blagajna</Link>
-              </li>
+
               <li>
                 <Link href="/agencija">Agencija</Link>
               </li>

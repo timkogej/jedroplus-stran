@@ -8,6 +8,7 @@ export type BlogFrontmatter = {
   title: string;
   description: string;
   date: string;
+  updated?: string;
   readingTime: number;
   category: string;
   ogImage?: string;
@@ -41,6 +42,7 @@ export function getBlogPost(slug: string): BlogPost | null {
     title: data.title,
     description: data.description,
     date: data.date,
+    updated: data.updated || undefined,
     readingTime: data.readingTime,
     category: data.category,
     ogImage: data.ogImage || undefined,

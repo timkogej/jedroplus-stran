@@ -2,6 +2,8 @@
 const nextConfig = {
   async redirects() {
     return [
+      { source: "/start", destination: "/", permanent: false },
+      { source: "/:path*", has: [{ type: "host", value: "jedroplus.com" }], destination: "https://www.jedroplus.com/:path*", permanent: true },
       { source: "/about", destination: "/o-nas", permanent: true },
       { source: "/features", destination: "/funkcije", permanent: true },
       { source: "/industries", destination: "/panoge", permanent: true },

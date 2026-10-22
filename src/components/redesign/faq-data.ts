@@ -1,3 +1,5 @@
+import { receptionistPricingAnswer, receptionistUsageFaq } from "@/lib/receptionist";
+
 // FAQ content for the redesign pages. Answers are written in natural language,
 // 2–4 sentences, so they read well and are quotable. Panoga-specific FAQs live
 // on each Panoga in panoge-data.ts.
@@ -15,7 +17,7 @@ export const homeFaq: FaqItem[] = [
   },
   {
     q: "Ali Jedro+ podpira e-mail in SMS opomnike?",
-    a: "Da. E-mail opomniki so vključeni v vseh paketih, SMS opomniki pa v paketu Jedro Pro in Enterprise. Opomnike pošlje sistem samodejno pred terminom in po njem, brez vašega ročnega dela.",
+    a: "Da. E-mail opomniki so vključeni v vseh plačljivih paketih. SMS opomniki so vključeni v paketu Jedro Pro (250 SMS na mesec) in Enterprise, v paketu Jedro Plus pa jih po potrebi dokupite (od 4 € za 50 SMS). Opomnike pošlje sistem samodejno pred terminom in po njem, brez vašega ročnega dela.",
   },
   {
     q: "Kaj so „izgubljene stranke“ in kako mi pomagajo?",
@@ -27,7 +29,7 @@ export const homeFaq: FaqItem[] = [
   },
   {
     q: "Koliko stane in ali lahko začnem brezplačno?",
-    a: "Jedro+ lahko preizkusite brezplačno in brez kreditne kartice. Naročnine se začnejo pri 19 € na mesec (Jedro Plus), brez vezave — naročnino prekličete kadarkoli. Podrobnosti najdete na strani Cenik.",
+    a: "Začnete lahko s paketom Free, ki je brezplačen za vedno. Jedro Plus stane 19 € na mesec ali 180 € ob letnem plačilu (15 € na mesec). Minute za Receptionist+ se kupujejo ločeno. Vse pakete in možnosti primerjajte na strani Cenik.",
   },
 ];
 
@@ -51,13 +53,26 @@ export const agencijaFaq: FaqItem[] = [
 ];
 
 export const cenikFaq: FaqItem[] = [
+  { q: "Ali cene vključujejo DDV?", a: "Ne. Vse prikazane cene so v evrih (EUR), brez DDV. To velja za naročniške pakete in pakete minut za Receptionist+." },
+  {
+    q: "Koliko dejansko plačam pri letnem obračunu?",
+    a: "Za Jedro Plus plačate 180 € za celo leto (preračunano 15 € na mesec), za Jedro Pro pa 336 € za celo leto (preračunano 28 € na mesec). Mesečna cena pri letnem obračunu je primerjava stroška, ne mesečno plačilo. V primerjavi z dvanajstimi mesečnimi plačili prihranite 48 € pri Plus oziroma 84 € pri Pro.",
+  },
+  {
+    q: "Kaj je vključeno v Free in kdaj izberem plačljivi paket?",
+    a: "Free vključuje koledar, termine in stranke, storitve in osebje brez omejitev, enega uporabnika aplikacije, uvoz strank iz Excela ter enkratni preizkus SMS in e-mail opomnikov. Za spletno naročanje, analitiko in redne personalizirane opomnike izberite Jedro Plus ali Pro.",
+  },
+  {
+    q: "Kakšne so vključene količine SMS in e-mail sporočil?",
+    a: "Jedro Plus vključuje 500 e-mail sporočil na mesec; SMS pakete dokupite od 4 € za 50 SMS. Jedro Pro vključuje 2.000 e-mail sporočil in 250 SMS na mesec. Za Enterprise se količine dogovorijo posebej. Minute za telefonske klice Receptionist+ so ločene od teh količin.",
+  },
   {
     q: "Ali lahko Jedro+ preizkusim brezplačno?",
     a: "Da. Začnete lahko brezplačno in brez kreditne kartice ter nadgradite, ko ste pripravljeni. V 15 minutah vam lahko Jedro+ tudi predstavimo v praksi.",
   },
   {
     q: "Koliko stanejo paketi?",
-    a: "Jedro Plus stane 19 € na mesec, Jedro Pro 35 € na mesec, paket Enterprise pa je po dogovoru. Vsi paketi vključujejo baze podatkov, koledar terminov, spletno naročanje in analitiko.",
+    a: "Free je brezplačen za vedno, Jedro Plus stane 19 € na mesec, Jedro Pro 35 € na mesec (ob letnem plačilu 15 € oziroma 28 € na mesec), paket Enterprise pa je po dogovoru. Vsi plačljivi paketi vključujejo baze podatkov, koledar terminov, spletno naročanje in analitiko.",
   },
   {
     q: "Kakšna je razlika med paketoma Plus in Pro?",
@@ -65,6 +80,23 @@ export const cenikFaq: FaqItem[] = [
   },
   {
     q: "Ali sem vezan na pogodbo in kako prekličem naročnino?",
-    a: "Niste vezani — naročnina je brez vezave in jo prekličete kadarkoli. Plačujete mesečno in nadgradite ali znižate paket, ko želite.",
+    a: "Izberete lahko mesečni ali letni obračun. Letni znesek se plača za celo leto, prikazana mesečna cena pa je njegov mesečni preračun. Naročnino lahko prekličete v aplikaciji v skladu s pogoji uporabe.",
   },
 ];
+
+const receptionistPricingFaq: FaqItem = {
+  q: "Ali je Receptionist+ vključen v naročnino?",
+  a: receptionistPricingAnswer,
+};
+
+homeFaq.push(receptionistPricingFaq);
+cenikFaq.push(receptionistPricingFaq);
+
+cenikFaq.push(...receptionistUsageFaq);
+
+const europeanAvailabilityFaq: FaqItem[] = [
+  { q: "Ali lahko Jedro+ uporabljamo zunaj Slovenije?", a: "Da. Jedro+ je na voljo storitvenim podjetjem po Evropski uniji. Uvedbo uskladimo z vašimi storitvami, ekipo in načinom dela. Davčna blagajna s FURS potrjevanjem računov je ločen modul za Slovenijo." },
+  { q: "Ali lahko Jedro+ prilagodite dodatnemu jeziku?", a: "Da, dodatne jezikovne prilagoditve so možne po dogovoru. Spletna stran je trenutno v slovenščini, angleščini, italijanščini in nemščini, aplikacija pa v slovenščini in angleščini. Pred uvedbo uskladimo želeni jezik in obseg prilagoditve na info@jedroplus.com." },
+];
+homeFaq.push(...europeanAvailabilityFaq);
+cenikFaq.push(...europeanAvailabilityFaq);

@@ -4,9 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate:languages && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:seo": "node scripts/check-public-pages.mjs",
+    "generate:english": "node scripts/generate-english.cjs",
+    "check:languages": "node scripts/check-languages.mjs",
+    "generate:italian": "node scripts/generate-english.cjs it",
+    "generate:languages": "npm run generate:english && npm run generate:italian && npm run generate:german",
+    "generate:german": "node scripts/generate-english.cjs de",
+    "check:language-detection": "node scripts/check-language-detection.mjs",
+    "check:structured-data": "node scripts/check-structured-data.mjs",
+    "check:localized-seo": "node scripts/check-localized-seo.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "check:performance": "node scripts/check-performance.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export function RevealOnScroll() {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal");
-    if (!("IntersectionObserver" in window)) {
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       els.forEach((el) => el.classList.add("in"));
       return;
     }
@@ -19,7 +19,10 @@ export function RevealOnScroll() {
         }),
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
-    els.forEach((el) => io.observe(el));
+    els.forEach((el) => {
+      el.classList.add("reveal-ready");
+      io.observe(el);
+    });
     return () => io.disconnect();
   }, []);
 

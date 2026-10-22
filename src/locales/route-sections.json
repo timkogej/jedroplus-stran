@@ -1,0 +1,41 @@
+{
+  "en": {
+    "funkcije": "features",
+    "panoge": "industries",
+    "cenik": "pricing",
+    "agencija": "agency",
+    "o-nas": "about",
+    "pogoji-uporabe": "terms",
+    "zasebnost": "privacy",
+    "primerjava": "compare",
+    "davcna-blagajna": "fiscal-cash-register",
+    "blog": "blog",
+    "prihaja-kmalu": "coming-soon"
+  },
+  "it": {
+    "funkcije": "funzionalita",
+    "panoge": "settori",
+    "cenik": "prezzi",
+    "agencija": "agenzia",
+    "o-nas": "chi-siamo",
+    "pogoji-uporabe": "condizioni-uso",
+    "zasebnost": "privacy",
+    "primerjava": "confronti",
+    "davcna-blagajna": "cassa-fiscale",
+    "blog": "blog",
+    "prihaja-kmalu": "prossimamente"
+  },
+  "de": {
+    "funkcije": "funktionen",
+    "panoge": "branchen",
+    "cenik": "preise",
+    "agencija": "agentur",
+    "o-nas": "ueber-uns",
+    "pogoji-uporabe": "nutzungsbedingungen",
+    "zasebnost": "datenschutz",
+    "primerjava": "vergleich",
+    "davcna-blagajna": "fiskalkasse",
+    "blog": "blog",
+    "prihaja-kmalu": "demnaechst"
+  }
+}

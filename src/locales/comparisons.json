@@ -1,0 +1,574 @@
+{
+  "sl-SI": {
+    "jedroplus-vs-lime-booking": {
+      "intro": [
+        "Oba sistema predstavljata spletno naročanje, koledar in obveščanje. Za smiselno odločitev primerjajte isti način plačila, količine sporočil in dodatke. Jedro+ ima tudi brezplačni paket Free; plačljivi Plus se začne pri 19 € mesečno. Lime Booking navaja osnovni paket 14,90 € mesečno. To niso paketi z enakim obsegom.",
+        "Pri Jedro+ preverite AI sporočila v tonu podjetja, Receptionist+ in povezavo s koledarjem. Pri Lime Bookingu preizkusite predstavljen imenik salonov in pot rezervacije iz njihove tržnice. Odločitev preverite z istim primerom rezervacije v obeh sistemih."
+      ],
+      "verdictJedro": [
+        "AI komunikacijo, telefonsko naročanje in povezane podatke o strankah"
+      ],
+      "verdictRival": [
+        "rezervacije prek javnega imenika salonov Lime Booking"
+      ],
+      "table": [
+        {
+          "feature": "Spletno naročanje",
+          "jedro": "Da",
+          "rival": "Da"
+        },
+        {
+          "feature": "Koledar in stranke",
+          "jedro": "Da",
+          "rival": "Da"
+        },
+        {
+          "feature": "E-mail obvestila",
+          "jedro": "Da",
+          "rival": "Da"
+        },
+        {
+          "feature": "AI-personalizirana sporočila",
+          "jedro": "Da",
+          "rival": "V pregledanih virih ni potrjeno"
+        },
+        {
+          "feature": "AI telefonsko naročanje",
+          "jedro": "Receptionist+",
+          "rival": "V pregledanih virih ni potrjeno"
+        },
+        {
+          "feature": "Davčna blagajna za Slovenijo",
+          "jedro": "Ločen modul z doplačilom",
+          "rival": "Funkcija navedena; preverite paket"
+        }
+      ],
+      "jedroWins": [
+        {
+          "title": "Receptionist+",
+          "text": "Receptionist+ sprejme klic v jeziku stranke, uredi termin in zabeleži dogovor. Minute so ločen nakup; 100 minut stane 15 € brez DDV in ne poteče."
+        },
+        {
+          "title": "AI-personalizirana sporočila",
+          "text": "Personalizirane opomnike preizkusite na lastni storitvi: preverite ime, termin, izvajalca in ton. Rezultate merite po odpovedih in odzivih, ne le po videzu sporočila."
+        }
+      ],
+      "rivalWins": [
+        {
+          "title": "Lime Booking",
+          "text": "Uradna stran predstavlja iskanje salonov in rezervacijo iz javnega imenika. Preverite, kako je vaš profil prikazan in ali ta pot ustreza vašemu pridobivanju strank."
+        },
+        {
+          "title": "Uradni cenik Lime Booking",
+          "text": "Cenik loči osnovni, napredni in višje pakete. Zahtevajte potrditev, kateri paket in dodatki vključujejo vaše obvezne funkcije, zlasti obvestila, plačila in blagajno."
+        }
+      ],
+      "priceTable": [
+        {
+          "label": "Plačljiva osnova: mesečni obračun",
+          "jedro": "Jedro Plus: 19 €",
+          "rival": "Lime Booking: 14,90 €"
+        },
+        {
+          "label": "Plačljiva osnova: letni preračun na mesec",
+          "jedro": "Jedro Plus: 15 €",
+          "rival": "Lime Booking: 12,67 €"
+        }
+      ],
+      "priceNote": [
+        "Cene so brez DDV. Letni mesečni preračun ni mesečno plačilo. Pri Jedro+ je letni Plus 180 €; pri Lime Bookingu preverite celoten letni znesek ob izbiri paketa. Količine sporočil in dodatki se razlikujejo."
+      ],
+      "scenarios": [],
+      "faq": [
+        {
+          "q": "Kako primerjati ceno obeh sistemov?",
+          "a": "Cene so brez DDV. Letni mesečni preračun ni mesečno plačilo. Pri Jedro+ je letni Plus 180 €; pri Lime Bookingu preverite celoten letni znesek ob izbiri paketa. Količine sporočil in dodatki se razlikujejo."
+        },
+        {
+          "q": "Kaj naj preverim med preizkusom?",
+          "a": "V obeh sistemih rezervirajte, prestavite in odpovejte isti testni termin. Preverite koledar, sporočila, prikaz za stranko in strošek paketa z vsemi potrebnimi dodatki."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Uradni cenik Lime Booking",
+          "url": "https://business.lime-booking.com/si/cenik/"
+        },
+        {
+          "title": "Uradna predstavitev Lime Booking",
+          "url": "https://lime-booking.com/sl/business"
+        },
+        {
+          "title": "Cenik in obseg Jedro+",
+          "url": "/cenik"
+        }
+      ],
+      "verified": true,
+      "title": "Jedro+ ali Lime Booking? Primerjava za vaš način dela",
+      "metaTitle": "Jedro+ ali Lime Booking? Primerjava za vaš način dela",
+      "metaDescription": "Primerjajte spletno naročanje, komunikacijo, telefonske klice in dejanski obračun. Pregled virov: 22. oktober 2026.",
+      "eyebrow": "Primerjava",
+      "rivalName": "Lime Booking",
+      "cardText": "Primerjajte spletno naročanje, komunikacijo, telefonske klice in dejanski obračun. Pregled virov: 22. oktober 2026.",
+      "heroSub": "Primerjajte spletno naročanje, komunikacijo, telefonske klice in dejanski obračun. Pregled virov: 22. oktober 2026.",
+      "rivalWinsTitle": "Kaj preveriti pri Lime Bookingu",
+      "sourceNote": "Pregled primarnih virov: 22. oktober 2026. Trditve o funkcijah, ki jih v teh virih nismo mogli potrditi, niso predstavljene kot odsotne funkcije.",
+      "tableNote": "Pregled primarnih virov: 22. oktober 2026. Trditve o funkcijah, ki jih v teh virih nismo mogli potrditi, niso predstavljene kot odsotne funkcije."
+    },
+    "jedroplus-vs-mojsalon": {
+      "intro": [
+        "Ob pregledu 22. oktobra 2026 nismo mogli potrditi, da domena mojsalon.si predstavlja sistem za naročanje z lastnostmi iz prejšnje primerjave. Zato smo odstranili nepotrjene cene, funkcije in priporočila. To ni trditev o kakovosti ali delovanju ponudnika. Za izbiro Jedro+ preverite aktualni cenik in potrjeno primerjavo."
+      ],
+      "verdictJedro": [],
+      "verdictRival": [],
+      "table": [],
+      "jedroWins": [],
+      "rivalWins": [],
+      "priceTable": [],
+      "priceNote": [],
+      "scenarios": [],
+      "faq": [],
+      "sources": [],
+      "verified": false,
+      "title": "Jedro+ in mojsalon.si: stanje preverjanja",
+      "metaTitle": "Jedro+ ali Lime Booking? Primerjava za vaš način dela",
+      "metaDescription": "Primerjajte spletno naročanje, komunikacijo, telefonske klice in dejanski obračun. Pregled virov: 22. oktober 2026.",
+      "eyebrow": "Primerjava",
+      "rivalName": "mojsalon.si",
+      "cardText": "Primerjajte spletno naročanje, komunikacijo, telefonske klice in dejanski obračun. Pregled virov: 22. oktober 2026.",
+      "heroSub": "Primerjave trenutno ne moremo zanesljivo podpreti s primarnim virom.",
+      "rivalWinsTitle": "Kaj preveriti pri Lime Bookingu",
+      "sourceNote": "Pregled primarnih virov: 22. oktober 2026. Trditve o funkcijah, ki jih v teh virih nismo mogli potrditi, niso predstavljene kot odsotne funkcije.",
+      "tableNote": "Pregled primarnih virov: 22. oktober 2026. Trditve o funkcijah, ki jih v teh virih nismo mogli potrditi, niso predstavljene kot odsotne funkcije."
+    }
+  },
+  "en-GB": {
+    "jedroplus-vs-lime-booking": {
+      "intro": [
+        "Both systems present online booking, calendars and notifications. Compare the same billing period, message allowances and add-ons. Jedro+ also offers Free; paid Plus starts at €19 monthly. Lime Booking lists a basic plan at €14.90 monthly. These plans do not have identical allowances.",
+        "With Jedro+, test AI messages in your business’s voice, Receptionist+ and the calendar connection. With Lime Booking, test the salon directory and booking journey from its marketplace. Use the same appointment scenario in both systems."
+      ],
+      "verdictJedro": [
+        "AI communication, phone booking and connected client records"
+      ],
+      "verdictRival": [
+        "bookings through the public Lime Booking salon directory"
+      ],
+      "table": [
+        {
+          "feature": "Online booking",
+          "jedro": "Yes",
+          "rival": "Yes"
+        },
+        {
+          "feature": "Calendar and clients",
+          "jedro": "Yes",
+          "rival": "Yes"
+        },
+        {
+          "feature": "Email notifications",
+          "jedro": "Yes",
+          "rival": "Yes"
+        },
+        {
+          "feature": "AI-personalised messages",
+          "jedro": "Yes",
+          "rival": "Not confirmed in reviewed sources"
+        },
+        {
+          "feature": "AI phone booking",
+          "jedro": "Receptionist+",
+          "rival": "Not confirmed in reviewed sources"
+        },
+        {
+          "feature": "Fiscal cash register for Slovenia",
+          "jedro": "Separate paid module",
+          "rival": "Function listed; confirm plan"
+        }
+      ],
+      "jedroWins": [
+        {
+          "title": "Receptionist+",
+          "text": "Receptionist+ answers in the client’s language, arranges appointments and records the agreement. Minutes are a separate purchase; 100 minutes cost €15 excluding VAT and do not expire."
+        },
+        {
+          "title": "AI-personalised messages",
+          "text": "Test personalised reminders with your own service: check the name, time, provider and tone. Measure cancellations and responses rather than judging wording alone."
+        }
+      ],
+      "rivalWins": [
+        {
+          "title": "Lime Booking",
+          "text": "The official website presents salon discovery and booking through a public directory. Check how your profile appears and whether that journey fits your client acquisition."
+        },
+        {
+          "title": "Official Lime Booking pricing",
+          "text": "The price list separates basic, advanced and higher plans. Confirm which plan and add-ons cover your required functions, especially notifications, payments and the cash register."
+        }
+      ],
+      "priceTable": [
+        {
+          "label": "Paid entry plan: monthly billing",
+          "jedro": "Jedro Plus: 19 €",
+          "rival": "Lime Booking: 14,90 €"
+        },
+        {
+          "label": "Paid entry plan: annual monthly equivalent",
+          "jedro": "Jedro Plus: 15 €",
+          "rival": "Lime Booking: 12,67 €"
+        }
+      ],
+      "priceNote": [
+        "Prices exclude VAT. An annual plan’s monthly equivalent is not monthly billing. Jedro+ Plus costs €180 annually; confirm Lime Booking’s full annual amount when choosing a plan. Message allowances and add-ons differ."
+      ],
+      "scenarios": [],
+      "faq": [
+        {
+          "q": "How should I compare the prices?",
+          "a": "Prices exclude VAT. An annual plan’s monthly equivalent is not monthly billing. Jedro+ Plus costs €180 annually; confirm Lime Booking’s full annual amount when choosing a plan. Message allowances and add-ons differ."
+        },
+        {
+          "q": "What should I test during a trial?",
+          "a": "Book, reschedule and cancel the same test appointment in both systems. Check the calendar, messages, client view and plan cost with every required add-on."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Official Lime Booking pricing",
+          "url": "https://business.lime-booking.com/si/cenik/"
+        },
+        {
+          "title": "Official Lime Booking product page",
+          "url": "https://lime-booking.com/sl/business"
+        },
+        {
+          "title": "Jedro+ pricing and plan details",
+          "url": "/en/pricing"
+        }
+      ],
+      "verified": true,
+      "title": "Jedro+ vs Lime Booking: compare your workflow",
+      "metaTitle": "Jedro+ vs Lime Booking: compare your workflow",
+      "metaDescription": "Compare online booking, communication, phone calls and actual billing. Sources reviewed on 22 October 2026.",
+      "eyebrow": "Comparison",
+      "rivalName": "Lime Booking",
+      "cardText": "Compare online booking, communication, phone calls and actual billing. Sources reviewed on 22 October 2026.",
+      "heroSub": "Compare online booking, communication, phone calls and actual billing. Sources reviewed on 22 October 2026.",
+      "rivalWinsTitle": "What to check with Lime Booking",
+      "sourceNote": "Primary sources reviewed on 22 October 2026. Functions we could not confirm in those sources are not presented as absent.",
+      "tableNote": "Primary sources reviewed on 22 October 2026. Functions we could not confirm in those sources are not presented as absent."
+    },
+    "jedroplus-vs-mojsalon": {
+      "intro": [
+        "At our review on 22 October 2026, we could not confirm that mojsalon.si represents appointment software with the previously described features. We have removed unverified prices, functions and recommendations. This is not a claim about the provider’s quality or operation. Use the current Jedro+ pricing and verified comparison to assess our offer."
+      ],
+      "verdictJedro": [],
+      "verdictRival": [],
+      "table": [],
+      "jedroWins": [],
+      "rivalWins": [],
+      "priceTable": [],
+      "priceNote": [],
+      "scenarios": [],
+      "faq": [],
+      "sources": [],
+      "verified": false,
+      "title": "Jedro+ and mojsalon.si: verification status",
+      "metaTitle": "Jedro+ vs Lime Booking: compare your workflow",
+      "metaDescription": "Compare online booking, communication, phone calls and actual billing. Sources reviewed on 22 October 2026.",
+      "eyebrow": "Comparison",
+      "rivalName": "mojsalon.si",
+      "cardText": "Compare online booking, communication, phone calls and actual billing. Sources reviewed on 22 October 2026.",
+      "heroSub": "We cannot currently support this comparison with a reliable primary source.",
+      "rivalWinsTitle": "What to check with Lime Booking",
+      "sourceNote": "Primary sources reviewed on 22 October 2026. Functions we could not confirm in those sources are not presented as absent.",
+      "tableNote": "Primary sources reviewed on 22 October 2026. Functions we could not confirm in those sources are not presented as absent."
+    }
+  },
+  "it-IT": {
+    "jedroplus-vs-lime-booking": {
+      "intro": [
+        "Entrambi presentano prenotazioni online, calendari e notifiche. Confronta lo stesso periodo di pagamento, le quantità di messaggi e gli extra. Jedro+ offre anche Free; Plus a pagamento parte da 19 € mensili. Lime Booking indica il piano base a 14,90 € mensili. I due piani non includono le stesse quantità.",
+        "Con Jedro+ prova i messaggi AI nel tono della tua attività, Receptionist+ e il collegamento al calendario. Con Lime Booking prova la directory dei saloni e il percorso di prenotazione dal marketplace. Usa lo stesso scenario in entrambi i sistemi."
+      ],
+      "verdictJedro": [
+        "Comunicazione AI, prenotazioni telefoniche e schede clienti collegate"
+      ],
+      "verdictRival": [
+        "prenotazioni dalla directory pubblica dei saloni Lime Booking"
+      ],
+      "table": [
+        {
+          "feature": "Prenotazioni online",
+          "jedro": "Sì",
+          "rival": "Sì"
+        },
+        {
+          "feature": "Calendario e clienti",
+          "jedro": "Sì",
+          "rival": "Sì"
+        },
+        {
+          "feature": "Notifiche e-mail",
+          "jedro": "Sì",
+          "rival": "Sì"
+        },
+        {
+          "feature": "Messaggi personalizzati con AI",
+          "jedro": "Sì",
+          "rival": "Non confermato nelle fonti esaminate"
+        },
+        {
+          "feature": "Prenotazioni telefoniche AI",
+          "jedro": "Receptionist+",
+          "rival": "Non confermato nelle fonti esaminate"
+        },
+        {
+          "feature": "Cassa fiscale per la Slovenia",
+          "jedro": "Modulo separato a pagamento",
+          "rival": "Funzione indicata; verificare il piano"
+        }
+      ],
+      "jedroWins": [
+        {
+          "title": "Receptionist+",
+          "text": "Receptionist+ risponde nella lingua del cliente, gestisce gli appuntamenti e registra quanto concordato. I minuti si acquistano separatamente: 100 minuti costano 15 € IVA esclusa e non scadono."
+        },
+        {
+          "title": "Messaggi personalizzati con AI",
+          "text": "Prova i promemoria personalizzati su un tuo servizio: controlla nome, orario, operatore e tono. Misura disdette e risposte, oltre alla qualità del testo."
+        }
+      ],
+      "rivalWins": [
+        {
+          "title": "Lime Booking",
+          "text": "Il sito ufficiale presenta la ricerca dei saloni e la prenotazione da una directory pubblica. Verifica come appare il tuo profilo e se il percorso è adatto ai tuoi clienti."
+        },
+        {
+          "title": "Listino ufficiale Lime Booking",
+          "text": "Il listino distingue piano base, avanzato e livelli superiori. Chiedi conferma del piano e degli extra necessari per notifiche, pagamenti e cassa fiscale."
+        }
+      ],
+      "priceTable": [
+        {
+          "label": "Piano base a pagamento: mensile",
+          "jedro": "Jedro Plus: 19 €",
+          "rival": "Lime Booking: 14,90 €"
+        },
+        {
+          "label": "Piano base a pagamento: equivalente mensile annuale",
+          "jedro": "Jedro Plus: 15 €",
+          "rival": "Lime Booking: 12,67 €"
+        }
+      ],
+      "priceNote": [
+        "Prezzi IVA esclusa. Il valore mensile del piano annuale non è un pagamento mensile. Jedro+ Plus costa 180 € all’anno; verifica il totale annuale di Lime Booking al momento della scelta. Messaggi inclusi ed extra differiscono."
+      ],
+      "scenarios": [],
+      "faq": [
+        {
+          "q": "Come confrontare i prezzi?",
+          "a": "Prezzi IVA esclusa. Il valore mensile del piano annuale non è un pagamento mensile. Jedro+ Plus costa 180 € all’anno; verifica il totale annuale di Lime Booking al momento della scelta. Messaggi inclusi ed extra differiscono."
+        },
+        {
+          "q": "Cosa verificare durante la prova?",
+          "a": "Prenota, sposta e annulla lo stesso appuntamento di prova in entrambi i sistemi. Controlla calendario, messaggi, vista cliente e costo del piano con tutti gli extra necessari."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Listino ufficiale Lime Booking",
+          "url": "https://business.lime-booking.com/si/cenik/"
+        },
+        {
+          "title": "Presentazione ufficiale Lime Booking",
+          "url": "https://lime-booking.com/sl/business"
+        },
+        {
+          "title": "Prezzi e contenuti Jedro+",
+          "url": "/it/prezzi"
+        }
+      ],
+      "verified": true,
+      "title": "Jedro+ o Lime Booking? Confronta il tuo modo di lavorare",
+      "metaTitle": "Jedro+ o Lime Booking? Confronta il tuo modo di lavorare",
+      "metaDescription": "Confronta prenotazioni online, comunicazione, chiamate e pagamento effettivo. Fonti verificate il 22 ottobre 2026.",
+      "eyebrow": "Confronto",
+      "rivalName": "Lime Booking",
+      "cardText": "Confronta prenotazioni online, comunicazione, chiamate e pagamento effettivo. Fonti verificate il 22 ottobre 2026.",
+      "heroSub": "Confronta prenotazioni online, comunicazione, chiamate e pagamento effettivo. Fonti verificate il 22 ottobre 2026.",
+      "rivalWinsTitle": "Cosa verificare con Lime Booking",
+      "sourceNote": "Fonti primarie verificate il 22 ottobre 2026. Le funzionalità non confermate nelle fonti non sono considerate assenti.",
+      "tableNote": "Fonti primarie verificate il 22 ottobre 2026. Le funzionalità non confermate nelle fonti non sono considerate assenti."
+    },
+    "jedroplus-vs-mojsalon": {
+      "intro": [
+        "Durante la verifica del 22 ottobre 2026 non abbiamo potuto confermare che mojsalon.si rappresenti un software di appuntamenti con le caratteristiche descritte in precedenza. Abbiamo quindi rimosso prezzi, funzioni e raccomandazioni non verificati. Non è un giudizio sulla qualità o sull’attività del fornitore. Consulta il listino Jedro+ e il confronto verificato."
+      ],
+      "verdictJedro": [],
+      "verdictRival": [],
+      "table": [],
+      "jedroWins": [],
+      "rivalWins": [],
+      "priceTable": [],
+      "priceNote": [],
+      "scenarios": [],
+      "faq": [],
+      "sources": [],
+      "verified": false,
+      "title": "Jedro+ e mojsalon.si: stato della verifica",
+      "metaTitle": "Jedro+ o Lime Booking? Confronta il tuo modo di lavorare",
+      "metaDescription": "Confronta prenotazioni online, comunicazione, chiamate e pagamento effettivo. Fonti verificate il 22 ottobre 2026.",
+      "eyebrow": "Confronto",
+      "rivalName": "mojsalon.si",
+      "cardText": "Confronta prenotazioni online, comunicazione, chiamate e pagamento effettivo. Fonti verificate il 22 ottobre 2026.",
+      "heroSub": "Al momento non possiamo sostenere questo confronto con una fonte primaria affidabile.",
+      "rivalWinsTitle": "Cosa verificare con Lime Booking",
+      "sourceNote": "Fonti primarie verificate il 22 ottobre 2026. Le funzionalità non confermate nelle fonti non sono considerate assenti.",
+      "tableNote": "Fonti primarie verificate il 22 ottobre 2026. Le funzionalità non confermate nelle fonti non sono considerate assenti."
+    }
+  },
+  "de-DE": {
+    "jedroplus-vs-lime-booking": {
+      "intro": [
+        "Beide Systeme bieten Online-Buchung, Kalender und Benachrichtigungen an. Vergleiche denselben Abrechnungszeitraum, Nachrichtenkontingente und Zusatzleistungen. Jedro+ bietet auch Free; Plus beginnt bei monatlicher Zahlung bei 19 €. Lime Booking nennt 14,90 € für den Basistarif. Der Leistungsumfang ist nicht identisch.",
+        "Teste bei Jedro+ KI-Nachrichten im Ton deines Betriebs, Receptionist+ und die Kalenderanbindung. Prüfe bei Lime Booking das Salonverzeichnis und den Buchungsablauf über den Marktplatz. Nutze in beiden Systemen dasselbe Terminszenario."
+      ],
+      "verdictJedro": [
+        "KI-Kommunikation, Telefonbuchung und verbundene Kundendaten"
+      ],
+      "verdictRival": [
+        "Buchungen über das öffentliche Salonverzeichnis von Lime Booking"
+      ],
+      "table": [
+        {
+          "feature": "Online-Terminbuchung",
+          "jedro": "Ja",
+          "rival": "Ja"
+        },
+        {
+          "feature": "Kalender und Kunden",
+          "jedro": "Ja",
+          "rival": "Ja"
+        },
+        {
+          "feature": "E-Mail-Benachrichtigungen",
+          "jedro": "Ja",
+          "rival": "Ja"
+        },
+        {
+          "feature": "KI-personalisierte Nachrichten",
+          "jedro": "Ja",
+          "rival": "In geprüften Quellen nicht bestätigt"
+        },
+        {
+          "feature": "KI-Telefonbuchung",
+          "jedro": "Receptionist+",
+          "rival": "In geprüften Quellen nicht bestätigt"
+        },
+        {
+          "feature": "Fiskalkasse für Slowenien",
+          "jedro": "Separates kostenpflichtiges Modul",
+          "rival": "Funktion genannt; Tarif bestätigen"
+        }
+      ],
+      "jedroWins": [
+        {
+          "title": "Receptionist+",
+          "text": "Receptionist+ antwortet in der Kundensprache, vereinbart Termine und hält die Absprache fest. Minuten kaufst du separat: 100 Minuten kosten 15 € zzgl. MwSt. und verfallen nicht."
+        },
+        {
+          "title": "KI-personalisierte Nachrichten",
+          "text": "Teste persönliche Erinnerungen mit deiner eigenen Leistung: prüfe Name, Uhrzeit, Mitarbeiter und Ton. Miss Absagen und Reaktionen statt nur die Formulierung zu bewerten."
+        }
+      ],
+      "rivalWins": [
+        {
+          "title": "Lime Booking",
+          "text": "Die offizielle Website zeigt Salonsuche und Buchung über ein öffentliches Verzeichnis. Prüfe dein Profil und ob dieser Buchungsweg zu deiner Kundengewinnung passt."
+        },
+        {
+          "title": "Offizielle Lime Booking Preisliste",
+          "text": "Die Preisliste unterscheidet Basis-, erweiterte und höhere Tarife. Lass dir bestätigen, welcher Tarif und welche Extras deine Anforderungen an Benachrichtigungen, Zahlungen und Kasse erfüllen."
+        }
+      ],
+      "priceTable": [
+        {
+          "label": "Kostenpflichtiger Einstieg: monatlich",
+          "jedro": "Jedro Plus: 19 €",
+          "rival": "Lime Booking: 14,90 €"
+        },
+        {
+          "label": "Kostenpflichtiger Einstieg: Jahrespreis pro Monat",
+          "jedro": "Jedro Plus: 15 €",
+          "rival": "Lime Booking: 12,67 €"
+        }
+      ],
+      "priceNote": [
+        "Preise zzgl. MwSt. Der monatliche Gegenwert eines Jahrestarifs ist keine monatliche Zahlung. Jedro+ Plus kostet jährlich 180 €; bestätige den gesamten Jahresbetrag bei Lime Booking bei der Auswahl. Kontingente und Extras unterscheiden sich."
+      ],
+      "scenarios": [],
+      "faq": [
+        {
+          "q": "Wie vergleiche ich die Preise?",
+          "a": "Preise zzgl. MwSt. Der monatliche Gegenwert eines Jahrestarifs ist keine monatliche Zahlung. Jedro+ Plus kostet jährlich 180 €; bestätige den gesamten Jahresbetrag bei Lime Booking bei der Auswahl. Kontingente und Extras unterscheiden sich."
+        },
+        {
+          "q": "Was sollte ich im Test prüfen?",
+          "a": "Buche, verschiebe und storniere denselben Testtermin in beiden Systemen. Prüfe Kalender, Nachrichten, Kundenansicht und Tarifkosten mit allen benötigten Extras."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Offizielle Lime Booking Preisliste",
+          "url": "https://business.lime-booking.com/si/cenik/"
+        },
+        {
+          "title": "Offizielle Lime Booking Produktseite",
+          "url": "https://lime-booking.com/sl/business"
+        },
+        {
+          "title": "Jedro+ Preise und Leistungsumfang",
+          "url": "/de/preise"
+        }
+      ],
+      "verified": true,
+      "title": "Jedro+ oder Lime Booking? Vergleiche deinen Arbeitsablauf",
+      "metaTitle": "Jedro+ oder Lime Booking? Vergleiche deinen Arbeitsablauf",
+      "metaDescription": "Vergleiche Online-Buchung, Kommunikation, Telefonanrufe und die tatsächliche Abrechnung. Quellen geprüft am 22. Oktober 2026.",
+      "eyebrow": "Vergleich",
+      "rivalName": "Lime Booking",
+      "cardText": "Vergleiche Online-Buchung, Kommunikation, Telefonanrufe und die tatsächliche Abrechnung. Quellen geprüft am 22. Oktober 2026.",
+      "heroSub": "Vergleiche Online-Buchung, Kommunikation, Telefonanrufe und die tatsächliche Abrechnung. Quellen geprüft am 22. Oktober 2026.",
+      "rivalWinsTitle": "Was du bei Lime Booking prüfen solltest",
+      "sourceNote": "Primärquellen geprüft am 22. Oktober 2026. Nicht bestätigte Funktionen werden nicht als fehlend dargestellt.",
+      "tableNote": "Primärquellen geprüft am 22. Oktober 2026. Nicht bestätigte Funktionen werden nicht als fehlend dargestellt."
+    },
+    "jedroplus-vs-mojsalon": {
+      "intro": [
+        "Bei der Prüfung am 22. Oktober 2026 konnten wir nicht bestätigen, dass mojsalon.si eine Terminsoftware mit den zuvor beschriebenen Funktionen anbietet. Unbestätigte Preise, Funktionen und Empfehlungen wurden entfernt. Dies ist keine Aussage über Qualität oder Betrieb des Anbieters. Nutze die aktuellen Jedro+ Preise und den geprüften Vergleich."
+      ],
+      "verdictJedro": [],
+      "verdictRival": [],
+      "table": [],
+      "jedroWins": [],
+      "rivalWins": [],
+      "priceTable": [],
+      "priceNote": [],
+      "scenarios": [],
+      "faq": [],
+      "sources": [],
+      "verified": false,
+      "title": "Jedro+ und mojsalon.si: Prüfstatus",
+      "metaTitle": "Jedro+ oder Lime Booking? Vergleiche deinen Arbeitsablauf",
+      "metaDescription": "Vergleiche Online-Buchung, Kommunikation, Telefonanrufe und die tatsächliche Abrechnung. Quellen geprüft am 22. Oktober 2026.",
+      "eyebrow": "Vergleich",
+      "rivalName": "mojsalon.si",
+      "cardText": "Vergleiche Online-Buchung, Kommunikation, Telefonanrufe und die tatsächliche Abrechnung. Quellen geprüft am 22. Oktober 2026.",
+      "heroSub": "Diesen Vergleich können wir derzeit nicht durch eine verlässliche Primärquelle belegen.",
+      "rivalWinsTitle": "Was du bei Lime Booking prüfen solltest",
+      "sourceNote": "Primärquellen geprüft am 22. Oktober 2026. Nicht bestätigte Funktionen werden nicht als fehlend dargestellt.",
+      "tableNote": "Primärquellen geprüft am 22. Oktober 2026. Nicht bestätigte Funktionen werden nicht als fehlend dargestellt."
+    }
+  }
+}

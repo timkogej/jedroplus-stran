@@ -2,73 +2,7 @@
 
 import { useState } from "react";
 
-interface Tier {
-  name: string;
-  monthlyPrice: string;
-  yearlyPrice: string;
-  yearlySaving?: string;
-  subtitle: string;
-  description: string;
-  features: string[];
-  popular?: boolean;
-  ctaLabel: string;
-}
-
-const tiers: Tier[] = [
-  {
-    name: "Jedro Plus",
-    monthlyPrice: "19 €",
-    yearlyPrice: "15 €",
-    yearlySaving: "-20%",
-    subtitle: "Za podjetja, ki želijo urejen sistem in jasen pregled",
-    description: "Koledar, baze in opomniki, ki brez zapletov uredijo vsakdan.",
-    features: [
-      "Baza strank in terminov",
-      "Baza storitev in osebja",
-      "Personalizirani opomniki pred in po terminu",
-      "Email pošiljanje (500 email/mesec)",
-      "Komunikacija",
-      "Celotna analitika",
-      "Spletno naročanje",
-      "Različni dizajni spletnega naročanja",
-    ],
-    ctaLabel: "Izberi paket",
-  },
-  {
-    name: "Jedro Pro",
-    monthlyPrice: "35 €",
-    yearlyPrice: "28 €",
-    yearlySaving: "-20%",
-    subtitle: "Za podjetja, ki želijo več zasedenosti in manj praznih terminov",
-    description:
-      "Vključuje obveščanje izgubljenih strank, SMS opomnike in napredne komunikacijske funkcije.",
-    features: [
-      "Vse iz Jedro Plus",
-      "Obveščanje izgubljenih strank",
-      "SMS pošiljanje (250 sms/mesec)",
-      "Email pošiljanje (2000 email/mesec)",
-      "Dodatni dizajni spletnega naročanja",
-    ],
-    popular: true,
-    ctaLabel: "Izberi paket",
-  },
-  {
-    name: "Enterprise",
-    monthlyPrice: "Po dogovoru",
-    yearlyPrice: "Po dogovoru",
-    subtitle: "Za podjetja s posebnimi zahtevami in prilagoditvami",
-    description:
-      "Prilagodimo custom dizajne, custom funkcije in celoten sistem vašemu poslovanju.",
-    features: [
-      "Custom AI funkcije (chatbot, asistent, receptionist in več)",
-      "Custom booking dizajni z obdelavo slik in naprednimi elementi",
-      "Avtomatizacije poslovnih procesov po meri",
-      "SMS in Email kvota po meri",
-      "Dedicirani manager in prioritetna podpora",
-    ],
-    ctaLabel: "Pošlji povpraševanje",
-  },
-];
+import { subscriptionPlans, PRICING_TAX_NOTE } from "@/lib/pricing";
 
 const Chk = () => (
   <span className="chk">
@@ -83,33 +17,17 @@ export function PricingTiers() {
 
   return (
     <>
-      {/* Billing toggle */}
-      <div className="billing reveal">
-        <span
-          className={`billing__lab ${!isYearly ? "is-on" : ""}`}
-          onClick={() => setIsYearly(false)}
-        >
-          Mesečno
-        </span>
-        <button
-          type="button"
-          className={`billing__switch ${isYearly ? "is-yearly" : ""}`}
-          onClick={() => setIsYearly((v) => !v)}
-          aria-label="Preklopi med mesečnim in letnim obračunom"
-        >
-          <span />
-        </button>
-        <span
-          className={`billing__lab ${isYearly ? "is-on" : ""}`}
-          onClick={() => setIsYearly(true)}
-        >
-          Letno
-        </span>
+      <div className="billing" role="group" aria-label="Obdobje obračuna">
+        <button type="button" className={`billing__lab${!isYearly ? " is-on" : ""}`} aria-pressed={!isYearly} onClick={() => setIsYearly(false)}>Mesečno</button>
+        <button type="button" role="switch" aria-checked={isYearly} className={`billing__switch${isYearly ? " is-yearly" : ""}`} onClick={() => setIsYearly((value) => !value)} aria-label="Letni obračun"><span /></button>
+        <button type="button" className={`billing__lab${isYearly ? " is-on" : ""}`} aria-pressed={isYearly} onClick={() => setIsYearly(true)}>Letno</button>
       </div>
 
-      <div className="price-grid" style={{ marginTop: 40 }}>
-        {tiers.map((tier, i) => {
+      <p className="pricing-tax-note">{PRICING_TAX_NOTE}</p>
+      <div className="price-grid price-grid--4" style={{ marginTop: 40 }}>
+        {subscriptionPlans.map((tier, i) => {
           const isQuote = tier.monthlyPrice === "Po dogovoru";
+          const isFree = tier.monthlyPrice === "0 €";
           const price = isYearly ? tier.yearlyPrice : tier.monthlyPrice;
           const feat = tier.popular;
 
@@ -124,10 +42,14 @@ export function PricingTiers() {
               <div className="ptier__name">{tier.name}</div>
               <div className="ptier__price">
                 {price}
-                {!isQuote && <span> / mesec</span>}
+                {!isQuote && !isFree && <span> / mesec</span>}
+                {isFree && <span> za vedno</span>}
               </div>
               <div className="ptier__save">
-                {isYearly && tier.yearlySaving ? tier.yearlySaving : ""}
+                {!isQuote && !isFree ? isYearly
+                  ? `${Number.parseInt(tier.yearlyPrice) * 12} € na leto · prihranek ${(Number.parseInt(tier.monthlyPrice) - Number.parseInt(tier.yearlyPrice)) * 12} €`
+                  : "Mesečni obračun"
+                  : ""}
               </div>
               <p className="ptier__desc">{tier.subtitle}</p>
               <ul>
@@ -140,7 +62,7 @@ export function PricingTiers() {
               </ul>
               <a
                 className={`btn btn--lg ${feat ? "btn--light" : "btn--ghost"}`}
-                href="/#kontakt"
+                href={tier.ctaHref ?? "https://app.jedroplus.com/billing"}
               >
                 {tier.ctaLabel}
               </a>
