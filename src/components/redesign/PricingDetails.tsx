@@ -19,8 +19,8 @@ export function PricingDetails() {
           </table>
         </div>
         <div className="offer-guide">
-          <article><span className="eyebrow">01</span><h3>Mesečno plačilo</h3><p>Jedro Plus stane 19 € na mesec, Jedro Pro pa 35 € na mesec. Za osnovni koledar in stranke lahko začnete s paketom Free.</p></article>
-          <article><span className="eyebrow">02</span><h3>Letno plačilo</h3><p>Jedro Plus stane 180 € na leto, Jedro Pro pa 336 € na leto. To ustreza 15 € oziroma 28 € na mesec; plača se celoten letni znesek.</p></article>
+          <article><span className="eyebrow">01</span><h3>Mesečno plačilo</h3><p>Jedro Plus stane 14,90 € na mesec, Jedro Pro pa 29,90 € na mesec. Za osnovni koledar in stranke lahko začnete s paketom Free.</p></article>
+          <article><span className="eyebrow">02</span><h3>Letno plačilo</h3><p>Jedro Plus stane 142,80 € na leto, Jedro Pro pa 298,80 € na leto. To ustreza 11,90 € oziroma 24,90 € na mesec; plača se celoten letni znesek.</p></article>
           <article><span className="eyebrow">03</span><h3>Ločeni dodatki</h3><p>Paketi minut za Receptionist+, dodatni SMS in davčna blagajna so ločeni od osnovne naročnine. SMS in e-mail količine, ki so že vključene, so prikazane v primerjavi.</p></article>
         </div>
         <p className="offer-language">Jedro+ je na voljo podjetjem po EU. Dodatne jezikovne prilagoditve so možne po dogovoru. </p>

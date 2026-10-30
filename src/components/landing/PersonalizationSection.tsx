@@ -15,7 +15,7 @@ const cards = [
   {
     icon: Settings,
     title: "Aplikacija po vaši meri",
-    desc: "Barvna shema, ton komunikacije, chatbot — vse prilagojeno vašemu podjetju. Ne prilagajate se sistemu, sistem se prilagaja vam.",
+    desc: "Barvna shema, ton komunikacije, besedila — vse prilagojeno vašemu podjetju. Ne prilagajate se sistemu, sistem se prilagaja vam.",
   },
 ];
 

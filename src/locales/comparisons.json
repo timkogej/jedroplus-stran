@@ -2,7 +2,7 @@
   "sl-SI": {
     "jedroplus-vs-lime-booking": {
       "intro": [
-        "Oba sistema predstavljata spletno naročanje, koledar in obveščanje. Za smiselno odločitev primerjajte isti način plačila, količine sporočil in dodatke. Jedro+ ima tudi brezplačni paket Free; plačljivi Plus se začne pri 19 € mesečno. Lime Booking navaja osnovni paket 14,90 € mesečno. To niso paketi z enakim obsegom.",
+        "Oba sistema predstavljata spletno naročanje, koledar in obveščanje. Za smiselno odločitev primerjajte isti način plačila, količine sporočil in dodatke. Jedro+ ima tudi brezplačni paket Free; plačljivi Plus se začne pri 14,90 € mesečno. Lime Booking navaja osnovni paket 14,90 € mesečno. To niso paketi z enakim obsegom.",
         "Pri Jedro+ preverite AI sporočila v tonu podjetja, Receptionist+ in povezavo s koledarjem. Pri Lime Bookingu preizkusite predstavljen imenik salonov in pot rezervacije iz njihove tržnice. Odločitev preverite z istim primerom rezervacije v obeh sistemih."
       ],
       "verdictJedro": [
@@ -66,23 +66,23 @@
       "priceTable": [
         {
           "label": "Plačljiva osnova: mesečni obračun",
-          "jedro": "Jedro Plus: 19 €",
+          "jedro": "Jedro Plus: 14,90 €",
           "rival": "Lime Booking: 14,90 €"
         },
         {
           "label": "Plačljiva osnova: letni preračun na mesec",
-          "jedro": "Jedro Plus: 15 €",
+          "jedro": "Jedro Plus: 11,90 €",
           "rival": "Lime Booking: 12,67 €"
         }
       ],
       "priceNote": [
-        "Cene so brez DDV. Letni mesečni preračun ni mesečno plačilo. Pri Jedro+ je letni Plus 180 €; pri Lime Bookingu preverite celoten letni znesek ob izbiri paketa. Količine sporočil in dodatki se razlikujejo."
+        "Cene so brez DDV. Letni mesečni preračun ni mesečno plačilo. Pri Jedro+ je letni Plus 142,80 €; pri Lime Bookingu preverite celoten letni znesek ob izbiri paketa. Količine sporočil in dodatki se razlikujejo."
       ],
       "scenarios": [],
       "faq": [
         {
           "q": "Kako primerjati ceno obeh sistemov?",
-          "a": "Cene so brez DDV. Letni mesečni preračun ni mesečno plačilo. Pri Jedro+ je letni Plus 180 €; pri Lime Bookingu preverite celoten letni znesek ob izbiri paketa. Količine sporočil in dodatki se razlikujejo."
+          "a": "Cene so brez DDV. Letni mesečni preračun ni mesečno plačilo. Pri Jedro+ je letni Plus 142,80 €; pri Lime Bookingu preverite celoten letni znesek ob izbiri paketa. Količine sporočil in dodatki se razlikujejo."
         },
         {
           "q": "Kaj naj preverim med preizkusom?",
@@ -145,7 +145,7 @@
   "en-GB": {
     "jedroplus-vs-lime-booking": {
       "intro": [
-        "Both systems present online booking, calendars and notifications. Compare the same billing period, message allowances and add-ons. Jedro+ also offers Free; paid Plus starts at €19 monthly. Lime Booking lists a basic plan at €14.90 monthly. These plans do not have identical allowances.",
+        "Both systems present online booking, calendars and notifications. Compare the same billing period, message allowances and add-ons. Jedro+ also offers Free; paid Plus starts at €14.90 monthly. Lime Booking lists a basic plan at €14.90 monthly. These plans do not have identical allowances.",
         "With Jedro+, test AI messages in your business’s voice, Receptionist+ and the calendar connection. With Lime Booking, test the salon directory and booking journey from its marketplace. Use the same appointment scenario in both systems."
       ],
       "verdictJedro": [
@@ -209,23 +209,23 @@
       "priceTable": [
         {
           "label": "Paid entry plan: monthly billing",
-          "jedro": "Jedro Plus: 19 €",
+          "jedro": "Jedro Plus: €14.90",
           "rival": "Lime Booking: 14,90 €"
         },
         {
           "label": "Paid entry plan: annual monthly equivalent",
-          "jedro": "Jedro Plus: 15 €",
+          "jedro": "Jedro Plus: €11.90",
           "rival": "Lime Booking: 12,67 €"
         }
       ],
       "priceNote": [
-        "Prices exclude VAT. An annual plan’s monthly equivalent is not monthly billing. Jedro+ Plus costs €180 annually; confirm Lime Booking’s full annual amount when choosing a plan. Message allowances and add-ons differ."
+        "Prices exclude VAT. An annual plan’s monthly equivalent is not monthly billing. Jedro+ Plus costs €142.80 annually; confirm Lime Booking’s full annual amount when choosing a plan. Message allowances and add-ons differ."
       ],
       "scenarios": [],
       "faq": [
         {
           "q": "How should I compare the prices?",
-          "a": "Prices exclude VAT. An annual plan’s monthly equivalent is not monthly billing. Jedro+ Plus costs €180 annually; confirm Lime Booking’s full annual amount when choosing a plan. Message allowances and add-ons differ."
+          "a": "Prices exclude VAT. An annual plan’s monthly equivalent is not monthly billing. Jedro+ Plus costs €142.80 annually; confirm Lime Booking’s full annual amount when choosing a plan. Message allowances and add-ons differ."
         },
         {
           "q": "What should I test during a trial?",
@@ -288,7 +288,7 @@
   "it-IT": {
     "jedroplus-vs-lime-booking": {
       "intro": [
-        "Entrambi presentano prenotazioni online, calendari e notifiche. Confronta lo stesso periodo di pagamento, le quantità di messaggi e gli extra. Jedro+ offre anche Free; Plus a pagamento parte da 19 € mensili. Lime Booking indica il piano base a 14,90 € mensili. I due piani non includono le stesse quantità.",
+        "Entrambi presentano prenotazioni online, calendari e notifiche. Confronta lo stesso periodo di pagamento, le quantità di messaggi e gli extra. Jedro+ offre anche Free; Plus a pagamento parte da 14,90 € mensili. Lime Booking indica il piano base a 14,90 € mensili. I due piani non includono le stesse quantità.",
         "Con Jedro+ prova i messaggi AI nel tono della tua attività, Receptionist+ e il collegamento al calendario. Con Lime Booking prova la directory dei saloni e il percorso di prenotazione dal marketplace. Usa lo stesso scenario in entrambi i sistemi."
       ],
       "verdictJedro": [
@@ -352,23 +352,23 @@
       "priceTable": [
         {
           "label": "Piano base a pagamento: mensile",
-          "jedro": "Jedro Plus: 19 €",
+          "jedro": "Jedro Plus: 14,90 €",
           "rival": "Lime Booking: 14,90 €"
         },
         {
           "label": "Piano base a pagamento: equivalente mensile annuale",
-          "jedro": "Jedro Plus: 15 €",
+          "jedro": "Jedro Plus: 11,90 €",
           "rival": "Lime Booking: 12,67 €"
         }
       ],
       "priceNote": [
-        "Prezzi IVA esclusa. Il valore mensile del piano annuale non è un pagamento mensile. Jedro+ Plus costa 180 € all’anno; verifica il totale annuale di Lime Booking al momento della scelta. Messaggi inclusi ed extra differiscono."
+        "Prezzi IVA esclusa. Il valore mensile del piano annuale non è un pagamento mensile. Jedro+ Plus costa 142,80 € all’anno; verifica il totale annuale di Lime Booking al momento della scelta. Messaggi inclusi ed extra differiscono."
       ],
       "scenarios": [],
       "faq": [
         {
           "q": "Come confrontare i prezzi?",
-          "a": "Prezzi IVA esclusa. Il valore mensile del piano annuale non è un pagamento mensile. Jedro+ Plus costa 180 € all’anno; verifica il totale annuale di Lime Booking al momento della scelta. Messaggi inclusi ed extra differiscono."
+          "a": "Prezzi IVA esclusa. Il valore mensile del piano annuale non è un pagamento mensile. Jedro+ Plus costa 142,80 € all’anno; verifica il totale annuale di Lime Booking al momento della scelta. Messaggi inclusi ed extra differiscono."
         },
         {
           "q": "Cosa verificare durante la prova?",
@@ -431,7 +431,7 @@
   "de-DE": {
     "jedroplus-vs-lime-booking": {
       "intro": [
-        "Beide Systeme bieten Online-Buchung, Kalender und Benachrichtigungen an. Vergleiche denselben Abrechnungszeitraum, Nachrichtenkontingente und Zusatzleistungen. Jedro+ bietet auch Free; Plus beginnt bei monatlicher Zahlung bei 19 €. Lime Booking nennt 14,90 € für den Basistarif. Der Leistungsumfang ist nicht identisch.",
+        "Beide Systeme bieten Online-Buchung, Kalender und Benachrichtigungen an. Vergleiche denselben Abrechnungszeitraum, Nachrichtenkontingente und Zusatzleistungen. Jedro+ bietet auch Free; Plus beginnt bei monatlicher Zahlung bei 14,90 €. Lime Booking nennt 14,90 € für den Basistarif. Der Leistungsumfang ist nicht identisch.",
         "Teste bei Jedro+ KI-Nachrichten im Ton deines Betriebs, Receptionist+ und die Kalenderanbindung. Prüfe bei Lime Booking das Salonverzeichnis und den Buchungsablauf über den Marktplatz. Nutze in beiden Systemen dasselbe Terminszenario."
       ],
       "verdictJedro": [
@@ -495,23 +495,23 @@
       "priceTable": [
         {
           "label": "Kostenpflichtiger Einstieg: monatlich",
-          "jedro": "Jedro Plus: 19 €",
+          "jedro": "Jedro Plus: 14,90 €",
           "rival": "Lime Booking: 14,90 €"
         },
         {
           "label": "Kostenpflichtiger Einstieg: Jahrespreis pro Monat",
-          "jedro": "Jedro Plus: 15 €",
+          "jedro": "Jedro Plus: 11,90 €",
           "rival": "Lime Booking: 12,67 €"
         }
       ],
       "priceNote": [
-        "Preise zzgl. MwSt. Der monatliche Gegenwert eines Jahrestarifs ist keine monatliche Zahlung. Jedro+ Plus kostet jährlich 180 €; bestätige den gesamten Jahresbetrag bei Lime Booking bei der Auswahl. Kontingente und Extras unterscheiden sich."
+        "Preise zzgl. MwSt. Der monatliche Gegenwert eines Jahrestarifs ist keine monatliche Zahlung. Jedro+ Plus kostet jährlich 142,80 €; bestätige den gesamten Jahresbetrag bei Lime Booking bei der Auswahl. Kontingente und Extras unterscheiden sich."
       ],
       "scenarios": [],
       "faq": [
         {
           "q": "Wie vergleiche ich die Preise?",
-          "a": "Preise zzgl. MwSt. Der monatliche Gegenwert eines Jahrestarifs ist keine monatliche Zahlung. Jedro+ Plus kostet jährlich 180 €; bestätige den gesamten Jahresbetrag bei Lime Booking bei der Auswahl. Kontingente und Extras unterscheiden sich."
+          "a": "Preise zzgl. MwSt. Der monatliche Gegenwert eines Jahrestarifs ist keine monatliche Zahlung. Jedro+ Plus kostet jährlich 142,80 €; bestätige den gesamten Jahresbetrag bei Lime Booking bei der Auswahl. Kontingente und Extras unterscheiden sich."
         },
         {
           "q": "Was sollte ich im Test prüfen?",

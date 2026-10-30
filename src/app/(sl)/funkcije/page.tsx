@@ -309,7 +309,7 @@ export default function Funkcije() {
               <li>
                 <ChkWhite />
                 <span>
-                  <b>Aplikacija po vaši meri.</b> Barvna shema, ton, chatbot —
+                  <b>Aplikacija po vaši meri.</b> Barvna shema, ton in besedila —
                   sistem se prilagaja vam.
                 </span>
               </li>

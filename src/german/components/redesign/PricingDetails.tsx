@@ -20,8 +20,8 @@ export function PricingDetails() {
           </table>
         </div>
         <div className="offer-guide">
-          <article><span className="eyebrow">01</span><h3>Monatliche Zahlung</h3><p>Jedro Plus kostet 19 € pro Monat, Jedro Pro 35 € pro Monat. Für einen einfachen Kalender und die Kundenverwaltung kannst du mit Free starten.</p></article>
-          <article><span className="eyebrow">02</span><h3>Jährliche Zahlung</h3><p>Jedro Plus kostet 180 € im Jahr, Jedro Pro 336 € im Jahr. Das entspricht 15 € bzw. 28 € pro Monat; der gesamte Jahresbetrag wird im Voraus bezahlt.</p></article>
+          <article><span className="eyebrow">01</span><h3>Monatliche Zahlung</h3><p>Jedro Plus kostet 14,90 € pro Monat, Jedro Pro 29,90 € pro Monat. Für einen einfachen Kalender und die Kundenverwaltung kannst du mit Free starten.</p></article>
+          <article><span className="eyebrow">02</span><h3>Jährliche Zahlung</h3><p>Jedro Plus kostet 142,80 € im Jahr, Jedro Pro 298,80 € im Jahr. Das entspricht 11,90 € bzw. 24,90 € pro Monat; der gesamte Jahresbetrag wird im Voraus bezahlt.</p></article>
           <article><span className="eyebrow">03</span><h3>Separate Zusatzleistungen</h3><p>Minutenpakete für Receptionist+, zusätzliche SMS und die slowenische Fiskalkasse sind vom Basisabonnement getrennt. Enthaltene SMS- und E-Mail-Kontingente findest du im Vergleich.</p></article>
         </div>
         <p className="offer-language">Jedro+ ist für Unternehmen in der EU verfügbar. Weitere Sprachanpassungen sind nach Vereinbarung möglich. </p>

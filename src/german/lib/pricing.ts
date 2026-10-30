@@ -31,8 +31,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Plus",
-    monthlyPrice: "19 €",
-    yearlyPrice: "15 €",
+    monthlyPrice: "14,90 €",
+    yearlyPrice: "11,90 €",
     subtitle: "Für Unternehmen, die ein geordnetes System und einen klaren Überblick suchen",
     description: "Kalender, Datenbanken und Erinnerungen für einen einfacheren Alltag.",
     features: [
@@ -50,8 +50,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Pro",
-    monthlyPrice: "35 €",
-    yearlyPrice: "28 €",
+    monthlyPrice: "29,90 €",
+    yearlyPrice: "24,90 €",
     subtitle: "Für Unternehmen, die mehr Auslastung und weniger freie Termine möchten",
     description:
       "Enthält Benachrichtigungen für inaktive Kunden, SMS-Erinnerungen und erweiterte Kommunikationswerkzeuge.",
@@ -73,7 +73,7 @@ export const subscriptionPlans: Tier[] = [
     description:
       "Wir passen Designs, Funktionen und das gesamte System an dein Unternehmen an.",
     features: [
-      "Individuelle KI-Funktionen (Chatbot, Assistent, Rezeptionist und mehr)",
+      "Individuelle KI-Funktionen (Rezeptionist und mehr)",
       "Individuelle Buchungsdesigns mit Bildbearbeitung und erweiterten Elementen",
       "Individuelle Automatisierung von Geschäftsprozessen",
       "Individuelle SMS- und E-Mail-Kontingente",
@@ -91,6 +91,7 @@ export const planComparisonRows = [
   { label: "Personalisierte Erinnerungen", values: ["Einmaliger Test", "Vor und nach dem Termin", "Vor und nach dem Termin", "Auf Anfrage"] },
   { label: "E-Mail-Nachrichten", values: ["Einmaliger Test", "500 pro Monat", "2.000 pro Monat", "Individuelles Kontingent"] },
   { label: "SMS-Nachrichten", values: ["Einmaliger Test", "Zukauf: ab 4 € für 50 SMS", "250 pro Monat", "Individuelles Kontingent"] },
+  { label: "Eigener SMS-Absendername", values: ["Nicht enthalten", "Nicht enthalten", "Zukauf: 4,90 € pro Monat", "Auf Anfrage"] },
   { label: "Benachrichtigungen für inaktive Kunden", values: ["Nicht enthalten", "Nicht enthalten", "Enthalten", "Auf Anfrage"] },
   { label: "Minuten für Receptionist+", values: ["Separater Kauf", "Separater Kauf", "Separater Kauf", "Separater Kauf"] },
 ];

@@ -2,6 +2,7 @@
 // Centralized Schema.org JSON-LD definitions for jedroplus.com.
 // Each helper returns a plain object that is serialized via the <JsonLd> component.
 
+import { parsePrice, formatEuro } from "@/german/lib/price";
 import { subscriptionPlans } from "@/german/lib/pricing";
 import { SITE_URL } from "@/german/lib/seo";
 import { receptionistPacks, RECEPTIONIST_PATH } from "@/german/lib/receptionist";
@@ -15,15 +16,15 @@ export const organizationSchema = {
 
 // Each offer uses the amount actually billed, including yearly totals.
 const subscriptionOffers = subscriptionPlans.flatMap((tier) => {
-  const price = Number.parseInt(tier.monthlyPrice);
+  const price = parsePrice(tier.monthlyPrice);
   const base = { "@type": "Offer", name: tier.name, description: tier.description, url: `${SITE_URL}/de/preise` };
   if (Number.isNaN(price)) return [base];
-  const monthly = { ...base, price: String(price), priceCurrency: "EUR" };
+  const monthly = { ...base, price: price.toFixed(2), priceCurrency: "EUR" };
   if (price === 0) return [monthly];
-  const yearlyTotal = Number.parseInt(tier.yearlyPrice) * 12;
+  const yearlyTotal = Math.round(parsePrice(tier.yearlyPrice) * 12 * 100) / 100;
   return [
-    { ...monthly, name: `${tier.name} — monatlich`, priceSpecification: { "@type": "UnitPriceSpecification", price: String(price), priceCurrency: "EUR", unitText: "Monat", valueAddedTaxIncluded: false } },
-    { ...base, name: `${tier.name} — jährlich`, price: String(yearlyTotal), priceCurrency: "EUR", description: `${tier.description} Jährliche Abrechnung: ${yearlyTotal} € für ein Jahr, entsprechend ${tier.yearlyPrice} pro Monat.`, priceSpecification: { "@type": "UnitPriceSpecification", price: String(yearlyTotal), priceCurrency: "EUR", unitText: "Jahr", valueAddedTaxIncluded: false } },
+    { ...monthly, name: `${tier.name} — monatlich`, priceSpecification: { "@type": "UnitPriceSpecification", price: price.toFixed(2), priceCurrency: "EUR", unitText: "Monat", valueAddedTaxIncluded: false } },
+    { ...base, name: `${tier.name} — jährlich`, price: yearlyTotal.toFixed(2), priceCurrency: "EUR", description: `${tier.description} Jährliche Abrechnung: ${formatEuro(yearlyTotal)} € für ein Jahr, entsprechend ${tier.yearlyPrice} pro Monat.`, priceSpecification: { "@type": "UnitPriceSpecification", price: yearlyTotal.toFixed(2), priceCurrency: "EUR", unitText: "Jahr", valueAddedTaxIncluded: false } },
   ];
 });
 

@@ -1,6 +1,7 @@
 // Centralized Schema.org JSON-LD definitions for jedroplus.com.
 // Each helper returns a plain object that is serialized via the <JsonLd> component.
 
+import { parsePrice, formatEuro } from "@/lib/price";
 import { subscriptionPlans } from "@/lib/pricing";
 import { SITE_URL } from "@/lib/seo";
 import { receptionistPacks, RECEPTIONIST_PATH } from "@/lib/receptionist";
@@ -14,15 +15,15 @@ export const organizationSchema = {
 
 // Each offer uses the amount actually billed, including yearly totals.
 const subscriptionOffers = subscriptionPlans.flatMap((tier) => {
-  const price = Number.parseInt(tier.monthlyPrice);
+  const price = parsePrice(tier.monthlyPrice);
   const base = { "@type": "Offer", name: tier.name, description: tier.description, url: `${SITE_URL}/cenik` };
   if (Number.isNaN(price)) return [base];
-  const monthly = { ...base, price: String(price), priceCurrency: "EUR" };
+  const monthly = { ...base, price: price.toFixed(2), priceCurrency: "EUR" };
   if (price === 0) return [monthly];
-  const yearlyTotal = Number.parseInt(tier.yearlyPrice) * 12;
+  const yearlyTotal = Math.round(parsePrice(tier.yearlyPrice) * 12 * 100) / 100;
   return [
-    { ...monthly, name: `${tier.name} — mesečno`, priceSpecification: { "@type": "UnitPriceSpecification", price: String(price), priceCurrency: "EUR", unitText: "mesec", valueAddedTaxIncluded: false } },
-    { ...base, name: `${tier.name} — letno`, price: String(yearlyTotal), priceCurrency: "EUR", description: `${tier.description} Letni obračun: ${yearlyTotal} € za eno leto, kar ustreza ${tier.yearlyPrice} na mesec.`, priceSpecification: { "@type": "UnitPriceSpecification", price: String(yearlyTotal), priceCurrency: "EUR", unitText: "leto", valueAddedTaxIncluded: false } },
+    { ...monthly, name: `${tier.name} — mesečno`, priceSpecification: { "@type": "UnitPriceSpecification", price: price.toFixed(2), priceCurrency: "EUR", unitText: "mesec", valueAddedTaxIncluded: false } },
+    { ...base, name: `${tier.name} — letno`, price: yearlyTotal.toFixed(2), priceCurrency: "EUR", description: `${tier.description} Letni obračun: ${formatEuro(yearlyTotal)} € za eno leto, kar ustreza ${tier.yearlyPrice} na mesec.`, priceSpecification: { "@type": "UnitPriceSpecification", price: yearlyTotal.toFixed(2), priceCurrency: "EUR", unitText: "leto", valueAddedTaxIncluded: false } },
   ];
 });
 

@@ -31,8 +31,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Plus",
-    monthlyPrice: "19 €",
-    yearlyPrice: "15 €",
+    monthlyPrice: "14,90 €",
+    yearlyPrice: "11,90 €",
     subtitle: "Per attività che cercano un sistema ordinato e una panoramica chiara",
     description: "Calendario, database e promemoria per semplificare la giornata.",
     features: [
@@ -50,8 +50,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Pro",
-    monthlyPrice: "35 €",
-    yearlyPrice: "28 €",
+    monthlyPrice: "29,90 €",
+    yearlyPrice: "24,90 €",
     subtitle: "Per chi vuole più occupazione e meno spazi vuoti",
     description:
       "Include notifiche ai clienti inattivi, promemoria SMS e comunicazioni avanzate.",
@@ -73,7 +73,7 @@ export const subscriptionPlans: Tier[] = [
     description:
       "Adattiamo design, funzioni e l’intero sistema alla tua attività.",
     features: [
-      "Funzioni AI personalizzate (chatbot, assistente, receptionist e altro)",
+      "Funzioni AI personalizzate (receptionist e altro)",
       "Design di prenotazione su misura con elaborazione immagini ed elementi avanzati",
       "Automazioni dei processi aziendali su misura",
       "Quote SMS ed email personalizzate",
@@ -91,6 +91,7 @@ export const planComparisonRows = [
   { label: "Promemoria personalizzati", values: ["Prova una tantum", "Prima e dopo l’appuntamento", "Prima e dopo l’appuntamento", "Su richiesta"] },
   { label: "Messaggi e-mail", values: ["Prova una tantum", "500 al mese", "2.000 al mese", "Quantità personalizzata"] },
   { label: "Messaggi SMS", values: ["Prova una tantum", "Acquisto aggiuntivo: da 4 € per 50 SMS", "250 al mese", "Quantità personalizzata"] },
+  { label: "Nome mittente SMS personalizzato", values: ["Non incluso", "Non incluso", "Acquisto aggiuntivo: 4,90 € al mese", "Su richiesta"] },
   { label: "Notifiche ai clienti inattivi", values: ["Non incluso", "Non incluso", "Incluso", "Su richiesta"] },
   { label: "Minuti per Receptionist+", values: ["Acquisto separato", "Acquisto separato", "Acquisto separato", "Acquisto separato"] },
 ];

@@ -30,7 +30,7 @@ export const homeFaq: FaqItem[] = [
   },
   {
     q: "Was kostet Jedro+ und kann ich kostenlos starten?",
-    a: "Starte mit Free, dauerhaft kostenlos. Jedro Plus kostet 19 € monatlich oder 180 € jährlich, entsprechend 15 € pro Monat. Receptionist+-Minuten wird separat gekauft. Vergleiche alle Tarife und Optionen auf der Preisseite.",
+    a: "Starte mit Free, dauerhaft kostenlos. Jedro Plus kostet 14,90 € monatlich oder 142,80 € jährlich, entsprechend 11,90 € pro Monat. Receptionist+-Minuten wird separat gekauft. Vergleiche alle Tarife und Optionen auf der Preisseite.",
   },
 ];
 
@@ -57,7 +57,7 @@ export const cenikFaq: FaqItem[] = [
   { q: "Ist die Mehrwertsteuer in den Preisen enthalten?", a: "Nein. Alle angezeigten Preise sind in Euro (EUR), zzgl. MwSt. Das gilt für Abonnements und Minutenpakete für Receptionist+." },
   {
     q: "Wie viel zahle ich bei jährlicher Abrechnung tatsächlich?",
-    a: "Für ein ganzes Jahr Jedro Plus zahlst du 180 € (entspricht 15 € pro Monat), für Jedro Pro 336 € (entspricht 28 € pro Monat). Der Monatsbetrag bei jährlicher Abrechnung dient dem Kostenvergleich und ist keine monatliche Zahlung. Gegenüber zwölf monatlichen Zahlungen sparst du 48 € bei Plus bzw. 84 € bei Pro.",
+    a: "Für ein ganzes Jahr Jedro Plus zahlst du 142,80 € (entspricht 11,90 € pro Monat), für Jedro Pro 298,80 € (entspricht 24,90 € pro Monat). Der Monatsbetrag bei jährlicher Abrechnung dient dem Kostenvergleich und ist keine monatliche Zahlung. Gegenüber zwölf monatlichen Zahlungen sparst du 36 € bei Plus bzw. 60 € bei Pro.",
   },
   {
     q: "Was enthält Free und wann lohnt sich ein kostenpflichtiger Tarif?",
@@ -73,7 +73,7 @@ export const cenikFaq: FaqItem[] = [
   },
   {
     q: "Was kosten die Tarife?",
-    a: "Free bleibt kostenlos. Jedro Plus kostet 19 € monatlich, Jedro Pro 35 €; bei jährlicher Zahlung entsprechend 15 € und 28 € pro Monat. Enterprise ist auf Anfrage erhältlich. Alle kostenpflichtigen Tarife enthalten Datenbanken, Kalender, Onlinebuchung und Auswertungen.",
+    a: "Free bleibt kostenlos. Jedro Plus kostet 14,90 € monatlich, Jedro Pro 29,90 €; bei jährlicher Zahlung entsprechend 11,90 € und 24,90 € pro Monat. Enterprise ist auf Anfrage erhältlich. Alle kostenpflichtigen Tarife enthalten Datenbanken, Kalender, Onlinebuchung und Auswertungen.",
   },
   {
     q: "Was unterscheidet Plus und Pro?",

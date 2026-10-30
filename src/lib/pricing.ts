@@ -30,8 +30,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Plus",
-    monthlyPrice: "19 €",
-    yearlyPrice: "15 €",
+    monthlyPrice: "14,90 €",
+    yearlyPrice: "11,90 €",
     subtitle: "Za podjetja, ki želijo urejen sistem in jasen pregled",
     description: "Koledar, baze in opomniki, ki brez zapletov uredijo vsakdan.",
     features: [
@@ -49,8 +49,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Pro",
-    monthlyPrice: "35 €",
-    yearlyPrice: "28 €",
+    monthlyPrice: "29,90 €",
+    yearlyPrice: "24,90 €",
     subtitle: "Za podjetja, ki želijo več zasedenosti in manj praznih terminov",
     description:
       "Vključuje obveščanje izgubljenih strank, SMS opomnike in napredne komunikacijske funkcije.",
@@ -72,7 +72,7 @@ export const subscriptionPlans: Tier[] = [
     description:
       "Prilagodimo custom dizajne, custom funkcije in celoten sistem vašemu poslovanju.",
     features: [
-      "Custom AI funkcije (chatbot, asistent, receptionist in več)",
+      "Custom AI funkcije (receptionist in več)",
       "Custom booking dizajni z obdelavo slik in naprednimi elementi",
       "Avtomatizacije poslovnih procesov po meri",
       "SMS in Email kvota po meri",
@@ -90,6 +90,7 @@ export const planComparisonRows = [
   { label: "Personalizirani opomniki", values: ["Enkratni preizkus", "Pred in po terminu", "Pred in po terminu", "Po dogovoru"] },
   { label: "E-mail sporočila", values: ["Enkratni preizkus", "500 na mesec", "2.000 na mesec", "Količina po meri"] },
   { label: "SMS sporočila", values: ["Enkratni preizkus", "Dokup: od 4 € za 50 SMS", "250 na mesec", "Količina po meri"] },
+  { label: "Lastno ime pošiljatelja SMS", values: ["Ni vključeno", "Ni vključeno", "Dokup: 4,90 € na mesec", "Po dogovoru"] },
   { label: "Obveščanje izgubljenih strank", values: ["Ni vključeno", "Ni vključeno", "Vključeno", "Po dogovoru"] },
   { label: "Minute za Receptionist+", values: ["Ločen nakup", "Ločen nakup", "Ločen nakup", "Ločen nakup"] },
 ];

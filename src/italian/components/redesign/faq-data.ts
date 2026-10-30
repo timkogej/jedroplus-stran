@@ -30,7 +30,7 @@ export const homeFaq: FaqItem[] = [
   },
   {
     q: "Quanto costa e posso iniziare gratis?",
-    a: "Puoi iniziare con il piano Free, gratuito per sempre. Jedro Plus costa 19 € al mese oppure 180 € con pagamento annuale (15 € al mese). I minuti Receptionist+ si acquistano separatamente. Confronta piani e opzioni nella pagina Prezzi.",
+    a: "Puoi iniziare con il piano Free, gratuito per sempre. Jedro Plus costa 14,90 € al mese oppure 142,80 € con pagamento annuale (11,90 € al mese). I minuti Receptionist+ si acquistano separatamente. Confronta piani e opzioni nella pagina Prezzi.",
   },
 ];
 
@@ -57,7 +57,7 @@ export const cenikFaq: FaqItem[] = [
   { q: "I prezzi includono l’IVA?", a: "No. Tutti i prezzi indicati sono in euro (EUR), IVA esclusa. Questo vale sia per i piani in abbonamento sia per i pacchetti di minuti Receptionist+." },
   {
     q: "Quanto pago effettivamente con la fatturazione annuale?",
-    a: "Paghi 180 € per un anno di Jedro Plus (equivalenti a 15 € al mese) oppure 336 € per un anno di Jedro Pro (equivalenti a 28 € al mese). La cifra mensile della fatturazione annuale serve a confrontare il costo, non indica un pagamento mensile. Rispetto a dodici pagamenti mensili risparmi 48 € con Plus o 84 € con Pro.",
+    a: "Paghi 142,80 € per un anno di Jedro Plus (equivalenti a 11,90 € al mese) oppure 298,80 € per un anno di Jedro Pro (equivalenti a 24,90 € al mese). La cifra mensile della fatturazione annuale serve a confrontare il costo, non indica un pagamento mensile. Rispetto a dodici pagamenti mensili risparmi 36 € con Plus o 60 € con Pro.",
   },
   {
     q: "Cosa include Free e quando scegliere un piano a pagamento?",
@@ -73,7 +73,7 @@ export const cenikFaq: FaqItem[] = [
   },
   {
     q: "Quanto costano i piani?",
-    a: "Free è gratuito per sempre. Jedro Plus costa 19 € al mese e Jedro Pro 35 € al mese (rispettivamente 15 € e 28 € al mese con pagamento annuale). Enterprise è su richiesta. Tutti i piani a pagamento includono database, calendario, prenotazioni online e statistiche.",
+    a: "Free è gratuito per sempre. Jedro Plus costa 14,90 € al mese e Jedro Pro 29,90 € al mese (rispettivamente 11,90 € e 24,90 € al mese con pagamento annuale). Enterprise è su richiesta. Tutti i piani a pagamento includono database, calendario, prenotazioni online e statistiche.",
   },
   {
     q: "Qual è la differenza tra Plus e Pro?",

@@ -298,7 +298,7 @@ export default function Funkcije() {
               <li>
                 <ChkWhite />
                 <span>
-                  <b>Eine App nach deinen Bedürfnissen.</b>  Farben, Ton und Chatbot: Das System passt sich dir an. </span>
+                  <b>Eine App nach deinen Bedürfnissen.</b>  Farben, Ton und Texte: Das System passt sich dir an. </span>
               </li>
               <li>
                 <ChkWhite />

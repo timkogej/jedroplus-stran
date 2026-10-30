@@ -1,6 +1,7 @@
 // Generated from Slovenian source and src/locales/it.json.
 "use client";
 
+import { parsePrice, formatEuro } from "@/italian/lib/price";
 import { useState } from "react";
 
 import { subscriptionPlans, PRICING_TAX_NOTE } from "@/italian/lib/pricing";
@@ -48,7 +49,7 @@ export function PricingTiers() {
               </div>
               <div className="ptier__save">
                 {!isQuote && !isFree ? isYearly
-                  ? `${Number.parseInt(tier.yearlyPrice) * 12} € all’anno · risparmia ${(Number.parseInt(tier.monthlyPrice) - Number.parseInt(tier.yearlyPrice)) * 12} €`
+                  ? `${formatEuro(parsePrice(tier.yearlyPrice) * 12)} € all’anno · risparmia ${formatEuro((parsePrice(tier.monthlyPrice) - parsePrice(tier.yearlyPrice)) * 12)} €`
                   : "Fatturazione mensile"
                   : ""}
               </div>

@@ -30,7 +30,7 @@ export const homeFaq: FaqItem[] = [
   },
   {
     q: "How much does it cost, and can I start free?",
-    a: "Start with the Free plan, free forever. Jedro Plus costs €19 per month or €180 billed annually (€15 per month). Receptionist+ minutes are purchased separately. Compare all plans and options on the Pricing page.",
+    a: "Start with the Free plan, free forever. Jedro Plus costs €14.90 per month or €142.80 billed annually (€11.90 per month). Receptionist+ minutes are purchased separately. Compare all plans and options on the Pricing page.",
   },
 ];
 
@@ -57,7 +57,7 @@ export const cenikFaq: FaqItem[] = [
   { q: "Do prices include VAT?", a: "No. All displayed prices are in euros (EUR), excluding VAT. This applies to subscription plans and Receptionist+ minute packs." },
   {
     q: "How much do I actually pay with annual billing?",
-    a: "You pay €180 for a full year of Jedro Plus (equivalent to €15 per month) or €336 for a full year of Jedro Pro (equivalent to €28 per month). The monthly figure under annual billing is a cost comparison, not a monthly payment. Compared with twelve monthly payments, you save €48 on Plus or €84 on Pro.",
+    a: "You pay €142.80 for a full year of Jedro Plus (equivalent to €11.90 per month) or €298.80 for a full year of Jedro Pro (equivalent to €24.90 per month). The monthly figure under annual billing is a cost comparison, not a monthly payment. Compared with twelve monthly payments, you save €36 on Plus or €60 on Pro.",
   },
   {
     q: "What does Free include, and when should I choose a paid plan?",
@@ -73,7 +73,7 @@ export const cenikFaq: FaqItem[] = [
   },
   {
     q: "How much do the plans cost?",
-    a: "Free is free forever. Jedro Plus is €19 per month and Jedro Pro €35 per month (€15 and €28 per month respectively with annual billing). Enterprise pricing is on request. All paid plans include databases, an appointment calendar, online booking and analytics.",
+    a: "Free is free forever. Jedro Plus is €14.90 per month and Jedro Pro €29.90 per month (€11.90 and €24.90 per month respectively with annual billing). Enterprise pricing is on request. All paid plans include databases, an appointment calendar, online booking and analytics.",
   },
   {
     q: "What is the difference between Plus and Pro?",

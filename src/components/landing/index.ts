@@ -1,5 +1,4 @@
 export { default as Navigation } from "./Navigation";
-export { default as HeroSection } from "./HeroSection";
 export { default as CalendarPreview } from "./CalendarPreview";
 export { default as BenefitsSection } from "./BenefitsSection";
 export { default as FeaturesSection } from "./FeaturesSection";
@@ -7,8 +6,6 @@ export { default as StatsSection } from "./StatsSection";
 export { default as IPhoneMockupSection } from "./IPhoneMockupSection";
 export { default as BookingDesignSection } from "./BookingDesignSection";
 export { default as PersonalizationSection } from "./PersonalizationSection";
-export { default as PackagesSection } from "./PackagesSection";
-export { default as AISection } from "./AISection";
 export { default as TargetAudienceSection } from "./TargetAudienceSection";
 export { default as HowItWorksSection } from "./HowItWorksSection";
 export { default as WhyChooseSection } from "./WhyChooseSection";

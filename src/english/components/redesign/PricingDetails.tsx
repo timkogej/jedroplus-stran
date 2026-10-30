@@ -20,8 +20,8 @@ export function PricingDetails() {
           </table>
         </div>
         <div className="offer-guide">
-          <article><span className="eyebrow">01</span><h3>Monthly payment</h3><p>Jedro Plus costs €19 per month and Jedro Pro costs €35 per month. For a basic calendar and client records, you can start with Free.</p></article>
-          <article><span className="eyebrow">02</span><h3>Annual payment</h3><p>Jedro Plus costs €180 per year and Jedro Pro costs €336 per year. This is equivalent to €15 or €28 per month respectively; the full annual amount is paid upfront.</p></article>
+          <article><span className="eyebrow">01</span><h3>Monthly payment</h3><p>Jedro Plus costs €14.90 per month and Jedro Pro costs €29.90 per month. For a basic calendar and client records, you can start with Free.</p></article>
+          <article><span className="eyebrow">02</span><h3>Annual payment</h3><p>Jedro Plus costs €142.80 per year and Jedro Pro costs €298.80 per year. This is equivalent to €11.90 or €24.90 per month respectively; the full annual amount is paid upfront.</p></article>
           <article><span className="eyebrow">03</span><h3>Separate add-ons</h3><p>Receptionist+ minute packs, additional SMS and the Slovenian fiscal cash register are separate from the base subscription. Included SMS and email allowances are shown in the comparison.</p></article>
         </div>
         <p className="offer-language">Jedro+ is available to businesses across the EU. Additional language customisation is available by arrangement. </p>

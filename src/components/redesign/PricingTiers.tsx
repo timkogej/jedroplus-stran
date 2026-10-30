@@ -1,5 +1,6 @@
 "use client";
 
+import { parsePrice, formatEuro } from "@/lib/price";
 import { useState } from "react";
 
 import { subscriptionPlans, PRICING_TAX_NOTE } from "@/lib/pricing";
@@ -47,7 +48,7 @@ export function PricingTiers() {
               </div>
               <div className="ptier__save">
                 {!isQuote && !isFree ? isYearly
-                  ? `${Number.parseInt(tier.yearlyPrice) * 12} € na leto · prihranek ${(Number.parseInt(tier.monthlyPrice) - Number.parseInt(tier.yearlyPrice)) * 12} €`
+                  ? `${formatEuro(parsePrice(tier.yearlyPrice) * 12)} € na leto · prihranek ${formatEuro((parsePrice(tier.monthlyPrice) - parsePrice(tier.yearlyPrice)) * 12)} €`
                   : "Mesečni obračun"
                   : ""}
               </div>

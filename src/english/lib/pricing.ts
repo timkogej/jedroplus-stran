@@ -31,8 +31,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Plus",
-    monthlyPrice: "19 €",
-    yearlyPrice: "15 €",
+    monthlyPrice: "14.90 €",
+    yearlyPrice: "11.90 €",
     subtitle: "For businesses seeking an organised system and a clear overview",
     description: "Calendar, databases and reminders to simplify your day.",
     features: [
@@ -50,8 +50,8 @@ export const subscriptionPlans: Tier[] = [
   },
   {
     name: "Jedro Pro",
-    monthlyPrice: "35 €",
-    yearlyPrice: "28 €",
+    monthlyPrice: "29.90 €",
+    yearlyPrice: "24.90 €",
     subtitle: "For businesses seeking higher occupancy and fewer empty slots",
     description:
       "Includes inactive-client notifications, SMS reminders and advanced communication tools.",
@@ -73,7 +73,7 @@ export const subscriptionPlans: Tier[] = [
     description:
       "We tailor designs, features and the whole system to your business.",
     features: [
-      "Custom AI features (chatbot, assistant, receptionist and more)",
+      "Custom AI features (receptionist and more)",
       "Custom booking designs with image processing and advanced elements",
       "Custom business process automation",
       "Custom SMS and email allowances",
@@ -91,6 +91,7 @@ export const planComparisonRows = [
   { label: "Personalised reminders", values: ["One-time trial", "Before and after appointments", "Before and after appointments", "On request"] },
   { label: "Email messages", values: ["One-time trial", "500 per month", "2,000 per month", "Custom allowance"] },
   { label: "SMS messages", values: ["One-time trial", "Add-on: from €4 for 50 SMS", "250 per month", "Custom allowance"] },
+  { label: "Custom SMS sender name", values: ["Not included", "Not included", "Add-on: €4.90 per month", "On request"] },
   { label: "Inactive-client notifications", values: ["Not included", "Not included", "Included", "On request"] },
   { label: "Receptionist+ minutes", values: ["Separate purchase", "Separate purchase", "Separate purchase", "Separate purchase"] },
 ];

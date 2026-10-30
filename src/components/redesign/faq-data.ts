@@ -29,7 +29,7 @@ export const homeFaq: FaqItem[] = [
   },
   {
     q: "Koliko stane in ali lahko začnem brezplačno?",
-    a: "Začnete lahko s paketom Free, ki je brezplačen za vedno. Jedro Plus stane 19 € na mesec ali 180 € ob letnem plačilu (15 € na mesec). Minute za Receptionist+ se kupujejo ločeno. Vse pakete in možnosti primerjajte na strani Cenik.",
+    a: "Začnete lahko s paketom Free, ki je brezplačen za vedno. Jedro Plus stane 14,90 € na mesec ali 142,80 € ob letnem plačilu (11,90 € na mesec). Minute za Receptionist+ se kupujejo ločeno. Vse pakete in možnosti primerjajte na strani Cenik.",
   },
 ];
 
@@ -56,7 +56,7 @@ export const cenikFaq: FaqItem[] = [
   { q: "Ali cene vključujejo DDV?", a: "Ne. Vse prikazane cene so v evrih (EUR), brez DDV. To velja za naročniške pakete in pakete minut za Receptionist+." },
   {
     q: "Koliko dejansko plačam pri letnem obračunu?",
-    a: "Za Jedro Plus plačate 180 € za celo leto (preračunano 15 € na mesec), za Jedro Pro pa 336 € za celo leto (preračunano 28 € na mesec). Mesečna cena pri letnem obračunu je primerjava stroška, ne mesečno plačilo. V primerjavi z dvanajstimi mesečnimi plačili prihranite 48 € pri Plus oziroma 84 € pri Pro.",
+    a: "Za Jedro Plus plačate 142,80 € za celo leto (preračunano 11,90 € na mesec), za Jedro Pro pa 298,80 € za celo leto (preračunano 24,90 € na mesec). Mesečna cena pri letnem obračunu je primerjava stroška, ne mesečno plačilo. V primerjavi z dvanajstimi mesečnimi plačili prihranite 36 € pri Plus oziroma 60 € pri Pro.",
   },
   {
     q: "Kaj je vključeno v Free in kdaj izberem plačljivi paket?",
@@ -72,7 +72,7 @@ export const cenikFaq: FaqItem[] = [
   },
   {
     q: "Koliko stanejo paketi?",
-    a: "Free je brezplačen za vedno, Jedro Plus stane 19 € na mesec, Jedro Pro 35 € na mesec (ob letnem plačilu 15 € oziroma 28 € na mesec), paket Enterprise pa je po dogovoru. Vsi plačljivi paketi vključujejo baze podatkov, koledar terminov, spletno naročanje in analitiko.",
+    a: "Free je brezplačen za vedno, Jedro Plus stane 14,90 € na mesec, Jedro Pro 29,90 € na mesec (ob letnem plačilu 11,90 € oziroma 24,90 € na mesec), paket Enterprise pa je po dogovoru. Vsi plačljivi paketi vključujejo baze podatkov, koledar terminov, spletno naročanje in analitiko.",
   },
   {
     q: "Kakšna je razlika med paketoma Plus in Pro?",

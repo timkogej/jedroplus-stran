@@ -11,11 +11,11 @@ const slugs=require('../src/locales/'+(locale==='en'?'route-slugs.json':'route-s
 const sections=require('../src/locales/route-sections.json')[locale];
 const route=s=>(s==='/'||s==='/sl')?'/'+locale:s.startsWith('/sl#')||s.startsWith('/sl?')?'/'+locale+s.slice(3):s.startsWith('/#')?'/'+locale+s.slice(1):s.replace(/^\/([^/#?]+)(.*)$/,(_,a,b)=>sections[a]?'/'+locale+'/'+sections[a]+b.replace(/^\/([^/#?]+)/,(_,slug)=>'/'+(slugs[slug]||slug)):_);
 const pages=['page.tsx','agencija/page.tsx','blog/page.tsx','blog/[slug]/page.tsx','cenik/page.tsx','davcna-blagajna/page.tsx','funkcije/page.tsx','funkcije/[slug]/page.tsx','funkcije/receptionist-plus/page.tsx','funkcije/receptionist-plus/opengraph-image.tsx','o-nas/page.tsx','panoge/page.tsx','panoge/[slug]/page.tsx','pogoji-uporabe/page.tsx','primerjava/page.tsx','primerjava/[slug]/page.tsx','zasebnost/page.tsx','prihaja-kmalu/page.tsx'];
-const lib=['pricing','receptionist','seo','schema','blog-format','blog'];
+const lib=['pricing','receptionist','seo','schema','blog-format','blog','price'];
 const sourceFiles=[...pages.map(p=>'src/app/(sl)/'+(p==='page.tsx'?'sl/page.tsx':p)),...fs.readdirSync('src/components/redesign').filter(f=>/\.tsx?$/.test(f)&&f!=='LanguageSwitcher.tsx').map(f=>'src/components/redesign/'+f),...lib.map(f=>'src/lib/'+f+'.ts'),'src/app/(sl)/layout.tsx'];
 const missing=new Set();
 function translate(s){if(dictionary[s]!==undefined)return dictionary[s]; if(/[čšžČŠŽ]/.test(s)&&!s.includes('Sonja Žužek')&&s!=='Žan'&&!/^[/@.#]|^https?:|^mailto:/.test(s)) missing.add(s);return s;}
-function localise(s){return s.replace(/@\/components\/redesign\//g,'@/'+config.folder+'/components/redesign/').replace(/@\/lib\/(pricing|receptionist|seo|schema|blog-format|blog)(?=["'/]|$)/g,'@/'+config.folder+'/lib/$1');}
+function localise(s){return s.replace(/@\/components\/redesign\//g,'@/'+config.folder+'/components/redesign/').replace(/@\/lib\/(pricing|receptionist|seo|schema|blog-format|blog|price)(?=["'/]|$)/g,'@/'+config.folder+'/lib/$1');}
 for(const file of sourceFiles){let code=fs.readFileSync(file,'utf8'),sf=ts.createSourceFile(file,code,99,true),edits=[];
 function visit(n){let replacement;
  if(ts.isIdentifier(n) && ts.isPropertyAssignment(n.parent) && n.parent.name === n && slugs[n.text]) replacement=JSON.stringify(slugs[n.text]);
@@ -49,6 +49,7 @@ if(file==='src/app/(sl)/layout.tsx'){
 }else target=file.replace('src/','src/'+config.folder+'/');
 
 if(file.endsWith('/blog/[slug]/page.tsx'))code=code.replaceAll('/og-default.png','/'+locale+'/opengraph-image');
+if(locale==='en' && file.endsWith('/price.ts'))code=code.replace('const DECIMAL = ",";','const DECIMAL = ".";');
 if(file.endsWith('/blog.ts'))code=code.replace('"content/blog"','"content/blog-'+locale+'"');
 if(locale!=='de' && file.endsWith('/blog-format.ts'))code=code.replace('return `${day}. ${MONTHS_SI[month - 1]} ${year}`;','return `${day} ${MONTHS_SI[month - 1]} ${year}`;');
 if(file.endsWith('/seo.ts'))code=code.replaceAll('/og-default.png','/'+locale+'/opengraph-image');
